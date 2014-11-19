@@ -1,0 +1,22 @@
+*.aux
+*.out
+*.log
+*.toc
+*.swp
+*.idx
+*.ilg
+*.ind
+INMA2702-exercices.pdf
+*~
+*.pdf
+*.synctex.gz
+*.bbl
+*.blg
+*.bak
+
+# latexmk
+*.fdb_latexmk
+*.fls
+
+# config file for smartcp
+config.yml
