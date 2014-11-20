@@ -1,3 +1,5 @@
+___ MESAGGE TUTEUR ___
+
 - In each separated folder, you will find the .tex source relative to a whole chapter (Chapx/chapx.tex) 
 Relevant images are within the folder.
 
