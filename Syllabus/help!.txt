@@ -1,0 +1,13 @@
+- In each separated folder, you will find the .tex source relative to a whole chapter (Chapx/chapx.tex) 
+Relevant images are within the folder.
+
+- To assemble the whole syllabus, compile global.tex in this directory. 
+
+Any questions? In priority :  
+1) Ask google. 
+2) Ask Matthew.
+
+Have fun englishing the course!
+
+Matthew Philippe, 
+for the LINMA2370 - Dynamical systems' modelling and analysis teaching staff.

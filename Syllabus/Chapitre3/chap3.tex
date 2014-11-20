@@ -1,0 +1,1141 @@
+\ifx \globalmark \undefined %% This is default.
+	\input{header}
+	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).
+\else 
+	\documentclass{standalone}
+	\begin{document}
+\fi
+	
+\graphicspath{ {Chapitre3/images/} }
+
+\setcounter{chapter}{2}
+\chapter{Systèmes électriques et électromécaniques}
+\chaptermark{Systèmes électriques et électromécaniques}\label{systelec}
+
+
+
+\lettrine[lines=1]{\bf C}{}e chapitre traite de la modélisation de systèmes dont la dynamique est essentiellement caractérisée par la présence de courants électriques, c'est à dire par le mouvement de charges électriques dans des matériaux conducteurs (par exemple des fils métalliques). Nous étudierons tout d'abord la mise en équation du modèle d'état des réseaux électriques. Nous étudierons ensuite les systèmes électromécaniques (en particulier les machines électriques) qui combinent en une description unifiée les équations d'état des réseaux électriques avec celles des systèmes mécaniques telles que nous les avons présentées au chapitre précédent.
+
+
+
+
+\section{Les systèmes électriques}
+
+Un système  électrique est défini comme une boîte noire munie de bornes, qui sont des points de contact électriques chacun soumis à un voltage $V_i$ et laissant entrer un courant $I_i$ (voir fig.~\ref{fig:systemelec}).
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=7cm]{systemelec}
+\caption{Système électrique}
+\label{fig:systemelec}
+\end{center}
+\end{figure}
+
+Le comportement du système est donné par l'ensemble de toutes les trajectoires $(I_1(t), V_1(t), I_2(t), V_2(t), \ldots, I_k(t), V_k(t))_{t \in \real}$ possibles pour le système. Cet ensemble de trajectoires possède des symétries. En effet, les lois de l'électricité nous enseignent que les potentiels ne sont définis qu'à une constante près. Autrement dit, si $(I_1(t), V_1(t), I_2(t), V_2(t), \ldots, I_k(t), V_k(t))_{t \in \real}$ est une trajectoire possible, alors $(I_1(t), V_1(t)+V, I_2(t), V_2(t)+V, \ldots, I_k(t), V_k(t)+V)_{t \in \real}$ est également une trajectoire possible. De plus, dans la quasi-totalité des circuits réalisés aujourd'hui, il n'y a pas d'accumulation de charge électrique: le système reste neutre électriquement, ce qui implique que $I_1(t) + I_2(t) + \ldots + I_k(t)=0$ à tout instant $t$.
+
+Notons que la puissance transmise au circuit par l'environnement au temps $t$ est $\sum_i V_i(t) I_i(t)$. Cette formule a un sens physique univoque grâce aux deux relations ci-dessus: translater tous les voltages d'une constante ne modifie pas la puissance reçue. 
+
+
+Les circuits électriques les plus simples ont seulement deux bornes, nommés  pour cela dipôles. Dans ce cas, il suffit de deux variables pour caractériser les trajectoires: la différence de potentiel, ou tension, $v(t)=V_1-V_2$ et le courant $i(t)=I_1(t)=-I_2(t)$ (voir fig.~\ref{fig:dipole}). Les sens du courant et la tension sont choisis de manière conventionnelle.
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=5cm]{dipole2}
+\caption{Dipôle électrique}
+\label{fig:dipole}
+\end{center}
+\end{figure}
+La tension représente donc l'énergie nécessaire pour déplacer une charge électrique unitaire à travers le dipôle.  On peut également avoir des tripôles (sytèmes à trois bornes, tels que les transistors) ou des quadrupôles (par exemple les transformateurs). 
+
+Dans ce cours, 
+nous ne considérons que les circuits dont le comportement 
+(l'ensemble des trajectoires possibles) peut être décrit par un modèle d'état 
+comme défini au Chapitre 1, où chaque variable extérieure (voltage ou courant) 
+est pris, soit comme une entrée $u_i$, soit comme une sortie $y_i$. 
+Les variables d'état peuvent être des voltages, courant, flux ou charges,
+ comme on le verra. Ce type de modèle d'état cantonné aux équations différentielles est restrictif, en ce qu'il nous interdit par exemple de modéliser commodément les élément de délai, dont le comportement vérifie une équation de délai de type $y(t)=u(t-1)$ (donc non différentielle). 
+
+
+
+\section{Dipôles élémentaires}
+
+
+Nous considérons deux types de dip{ô}les élémentaires:
+les impédances et les sources.
+\begin{description}
+\item{\bf Les impédances}
+\begin{enumerate}
+\item{\em Les résistances}. Les résistances sont des éléments qui transforment l'énergie électrique en chaleur. Elles sont représentées par
+le symbole de la figure \ref{fig:impedances} et sont caractérisées
+par une relation algébrique entre la tension $v(t)$ et le courant
+$i(t)$ :
+\eqnn
+r(v(t), i(t)) = 0.
+\eeqnn
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=9cm]{impedances}
+\caption{Impédances : résistance, capacité, inductance}
+\label{fig:impedances}
+\end{center}
+\end{figure}
+Dans le cas d'une résistance linéaire, cette relation se
+particularise comme suit (loi d'Ohm) :
+\eqnn
+v(t) = Ri(t).
+\eeqnn
+\item {\em Les capacités.} Les capacités sont des éléments qui accumulent les charges électriques. Elles sont représentées par le
+symbole de la figure \ref{fig:impedances} et sont caractérisées par la
+relation suivante entre la charge $Q(t)$ et le courant $i(t)$ :
+\eqnn
+i(t) = \frac{dQ(t)}{dt}.
+\eeqnn
+La charge $Q(t)$ est une fonction de la tension : $Q(v(t))$.  Cette relation peut aussi
+s'écrire sous la forme suivante :
+\eqnn
+i(t) = c(v(t)) \frac{dv(t)}{dt} \;\;
+\text{ où } \;\; c(v) \triangleq  \frac{\partial q}{\partial v}.
+\eeqnn
+Dans le cas d'une capacité linéaire, cette relation se
+particu\-larise comme suit :
+\eqnn
+Q(t) = Cv(t) \;\; \text{ où } \;\; i(t) = C\frac{dv(t)}{dt}.
+\eeqnn
+\item{\em Les inductances.}  Les inductances sont des éléments qui emmagasinent l'énergie d'un champ magnétique. Elles sont représentées par le
+symbole de la figure \ref{fig:impedances} et sont caractérisées, en vertu de
+la loi de Faraday, par la relation suivante entre le flux magnétique $\phi(t)$ et la tension
+$v(t)$ :
+\eqn
+v(t) = \frac{d \phi}{dt}. \label{definduc}
+\eeqn
+On dit que la tension $v(t)$ est {\it induite} par la variation de flux $\phi(t)$ d'où le nom d'inductance. D'une manière générale, cette variation de flux peut être produite par un matériau magnétique en mouvement dans les parages de l'inductance, ou encore par un courant électrique variable circulant dans un conducteur situé à proximité de l'inductance. Dans cette section, nous considérerons uniquement le cas particulier des {\it auto-inductances} où le flux est produit uniquement par le courant traversant le dipôle lui-même. Dans ce cas le flux est une fonction du courant :  $\phi(i(t))$ et la relation (\ref{definduc}) s'écrit aussi sous la forme suivante :
+\eqnn
+v(t) =  l(i(t)) \frac{di(t)}{dt}
+\mbox{ où } l(i) \triangleq  \frac{\partial \phi}{\partial i}.
+\eeqnn
+Dans le cas d'une (auto)inductance linéaire, cette relation se
+particularise comme suit :
+\eqnn
+\phi(t) = Li(t) \;\; \mbox{ où } v(t) = L \frac{di(t)}{dt}.
+\eeqnn
+\end{enumerate}
+\item{\bf Les sources}
+\begin{enumerate}
+\item {\em Les sources de tension} représentées par le symbole de
+la figure \ref{fig:sources} sont des dip{ô}les définis par la
+tension $v(t)$ indépendam\-ment du courant qu'ils débitent.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=6cm]{sources}
+\caption{Sources de tension et de courant}
+\label{fig:sources}
+\end{center}
+\end{figure}
+\item{\em Les sources de courant} représentées par le symbole de
+la figure \ref{fig:sources} sont des dip{ô}les définis par le
+courant $i(t)$ qu'ils débitent indépendamment de la tension à
+leurs bornes. 
+\end{enumerate} 
+\end{description}
+Il est important de bien comprendre que les impédances et les sources sont des modèles conceptuels idéaux qui n'ont pas d'existence physique. Les différents éléments dont sont constitués les circuits électriques réels comme par exemple des bobines, des condensateurs ou des batteries sont en pratique modélisés par des assemblages appropriés d'inductances et de sources. Par exemple une source de tension ou de courant est toujours modélisée avec son inévitable résistance interne, comme indiqué sur la fig.~\ref{fig:resint}.
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[height=4cm]{resint}
+\caption{Sources avec résistances internes}
+\label{fig:resint}
+\end{center}
+\end{figure}
+
+
+\section{Equivalence entre systèmes ouverts et fermés}
+
+Nous avons vu un système électrique comme ``ouvert'', c'est-à-dire muni de variables d'entrées et de sortie, qui sont des courants ou des tensions. L'ajout de sources permet toutefois de considérer un système fermé équivalent. Par exemple un dipôle dont la tension $v(t)$ est l'entrée, peut être fermé par une source de tension variable qui délivre précisément la tension $v(t)$ (voir fig.~\ref{fig:equivouvertferme}). Il est quelquefois commode pour l'analyse de se ramener à un graphe fermé.
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=6cm]{equivouvertferme}
+\caption{Equivalence entre un circuit ouvert et un circuit fermé: le cas d'un dipôle dont l'entrée est la tension, et la sortie le courant}
+\label{fig:equivouvertferme}
+\end{center}
+\end{figure}
+
+Si le dipôle est conçu pour fournir de l'énergie à l'extérieur ($v(t) i(t) >0$), alors on peut également fermer le circuit par la charge supposée absorber l'énergie, qu'on modélise souvent comme une (grande) résistance de charge. Ceci est une restriction, car la charge pourrait être autre chose qu'une résistance. Par exemple un moteur est plutôt de nature inductive.
+
+\section{Réseaux électriques et mise en équation du modèle d'état}
+
+Les systèmes électriques complexes sont généralement créés par l'interconnection en réseau d'un nombre fini de systèmes élémentaires. Dans ce chapitre nous considérons les réseaux formés de  dipôles élémentaires (impédances et sources). Il est clair qu'un tel
+réseau a une structure de graphe dont les branches sont formées
+par les dip{ô}les. Un exemple de réseau
+et de graphe  associé est donné à la figure
+\ref{fig:exemplereseau} qui représente un pont d'impédances. Les flèches sur le graphe indiquent le sens conventionnel choisi pour le courant dans chacune des branches. 
+\begin{figure}[t]
+\begin{center}
+\includegraphics[height=45mm]{exemplereseau}
+\caption{Pont d'impédances}
+\label{fig:exemplereseau}
+\end{center}
+\end{figure}
+Nous considérons des réseaux électriques fermés (au moyen de sources de tension et/ou de courant, voire avec des résistances de charge) {\bf connexes} 
+comportant $N$ noeuds et $M$ branches. 
+% et qui satisfont l'hypothèse
+%suivante (voir figure \ref{fig:resint}) : {\em toutes les sources de tension sont incorporées dans
+%une branche avec une résistance interne en série, toutes les sources de
+%courant possèdent une résistance interne en parallèle}.  
+Un graphe est connexe lorsqu'il existe toujours un chemin du graphe reliant deux
+noeuds quelconques.
+
+Définissons deux notions utiles par la suite : les
+mailles et les coupes d'un réseau électrique.
+\begin{description}
+\item Une {\em maille} est un cycle, c'est-à-dire un chemin ``fermé" sans répétition de noeud.
+\item Une {\em coupe} est ensemble  de branches dont
+l'extraction partage un réseau connexe en au moins deux sous-réseaux connexes séparés.
+\end{description}
+
+L'établissement du modèle d'état d'un réseau électrique est
+basé sur les lois de Kirchhoff qui s'énoncent comme suit :
+\begin{itemize}
+\item Loi de Kirchhoff des courants : la somme algébrique des
+courants dans les branches incidentes à un noeud est nulle.
+\item Loi de Kirchhoff des tensions : la somme algébrique des
+tensions dans une maille est nulle.
+\end{itemize}
+
+
+Si le graphe est fermé, la somme des équations de Kirchhoff de courant sur tous les $N$ noeuds donne l'égalité triviale $0=0$, car chaque courant intervient deux fois avec un signe opposé. Il y a $N-1$ équations de Kirchhoff indépendantes sur les courants. Pour toute coupe, on trouve également que la somme des courants sur les branches de la coupe est nulle, ce qui est obtenu en sommant les équations de Kirchhoff des courants sur tous les noeuds d'un côté de la coupe.
+
+Pour trouver le nombre d'équations indépendantes de Kirchhoff sur les mailles dans un réseau fermé, considérons un arbre sous-tendant du graphe, c'est-à-dire un sous-graphe connexe, sans maille et incident à tous les noeuds. Un tel arbre a $N-1$ arêtes. Chaque branche du réseau ajoutée à cet arbre  créée une et une seule nouvelle maille indépendante. On peut ainsi créer $M-N+1$ équations de maille qui se trouvent être indépendantes.
+
+
+Les variables d'état d'un réseau sont les courants dans
+certaines inductances et les tensions aux bornes de certaines
+capacités.   Pour établir le modèle d'état d'un réseau, il suffit
+de procéder comme suit :
+\begin{enumerate}
+\item Ecrire $N-1$ équations de Kirchhoff  pour les courants.
+\item Ecrire $M-N+1$ équations de Kirchhoff linéairement
+indépendan\-tes pour les tensions.
+\item Ecrire les lois de définition des impédances correspondant
+aux  tensions ou aux courants intervenant dans les équations de
+Kirchhoff 
+\item Eliminer les tensions et les courants redondants.
+\end{enumerate}
+
+Il est à noter que si un circuit comporte plusieurs branches successives formant un dipôle composé de plusieurs dipôles élémentaires en série, les lois de Kirchhoff de courant sur les noeuds intermédiaires seront triviales. De même les équations de Kirchhoff de maille ne feront intervenir que la tension totale du dipôle, et non les tensions élémentaires isolément.
+En ce qui concerne l'écriture des équations de Kirchhoff, on peut donc compter ce dipôle composé comme  créant une seule branche et deux noeuds.
+
+
+Si le réseau contient une maille de capacités, il est clair que la tension aux bornes d'une de ces capacité peut être écrite comme la somme (signée) des autres, créant une relation linéaire en variables d'état. A contrario, lorsque le réseau ne contient pas de mailles de capacités, toutes
+les tensions aux bornes des capacités sont des variables d'état indépendantes.
+De même, toute coupe d'inductances impose une relation linéaire entre les courants qui les traversent, puisque leur somme (signée) est nulle. Un de ces courants n'est donc pas pris comme variable d'état indépendante. A contrario, lorsqu'un réseau ne contient pas de coupes d'inductances,
+tous les courants dans les inductances sont des variables d'état indépendantes. 
+%Dans ce
+%cas, on peut d'emblée réduire le nombre $M$ de branches et le nombre $N$
+%de noeuds en convenant qu'une branche peut être définie comme un
+%ensemble de dipôles placés en série et comportant au plus une capacité
+%ou une inductance.
+\begin{exemple}{\bf \em Circuit redresseur avec filtre LC}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=4cm]{redresseur}
+\caption{Circuit redresseur}
+\label{fig:redresseur}
+\end{center}
+\end{figure}
+La figure \ref{fig:redresseur} représente un circuit
+redresseur à diode avec un filtre formé d'une capacité et d'une
+inductance. La diode est une résistance nonlinéaire dont la caractéristique courant-tension s'exprime comme suit :
+\eqnn
+i = i_0[e^{\frac{v}{\alpha}} -1]
+\eeqnn
+où $\alpha$ est une constante proportionnelle à la température
+et inversement proportionnelle à la charge de l'électron, tandis
+que $i_0$ désigne le courant de fuite de la diode.  Il est clair que
+ce circuit ne contient ni maille de capacités ni coupe
+d'inductances.  Donc son modèle d'état comportera deux variables
+d'état : la tension $v_c$ aux bornes de la capacité et le courant
+$i_1$ dans l'inductance.
+
+Le circuit comporte $N=6$ noeuds et $M=7$ branches. Toutefois on peut par commodité regrouper les dipôles en série en une seule branche, ce qui nous laisse $N=2$ noeuds et $M=3$ branches.  Pour établir le modèle d'état du système, on écrit $N-1 = 1$
+équation de Kirchhoff pour les courants : 
+\eqnn
+i_c - i_1 + i_2 = 0,
+\eeqnn
+et $M-N+1 =2$ équations de Kirhhoff pour les tensions :
+\begin{equation} \begin{split}
+&v_c - v_2 = 0,\\
+&v_g +v_d +v_\ell +v_1 +v_c -e = 0.
+\end{split} \end{equation}
+Ces équations sont complétées par les équations de
+définition des divers éléments du circuit :
+\begin{equation*} \begin{split}
+v_g &= R_gi_1, \\
+v_d &= \alpha \ln \frac{i_0+i_1}{i_0},\\
+v_\ell &= L \frac{di_1}{dt},\\
+i_c &= C \frac{dv_c}{dt}, \\
+v_1 &= R_1i_1,\\
+v_2 &=R_2i_2.
+\end{split} \end{equation*}
+En éliminant les 7 variables $i_2,i_c, v_g, v_d, v_\ell, v_1, v_2$
+entre ces 9 équations, on obtient aisément les deux équations
+suivantes~:
+\eqnn
+&&R_gi_1 + \alpha \ln \frac{i_0+i_1}{i_0} + L \frac{di_1}{dt} + R_1i_1
++ v_c - e = 0,\\
+&&C\frac{dv_c}{dt} - i_1 + \frac{v_c}{R_2} = 0.
+\eeqnn
+En définissant les variables d'état et d'entrée comme suit :
+\e
+x_1 = i_1, \;\;\; x_2= v_c, \;\;\; u = e,
+\ee
+on obtient finalement les équations d'état :
+\begin{equation*} \begin{split}
+\dot x_1 &= -\frac{R_1+R_g}{L} x_1 - \frac{\alpha}{L} \ln
+\left(\frac{i_0+x_1}{i_0} \right) - \frac{1}{L} x_2 + \frac{1}{L} u,\\
+\dot x_2 &= \frac{1}{C} x_1 - \frac{1}{R_2C} x_2 
+\end{split} \end{equation*}
+\cqfd
+
+\end{exemple}
+
+Lorsque le réseau contient des mailles de capacités ou des coupes
+d'inductances, on cherche une forêt (sous-graphe sans maille) de capacités de taille maximale, et une non-coupe d'inductances 
+de taille maximale. Le nombre de capacités et d'inductances ainsi sélectionnées est le nombre de variables d'état indépendantes.
+
+%On introduit les définitions
+%suivantes :
+%\begin{description}
+%\item {\em Arbre} : un arbre est un sous-réseau connexe qui contient
+%tous les noeuds du réseau mais ne comporte aucune maille (tous les
+%arbres d'un réseau ont le même nombre de branches : $N-1$).
+%\item {\em Co-arbre}: un co-arbre est le sous réseau
+%complémentaire d'un arbre (tous les co-arbres d'un réseau ont le
+%même nombre de branches: $M-N+1$).
+%\end{description}
+%Le nombre de
+%variables d'état peut alors être déterminé par la règle suivante :
+
+On peut montrer aisément que ceci revient trouver un arbre qui contienne  le plus grand nombre possible de capacités, tel que le co-arbre (i.e. le sous-réseau complémentaire de l'arbre) contienne le plus grand nombre possible d'inductances.Le nombre de variables d'état indépendantes est alors la somme du nombre de
+capacités de l'arbre et du nombre d'inductances du co-arbre.
+
+%L'intuition de cette règle peut se comprendre en observant que les capacités contenues dans un arbre (par définition sans maille) déterminent toutes des variables d'états linéairement indépendantes. On cherchera donc un arbre qui en contiennent le plus grand nombre. De même un coarbre ne contient pas de coupe du réseau. Il est donc avantageux d'y placer un nombre maximal d'inductances, dont les
+%courants formeront des variables d'état linéairement indépendantes. Un peu d'algèbre linéaire montre qu'on obtient ainsi un ensemble complet et non redondant de variables d'état. 
+
+
+\section{Les systèmes électromécaniques} 
+
+Un système mécanique pourrait être défini similairement à un système électrique, dont les bornes 
+sont soumises,  non pas à des courants et des voltages, mais à des forces $F_i$ et des vitesses $v_i=\dot{q}_i$ (à ne pas confondre avec le symbole de tension).  La translation de toutes les vitesses $v_i(t)$ vers $v_i(t)+v$ ne modifie pas le comportement du système, par relativité galiléenne. La somme des forces $\sum_{i} F_i(t)$ est en générale nulle à tout moment dans les systèmes mécaniques de l'ingénieur. L'énergie mécanique transmise au système est dans ces conditions univoquement définie comme $\sum_i F_i(t) v_i(t)$.
+Certaines forces ou vitesses sont choisies comme entrées, et d'autres comme sorties. Un exemple de dipôle mécanique est la combinaison de deux forces opposées $F_1(t)+F_2(t)=0$ s'appliquant à des points différents, qui peut être résumé à un couple $T$ et une vitesse angulaire $\omega$ (voir Chapitre 2).
+
+Un système électromécanique est bien sûr défini comme une boîte noire dont certaines variables sont de nature électrique et d'autres de nature mécanique (voir fig.~\ref{fig:systemelectromec}).
+
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=7cm]{systemelectromec}
+\caption{Système électromécanique}
+\label{fig:systemelectromec}
+\end{center}
+\end{figure}
+
+Par exemple un quadrupôle électromécanique dont les variables sont $v(t)$, $i(t)$, $T(t)$,  $\omega(t)$ peut modéliser un générateur si $T\omega<0, vi>0$ (énergie électrique convertie en énergie mécanique) ou un moteur si $T\omega>0, vi<0$ (énergie mécanique convertie en énergie électrique).
+
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=7cm]{quadrupelectromec}
+\caption{Quadrupôle électromécanique}
+\label{fig:quadrupelectromec}
+\end{center}
+\end{figure}
+
+
+Concrètement, un système électromécanique se présente souvent comme un système
+mécanique articulé (à $p$ degrés de liberté) qui peut être
+construit partiellement dans un matériau magnétique et dont
+certains corps portent un ou plusieurs circuits électriques inductifs (bobines,
+enroulements, etc.). Les équations constitutives d'un système
+électromécanique comportent dès lors une partie mécanique et
+une partie électrique.
+
+Les deux section suivantes expliquent, via quelques rappels d'électromagnétisme, comment les variables électromagnétiques (charges, flux, courants, tensions) et mécaniques (positions, vitesses, forces généralisées) peuvent interagir.
+
+\section{Influence d'un mouvement mécanique sur les grandeurs électriques} 
+
+La loi de Faraday $E_i=\frac{d\phi_i}{dt}$ décrit la force électromotrice (tension) subie par une inductance traversée par un flux magnétique $\phi_i$. Jusqu'ici on a supposé que ce flux était créé uniquement par le courant $I_i$ qui la traverse (auto-inductance). Pour une relation linéaire $\phi_i=L_iI_i$, on obtient la loi constitutive $V_i=L_i \dot{I}_i$.
+
+En réalité chaque courant $I_j$ génère un champ magnétique et donc un flux dans l'inductance $i$. Ce flux dépend de $I_j$, mais aussi de la position relative des conducteurs qui portent ces courants, éventuellement variable dans le temps à cause d'un mouvement mécanique des pièces qui supportent les conducteurs.
+Généralement seuls les courants qui traversent une inductance génèrent un champ magnétique non négligeable. Si $\phi_i$ dépend linéairement de chaque $I_j$, on peut écrire
+\begin{equation}
+\phi_i=\sum_j L_{ij} I_j,
+\label{eq:PhiLI}
+\end{equation}
+où $L_{ii}$ est l'auto-inductance. En notation matricielle cela donne
+\begin{equation}
+\Phi=L(q) I,
+\label{eq:PhiLI2}
+\end{equation}
+où $L(q)$ est une matrice symétrique d'inductance dépendant des positions généralisées $q$ de la partie mécanique. En combinant ceci avec l'équation de Faraday pour chaque inductance, on arrive aux équations d'état
+\begin{equation}
+E=\sum_k \frac{\partial L}{\partial q_k} \dot{q}_k I + L\dot{I},
+\label{eq:VqI}
+\end{equation}
+qui mêlent positions, vitesses, courants et tensions.
+
+La composante électrique des systèmes électromécaniques visités dans ce chapitre est souvent élémentaire, réduite à un ensemble d'inductances, chacune en série avec une résistance représentant l'inévitable résistance interne ou bien une résistance de charge, qui représente la consommation utile d'énergie électrique éventuellement générée par le système (voir fig.~\ref{fig:circel}). Dans ce cas, les tensions aux bornes des circuits s'écrivent de manière matricielle
+\eqn
+V = RI + E \label{ELECM}
+\eeqn
+où $R$ est la matrice $\mbox{diag}\{R_i, i = 1,m\}$ et les
+vecteurs $V,I$ et $E$ sont définis comme suit :
+\begin{equation*} \begin{split}
+V^T &= (v_1, v_2, \ldots, v_m),\\
+I^T &= (I_1, I_2, \ldots, I_m),\\
+E^T &= (E_1, E_2, \ldots, E_m).
+\end{split} \end{equation*}
+\begin{figure}[t]
+\begin{center}
+\includegraphics[height=4cm]{circel}
+\caption{Circuit élémentaire}
+\label{fig:circel}
+\end{center}
+\end{figure}
+
+
+
+\section{Création d'un mouvement mécanique par les grandeurs électromagnétiques} 
+
+Un champ magnétique exerce une force dite de Lorentz sur chaque porteur de charge en mouvement. En intégrant cette force sur tous les porteurs de charge mis en mouvement par un courant électrique dans un conducteur on obtient une force macroscopique, dite de Laplace.  
+
+%Pour peu que ce conducteur appartienne à une boucle rectangulaire de dimension $l \times z$ et soit mobile dans la direction de $z$ (voir Fig.~\ref{fig:laplace}, on constate que cette force de Laplace est aussi proportionnelle à $\frac{\partial \phi}{\partial z}I$,
+%où $\phi$ est le flux créé par $B$ dans la boucle traversée par le courant $I$. 
+
+%\begin{figure}[t]
+%\begin{center}
+%\includegraphics[width=7cm]{laplace}
+%\caption{Force de Laplace sur un conducteur mobile posé sur deux rails conducteur}
+%\label{fig:laplace}
+%\end{center}
+%\end{figure}
+
+
+
+En général, on peut montrer que la force de Laplace sur la coordonnée $q_k$ est 
+\begin{equation}
+F_k=\frac{1}{2}\sum_i \frac{\partial \phi_i}{\partial q_k}  I_i = \frac{1}{2} I^T \frac{\partial L}{\partial q_k} I,
+\label{eq:Lorentz}
+\end{equation}
+la dernière égalité concernant les inductances linéaires. Dans ce dernier cas, on peut déduire directement l'expression $F_k$  en supposant que la force dérive d'une énergie potentielle contenue dans les inductances qui génèrent les champs magnétiques, exprimée par $\frac{1}{2} I^T L(q_k) I$.
+
+
+
+
+%\begin{description}
+%\item{\em Equations mécaniques}.  Les équations
+%de la partie mécanique prennent la forme générale que nous avons
+%obtenue au chapitre 2.
+%\eqn
+%M(q) \ddot q + F(q, \dot q) = G_{em}(q) u_{em} + G_a(q)u_a.
+%\label{EMECA}
+%\eeqn
+%Dans cette équation, $u_{em}$ représente les forces
+%généralisées d'origine électromagnétique (équation de Lorentz)
+%tandis que $u_a$ désigne les autres forces généralisées qui
+%s'appliquent éventuellement au système. $q$ est un vecteur de dimension $p$.
+%\item {\em Equations électriques}.  Chacun des circuits électriques
+%du système peut être conceptualisé par le circuit
+%élémentaire représenté sur la fig \ref{fig:circel} où
+%$R_i$ représente la résistance propre du circuit et $E_i$
+%représente la tension induite par les variations de flux magnétiques produits par les différents
+%circuits (y compris l'auto-induction) et par le mouvement du système
+%(loi d'induction électromagnétique ou loi de Lenz). 
+%\begin{figure}[t]
+%\begin{center}
+%\includegraphics[height=4cm]{circel}
+%\caption{Circuit élémentaire}
+%\label{fig:circel}
+%\end{center}
+%\end{figure}
+%Si l'on
+%suppose que le système comporte $m$ circuits, on obtient
+%un ensemble d'équations de Kirchhoff de la forme
+%\eqnn
+%R_i I_i +E_i = v_i, \;\;\;   i = 1, \ldots, m.
+%\eeqnn
+%Dans ces équations, $v_i$ représente la tension aux bornes du
+%dip{ô}le équivalent du réseau connecté au circuit.  Le plus
+%souvent, il s'agit simplement soit d'une source de tension ou de
+%courant, soit d'une impédance de charge.  L'ensemble des équations
+%électriques peut aussi s'écrire sous forme matricielle
+%\eqn
+%V = RI + E \label{ELECM}
+%\eeqn
+%où $R$ est la matrice $\mbox{diag}\{R_i, i = 1,m\}$ et les
+%vecteurs $V,I$ et $E$ sont définis comme suit :
+%\begin{equation*} \begin{split}
+%V^T &= (v_1, v_2, \ldots, v_m),\\
+%I^T &= (I_1, I_2, \ldots, I_m),\\
+%E^T &= (E_1, E_2, \ldots, E_m).
+%\end{split} \end{equation*}
+%\end{description}
+%La mise en équation complète du modèle d'état d'un système
+%électro\-mécanique particulier requiert l'explicitation des
+%{\em couplages} entre la partie mécanique (\ref{EMECA}) et
+%la partie électrique (\ref{ELECM}), c'est à dire l'expression des
+%forces généralisées électromagnétiques $u_{em}$ d'une part et
+%des tensions induites $E$ d'autre part comme des
+%fonctions des coordonnées mécaniques $q, \dot q$ et des courants
+%électriques $I$~:
+%\eqnn
+%u_{em}(q, \dot q, I), \hspace{1cm} E(q,\dot q, I). 
+%\eeqnn 
+%Chacune des tensions $E_i$ peut se décomposer comme
+%suit~:
+%\eqn \label{ei}
+%E_i = \sum^m_{j=1} e_{ji} 
+%\eeqn
+%où $e_{ji}$ représente la tension induite par le circuit $j$ sur le
+%circuit $i$ (en particulier, $e_{ii}$ représente l'auto-induction
+%du circuit $i$). Par application de la loi de Faraday, chacune de ces tensions
+%s'exprime comme suit :
+%\eqnn
+%e_{ji} = \frac{d\phi_{ji}}{dt}
+%\eeqnn
+%où $\phi_{ji}$ est le flux induit par le circuit $j$ sur le circuit
+%$i$.
+%Le flux $\phi_{ji}$ varie en fonction du courant $I_j$ dans le
+%circuit inducteur et de la position $q$ du système :
+%\eqnn
+%\phi_{ji} = \varphi_{ji}(q, I_j).
+%\eeqnn
+%On en déduit que la tension $e_{ji}$ s'écrit :
+%\eqn \label{eij}
+%e_{ji} = \frac{\partial \varphi_{ji}}{\partial q} \dot q +
+%\frac{\partial \varphi_{ji}}{\partial I_j} \dot I_j.
+%\eeqn
+%D'autre part, la composante d'indice $k$ du vecteur
+%des forces généralisées $u_{em}$ s'écrit 
+%\eqn
+%u_{em(k)} = \frac{1}{2} \sum^m_{i=1} \sum^m_{j=1} \frac{\partial
+%\varphi_{ji}}{\partial q_k} I_i. \label{uem}
+%\eeqn
+%Finalement, en combinant les équations (\ref{EMECA}),(\ref{ELECM}),
+%(\ref{ei}), (\ref{eij}), (\ref{uem}), on obtient un modèle d'état
+%comportant $2p + m$ variables d'état $q, \dot q, I$.
+
+\vspace{2mm}
+\begin{exemple}{\bf \em  Un système électromécanique de positionnement.} 
+ 
+Le schéma de principe d'un électro-aimant utilisé pour un positionnement de précision est indiqué à la figure
+\ref{fig:relaisem}.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=4cm]{relaisem}
+\caption{Système électro-mécanique de positionnement}
+\label{fig:relaisem}
+\end{center}
+\end{figure}
+L'électro-aimant $A$ est muni d'une bobine
+inductrice dans laquelle circule un courant inducteur $I$.  La pièce
+métallique $B$ est mobile et soumise à une force de rappel
+linéaire par le ressort $C$.
+
+Le flux magnétique varie proportionnellement au courant $I$
+et inversément proportionnellement à la distance $z$ dans
+l'entrefer : 
+\eqnn
+\phi (I,z) = \frac{\alpha I}{1+\beta z}.
+\eeqnn
+Ceci est une instance de la loi d'Ohm magnétique (ou loi d'Hopkinson), qui exprime le flux magnétique (équivalent du courant, flux de charges électriques) comme le ratio entre la force magnétomotrice (proportionnelle au courant) et la réluctance (résistance du matériau au flux magnétique), qui est proportionnelle à la longueur du circuit.
+
+La tension induite dans le circuit s'écrit donc :
+\eqnn
+e &=& \frac{d\phi}{dt} = \frac{\partial \phi}{\partial I}
+\frac{dI}{dt} + \frac{\partial \phi}{\partial z} \frac{dz}{dt}\\
+&=&\frac{\alpha}{1+\beta z} \frac{dI}{dt} - \frac{\alpha \beta
+I}{(1+\beta z)^2} \frac{dz}{dt}.
+\eeqnn
+La force d'origine électromagnétique s'exer\c cant sur la pièce
+mobile s'écrit :
+\eqnn
+F_{em} = \frac{1}{2} I \frac{\partial \phi}{\partial z} = -
+\frac{\alpha \beta}{2} \left(\frac{I}{1+\beta z}\right )^2.
+\eeqnn
+En accord avec l'intuition physique, on observe que cette force tend
+à rapprocher la pièce $B$ de l'électro-aimant quel que soit le
+sens du courant $I$.
+
+On peut alors écrire les équations dynamiques du
+système. \\
+
+\begin{itemize}
+\item{\em Equation mécanique}
+\begin{eqnarray}
+m \ddot z &=& k(z_o - z) + F_{em}\\
+&=& k(z_o - z) - \frac{\alpha \beta}{2} \left (\frac{I}{1+\beta z}
+\right )^2
+\end{eqnarray}
+où $m$ désigne la masse de la pièce $B$, $k$ la
+constante de rappel du ressort et $z_o$ la position du ressort au repos.\\
+\item{\em Equation électrique}
+\begin{eqnarray}
+V&=& RI + e\\
+  &=& RI + \frac{\alpha}{1+\beta z} \dot I - \frac{\alpha \beta I}{(1+
+\beta z)^2} \dot z 
+\end{eqnarray}
+où $R$ désigne la résistance du circuit électrique.
+\end{itemize}
+
+En introduisant les définitions suivantes des variables
+d'état : 
+\eqnn
+x_1 = z, \;\;\; x_2 = \dot z, \;\;\; x_3 = I
+\eeqnn
+et de la variable d'entrée :
+\eqnn
+u = V,
+\eeqnn
+on obtient finalement le modèle d'état du système :
+\begin{eqnarray}
+\dot x_1 &=& x_2,\\
+\dot x_2 &=& \frac{k}{m}(z_o - x_1) - \frac{\alpha \beta}{2m} \left
+(\frac{x_3}{1+ \beta x_1} \right )^2,\\
+\dot x_3 &=& \frac{\beta x_2 x_3}{1+\beta x_1} - \frac{R}{\alpha}(1+
+\beta x_1) x_3 + \frac{1 + \beta x_1}{\alpha} u.
+\end{eqnarray}
+\cqfd
+
+\end{exemple}
+
+\section{Les machines électriques tournantes}
+
+Les machines électriques tournantes constituent une catégorie particulière
+de systè\-mes électromécaniques formés de deux corps.  Le
+premier, appelé {\em rotor}, est en rotation autour d'un axe
+dont la position est fixe par rapport au second appelé
+{\em stator}.  Ces deux corps sont munis de différents
+enroulements inducteurs ayant pour fonction de réaliser les
+conversions électromécaniques dont ces machines sont le siège.
+
+Lorsque le stator est lui-même fixe par rapport au repère
+inertiel, une machine électrique ne comporte qu'un seul degré de
+liberté mécanique : l'angle de rotation du rotor noté $\theta$. 
+La partie mécanique de la dynamique du système se
+réduit dès lors à une équation scalaire de la forme :
+\eqn \label{meca}
+J \ddot \theta + h(\dot \theta) = T_{em}+ T_a 
+\eeqn
+où $h(\dot \theta)$ représente le couple de frottement, $T_{em}$ le
+couple d'origine électromagnétique et $T_a$ l'ensemble des autres couples
+extérieurs appliqués au rotor.
+
+D'autre part, la partie électrique de la dynamique a la
+forme générale (\ref{ELECM}) :
+\eqnn
+V = RI + E. 
+\eeqnn
+Dans la plupart des machines courantes, lorsque les effets de saturation
+magnétique sont négligeables (ou négligés), on peut représenter les flux
+$\phi_{ij}$ par une expression de la forme : 
+\eqnn
+\phi_{ij} = L_{ij}(\theta)I_i
+\eeqnn
+qui est linéaire par rapport au courant inducteur $I_i$ mais qui dépend
+de la position angulaire $\theta$ du rotor suivant une loi
+$L_{ij}(\theta)$ généralement périodique. On définit la
+matrice (symétrique) d'inductances :
+\eqnn
+L(\theta) \triangleq [L_{ij}(\theta)]
+\eeqnn
+et sa dérivée par rapport à $\theta$ :
+\eqnn
+K(\theta) \triangleq \frac{\partial L(\theta)}{\partial \theta}.
+\eeqnn
+Alors, l'application de la théorie qui a été présentée à la section
+précédente conduit à des équations générales de couplage
+électromécanique de la forme suivante :
+\begin{align}
+E &= L(\theta)\frac{dI}{dt} + \frac{d\theta}{dt}K(\theta)I, \label{coup1}\\
+T_{em} &= \frac{1}{2}I^TK(\theta)I. \label{coup2}
+\end{align}
+En combinant les équations (\ref{meca}),(\ref{ELECM}),(\ref{coup1}) et (\ref{coup2}) on obtient le modèle général des machines électriques~:
+\begin{equation*} \begin{split}
+L(\theta)\dot I &= - \omega K(\theta) I - RI + V, \\
+\dot \theta &= \omega, \\
+J \dot \omega &= \frac{1}{2} I^TK(\theta)I - h(\omega) + T_a.
+\end{split} \end{equation*}
+C'est ce modèle général qui est à la base de l'établissement des modèles d'état particuliers dans les applications. Souvent, mais ce n'est pas une norme, le vecteur des tensions $V$ ou le couple $T_a$ sont paramétrés par des variables d'entrée convenablement choisies qui représentent l'influence extérieure sur le comportement de la machine.
+Voici un exemple. D'autres exemples sont donnés en exercices.
+
+\begin{exemple}{\bf \em Machine élémentaire à deux enroulements}
+
+
+Nous considérons une machine électrique dont le rotor et le
+stator sont des cylindres concentriques avec un enroulement sur le
+stator et un enroulement sur le rotor (voir Fig.~\ref{fig:rotorstator}). Les auto-inductances statorique et
+rotorique $L_s$ et $L_r$ sont constantes. L'inductance mutuelle $L_{sr}$ est
+une fonction périodique cosinuso{\"\i}dale de l'angle $\theta$ :
+\eqnn
+L_{sr}(\theta) = L_o \cos \theta.
+\eeqnn
+Les matrices $L(\theta)$ et $K(\theta)$ s'écrivent comme suit :
+\eqnn
+L(\theta) =   \bma{cc} L_s & L_o \cos \theta\\ L_o \cos \theta & L_r \ema
+\;\;\;\;  K(\theta) = \bma{cc} 0 & -L_o \sin \theta\\ -L_o \sin \theta & 0
+\ema.
+\eeqnn
+Les vecteurs des courants et tensions induites sont notés
+\eqnn
+I = \bma{c} I_s \\ I_r \ema \;\;\;\; E = \bma{c} e_s \\ e_r \ema.
+\eeqnn
+Les équations de couplage électromécanique (\ref{coup1}), (\ref{coup2})
+se particularisent comme suit :
+\begin{equation*} \begin{split}
+e_s &= L_s \dot I_s + L_o \cos\theta \dot I_r - \dot \theta L_o \sin \theta
+I_r, \\ 
+e_r &= L_r \dot I_r + L_o \cos\theta \dot I_s - \dot \theta L_o \sin
+\theta I_s, \\
+T_{em} &= -L_o \sin \theta I_sI_r.
+\end{split} \end{equation*}
+Le circuit
+rotorique est alimenté par une source de courant $I_r$ constante. Une telle machine peut être utilisée soit comme génératrice (qui transforme la puissance mécanique fournie par le couple extérieur $T_a$ en puissance électrique délivrée par la force électromotrice statorique $e_s$) soit
+comme moteur (qui transforme la puissance électrique fournie au stator par la source $v_s$ en puissance mécanique délivrée par le couple électromagnétique $T_{em}$). 
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=5cm]{rotorstator}
+\caption{Machine élémentaire à deux enroulements}
+\label{fig:rotorstator}
+\end{center}
+\end{figure}
+
+
+
+Le système possède trois variables d'état :
+\begin{equation*} \begin{split}
+x_1 &= I_s, \\
+x_2 &= \theta, \\
+x_3 &= \dot \theta,
+\end{split} \end{equation*}
+et deux variables d'entrée :
+\begin{equation*} \begin{split}
+u_1 &= v_s, \\
+u_2 &= T_a.
+\end{split} \end{equation*}
+Le modèle d'état du système s'écrit comme suit :
+\begin{align*}
+L_s\dot x_1 &= L_oI_rx_3 \sin x_2 - R_s x_1 + u_1, \\
+\dot x_2 &= x_3, \\
+J\dot x_3 &= -h(x_3) - L_oI_rx_1 \sin x_2 + u_2.
+\end{align*}
+
+Dans le cas du fonctionnement en génératrice on peut également fermer la partie électrique du circuit par une résistance de charge $R_L$, on peut alors poser $u_1=R_L x$ et on obtient un modèle d'état avec pour seule entrée $u_2=T_a$.
+
+\cqfd
+
+
+
+\end{exemple}
+
+\section{Les machines à courant continu}
+\markboth{{\hspace*{5mm}\bf Chapitre 3} \hfill Systèmes électriques}{{ \bf Sec. \thesection}
+\hfill Les machines à courant continu\hspace*{5mm}} 
+
+
+Les machines à courant continu (voir fig.
+\ref{fig:machineDC}) comportent généralement un enroulement statorique
+et un enroulement rotorique.  
+\begin{figure}[t]
+\begin{center}
+\includegraphics[height=4cm]{machineDC}
+\caption{Machine à courant continu}
+\label{fig:machineDC}
+\end{center}
+\end{figure}
+L'enroulement du stator est le circuit
+inducteur dont le courant est noté $I_s$.  L'enroule\-ment du rotor
+est le circuit d'induit dont le courant est noté $I_r$. 
+
+Ainsi décrite, une machine à courant continu (ou machine DC) semble tout à
+fait similaire à la machine élémentaire à deux enroulements que nous
+avons étudiée à la section précédente. Il y a cependant une
+différence fondamentale : une machine DC est munie d'un système de
+commutation qui a pour effet de modifier le couplage électromécanique. Une description détaillée de l'effet de la commutation sur les
+équations de couplage sort du cadre de ce livre. Nous
+nous limitons ici à en donner les résultats. Lorsque les effets de
+saturation magnétique sont négligeables et lorsque la commutation
+n'introduit pas de nonlinéarité significative, les équations de couplage
+électromécanique d'une machine DC prennent la forme multilinéaire
+suivante :  
+\begin{equation*} \begin{split}
+&e_s = L_s \frac{dI_s}{dt}, \\[2mm]
+&e_r = L_r \frac{dI_r}{dt} + \frac{d\theta}{dt}K_eI_s, \\[2mm]
+&T_{em} = K_mI_rI_s.
+\end{split} \end{equation*}
+On notera la ressemblance, mais non la similitude, de ces équations avec les
+équations générales (\ref{coup1}), (\ref{coup2}) des machines
+électriques sans commutation qui ont été établies
+précédemment. On remarquera en particulier le défaut de symétrie
+entre la forme de $e_s$ et celle de $e_r$ qui est précisément d{\^u} à la
+commutation.
+
+Selon la manière dont elles sont construites et dont elles
+sont mises en oeuvre, les machines à courant continu peuvent être
+utilisées soit comme moteurs soit comme génératrices.  Voici quelques
+exemples courants de réalisation. \\
+
+\noindent{\em Modèle général d'une machine DC}
+
+Le système possède quatre variables d'état :
+\begin{equation*} \begin{split}
+x_1 &= \theta, \\
+x_2 &= \dot{\theta}, \\
+x_3 &= I_s, \\
+x_4 &= I_r.
+\end{split} \end{equation*}
+Les entrées du système sont les tensions aux bornes du cicuit inducteur
+$v_s$ et du circuit d'induit $v_r$, ainsi que le couple extérieur $T_a$ :
+\begin{equation*} \begin{split}
+u_1 &= v_s, \\
+u_2 &= v_r, \\
+u_3 &= T_a.
+\end{split} \end{equation*}
+Le modèle d'état du système s'écrit comme suit :
+\begin{equation*} \begin{split}
+\dot x_1 &= x_2,\\
+J\dot x_2 &= -h(x_2) + K_m x_3x_4 + u_3,\\
+L_s\dot x_3 &= -R_s x_3 + u_1,\\
+L_r\dot x_4 &= -R_r x_4 - K_ex_2x_3 + u_2.
+\end{split} \end{equation*}
+\\
+\noindent{\em Moteur DC commandé par le stator.}
+
+C'est un moteur DC dont le courant rotorique est fourni par une source de
+courant constante (voir figure \ref{fig:cominducteur}) :
+\eqnn
+I_r = constante
+\eeqnn
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=4cm]{cominducteur}
+\caption{Moteur DC commandé par le stator}
+\label{fig:cominducteur}
+\end{center}
+\end{figure}
+
+\noindent Le système possède trois variables d'état :
+\begin{equation*} \begin{split}
+x_1 &= \theta, \\
+x_2 &= \dot{\theta}, \\
+x_3 &= I_s. 
+\end{split} \end{equation*}
+Les entrées du système sont la tension aux bornes du circuit statorique
+$v_s$ et le couple extérieur $T_a$ : 
+\begin{equation*} \begin{split}
+u_1 &= v_s, \\
+u_2 &= T_a.
+\end{split} \end{equation*}
+Le modèle d'état s'écrit comme suit :
+\begin{equation*} \begin{split}
+\dot x_1 &= x_2,\\
+J\dot x_2 &= -h(x_2) + K_m I_r x_3 + u_2,\\
+L_s\dot x_3 &= -R_s x_3 +u_1.
+\end{split} \end{equation*}
+\\
+\noindent{\em Moteur DC commandé par le rotor.}
+
+C'est un moteur DC dont le courant statorique est fourni par une source de
+courant constante (voir figure \ref{fig:cominduit}):
+\eqnn
+I_s = constante
+\eeqnn
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=4cm]{cominduit}
+\caption{Moteur DC commandé par le rotor}
+\label{fig:cominduit}
+\end{center}
+\end{figure}
+Le système possède trois variables d'état :
+\begin{equation*} \begin{split}
+x_1 &= \theta, \\
+x_2 &= \dot{\theta}, \\
+x_3 &= I_r. 
+\end{split} \end{equation*}
+Les entrées du système sont la tension aux bornes du cicuit rotorique
+$v_r$ et le couple extérieur $T_a$ : 
+\begin{equation*} \begin{split}
+u_1 &= v_r, \\
+u_2 &= T_a.
+\end{split} \end{equation*}
+Le modèle d'état du système s'écrit comme suit :
+\begin{equation*} \begin{split}
+\dot x_1 &= x_2,\\
+J\dot x_2 &= -h(x_2) + K_m I_s x_3 + u_2,\\
+L_r\dot x_3 &= -R_r x_3 - K_e I_s x_2 + u_1.
+\end{split} \end{equation*}
+\\
+\noindent{\em Génératrice DC.}
+
+La génératrice a pour fonction de convertir une puissance mécanique en une puissance électrique débitée par le circuit
+rotorique sur une impédance de charge $Z_L$ quelconque. Lorsque celle-ci est
+résistive ($R_L$),  le système possède trois variables d'état (voir figure
+\ref{fig:genDC})~: 
+\begin{equation*} \begin{split} 
+x_1 &= I_s, \\ x_2 &= I_r, \\ x_3 &= \omega.
+\end{split} \end{equation*}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=4cm]{genDC}
+\caption{Génératrice DC}
+\label{fig:genDC}
+\end{center}
+\end{figure}
+Les entrées du système sont la tension aux bornes du circuit statorique
+$v_s$ et le couple $T_a$ :
+\begin{equation*} \begin{split}
+u_1 &= v_s, \\
+u_2 &= T_a.
+\end{split} \end{equation*}
+Le modèle d'état du système s'écrit comme suit :
+\begin{equation*} \begin{split}
+L_s\dot x_1 &= -R_s x_1+ u_1, \\
+L_r\dot x_2 &=  - (R_r +R_L) x_2 - K_e x_3 x_1,\\
+J\dot x_3 &= -h(x_3) + K_m x_1x_2 + u_2.
+\end{split} \end{equation*}
+
+
+\section{Exercices}
+
+\begin{exercice} {\bf \em Un circuit linéaire}
+
+Etablir un modèle d'état du circuit linéaire représenté à la figure \ref{fig:circuitlin} avec la tension appliquée $e$ et la résistance ajustable $r$ comme variables d'entrée. \qed
+ \begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=4cm]{circuitlin}
+\caption{Circuit linéaire}
+\label{fig:circuitlin}
+\end{center}
+\end{figure}
+
+\end{exercice}
+\vv
+
+\begin{exercice} {\bf \em Un pont doubleur de tension}
+
+Le schéma électrique d'un pont doubleur de tension est représenté à la figure
+\ref{fig:pont}. Etablir le modèle d'état de système sous l'hypothèse que tous 
+les dip{ô}les sont linéaires à l'exception des diodes. \qed
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=4cm]{pont}
+\caption{Pont doubleur de tension}
+\label{fig:pont}
+\end{center}
+\end{figure}
+\end{exercice}
+\vv
+
+\begin{exercice} {\bf \em Un transformateur}
+
+Le schéma électrique équivalent d'un transformateur est représenté à la figure
+\ref{fig:transfo}.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=3cm]{transfo}
+\caption{Circuit équivalent d'un transformateur}
+\label{fig:transfo}
+\end{center}
+\end{figure}
+\begin{enumerate}
+\item Ce réseau électrique comporte-t-il des mailles de capacités et/ou des coupes
+d'inductances ?  Explicitez votre réponse.
+\item Etablir le modèle d'état du système sous l'hypothèse que tous les dip{ô}les sont
+linéaires. \qed
+\end{enumerate}
+\end{exercice}
+\vv
+
+\begin{exercice}{\bf \em  Un circuit avec diode tunnel}
+
+Un circuit électrique est décrit par les équations d'état suivantes :
+\eqnn
+C \dot x_1 &=& -h(x_1)+x_2,\\
+L\dot x_2 &=& -x_1-Rx_2 +u.
+\eeqnn
+$x_1$ est la tension aux bornes d'une capacité linéaire, $x_2$ est le 
+courant dans une inductance linéaire, $h(x_1) = x^3_1 - 10 x^2_1 + 25 x_1$  
+est la caractéristique d'une diode tunnel. Etablir le schéma du circuit. \qed
+\end{exercice}
+\vv
+
+\begin{exercice}{\bf \em Un convertisseur électromécanique}
+
+Le dispositif représenté à la figure \ref{fig:convem} pemet de transformer une
+puissance
+électrique fournie par la source de tension en un mouvement mécanique de translation.  Il
+est constitué d'un noyau cylindrique en acier se déplaçant longitudinalement à
+l'intérieur d'un solénoïde. \qed
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=3cm]{convem}
+\caption{Convertisseur électromécanique}
+\label{fig:convem}
+\end{center}
+\end{figure}
+
+Proposez un modèle d'état de ce système sous les hypothèses de modélisation
+suivantes :
+\begin{enumerate}
+\item Le mouvement du noyau est contraint à être horizontal par une glissière.  Le
+frottement peut être considéré comme visqueux et linéaire.
+\item Le noyau est plus court que le solénoïde.
+\item Le flux dans le solénoïde est une fonction affine de la longueur $h$ de la partie du
+noyau qui se trouve à l'intérieur du solénoïde.
+\item Le flux est une fonction monotone croissante saturée du courant.
+\item Le ressort est linéaire. \qed
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}{\bf \em Un moteur d'horlogerie}
+
+Un petit moteur utilisé en horlogerie est schématisé à la figure
+\ref{fig:mothor}.  Le stator est muni d'un enroulement inducteur dont l'inductance
+$L(\theta)$ est une fonction sinusoïdale de la position angulaire $\theta$ du rotor.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=40mm]{mothor}
+\caption{Moteur d'horlogerie}
+\label{fig:mothor}
+\end{center}
+\end{figure}
+\begin{enumerate}
+\item Proposez un modèle pour la fonction $L(\theta)$ et calculez le flux.
+\item Etablir le modèle d'état du système sous l'hypothèse d'un frottement 
+visqueux linéaire. Les entrées sont la tension $u$ aux 
+bornes de l'inducteur et le couple résistant $T_a$.
+\item Quelle doit être la forme du signal d'entrée $u$ lorsque $T_a$ est constant pour 
+que le rotor tourne à vitesse constante ? \qed
+\end{enumerate}
+\end{exercice}
+\newpage
+
+\begin{exercice}{\bf \em Machine synchrone unipolaire diphasée.}
+
+Il s'agit d'une machine portant deux enroulements
+statoriques (indices $a$ et $b$) disposés en quadrature et un
+enroulement rotorique (indice $r$). Les inductances propres
+et mutuelle des enroulements statoriques varient en fonction
+de la position angulaire $\theta$ du rotor suivant les lois
+suivantes : 
+\eqnn 
+L_a &=& L_o + L_1\cos 2\theta \nonumber \\ 
+L_b &=& L_o - L_1\cos 2\theta \nonumber \\ 
+L_{ab} &=& L_1 \sin 2\theta \nonumber 
+\eeqnn 
+L'inductance propre du
+rotor $L_r$ est constante. Les inductances mutuelles entre le
+rotor et les enroulements statoriques sont aussi fonction de
+$\theta$ : 
+\eqnn 
+L_{ar} &=& L_2 \cos \theta \nonumber \\
+L_{br} &=& L_2 \sin \theta \nonumber  
+\eeqnn
+\begin{enumerate} 
+\item Etablir les équations de couplage
+électromécanique du système (voir Section 3.4) 
+\item Le
+rotor est alimenté par une source de courant constant
+$I_r$. Etablir le modèle d'état de cette machine lorsqu'elle
+fonctionne en moteur (inspirez vous de l'exemple 3.3). \qed
+\end{enumerate}
+\end{exercice}
+\vv
+
+\begin{exercice}{\bf \em Machine élémentaire à deux enroulements.}
+
+ On considère la machine élémentaire à deux enroulements, 
+fonctionnant en génératrice, telle que décrite dans l'exemple 3.3.
+Indiquez comment se modifient les équations d'état sous les
+hypothèses de modélisation suivantes :
+\begin{enumerate}
+\item  La charge du circuit statorique est capacitive 
+\item  L'enroulement rotorique est fermé par un court - circuit. \qed
+\end{enumerate}
+\end{exercice}
+\vv
+
+\begin{exercice}{\bf \em Moteur DC avec auto-excitation}
+
+Un moteur à courant continu avec auto-excitation est conçu de
+telle manière que le courant statorique et le courant rotorique soient
+fournis par la même source de tension (voir figure \ref{fig:autoex}). Etablir le
+modèle d'état de ce système en considérant que la source de
+tension $u$ est la seule variable d'entrée de ce système. \qed
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[height=4cm]{autoex}
+\caption{Moteur DC avec auto-excitation}
+\label{fig:autoex}
+\end{center}
+\end{figure}
+\end{exercice}
+\vv
+
+\begin{exercice}{\bf \em Génératrice DC avec auto-excitation}
+
+On considère une génératrice DC avec auto-excitation. La tension
+rotorique induite est, à vitesse constante, une fonction {\em monotone
+croissante bornée} du courant d'excitation $E(I_s)$ telle que $E(0) >
+0$. La génératrice débite sur une charge capacitive. L'entrée de
+commande du système est la vitesse de rotation de la
+génératrice.
+\begin{enumerate}
+\item Proposez une forme analytique pour la fonction $E(I_s)$.
+\item Proposez un modèle d'état pour ce système.
+\item Justifiez l'existence de la tension résiduelle non-nulle $E(0)$. \qed
+\end{enumerate}
+\end{exercice}
+\vv
+
+\begin{exercice}{\bf \em Moteur DC avec charge décentrée}
+
+ Un moteur DC à excitation indépendante et commandé par le
+courant rotorique entra{\^\i}ne une charge décentrée (l'axe du moteur
+ne passe pas par le centre de masse de la charge : il y a un effet de
+balourd) à travers une transmission dont la flexibilité n'est pas
+négligeable. Proposez un modèle d'état qui tienne compte de ces
+caractéristiques.
+\end{exercice}
+\vv
+
+\begin{exercice}{\bf \em Convertisseur DC-DC}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=85mm]{DCDC}
+\caption{Convertisseur DC-DC}
+\label{fig:DCDC}
+\end{center}
+\end{figure}
+Le circuit représenté sur la figure ci-dessus schématise un convertisseur
+DC-DC.  Le dispositif noté ``S" représente un interrupteur
+électronique de type MOSFET qui est ouvert et fermé de manière périodique.\\
+
+Etablir un modèle d'état du système sous les hypothèses de modélisation
+suivantes :
+\begin{itemize}
+\item[a)] la tension $E$ de la batterie d'alimentation est constante
+\item[b)] les deux résistances $R_1, R_2$, l'inductance $L$ et la capacité
+$C$ sont linéaires
+\item[c)] la variable d'entrée est la fréquence de commutation de
+l'interrupteur. \qed
+\end{itemize} 
+\end{exercice}
+
+
+
+\end{document}

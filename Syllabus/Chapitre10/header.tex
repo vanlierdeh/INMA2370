@@ -1,0 +1,122 @@
+\documentclass[twoside,openright,11pt,a4paper]{report}
+
+%\compiler avec xelatex
+%\usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} %latin1 est possible
+%\usepackage[latin1]{inputenc} %latin1 est possible
+\usepackage[francais]{babel}
+\usepackage{lettrine}
+
+\usepackage[text={13cm,20cm},centering]{geometry}
+
+\renewcommand{\familydefault}{cmss}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{color}
+
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\mb}{\mathbf}
+\newcommand{\bos}{\boldsymbol}
+
+\def \RR {I \! \! R}
+
+\newcommand{\e}{\begin{equation}}  
+\newcommand{\ee}{\end{equation}}
+\newcommand{\eqn}{\begin{eqnarray}} 
+\newcommand{\eeqn}{\end{eqnarray}} 
+\newcommand{\eqnn}{\begin{eqnarray*}} 
+\newcommand{\eeqnn}{\end{eqnarray*}} 
+
+\newcommand{\bpm}{\begin{pmatrix}}
+\newcommand{\epm}{\end{pmatrix}}
+
+%\newcommand{\{\c c}}{\c c}
+
+\newcommand{\bma}{\left(\begin{array}}
+\newcommand{\ema}{\end{array}\right)} 
+\newcommand{\hh}{\hspace{2mm}}
+\newcommand{\hd}{\hspace{5mm}}
+\newcommand{\hu}{\hspace{1cm}}
+\newcommand{\vv}{\vspace{2mm}}
+\newcommand{\vd}{\vspace{5mm}}
+\newcommand{\vm}{\vspace{-2mm}}
+\newcommand{\teq}{\triangleq}
+%\newcommand{\qedb}{\,$\Box$}
+\newcommand{\blanc}{$\left. \right.$}
+\newcommand{\frts}[2]%
+         {\frac{{\textstyle #1}}{{\textstyle #2}}}
+
+\newcommand{\bindex}[3]%
+{
+\renewcommand{\arraystretch}{0.5}
+\begin{array}[t]{c}
+#1\\
+{\scriptstyle #2}\\
+{\scriptstyle #3}
+\end{array}
+\renewcommand{\arraystretch}{1}
+}
+
+\theoremstyle{definition}
+\newtheorem{exemple}{{\bf Exemple}}[chapter]
+\newtheorem{theoreme}[exemple]{{\bf Th{é}or{è}me}}
+\newtheorem{propriete}[exemple]{{\bf Propri{é}t{é}}}
+\newtheorem{definition}[exemple]{{\bf D{é}finition}}
+\newtheorem{remarque}[exemple]{{\bf Remarque}}
+\newtheorem{remarques}[exemple]{{\bf Remarques}}
+\newtheorem{lemme}[exemple]{{\bf Lemme}}
+\newtheorem{hypothese}[exemple]{{\bf Hypoth{è}se}}
+\newtheorem{exercice}{{\bf Exercice}}[chapter]
+
+\newcommand{\xqedhere}[2]{%
+ \rlap{\hbox to#1{\hfil\llap{\ensuremath{#2}}}}}
+
+\newcommand{\xqed}[1]{%
+ \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+ \quad\hbox{\ensuremath{#1}}}
+
+\newcommand{\gf}{\fg\,\,}
+
+\newcommand{\cata}[1] %
+     {\renewcommand{\arraystretch}{0.5}
+     \begin{array}[t]{c} \longrightarrow \\ {#1} \end{array}
+     \renewcommand{\arraystretch}{1}}
+
+\usepackage[isu]{caption}
+%\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\setlength{\captionmargin}{60pt}
+
+\newcommand{\cqfd}
+{%
+\mbox{}%
+\nolinebreak%
+\hfill%
+\rule{2mm}{2mm}%
+\medbreak%
+\par%
+}
+
+\pagestyle{headings}
+
+\renewcommand{\sectionmark}[1]{%
+\markright{\thesection.\ #1}{}}
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{\chaptername\ \thechapter.\ #1}{}}
+
+\makeatletter 
+\def\@seccntformat#1{\csname the#1\endcsname.\;} 
+\makeatother
+
+\title{ {\Huge {\textbf{Modélisation et analyse  \\ \vspace{4mm} des systèmes dynamiques }}} \\ \vspace{4cm} G. Bastin}
+
+%\title{ {\Huge {\textbf{Modelisation et analyse  \\ \vspace{4mm} des systemes dynamiques }}} \\ \vspace{4cm} G. Bastin}
+
+
+\date{\today}
