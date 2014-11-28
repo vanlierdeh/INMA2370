@@ -9,152 +9,140 @@
 \graphicspath{ {Chapitre4/images/} }
 
 \setcounter{chapter}{3}
-\chapter{Systèmes à compartiments}
-\chaptermark{Systèmes à compartiments}\label{syscompart}
+\chapter{Compartment systems}
+\chaptermark{Compartment system}\label{syscompart}
 
+\lettrine[lines=1]{\bf T}{}he notion of compartment system is used to specify a wide set of systems for which the dynamic can be described  by balanced equations.
+It is used in many engineering fields (such as chemistry engineering, biomedical engineering or ecology), in economy and social sciences as well. 
 
-\lettrine[lines=1]{\bf L}{}a notion de système à compartiments est utilisée pour désigner une 
-vaste classe de systèmes dont la 
-dynamique peut être décrite par des équations de bilan.
-Elle trouve des applications dans de nombreux domaines des sciences
-de l'ingénieur (tels que le génie chimique, le génie biomédical
- ou l'écologie) mais aussi en sciences économiques et sociales.
-
-\section{Définitions et notations}
-
-Un compartiment est un réservoir conceptuel dont le contenu (matière,
-énergie, monnaie, population ...) est quantifiable. On utilise la représentation 
-symbolique indiquée à la figure \ref{fig:compartiment} où $q_{in}$ et
-$q_{out}$ indiquent, respectivement, les flux d'alimentation et de vidange
-du compartiment exprimés en quantité de contenu par unité de temps.
-Ces flux sont toujours {\em positifs} par convention.
+\section{Definitions and notations}
+A compartment is a conceptual tank or box for which the content (matter, energy, money, population...) can be quantified.
+The symbolic notation used is depicted at figure \ref{fig:compartiment} 
+where $q_{in}$ and $q_{out}$ are respectively the filling and emptying flows 
+of the compartment expressed in quantity of content by time unit.
+These flows are always {\em positive}, by convention.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics{compartiment}
-\caption{Représentation symbolique d'un compartiment}
+\includegraphics{images/compartiment}
+\caption{Symbolic representation of the compartment.}
 \label{fig:compartiment}
 \end{center}
 \end{figure}
 
-Un système à compartiments est constitué par un {\em réseau} de 
-compartiments interconnectés et numérotés de $1$ à $n$. Pour fixer
-les idées, un exemple de système à $3$ compartiments est représenté
-à la figure \ref{fig:exemplecomp}. Les flèches indiquent les flux de
-contenu que les divers compartiments peuvent échanger entre eux et avec
-l'extérieur du système.
+A compartment system is made of one {\em network} of compartments 
+interconnected and labelled $1$ through $n$.
+To be clear, an example of system made of $3$ compartments is shown
+at figure \ref{fig:exemplecomp}. The arrows specify the flows of content
+exchanged by the the compartment in the network and with outside of 
+the system.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=5cm]{exemplecomp}
-\caption{Exemple de graphe d'un système à compartiments}
+\includegraphics[width=5cm]{images/exemplecomp}
+\caption{An example of a compartment system graph.}
 \label{fig:exemplecomp}
 \end{center} 
 \end{figure}
 
-D'une manière générale, un système à compartiments sera donc 
-représenté par un {\em graphe orienté} dont les noeuds correspondent 
-aux compartiments et les arcs aux flux. On introduit les notations suivantes~:
+In general, a compartment system is represented by an {\em oriented graph} 
+whose nodes correspond to compartments and arcs to flows. 
+The following notations are introduced~:
 \begin{description}
-\item $x_i$ désigne la quantité contenue dans le compartiment d'indice $i$,
-$(i = 1, ... ,n)$. Cette quantité est toujours {\em positive}. Avec un léger
-abus de langage, on
-dira aussi pour simplifier que $x_i$ désigne le {\em niveau} du compartiment $i$.
-\item $q_{ij}$ désigne le flux circulant du compartiment $i$ vers 
-le compartiment $j$, $(i = 1, ... ,n ; j = 1, ... ,n)$. Comme nous l'avons indiqué 
-plus haut, c'est une variable qui est aussi toujours {\em positive} par convention.
+\item $x_i$ is the quantity of content in the compartment of indices $i$,
+$(i = 1, ... ,n)$. This quantity is always {\em positive}. Using a slight abuse of terms,
+$x_i$ is used to depict the {\em level} of matter in the compartment $i$.
+\item $q_{ij}$ specify the flow flowing from compartment $i$ towards the  
+compartment $j$, $(i = 1, ... ,n ; j = 1, ... ,n)$. As mentioned above, it is a
+variable which is always {\em positive} by convention.
 \end{description}
 
-\begin{definition}{\bf \em Système ouvert ou fermé}
-
-On dit que le système est {\bf ouvert} lorsqu'il existe des possibilités 
-d'échange avec l'extérieur du système. Dans ce cas :
+\begin{definition}{\bf \em Open or close system}
+A system is {\bf open} when there exists a possibility to exchange matter
+with outside the system.
+In this case :  
 \begin{description}
-\item $q_{io}$ désigne le flux circulant du compartiment $i$ vers l'extérieur
-\item $q_{oi}$ désigne le flux circulant de l'extérieur vers le compartiment $i$
+\item $q_{io}$ specify the flow from  compartment $i$ towards the outside
+\item $q_{oi}$ specify the flow from the outside towards the compartment $i$
 \end{description}
-Dans le cas contraire, on dit que le système est {\bf fermé} : $q_{io} = 
-q_{oi} = 0$ pour tout $i$. \qed
+Otherwise, the system is said to be {\bf close} : $q_{io} = 
+q_{oi} = 0$ for all $i$. \qed
 \end{definition}
 
-\begin{definition}{\bf \em Système connecté aux entrées et sorties}
+\begin{definition}{\bf \em System connected to entrances and exits}
 
-Un compartiment $i$ est {\it connecté à une sortie} si il y a un chemin $i \rightarrow j \rightarrow k \rightarrow \dots \rightarrow \ell$ partant de ce compartiment et se terminant en un compartiment $\ell$ à partir duquel il y a un flux de sortie $q_{\ell o}$. Le système est {\it complètement connecté aux sorties} (CCS) si chaque compartiment est connecté à une sortie.
+A compartment $i$ is {\it connected to an exit} if there is a path $i \rightarrow j \rightarrow k \rightarrow \dots \rightarrow \ell$ from this compartment ending in a compartment $\ell$ from which there is an outgoing flow  $q_{\ell o}$. The system is {\it completely connected to the exits} (CCO) if each and every compartment is connected to an exit.
 
-Un compartiment $\ell$ est {\it connecté à une entrée} si il y a un chemin $i \rightarrow j \rightarrow k \rightarrow \dots \rightarrow \ell$ jusqu'à ce compartiment et partant d'un compartiment $i$ dans lequel il y a un flux d'entrée $q_{oi}$. Le système est {\it complètement connecté aux entrées} (CCE) si chaque compartiment est connecté à une entrée.  \qed 
+A compartment $\ell$ is {\it connected to an entry} if there is a path $i \rightarrow j \rightarrow k \rightarrow \dots \rightarrow \ell$ ending in this compartment and coming from a compartment $i$ in which there is an entering flow $q_{oi}$. The system is {\it completely connected to the entries} (CCI) if every compartment is connected to an entry. \qed 
 \end{definition}
 
 
-\section{Modèle d'état}
-\markboth{ {\bf \hspace*{5mm}Chapitre 4 }\hfill Systèmes
-à compartiments} {{ \bf Sec. \thesection} \hfill
-Modèles d'état \hspace*{5mm}}
+\section{State model}
+\markboth{ {\bf \hspace*{5mm}Chapter 4 }\hfill Compartment system} {{ \bf Sec. \thesection} \hfill
+State model \hspace*{5mm}}
 
-L'équation de bilan de chaque compartiment (appelée aussi équation de
-continuité)
+The balanced equation of every compartment (also called continuity equation)
 \eqnn
 \dot{x_i} = \sum_{j=0}^n q_{ji}(t) - \sum_{j=0}^n q_{ij}(t) \hspace{1cm} i=1,...,n
 \label{bilan}
 \eeqnn
-est l'élément de base pour l'établissement du modèle d'état d'un système
-à compartiments. Cette équation exprime que la variation, par 
-unité de temps,  de la 
-quantité contenue dans un
-compartiment est la différence entre la somme des
-flux (ou débits) entrants et la somme des flux (ou débits) 
-sortants. En pratique, bien s\^ur, les flux qui sont structurellement nuls 
-ne sont pas explicités dans l'équation (\ref{bilan}).
+is the basic statement to establish the state model of a compartment system.
+This equation tells us that the variation, per unit of time, of the 
+quantity contained in a compartment is the difference between the 
+sum of the entering flows (or debits) and the sum of the outgoing flows (or debits). 
+In practice, of course, the flows wich are structurely null are not explicitly in the equation  
+(\eqref{bilan}).
 
-La mise en équations du modèle d'état d'un système à compartiments
-comporte dès lors deux aspects fondamentaux.
+Computing the equations of the sate model of a compartment system required two 
+fundamental aspects. 
 
-Tout d'abord, la structure du graphe associé au système détermine le nombre
-et la structure des équations de bilan (\ref{bilan}) ; les variables $x_i$ sont
-les variables d'état tandis que l'ordre du modèle est le nombre $n$ de 
-compartiments.
+First of all, the structure of the graph related to the system determines the 
+number and the structure of the balanced equations (\eqref{bilan}) ; the variables $x_i$ are
+the state variables whereas the order of the model is the number $n$ of  
+compartments.
 
-Pour compléter le modèle d'état, il faut ensuite exprimer les flux
-en fonction des variables d'état et des variables d'entrée :
+To complete the state model, the flows should be specified in terms of the 
+state variables and input variables : 
 \eqnn
 q_{ij}(x,u)
 \eeqnn
-où $x$ et $u$ désignent, comme d'habitude, les vecteurs d'état et 
-d'entrée. Cette modélisation fera l'objet de la prochaine section.
+where $x$ et $u$ are, as usual, the vector of state and entries. 
+This modelling is the point of the next section.
 
-La forme générale des équations d'état d'un système à compartiments
-est alors la suivante :
+The general form of the state equations of a compartment system is the 
+following :  
 \eqnn
 \dot{x_i} = \sum_{j=0}^n q_{ji}(x,u) - \sum_{j=0}^n q_{ij}(x,u) \hspace{1cm} i=1,...,n \label{eqetcomp}
 \eeqnn
-Dans ce modèle, le sens physique des variables d'état $x_i$ est clair : ce sont
-les quantités contenues dans chaque compartiment. Par contre, les variables
-d'entrée $u$ peuvent être de nature très variable selon les applications comme le montreront les exemples qui vont suivre.
+In this model, the physical meaning of the state variables $x_i$ is obvious : these are
+the quantities contained in each compartment. But, the input variables $u$ can be 
+of different nature, depending on the applications, as the next examples will show.
 
-Si l'on définit le {\em vecteur des flux} $q(x,u)$ contenant, dans un ordre arbitraire, 
-tous les flux $q_{ij}(x,u)$
-qui ne sont pas structurellement nuls, on peut écrire aussi le modéle d'état
-(\ref{eqetcomp}) sous la forme matricielle plus compacte :
+If the {\em flows vector} $q(x,u)$ is defined as containing, in an arbitrary order, all the
+flows $q_{ij}(x,u)$ which are not structurally null, then the sate model (\eqref{eqetcomp}) 
+can also be written in a more compact matrix form :
 \eqn
 \dot{x} = Lq(x,u) \label{modetcomp}
 \eeqn
-où $L$ est la matrice d'incidence du graphe orienté, dont les coefficients appartiennent tous au triplet
-$(-1,0,1)$, qui est .
+where $L$ is the incident matrix of the oriented graph, whose  
+coefficents all belong to 
+$(-1,0,1)$, which is ?????.
 
 \begin{exemple}
-Pour le système représenté à la figure \ref{fig:exemplecomp}, le
-modèle d'état s'écrit :
+For the system depicted at figure \ref{fig:exemplecomp}, the
+state model is written as :
 \eqnn
 \dot{x_1} &=& q_{01}(x,u) - q_{12}(x,u) - q_{13}(x,u) + q_{21}(x,u) \\
 \dot{x_2} &=& q_{02}(x,u) + q_{12}(x,u) - q_{21}(x,u) - q_{23}(x,u) \\
 \dot{x_3} &=& q_{13}(x,u) + q_{23}(x,u) - q_{30}(x,u)
 \eeqnn
-Si l'on définit le vecteur des flux :
+If the flows vector is defined as :
 \eqnn
 q(x,u) \triangleq \bma{c} q_{01}(x,u) \\ q_{02}(x,u) \\ q_{12}(x,u) \\
 q_{13}(x,u) \\ q_{21}(x,u) \\ q_{23}(x,u) \\ q_{30}(x,u) \ema
 \eeqnn
-le modèle d'état s'écrit sous la forme matricielle (\ref{modetcomp}) avec 
-la matrice $L$ :
+the state model is written in a matrix format (\eqref{modetcomp}) with  
+the matrix $L$ :
 \eqnn
 L \triangleq \bma{ccccccc} 1 & 0 & -1 & -1 & 1 & 0 & 0 \\
 0 & 1 & 1 & 0 & -1 & -1 & 0 \\
@@ -163,75 +151,81 @@ L \triangleq \bma{ccccccc} 1 & 0 & -1 & -1 & 1 & 0 & 0 \\
 \qed
 \end{exemple}
 
-\section{Modélisation des flux}
+\section{Modelling of the flows}
 
-Selon les applications, les fonctions $q_{ij}(x,u)$ représentant les flux peuvent prendre des formes très variées.  Elles doivent cependant être définies de manière à garantir que le système à compartiments est un {\em système positif} c'est à dire un système dont chaque variable
-d'état reste positive le long des trajectoires. C'est une garantie de vraisemblance du modèle puisque les variables d'état représentent des grandeurs qui n'ont pas de sens physique si
-elles sont négatives.
+Depending on the applications, the functions $q_{ij}(x,u)$ depicting the flows can take different types of
+forms. However, they must be defined in a way which guarantees the compartment system to be a {\em positive system}, that is a system for which every state variable remains positive along the trajectories. 
+It is a likelihood guarantee of the model, because the state variables represent measures which do not have a 
+physical meaning if they are negative.
 
-\begin{definition} \label{vecpositif} {\bf \em Vecteur positif et orthant positif}
+\begin{definition} \label{vecpositif} {\bf \em Positive vector and positive orthant}
 
-Un vecteur $x = (x_1, \ldots , x_n)^T$ est positif (notation
-$x \geq 0$) si chacune de ses composantes est un nombre réel positif~:
-$x_i \geq 0$ pour tout $i$.
+A vector $x = (x_1, \ldots , x_n)^T$ is positive (notation
+$x \geq 0$) if each of its component is a positive real number~:
+$x_i \geq 0$ for all $i$.
 
-L'orthant positif de dimension $n$ (noté $\RR_+^n$) est l'ensemble de tous les vecteurs positifs de dimension $n$. \qed
+The positive orthant of dimension $n$ (written $\RR_+^n$) is the set of all positive vectors of dimension $n$. \qed
 \end{definition}
 
-\begin{definition}{\bf \em Système positif}
+\begin{definition}{\bf \em Positive system}
 
-Un système dynamique $\dot x=f(x,u)$ est un système positif si, pour toute entrée $u(t)$ admissible, son état
-est confiné dans l'orthant positif lorsque l'état initial est positif~:
+A dynamical system $\dot x=f(x,u)$ is a positive system if, for every admissible input $u(t)$, its 
+state is confined in the positive orthant when the initial state is positive~:
 \eqnn
 x(t_0) \in \real_+^n \text{ et } u(t) \in {\cal U}  \Longrightarrow x(t)
 \in \real_+^n  \hh \forall t \geq t_0. \qed
 \eeqnn
 \end{definition}
 
-Le théorème suivant donne une condition suffisante facile à utiliser pour vérifier qu'un système est positif. 
+The following theorem gives a sufficient condition which can be easily used to 
+check that a system is positive.
 
 \begin{theoreme} 
-Un système dynamique $\dot x=f(x,u)$ est un système positif si $f(x,u)$ est différentiable et si
+A dynamical system $\dot x=f(x,u)$ is a positive system if $f(x,u)$ is differentiable and if 
 \eqnn
 x \in \real_+^n \;\;\;\; \mbox{et} \;\;\;\; x_i = 0 \;\; \Longrightarrow \;\; \dot x_i \geq 0 \;\;\;\; \forall i. \qed
 \eeqnn
 \end{theoreme}
-Pour garantir qu'un système à compartiments est un système positif, on impose les conditions suivantes aux fonctions de flux $q_{ij}(x,u)$~:
+To ensure that a compartment system is a positive system, let's impose the following conditions on the 
+flows functions $q_{ij}(x,u)$~:
 \begin{itemize}
-\item[C1.]  Les fonctions $q_{ij}(x,u)$ sont des fonctions positives de leurs arguments sur leur domaine de définition~:
+\item[C1.]  The functions $q_{ij}(x,u)$ are positive functions of their arguments on their definition domain~:
 \eqnn
 q_{ij}(x,u) : \real^n_+ \times \real^m \rightarrow \real_+
 \eeqnn 
-\item[C2.] Les fonctions $q_{ij}(x,u)$ sont des fonctions continues et dérivables de leurs arguments sur leur domaine de définition.
-\item[C3.]  Comme il ne peut y avoir de flux sortant d'un compartiment vide, les fonctions $q_{ij}(x,u)$ vérifient la condition~:
+\item[C2.] The functions $q_{ij}(x,u)$ are continuous and differentiable functions of their arguments on their
+definition domain.
+\item[C3.]  As there cannot be an outgoing flow from an empty compartment, the 
+functions $q_{ij}(x,u)$ verify the condition~:
 \eqnn
 x_i = 0 \;\; \Rightarrow \;\; q_{ij}(x,u) = 0
 \eeqnn
 \end{itemize}
 \begin{theoreme} 
 
-Sous les conditions C1, C2, C3, un système à compartiments $\dot x = Lq(x,u)$
-est un système positif.
+Under conditions C1, C2, C3, a dynamical compartment system $\dot x = Lq(x,u)$
+is a positive system.
 \cqfd
 \end{theoreme}
-\begin{exemple}\label{systhyd}{\bf \em Système hydraulique}
 
-Considérons un système hydraulique formé d'un ensemble 
-de réservoirs situés à des altitudes différentes
-et dont le contenu liquide s'écoule \og en cascade \gf
-des réservoirs les plus élevés vers les réservoirs les plus bas sous l'action
-de la gravité. Un exemple est illustré à la figure \ref{Fig:cascade}.
+\begin{exemple}\label{systhyd}{\bf \em Hydraulic system}
+
+Let's consider an hydraulic system made of a set of 
+tanks located at different elevations and whose the liquid content  
+flows \og as waterfall \gf from the highest tanks to the lowest tanks, 
+thanks to gravity action. An example is illustrated at figure \ref{Fig:cascade}.
+
 \begin{figure}[h] 
 \begin{center}
-\includegraphics[width=7cm]{cascade}
-\caption{Cascade de réservoirs}
+\includegraphics[width=7cm]{images/cascade}
+\caption{Waterfall of tanks.}
 \label{Fig:cascade}
 \end{center} 
 \end{figure}
 
-Il s'agit clairement d'un système à compartiments dont le graphe associé
-est représenté à la figure \ref{Fig:grafassoc} et dont les équations de 
-continuité s'écrivent~:
+It is clearly a compartment system whose the associated graph 
+is depicted at figure \ref{Fig:grafassoc} and whose the continuity 
+equations are written as~:
 \begin{equation*} \begin{split} 
 \dot x_1 &= q_{01} - q_{12} - q_{13} \\
 \dot x_2 &=  q_{12} - q_{23} \\
@@ -239,35 +233,48 @@ continuité s'écrivent~:
 \end{split} \end{equation*}
 \begin{figure}[h] 
 \begin{center}
-\includegraphics[width=7cm]{grafassoc}
-\caption{Graphe associé à la cascade de résevoirs}
+\includegraphics[width=7cm]{images/grafassoc}
+\caption{Graph of the waterfall of tanks.}
 \label{Fig:grafassoc}
 \end{center} 
 \end{figure}
-Dans ces équations, les variables d'état $x_1$,$ x_2$ et $x_3$ désignent 
-évidemment les volumes d'eau contenus dans les réservoirs et les flux 
-$q_{ij}$ représentent les débits s'écoulant des réservoirs supérieurs
-vers les réservoirs inférieurs. Pour compléter le modèle, il faut 
-exprimer ces flux en fonction des variables d'état et de signaux d'entrée
-convenablement choisis.
-Le débit fourni par la
-pompe d'alimentation du réservoir supérieur peut clairement être choisi
-comme variable d'entrée. Le débit de sortie $q_{ij}$
-de chaque réservoir est une fonction positive du volume $x_i$ du réservoir. La forme de cette fonction dépend de la forme du réservoir et de la configuration de l'orifice par lequel l'eau s'écoule. Considérons le cas où les réservoirs sont de section horizontale constante et où l'écoulement s'effectue par un orifice rectangulaire situé au bas des réservoirs. La hauteur de l'eau dans un réservoir est notée~:
+In these equations, the sate variables $x_1$,$ x_2$ et $x_3$ specify, 
+obviously, the volumes of water contained in the tanks; and the flows 
+$q_{ij}$ depict the debits flowing from the upper tanks toward the lower 
+tanks. In order to complete the model, the flows should be expressed in
+terms of the sate variables and the input signals, correctly chosen.
+The flow provided by the supply pomp of the upper tank can obviously be 
+chosen as an input variable. The outgoing flow $q_{ij}$ of each tank 
+is a positive function of the volume $x_i$ of the tank. The form of 
+this function depends on the shape of the tanks and the configuration of 
+the holes through which the water flows. Let's consider the case where the tanks 
+have a constant horizontal section and where the flow goes through a 
+rectangular hole located at the bottom of the tanks. The elevation of the water in 
+a tank is expressed as~:
 \eqnn
 h_i = \frac {x_i}{S_i}
 \eeqnn
-où $S_{i}$ désigne la section du réservoir.
-Selon les lois de l'hydraulique, nous savons que, lorsque la hauteur de l'eau $h_i$ est grande par rapport à la hauteur de l'orifice, la relation entre le débit et la hauteur d'eau est proportionnelle à $\sqrt{h_i}$ (loi de Torricelli~\footnote{Cette loi énoncée par Torricelli en 1643 énonce que la vitesse $v$ de l'eau à la sortie d'un réservoir de hauteur $h$ vérifie $v^2=2gh$. Elle se démontre intuitivement par analogie avec un corps en chute libre: un volume élémentaire d'eau à la surface du réservoir transforme son énergie potentielle $\rho g h$ en énergie cinétique $\rho v^2/2$ quand il arrive à la sortie du réservoir, où $\rho$ désigne la masse volumique. Plus rigoureusement, on la déduit du théorème de Bernoulli sans perte de charge ou pompe $p+\rho gz +\rho v^2/2 = \mathrm{constante}$, où $p$ désigne la pression et $z$ l'altitude.}). Par contre lorsque la hauteur de l'eau est inférieure à la hauteur de l'orifice, le débit devient proportionnel à $h_i\sqrt{h_i}$ (loi de l'écoulement pour un déversoir de forme rectangulaire). On peut dès lors proposer un modèle de la forme~:
+where $S_{i}$ specifies the section of the tank.
+According to the hydraulic laws, we know that when the elevation of the water $h_i$ is big 
+toward the elevation of the hole, the link between the elevation of the water is proportional to 
+$\sqrt{h_i}$ (Torricelli's law~\footnote{This law written by Torricelli in 1643 states that the speed $v$ of
+the outgoing water of a tank of elevation $h$ verifies $v^2=2gh$. It can be proven intuitively by 
+analogy with a body in free fall: a elementary volume of water at the surface of the tank has a potential energy 
+$\rho g h$ and a kinetic energy $\rho v^2/2$ when it reaches the exit of the tank, where $\rho$ depicts the 
+density. More rigorously, this can be deduced from Bernoulli's theorem without pressure loss or pump $p+\rho gz +\rho v^2/2 = \mathrm{constante}$, where $p$ depicts the pressure and $z$ the elevation.}). However, when the elevation of the water is lower than the elevation of the hole, the flows becomes proportional to $h_i\sqrt{h_i}$ 
+(law of flows for a rectangular tank). A model of the following form can be given~:
 \eqnn
 q_{ij} = \frac { \alpha_{ij}h_i\sqrt{h_i} }{ \beta_{ij} + h_i}
 \eeqnn
-où $ \alpha_{ij}$ et $ \beta_{ij}$ sont des constantes positives. En effet ce modèle vérifie bien la propriété que pour de faibles hauteurs d'eau ($h_i \ll \beta_{ij}$), le débit $q_{ij}$ est proportionnel à $h_i\sqrt{h_i}$ tandis que pour des hauteurs d'eau élevées ($h_i \gg \beta_{ij}$), le débit $q_{ij}$ est proportionnel à $\sqrt{h_i}$.
-On peut exprimer $q_{ij}$ en fonction de $x_i$~:
+where $ \alpha_{ij}$ et $ \beta_{ij}$ are positive constants. Indeed, this model verifies the 
+property telling that, for low water elevations ($h_i \ll \beta_{ij}$), the flow $q_{ij}$ is proportional to 
+$h_i\sqrt{h_i}$ whereas for high water elevations ($h_i \gg \beta_{ij}$), the flow $q_{ij}$ is 
+proportional to $\sqrt{h_i}$.
+The flows $q_{ij}$ can be expressed in terms of $x_i$~:
 \eqnn
 q_{ij}(x_i) = \frac {k_{ij}x_i\sqrt{x_i} }{S_i \beta_{ij} + x_i} \hh \mbox{ avec } k_{ij} \triangleq \frac{\alpha_{ij}}{\sqrt{S_i}} 
 \eeqnn
-Alors le modèle d'état s'écrit finalement~:
+Finally, the state model can be written as~:
 \begin{equation} \begin{split} \label{modetacasca}
 \dot x_1 &= - \frac {k_{12}x_1\sqrt{x_1} }{S_1\beta_{12} + x_1} - \frac {k_{13}x_1\sqrt{x_1} }{S_1 \beta_{13} + x_1} + u, \\
 \dot x_2 &=  \frac {k_{12}x_1\sqrt{x_1} }{S_1 \beta_{12} + x_1} - \frac {k_{23}x_2\sqrt{x_2} }{S_2 \beta_{23} + x_2},
@@ -275,7 +282,7 @@ Alors le modèle d'état s'écrit finalement~:
 \dot x_3 &= \frac{k_{13}x_1\sqrt{x_1} }{S_1 \beta_{13} + x_1} + \frac {k_{23}x_2\sqrt{x_2} }{S_2 \beta_{23} + x_2} -
 \frac {k_{30}x_3\sqrt{x_3} }{S_3 \beta_{30} + x_3}.
 \end{split} \end{equation}
-On observe que les fonctions $q_{ij}(x_{i})$ vérifient bien les conditions de positivité C1, C2, C3. \qed
+Let's notice that the functions $q_{ij}(x_{i})$ verifies the positivity conditions C1, C2 and C3. \qed
 \end{exemple}
 
 \section{Modèles linéaires avec commande par les alimentations 
@@ -351,7 +358,7 @@ Considérons l'exemple
 de la figure \ref{Fig:grapharmaco}.
 \begin{figure}[ht] 
 \begin{center}
-\includegraphics{grapharmaco}
+\includegraphics{images/grapharmaco}
 \caption{Graphe d'un modèle à compartiments en pharmacocinétique}
 \label{Fig:grapharmaco}
 \end{center} 
@@ -392,7 +399,7 @@ symbolique de la figure
 \ref{Fig:contflux} pour indiquer la présence d'une telle variable de contr\^ole.
 \begin{figure}[ht] 
 \begin{center}
-\includegraphics{contflux}
+\includegraphics{images/contflux}
 \caption{Représentation symbolique d'un flux contr\^olé}
 \label{Fig:contflux}
 \end{center} 
@@ -411,7 +418,7 @@ d'entrée.
 
 \begin{figure}[h] 
 \begin{center}
-\includegraphics[width=7cm]{reseauh}
+\includegraphics[width=7cm]{images/reseauh}
 \caption{Réseau de réservoirs}
 \label{Fig:reseauh}
 \end{center} 
@@ -455,7 +462,7 @@ dont le modèle d'état s'écrit~:
 \end{split} \end{equation*}
 \begin{figure}[h] 
 \begin{center}
-\includegraphics[width=7cm]{graphreseau}
+\includegraphics[width=7cm]{images/graphreseau}
 \caption{Graphe associé au réseau de réservoirs}
 \label{Fig:graphreseau}
 \end{center} 
@@ -501,7 +508,7 @@ exemple typique de procédé de distillation binaire dans l'industrie pétrochim
 La séparation s'effectue par évaporation dans une enceinte fermée appelée {\em ballon} (voir figure \ref{Fig:distillation}).
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=8cm]{proc_distil}
+\includegraphics[width=8cm]{images/proc_distil}
 \caption{Procédé de distillation}
 \label{Fig:distillation}
 \end{center} 
@@ -535,7 +542,7 @@ d'état sont les suivantes~:
 \end{split} \end{equation*}
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=5cm]{graphprocdistil}
+\includegraphics[width=5cm]{images/graphprocdistil}
 \caption{Graphe associé au procédé de distillation}
 \label{Fig:graphdisti}
 \end{center} 
@@ -551,7 +558,7 @@ liquide-vapeur permettant de relier la fraction molaire du composant léger quit
 sous forme vapeur à la fraction molaire du composant dans la phase liquide. 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=4cm]{separ}
+\includegraphics[width=4cm]{images/separ}
 \caption{Relation d'équilibre liquide-vapeur}
 \label{Fig:separ}
 \end{center} 
@@ -587,7 +594,7 @@ Un système hydraulique comportant trois réservoirs et deux pompes
 est représenté à la figure \ref{Fig:systhydr}.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=8cm]{systhydr}
+\includegraphics[width=8cm]{images/systhydr}
 \caption{Système hydraulique}
 \label{Fig:systhydr}
 \end{center} 
@@ -606,7 +613,7 @@ garantisse que le système soit positif.
 
 \begin{figure}[!ht] 
 \begin{center}
-\includegraphics[width=8cm]{cuvmel}
+\includegraphics[width=8cm]{images/cuvmel}
 \caption{Réseau de cuves de mélange}
 \label{Fig:cuvmel}
 \end{center} 
@@ -656,7 +663,7 @@ réservoirs et vers l'extérieur sous l'action de la pression hydrostatique.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=8cm]{reservoircom}
+\includegraphics[width=8cm]{images/reservoircom}
 \caption{Réservoirs communicants}
 \label{Fig:reservoircom}
 \end{center} 
