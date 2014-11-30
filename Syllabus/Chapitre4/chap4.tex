@@ -11,7 +11,13 @@
 \setcounter{chapter}{3}
 \chapter{Compartment systems}
 \chaptermark{Compartment system}\label{syscompart}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% PARTIE DE Nicolas Stevens    %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lettrine[lines=1]{\bf T}{}he notion of compartment system is used to specify a wide set of systems for which the dynamic can be described  by balanced equations.
 It is used in many engineering fields (such as chemistry engineering, biomedical engineering or ecology), in economy and social sciences as well. 
 
@@ -21,6 +27,7 @@ The symbolic notation used is depicted at figure \ref{fig:compartiment}
 where $q_{in}$ and $q_{out}$ are respectively the filling and emptying flows 
 of the compartment expressed in quantity of content by time unit.
 These flows are always {\em positive}, by convention.
+
 
 \begin{figure}[ht]
 \begin{center}
@@ -201,8 +208,8 @@ functions $q_{ij}(x,u)$ verify the condition~:
 x_i = 0 \;\; \Rightarrow \;\; q_{ij}(x,u) = 0
 \eeqnn
 \end{itemize}
-\begin{theoreme} 
 
+\begin{theoreme}
 Under conditions C1, C2, C3, a dynamical compartment system $\dot x = Lq(x,u)$
 is a positive system.
 \cqfd
@@ -285,50 +292,48 @@ Finally, the state model can be written as~:
 Let's notice that the functions $q_{ij}(x_{i})$ verifies the positivity conditions C1, C2 and C3. \qed
 \end{exemple}
 
-\section{Modèles linéaires avec commande par les alimentations 
-extérieures}
 
-C'est la classe de modèles à compartiments que l'on rencontre le plus
-couramment dans la littérature. Elle est caractérisée par les définitions
-suivantes des flux~:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% PARTIE DE DOUNIA MULDERS    %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Linear models driven by controlled external supplies}
+
+This is the most represented class of compartmental models within the literature.
+It is characterized by the following flow definitions:
 \begin{enumerate}
-\item Les flux entre compartiments et les flux de sortie du système sont 
-des fonctions linéaires du
-niveau du compartiment donneur :
+\item Flows between compartments and system output flows  are linear in function of the providing compartment level:
 \eqnn
 q_{ij} = k_{ij}x_i \hspace{1cm} k_{ij} > 0 \hspace{1cm} (i=1,...,n;j=0,...,n)
 \eeqnn
-\item Les entrées $u_{\ell}$ du système sont proportionnelles aux flux
-d'alimentation~: 
+\item The system inputs $u_{\ell}$ are proportional to the supply flow: 
 \eqnn
 q_{0\ell} = k_{0\ell}u_{\ell} 
 \eeqnn
 \end{enumerate}
-Dans ce cas, l'information nécessaire à l'écriture du modèle d'état 
-est entièrement contenue dans le graphe du système. Le modèle d'état
-prend la forme générale d'un système linéaire (voir chapitre 1), c-à-d~:
+
+In that case, the required information used to write the state model is entirely unclosed within the system graph.
+The state model can be represented as a linear system (see chapter 1):
 \eqnn
 \dot{x} = Ax + Bu
 \eeqnn
-mais avec les particularités structurelles suivantes~:
+with the following structural features:
 \begin{enumerate}
-\item La matrice $A$ est une {\em matrice de Metzler} c-à-d  telle que $a_{ij} 
-\geq 0$ 
-pour tout $i \neq j$
-\item La matrice $A$ est diagonalement dominante c-à-d
-\eqnn
-|a_{ii}| \geq \sum_{j \neq i} a_{ji} 
+\item Matrix $A$ is a {\em Metzler matrix} i.e. such that $a_{ij} \geq 0$ for all $i \neq j$
+\item Matrix $A$ is diagonally dominant i.e.
+\eqnn |a_{ii}| \geq \sum_{j \neq i} a_{ji} 
 \eeqnn
-\item La matrice $B$ est une {\em matrice élémentaire} de plein rang, c'est à
-dire une matrice qui contient au plus un élément non nul par ligne et par
-colonne.
+\item Matrix $B$ is a full rank {\em elementary matrix}, i.e. a matrix containing at most one non null element per line and per column.
 \end{enumerate}
 
 \begin{exemple}
-
-Le modèle d'état linéaire du système à compartiments
-correspondant au graphe de la figure \ref{fig:exemplecomp} 
-s'écrit comme suit~:
+The compartmental system linear state model corresponds to the graph shown on \ref{fig:exemplecomp} 
+and can be written as:
 \begin{equation} \begin{split}
 \bma{c} \dot x_1 \\ \dot x_2 \\ \dot x_3 \ema &= 
 \bma{ccc} -(k_{12} + k_{13}) & k_{21} & 0 \\ 
@@ -337,38 +342,30 @@ k_{12} & -(k_{21} + k_{23}) & 0 \\ k_{13} & k_{23} & - k_{30} \ema
 + \bma{cc} k_{01} & 0 \\ 0 & k_{02} \\ 0 & 0 \ema
 \bma{c} u_1 \\ u_2 \ema
 \end{split} \end{equation}
-On observe que $A$ est bien une matrice de Metzler diagonalement
-dominante et que $B$ est une matrice élémentaire de plein rang ($= 2$).
+We observe that $A$ is a diagonally dominant Metzler matrix and that $B$ is a full rank elementary matrix ($rank = 2$).
 \cqfd
 \end{exemple}
 
-\begin{exemple}{\bf \em Modélisation physiologique}
+\begin{exemple}{\bf \em Physiological modelling}
+Physiologists are often interested in describing and analyzing biological or chemical substance propagation within mammal body.
+Those substances can stand for medicinal substances (Pharmacokinetic studies) or toxic substances voluntary or accidentally absorbed.
+They can also be natural substances such as hormones or proteins.
+Compartmental models are frequently used to process such studies: 
+the mammal body is therefore represented as a more or less diversified group of interconnected vessels.
 
-Les physiologistes s'intéressent souvent à décrire et à analyser la 
-propagation de substances biologiques ou chimiques dans le corps des
-mammifères. Il peut s'agir de substances médicamenteuses (on parle alors
-d'études pharmacocinétiques) ou encore de substances toxiques absorbées
-volontairement ou accidentellement. Il peut s'agir aussi de substances d'origine
-naturelle telle que des hormones ou des protéines. Les modèles à 
-compartiments sont fréquemment utilisés pour procéder à de telles 
-études : le corps du mammifère est alors représenté par un ensemble
-plus ou moins diversifié de réservoirs interconnectés. 
-
-Considérons l'exemple
-de la figure \ref{Fig:grapharmaco}.
+Let us consider the example on figure \ref{Fig:grapharmaco}.
 \begin{figure}[ht] 
 \begin{center}
 \includegraphics{images/grapharmaco}
-\caption{Graphe d'un modèle à compartiments en pharmacocinétique}
+\caption{Pharmacokinetic compartmental graph model}
 \label{Fig:grapharmaco}
 \end{center} 
 \end{figure}
-Une substance toxique (par exemple du plomb) est ingérée par un animal et
-pénêtre dans le sang. Cette substance  se propage progressivement
-dans le corps, passant du sang vers les tissus tout d'abord, vers les os ensuite.
-Elle est excrétée par la transpiration d'une part et par les voies urinaires
-d'autre part. Le modèle à compartiments linéaires correspondant
-au graphe de la figure \ref{Fig:grapharmaco} est le suivant :
+
+A toxic substance (lead for example) is absorbed by an animal and permeated in its blood.
+This substance progressively propagates within the body, from the blood to tissues at first, towards bones afterwards.
+It is secreted by sweating from one part and by urinating from the other part.
+The linear compartmental model corresponding to the graph on figure \ref{Fig:grapharmaco} is the following model:
 \begin{equation*} \begin{split}
 \bma{c} \dot x_1 \\ \dot x_2 \\ \dot x_3 \ema &= 
 \bma{ccc} -(k_{10} + k_{12}) & k_{21} & 0 \\ 
@@ -376,85 +373,70 @@ k_{12} & -(k_{20} + k_{21} + k_{23}) & k_{32} \\ 0 & k_{23} & - k_{32} \ema
 \bma{c} x_1 \\ x_2 \\ x_3 \ema \\
 & \hd + \bma{c} k_{ 01}\\ 0 \\ 0 \ema u.
 \end{split} \end{equation*}
-Dans ce modèle, les variables d'état $x_1$, $x_2$ et $x_3$ désignent
-bien s\^ur les quantités de substance toxique dans les trois compartiments
-(sang, tissus et os). La variable d'entrée $u$ désigne le flux d'ingestion 
-par le corps.
+In this model, the state variables are: $x_1$, $x_2$ et $x_3$, which stands for toxial substance quantities within the three compartments (blood, tissues and bones).
+The input variable $u$ stands for the body ingestion flow.
 \cqfd
 \end{exemple}
 
-\section{Modèles non linéaires avec commande par les flux}
 
-Nous considérons maintenant des systèmes non linéaires à compartiments
-dont les flux
-$q_{ij}$ peuvent être des fonctions non linéaires quelconques de
-leurs arguments satisfaisant les conditions C1 - C3. Nous avons déjà rencontré
-un modèle non linéaire dans l'exemple de la cascade de
-réservoirs. Toutefois, dans cet exemple, les flux entre 
-compartiments n'étaient pas fonction des variables d'entrée $u_{\ell}$. Ici nous
-considérerons le cas où certains flux entre compartiments sont des fonctions
-explicites de variables d'entrée $u_{\ell}$ qui permettent de contr\^oler le débit
-passant entre ces compartiments.  On utilise la représentation
-symbolique de la figure
-\ref{Fig:contflux} pour indiquer la présence d'une telle variable de contr\^ole.
+\section{Non linear model with controlled flows}
+We will now consider non linear compartmental systems which flows $q_{ij}$ can be non linear functions whose arguments respect the C1 - C3 conditions.
+We already approached a non linear model in the vessels cascade example.
+However, flows between compartments were not depending on input variables $u_{\ell}$ in that example.
+We will here consider a case where flows between compartments are explicit functions of input variables $u_{\ell}$ 
+allowing to monitor the debit between compartments.
+The symbolic representation presented on figure \ref{Fig:contflux} shows the presence of such a monitoring variable.
 \begin{figure}[ht] 
 \begin{center}
 \includegraphics{images/contflux}
-\caption{Représentation symbolique d'un flux contr\^olé}
+\caption{Symbolic representation of a monitored flow}
 \label{Fig:contflux}
 \end{center} 
 \end{figure}
 
-\begin{exemple}{\bf \em Réseau de réservoirs}
 
-Considérons le système hydraulique illustré à la figure \ref{Fig:reseauh}. Ce
-réseau de réservoirs est celui de l'exemple de la cascade de
-réservoirs (exemple \ref{systhyd}) que nous avons rencontré
-précédemment, mais avec une petite modification~: l'écoulement entre le
-réservoir $2$ et le réservoir $3$ n'est plus un écoulement libre mais est devenu
-un écoulement forcé par la pompe. Dans la mesure où cette pompe est
-commandable, il est naturel de considérer le débit pompé $F$ comme une variable
-d'entrée. 
+\begin{exemple}{\bf \em Vessels network}
+Let us consider the hydraulic system represented on figure \ref{Fig:reseauh}. 
+This vessels network corresponds to the vessel cascade example (\ref{systhyd} with a small modification:
+the flow between vessel $2$ and vessel $3$ is now monitored by a pump.
+As this pump is controllable, we can consider the pumped debit $F$ as an input variable.
 
 \begin{figure}[h] 
 \begin{center}
 \includegraphics[width=7cm]{images/reseauh}
-\caption{Réseau de réservoirs}
+\caption{Vessels networks}
 \label{Fig:reseauh}
 \end{center} 
 \end{figure}
 
-Le modèle d'état (\ref{modetacasca}) que nous avions obtenu pour la cascade de
-réservoirs est alors simplement modifié comme suit~:
+The state model (\ref{modetacasca}) we obtained for the vessels cascade is therefore simply modified as follows:
 \begin{equation} \begin{split}
 \dot x_1 &= - q_{12}(x_1) - q_{13}(x_1) + u_1 \\
 \dot x_2 &=  q_{12}(x_1) - u_2 \label{modres1} \\
 \dot x_3 &= q_{13}(x_1) - q_{30}(x_3) + u_2 
 \end{split} \end{equation}
-où les variables d'état $x_i$ sont les volumes d'eau contenus dans les
-réservoirs, la variable d'entrée $u_1$ est le débit d'alimentation du premier
-réservoir, la variable d'entrée $u_2 = F$ est le débit pompé du deuxième 
-vers le troisième  réservoir et les fonctions $q_{ij}(x_i)$ sont définies comme suit~:
+where the state variables $x_i$ stand for water volumes contained in vessels,
+input variable $u_1$ corresponds to the first vessel supply debit,
+input variable $u_2 = F$ corresponds to the pumped flow from the second vessel towards the third vessel
+and functions $q_{ij}(x_i)$ are defined as follows:
 \eqnn
 q_{ij}(x_i) = \frac {k_{ij}x_i\sqrt{x_i} }{S_i \beta_{ij} + x_i}
 \eeqnn
-On observe que ce modèle d'état {\it ne peut pas} être celui d'un système à
-compartiments vérifiant les conditions C1 - C3. En effet le flux $q_{23} = u_2$ ne vérifie pas la condition C3 et le système n'est pas positif : une simulation de ce modèle peut
-conduire à des niveaux négatifs dans les réservoirs (même si les débits
-pompés restent positifs) ce qui est évidemment contradictoire avec la réalité
-physique. La difficulté provient du fait que, avec le modèle tel qu'il est écrit, on
-peut pomper de l'eau dans le deuxième réservoir même quand il est vide !
+We observe that this state model {\it cannot} represents a compartmental system respecting C1-C3 conditions.
+The flow $q_{23} = u_2$ does indeed not respect the C3 condition and the system is not positive:
+simulations of this model can lead to negative vessels levels (even if the pumped debits remain positive) 
+which is obviously conflicting with physical reality.
 
-On contourne aisément cette difficulté si on modélise le flux $q_{23}$ (qui est le
-débit pompé $F$) de manière à respecter la réalité physique et à satisfaire la
-condition C3 comme ceci~:
-$$
-q_{23}(x_2,u_2) = \phi(x_2)u_2
-$$
-où $\phi(x_2)$ est une fonction positive vérifiant $\phi(0) = 0$ et
-$u_2$ représente l'actionnement de la pompe. On obtient alors un système à
-compartiments dont le graphe est présenté à la figure \ref{Fig:graphreseau} et
-dont le modèle d'état s'écrit~:
+The model as stated indeed allows to pump water in the second vessel even when it is empty!
+
+This problem can be easily avoided if the flow $q_{23}$ (where the pumped debit is $F$) is modeled such as it respects the physical reality and 
+the C3 condition as:
+$$q_{23}(x_2,u_2) = \phi(x_2)u_2$$
+where $\phi(x_2)$ is a positive function satisfying $\phi(0) = 0$ and
+$u_2$ represents the pump activation.
+
+We therefore obtain a compartment system which graph is presented on figure \ref{Fig:graphreseau} and the state model can be written as:
+
 \begin{equation*} \begin{split}
 \dot x_1 &= - q_{12}(x_1) - q_{13}(x_1) + u_1 \\
 \dot x_2 &=  q_{12}(x_1) - \phi(x_2)u_2 \\
@@ -463,20 +445,17 @@ dont le modèle d'état s'écrit~:
 \begin{figure}[h] 
 \begin{center}
 \includegraphics[width=7cm]{images/graphreseau}
-\caption{Graphe associé au réseau de réservoirs}
+\caption{Vessels network associated graph}
 \label{Fig:graphreseau}
 \end{center} 
 \end{figure}
 \cqfd
 \end{exemple}
+The fundamental structural property of compartments linear systems can be generalized to non linear system with the following theorem.
 
-La propriété structurelle fondamentale des systèmes linéaires à
-compartiments se généralise aux systèmes non linéaires de la manière
-suivante.
 \begin{theoreme} 
-
-Soit un système non linéaire à compartiments dont les flux $q_{ij}$ vérifient les
-conditions C1 - C3. Alors les flux peuvent s'écrire de la fa\c con suivante~:
+Given a compartments non linear system which flows $q_{ij}$ satisfy C1-C3 conditions.
+Therefore, the flows can be written as follows:
 \eqnn
 && q_{ij}(x,u) = a_{ij}(x,u)x_i \hspace{4mm}
 (i=1,...,n;j=1,...,n)\\ 
@@ -484,57 +463,57 @@ conditions C1 - C3. Alors les flux peuvent s'écrire de la fa\c con suivante~:
 (i=1,...,n)\\
 && q_{0i} = k_{0i}u_i
 \eeqnn
-où les fonctions $a_{ij}(x,u)$ et $a_{i0}(x,u)$, définies sur
-l'orthant positif, sont continues. 
+where functions $a_{ij}(x,u)$ et $a_{i0}(x,u)$, defined on the positive orthant, are continuous. 
 
-En conséquence, le modèle d'état du système peut se mettre sous la forme
-suivante~:
-$$
-\dot x = A(x,u)x + Bu
-$$
-où la matrice $A(x,u)$ est une matrice de Metzler diagonalement dominante pour
-tout $(x,u)$ dans l'orthant positif et $B$ est une matrice élémentaire.
+Therefore, the system state model can be written as:
+$$ \dot x = A(x,u)x + Bu $$
+where the matrix $A(x,u)$ is a diagonally dominant Metzler matrix for all $(x,u)$ in the positive orthant 
+and $B$ an elementary matrix.
 \cqfd
 \end{theoreme}
-Nous terminons ce chapitre par la présentation d'un autre exemple industriel
-classique de système à compartiments.
-\begin{exemple}{\bf \em Procédé de distillation binaire}
 
-Un procédé de distillation binaire est un procédé utilisé pour séparer un
-mélange de deux composés chimiques, sous forme liquide, appelé {\em charge}. Un {\it
-dépropaniseur} ayant pour fonction de séparer le propane du butane est un
-exemple typique de procédé de distillation binaire dans l'industrie pétrochimique.
+We will end this chapter with another industrial classical compartmental system example.
 
-La séparation s'effectue par évaporation dans une enceinte fermée appelée {\em ballon} (voir figure \ref{Fig:distillation}).
+\begin{exemple}{\bf \em Binary distillation process}
+
+A binary distillation process is a process used to split a liquid load composed of two liquid chemical components.
+A {\it depropanizer} used to split propane from butane is a typical example of binary distillation process within the petrochemical industry.
+
+The split is made by evaporation in an enclosed vessel called {\em round-bottom flask} (see figure \ref{Fig:distillation}).
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{images/proc_distil}
-\caption{Procédé de distillation}
+\caption{Distillation process}
 \label{Fig:distillation}
 \end{center} 
 \end{figure}
-Au sommet du ballon sort le {\it distillat} contenant essentiellement le composé léger avec
-un peu de composé lourd. Au fond du ballon sort le {\it résidu} qui contient
-essentiellement le composé lourd avec un peu de composé léger. Le ballon est alimenté par la charge avec un débit molaire $F$ (mol/min). Le flux de vapeur sortant au sommet du ballon est refroidi et complètement condensé. Le liquide
-sortant du condenseur est partiellement recyclé vers le ballon avec un débit
-molaire $L$. Le reste, appelé {\it distillat}, est extrait du système. En fond de
-ballon, le liquide sortant est
-réchauffé dans un rebouilleur et la vapeur ainsi produite est recyclée dans le ballon.  Le reste, appelé {\it résidu}, est extrait.
+The {\it distillate} containing mainly the lightest component with a bit of the heaviest one exits from the top of the flask.
 
-On présente ci-dessous un modèle simplifié de la dynamique de ce procédé de distillation en faisant les
-hypothèses de modélisation suivantes~:
+The {\it residue} containing mainly the heaviest component with a bit of the lightest one exits from the bottom of the flask.
+
+The flask is filled by the liquid load with a molar debit $F$ (mol/min). 
+The steam flow spreading out the flask is cooled down and entirely condensed.
+The outgoing liquid is partially recycled toward the flask with a molar debit $L$. 
+
+The remaining part, called {\it distillate}, is extracted from the system.
+
+At the bottom of the flask, the outgoing liquid is warmed up a boiler and the produced steam is recycled within the flask.
+The remaining part, called {\it residue}, is extracted from the system.
+
+The distillation process dynamic is simplified by the following modeling assumptions and represented below:
 \begin{enumerate}
-\item la charge est liquide et à sa température de bulle;
-\item les phases liquide et vapeur dans le ballon et le rebouilleur sont homogènes et à
-l'équilibre;
-\item dans le ballon la pression est constante et il n'y a pas d'accumulation de vapeur; cette hypothèse permet d'omettre les dépendances en pression dans les équations et implique que le débit de vapeur $V$  à la sortie du ballon est égal au débit à l'entrée; 
-\item les débits d'extraction liquide sont ajustés de manière que les masses molaires totales de la phase liquide dans les trois récipients soient constantes : le distillat est donc extrait avec un débit molaire $V-L$, le liquide en fond de ballon avec un débit molaire $F+L$ et le résidu avec un débit molaire $F+L-V$. Evidemment, cela implique que l'inégalité $0 < L < V < F+L$ soit vérifiée.\\
+\item the load is liquid and has the flask temperature;
+\item the liquid and steam state in the flask and the boiler are homogeneous and at equilibrium;
+\item the flask pressure is constant and there is no steam accumulation; this assumption allows to omit pressure dependencies
+in the equations and implies that the steam debit $V$  exiting the flask is equivalent to the input debit; 
+\item the liquid extraction debits are adjusted such as the total molar masses of the components in liquid state remain constant : 
+the distillate is therefore extracted with a molar debit $V-L$, the liquid at the bottom of the flask is extracted with a molar debit $F+L$
+and the residue is extracted with a molar debit $F+L-V$. Obviously, this implies that the inequality $0 < L < V < F+L$ has to be verified.\\
 \end{enumerate}
-Ainsi décrit, le procédé de distillation peut être vu comme un système à
-compartiments dont le modèle dynamique est constitué des
-équations de bilan de l'un des deux composés dans le ballon, dans le condenseur et dans le rebouilleur. Le graphe de ce système à
-compartiments est présenté à la figure \ref{Fig:graphdisti} et les équations
-d'état sont les suivantes~:
+
+Given this definition, the distillation process can be interpreted as a compartments system which dynamic model is based on
+balance equations of one of the two components in the flask, in the condenser and in the boiler.
+This compartments system graph is presented on figure \ref{Fig:graphdisti} and the state equations are:
 \begin{equation*} \begin{split}
 \dot x_1 &= u_2 k(x_2) - u_{1}\frac{x_1}{m_1} - (u_2 - u_1) \frac{x_1}{m_1}\\
 \dot x_2 &= u_1\frac{x_1}{m_1} - (u_1+u_3)\frac{x_2}{m_2} + u_2(k(x_3) - k(x_2)) + u_3c_f\\
@@ -543,70 +522,66 @@ d'état sont les suivantes~:
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=5cm]{images/graphprocdistil}
-\caption{Graphe associé au procédé de distillation}
+\caption{Distillation process associated graph}
 \label{Fig:graphdisti}
 \end{center} 
 \end{figure}
-Dans ces équations, les variables d'état $x_i$ représentent la masse molaire du
-composant léger dans la phase liquide du condenseur (indice $1$), du ballon (indice $2$) et du rebouilleur (indice  $3$); les paramètres $m_i$ sont les 
-masses molaires totales (et constantes) correspondantes : le rapport $x_i/m_i$ est la {\it fraction molaire}; le paramètre $c_f$
-est la fraction molaire du composé léger dans la charge; les variables d'entrées $u_1 =
-L$, $u_2 = V$ et
-$u_3 = F$ sont, respectivement, les débits molaires de reflux, de production de vapeur et
-d'alimentation. Enfin, la fonction $k(x)$ est une relation d'équilibre
-liquide-vapeur permettant de relier la fraction molaire du composant léger quittant le liquide
-sous forme vapeur à la fraction molaire du composant dans la phase liquide. 
+State variables $x_i$ stand for the molar mass of the lightest component in the liquid state within
+the condenser (index $1$), the flask (index $2$) and the boiler(index  $3$);
+
+Parameters $m_i$ represent those total (and constant) molar masses : 
+the ratio $x_i/m_i$ corresponds to the {\it molar fraction}; 
+parameter $c_f$ molar fraction of the lightest component within the load; 
+
+Input variables $u_1 = L$, $u_2 = V$ and $u_3 = F$ are, respectively, molar debit of the reflux, the steam production and the supply.
+Finally, the function $k(x)$ is a liquid-steam equilibrium relationship allowing to link the molar fraction of the lightest component
+leaving the liquid by vaporization to the molar fraction of the component in liquid state. 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4cm]{images/separ}
-\caption{Relation d'équilibre liquide-vapeur}
+\caption{Liquid-steam equilibrium relationship}
 \label{Fig:separ}
 \end{center} 
 \end{figure}
 
-\noindent Cette
-relation s'exprime classiquement comme suit~:
+\noindent This relationship is classically expressed as follows:
 \eqnn
 k(x_i) \triangleq \frac{\alpha x_i}{m_i + (\alpha - 1)x_i}
 \eeqnn
-où le paramètre constant $\alpha > 1$ porte le nom de facteur de séparation.
-Cette fonction, définie sur l'intervalle $[0,m_i]$, vérifie $k(0) = 0$ et
-$k(m_i) = 1$ (voir figure \ref{Fig:separ}). \qed  
+where the constant parameter $\alpha > 1$ is called separation factor.
+This function, defined on the interval $[0,m_i]$, checks $k(0) = 0$ and
+$k(m_i) = 1$ (see figure \ref{Fig:separ}). \qed  
 \end{exemple}
 
-\section{Exercices}
+\section{Exercises}
 
-\begin{exercice}{\bf \em Un système à compartiments}
+\begin{exercice}{\bf \em A compartments system}
 
-Soit le système dynamique suivant:
+Given the following dynamical system:
 \begin{align*}
 \dot x_{1} &= x_{3} - \log (1+x_{1}) \\
 \dot x_{2} &= x_{3} - x_{2}^2 \\
 \dot x_{3} &= x_{2}^2 - 2x_{3} + u
 \end{align*}
-Démontrer qu'il s'agit d'un système à compartiments. Dessiner le graphe associé. Calculer les flux $q_{ij}$, la matrice $L$ et la matrice $A(x,u)$. \qed
+Demonstrate that it is a compartments system. Draw the associated graph. Compute the flows $q_{ij}$, the matrix $L$ and the matrix $A(x,u)$. \qed
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un système hydraulique}
+\begin{exercice}{\bf \em A hydraulic system}
 
-Un système hydraulique comportant trois réservoirs et deux pompes
-est représenté à la figure \ref{Fig:systhydr}.
+A hydraulic system containing three vessels and two pumps is presented on figure \ref{Fig:systhydr}.
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{images/systhydr}
-\caption{Système hydraulique}
+\caption{Hydraulic system}
 \label{Fig:systhydr}
 \end{center} 
 \end{figure}
 \begin{enumerate}
-\item Etablir un modèle d'état du système en considérant les
-débits volumétriques $u_1 = F_1$ et $u_2 = F_2$ comme variables
-d'entrée. Montrer que le système obtenu n'est {\it pas} un système
-positif. 
-\item Proposer une autre définition de la variable d'entrée $u_2$ qui
-garantisse que le système soit positif. 
-\item Dessiner le graphe du modèle à compartiments ainsi obtenu. \qed
+\item Establish a state model for the system, where the volumetric debits $u_1 = F_1$ and $u_2 = F_2$ are input variables. 
+Show that the obtained system is {\it not} a positive system. 
+\item Suggest an alternative definition for the input variable $u_2$ which ensure a postive system. 
+\item Draw the obtained compartments graph model. \qed
 \end{enumerate}
 \end{exercice}
 \vv 
@@ -614,68 +589,62 @@ garantisse que le système soit positif.
 \begin{figure}[!ht] 
 \begin{center}
 \includegraphics[width=8cm]{images/cuvmel}
-\caption{Réseau de cuves de mélange}
+\caption{Mixing vessels network}
 \label{Fig:cuvmel}
 \end{center} 
 \end{figure}
 
-\begin{exercice}{\bf \em Un réseau de cuves de mélange}
+\begin{exercice}{\bf \em A mixing vessels network}
 
-Le système représenté à la figure \ref{Fig:cuvmel} est con\c cu pour
-mélanger trois substances $X_1, X_2, X_3$ dont les concentrations
-d'alimentation sont notées $C_1, C_2, C_3$. Les volumes contenus
-dans les deux cuves sont notés $V_1, V_2$. Les débits volumétriques
-des pompes sont notés $Q_1, Q_2, F_1, F_2, F_3$.
+The system represented on figure \ref{Fig:cuvmel} is designed for mixing three substances $X_1, X_2, X_3$ 
+whose supply concentrations are denoted $C_1, C_2, C_3$ respectively.
+
+The contained volumes in the two vessels are denoted $V_1$ and $V_2$. 
+The pump volumetric debits are denoted as $Q_1, Q_2, F_1, F_2, F_3$.
 
 \begin{enumerate}
-\item Etablir un modèle d'état du système avec les variables
-d'entrée suivantes~: $u_1 = Q_1/V_1, u_2 = Q_2/V_2, u_3 = C_1, u_4 =
-C_2, u_5 = C_3$. Les débits $F_i$, $i = 1, \dots , 3$, sont supposés
-constants.
-\item Justifier la forme des variables d'entrées $u_1$ et $u_2$. \qed
+\item Establish a state model of the system with the following input variables: 
+$u_1 = Q_1/V_1, u_2 = Q_2/V_2, u_3 = C_1, u_4 = C_2, u_5 = C_3$. 
+The debits $F_i$, $i = 1, \dots , 3$, are supposed constants.
+\item Justify the input variables $u_1$ and $u_2$ form. \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Modèle linéaire à compartiments}
+\begin{exercice}{\bf \em Compartments linear model}
 
-Caractériser la structure du graphe d'un modèle linéaire à
-compartiments dont la matrice $A$ est~:
+Characterize the graph structure of a compartments linear model whose associated matrix $A$ is:
 \begin{enumerate}
-\item bidiagonale
-\item tridiagonale
-\item triangulaire inférieure \qed
+\item bidiagonal
+\item tridiagonal
+\item lower triangular \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Modèle du  procédé de distillation}
+\begin{exercice}{\bf \em Distillation process model}
 
-Déterminer la matrice $A(x,u)$ du modèle du procédé de distillation. \qed
+Determine the matrix $A(x,u)$ of the distillation process model. \qed
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Des réservoirs communicants}
+\begin{exercice}{\bf \em Communicating vessels}
 
-Un système à deux réservoirs communicants est représenté à la
-figure \ref{Fig:reservoircom} Le liquide s'écoule librement entre les deux
-réservoirs et vers l'extérieur sous l'action de la pression hydrostatique.
+A system with two communicating vessels is represented on figure \ref{Fig:reservoircom}.
+The liquid flows freely between the two vessels and towards the outside under the hydrostatic pressure action.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{images/reservoircom}
-\caption{Réservoirs communicants}
+\caption{Communicating vessels}
 \label{Fig:reservoircom}
 \end{center} 
 \end{figure}
 
 \begin{enumerate}
-\item Etablir un modèle d'état du système. Le débit fourni par la
-pompe d'alimentation est la seule variable d'entrée du système.
-\item Montrer qu'il s'agit d'un système à compartiments. Dessiner le
-graphe associé. Expliciter les flux entre compartiments. \qed
+\item Establish a state model of the system. The provided debit (by the supply pump) is the only input variable. 
+\item Show that it is a compartments system. Draw the associated graph. Explain the flow between the compartments. \qed
 \end{enumerate}
 \end{exercice}
-
 
 \end{document}
