@@ -9,182 +9,173 @@
 \graphicspath{ {Chapitre1/images/} }
 
 \setcounter{chapter}{0}
-\chapter{Systèmes dynamiques et modèles d'état}
-\chaptermark{Systèmes dynamiques et modèles d'état}
+\chapter{Dynamic systems and state models}
+\chaptermark{Dynamic systems and state models}
 
 
-\lettrine[lines=1]{\bf D}{}ans ce premier chapitre nous donnons tout d'abord la définition de la classe des systèmes dynamiques qui est étudiée dans le livre, ainsi que la terminologie et les notations utilisées, et nous l'illustrons avec divers exemples relevant des sciences de l'ingénieur. Nous expliquons ensuite ce que recouvrent les notions de modélisation et d'analyse des systèmes dynamiques. Le chapitre se termine par une description succincte du contenu des neufs autres chapitres qui constituent le livre.
+\lettrine[lines=1]{\bf I}{}n this first chapter we give first of all the definition of the dynamic systems group which is studied in the book, as well as the terminology and the used notations, and we illustrate it with some examples from engineering sciences. We explain then what recover the notions of modelling and analysis of dynamic systems. The chapter ends by a brief description of the nine other chapters content.
 
-\section{Définition et exemples} \label{exemple}
+\section{Definitions and examples} \label{exemple}
 
-Dans ce livre, nous étudierons des systèmes 
-dynamiques décrits par des ensembles d'équations différentielles du premier
-ordre de la forme
+In this book, we will study dynamic systems described by sets of first-order differential equations of the shape
 \eqn
 \dot x_1&=&f_1(x_1,x_2, \ldots, x_n,u_1,u_2, \ldots u_m), \nonumber\\
 \dot x_2&=& f_2(x_1,x_2, \ldots, x_n,u_1,u_2, \ldots u_m), \nonumber\\
 \vdots&&\vdots\label{eq:modetn}\\
 \dot x_n &=& f_n(x_1,x_2, \ldots, x_n,u_1,u_2, \ldots u_m), \nonumber
 \eeqn
-où les $f_i$ sont des applications de $\real^{n+m}$ dans $\real$ tandis que les $x_i$ et $u_i$ sont des fonctions scalaires du {\em temps} $t$, qui est une variable indépendante. La quantité $\dot x_i$ représente la dérivée de la variable $x_i$ par rapport au
-temps $t$.  Les variables $x_1, x_2, \ldots, x_n$ sont appelées {\em variables
-d'état} et contiennent toute l'information nécessaire sur {\em l'état} du
-système à l'instant présent pour pouvoir calculer l'évolution de
-celui-ci dans le futur, au moyen des équations (\ref{eq:modetn}), étant
-données les valeurs futures des variables $u_1, u_2, \ldots, u_m$. 
-Celles-ci, appelées {\em entrées} du système, représentent l'influence de l'environnement extérieur sur le système étudié.  On écrit souvent, de manière condensée,  
+where $f_i$ are applications from $\real^{n+m}$ to $\real$, while the $x_i$ and $u_i$ are scalar functions of {\em time} $t$, which is an independant variable. The quantity $\dot x_i$ represents the derivative of the variable $x_i$ relative to time $t$.  The variables $x_1, x_2, \ldots, x_n$ are called {\em state variables} and contain all the necessary information on {\em the state} of the system in the present to be able to measure its evolution in the future, by means of equations (\ref{eq:modetn}), knowing the future values of the variables $u_1, u_2, \ldots, u_m$. 
+These are called {\em entries} of the system, and represent the outside's influence on the studied system.  We often write, in a condensed way, 
 \e
 \dot x = f(x,u)\label{eq:modet}
 \ee
-où $f$ est une application de $\real^{n+m}$ dans $\real^n$ tandis que $x$ et $u$ sont des fonctions vectorielles du temps. 
+where $f$ is an application from $\real^{n+m}$ to $\real^n$ while $x$ and $u$ are vectorial functions of time. 
 
-Un tel système
-d'équations est appelé {\em modèle d'état}. L'objet de ce livre est de traiter
-la {\em modélisation}, c'est à dire l'obtention de telles équations dans diverses applications des sciences de l'ingénieur, et {\em l'analyse}, c'est à dire la détermination
-des propriétés principales de ces systèmes, déduites des équations.  Nous
-commençons par quelques exemples pour illustrer notre propos.
+Such a system of
+equations is called {\em state model}. The goal of this book is to treat the {\em modelling},  i.e. obtaining such equations for diverse applications of engineering sciences, and the {\em analysis}, i.e. the determination of
+main properties of these systems, deducted from the equations. 
+Let us begin with some examples to illustrate our subject.
 \vv
 
-\begin{exemple}{\bf  Un four de verrerie}
+\begin{exemple}{\bf A glass furnace}
 
-Le premier exemple est un procédé industriel, illustré schématique\-ment
-à la figure \ref{fig:fourverre}.  
+The first example is an industrial process, illustrated in figure \ref{fig:fourverre}.  
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=12cm]{fouraverre}
-\caption{Four de verrerie}
+\caption{A glass furnace}
 \label{fig:fourverre}
 \end{center}
 \end{figure}
-Il s'agit d'un four dont les parois sont construites en matériau réfractaire et dans lequel on fait fondre un mélange
-de sable, de chaux et d'autres additifs pour obtenir du verre.  Cette fusion est
-obtenue par un apport énergétique à l'intérieur du four, provenant par
-exemple de brûleurs à gaz disposés au dessus du bain de
-verre.  Le verre fondu est extrait du four de manière continue
-pour alimenter les machines en aval.  En faisant l'hypothèse que la température du verre est homogène dans
-le four et que celui-ci est parfaitement isolé, nous pouvons écrire les deux
-équations suivantes, correspondant à un bilan massique et à un bilan énergétique du
-procédé. Nous écrivons donc que la variation de masse ou d'énergie, par unité de temps, dans le système considéré est égale à la
-somme de  ce qui rentre dans le système, en termes de masse et de chaleur,
-diminuée ce qui en sort, toujours durant la même unité de temps:  
+It is about a furnace whose walls are built in refractory material and in which we melt a mixture
+of sand, lime and other additives to obtain glass. This fusion is
+obtained thanks to an energy input inside the furnace, for
+instance coming from a gas burner placed above the bath of
+glass. The molten glass is extracted from the furnace in a continuous way
+to feed machines downstream. By making the assumption that the temperature of the glass is homogeneous in
+the furnace and that this one is perfectly isolated, we can write the
+following equations, corresponding to the mass balance and to the energy balance of
+the process. We thus write that the mass or energy change in the considered system, by unit of time, equals the
+sum of what goes into the system, in terms of mass and heat,
+decreased by what gets out of it, always during the same unit of time:
 \eqn \begin{split}
 \frac{dM}{dt} &= P_{in} - P_{out}, \label{eq:bvf} \\
 \frac{d}{dt}(CTM) &= Q_{in} + C_{in}T_{in}P_{in}-CTP_{out},
 \end{split} \eeqn
-avec la signification suivante des variables et paramètres du modèle:\\
+with the following meaning of variables and parameters of the model:\\
 
-$M$ : masse du verre en fusion dans le four (kg),
+$M$ : mass of the glass in fusion in the furnace (kg),
 
-$T$ : température du verre en fusion dans le four (K),
+$T$ : temperature of the glass in fusion in the furnace (K),
 
-$T_{in}$ : température de la matière première enfournée (K),
+$T_{in}$ : temperature of the row material put in the furnace (K),
 
-$C$ : chaleur spécifique du verre (J/K$\times$kg),
+$C$ : specific heat of the glass (J/K$\times$kg),
 
-$C_{in}$: chaleur spécifique de la matière première (J/K$\times$kg),
+$C_{in}$: specific heat of the raw material (J/K$\times$kg),
 
-$Q_{in}$ : quantité de chaleur fournie par unité de temps (J/s),
+$Q_{in}$ : heat quantity supplied by unit of time (J/s),
 
-$P_{in}$ : masse enfournée par unité de temps (kg/s),
+$P_{in}$ : mass put in the furnace by unit of time (kg/s),
 
-$P_{out}$ : masse \og tirée \fg~par unité de temps (kg/s).\\
+$P_{out}$ : mass extracted by unit of time (kg/s).\\
 
-\noindent Nous avons indiqué des unités pour chacune des grandeurs définies ci-dessus. La cohérence dimensionnelle des équations est la première vérification à effectuer dans un exercice de mise en équation d'un modèle mathématique.
+\noindent We indicated units for each of the sizes defined above. The dimensional coherence of the equations is the first check to be made in an exercise of transforming a mathematical model into equations.
 
-Pour mettre le système d'équations (\ref{eq:bvf}) sous la forme d'un modèle d'état (\ref{eq:modetn}), on définit les variables d'état~:\\
+In order to put the system of equations (\ref {eq:bvf}) under the shape of a state model (\ref {eq:modetn}), we define the state variables ~: \\
 
-$x_1 \triangleq M$ : masse du verre en fusion (kg),
+$x_1 \triangleq M$ : mass of the glass in fusion (kg),
 
-$x_2 \triangleq C T$ : quantité de chaleur par unité de masse de verre en fusion (J/kg),\\
+$x_2 \triangleq C T$ : heat quantity by unit of mass of glass in fusion (J/kg),\\
 
-\noindent et les variables d'entrée~:\\
+\noindent and the input variables~:\\
 
-$u_1 \triangleq P_{in}$ : masse enfournée par unité de temps (kg/s),
+$u_1 \triangleq P_{in}$ : mass put in the furnace by unit of time (kg/s),
 
-$u_2 \triangleq P_{out}$ : masse tirée par unité de temps (kg/s),
+$u_2 \triangleq P_{out}$ : mass extracted by unit of time (kg/s),
 
-$u_3 \triangleq Q_{in}$ : chaleur fournie par unité de temps (J/s).\\
+$u_3 \triangleq Q_{in}$ : head supplied by unit of time (J/s).\\
 
-\noindent On obtient alors le modèle d'état~:
+\noindent We obtain the following state model~:
 \begin{equation} \begin{split} \label{four1}
 \dot x_1 &= u_1 - u_2, \\
 \dot x_2 &= \dfrac {u_1(\alpha - x_2) + u_3}{x_1},
 \end{split} \end{equation}
-où le paramètre constant $\alpha = C_{in}T_{in}$ est la quantité de chaleur de la matière enfournée par unité de masse.
+where the constant parameter $\alpha = C_{in}T_{in}$ is the heat quantity of the material put in the furnace by unit of mass.
 
-On note que d'autres choix des variables d'état et des variables d'entrée sont possibles (voir exercice 1.2). \qed
+Note that other choices for the state variables and input variables are possible (see exercise 1.2). \qed
 \end{exemple}  
 \vv
 
-\begin{exemple}{\bf  Un réacteur chimique }
+\begin{exemple}{\bf  A chemical reactor }
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=7cm]{reachim}
-\caption{Réacteur chimique}
+\caption{Chemical reactor}
 \label{fig:reachim}
 \end{center}
 \end{figure}
-Dans un réacteur chimique (Figure \ref{fig:reachim}), une réaction transformant un réactif A en un produit B se déroule en phase liquide à une certaine température $T$.  Le réacteur est alimenté en réactif
-A via une vanne d'alimentation qui introduit le réactif à la concentration
-$A_{in}$ avec un débit volumique d'alimentation variable
-$q_{in}$ qui est une fonction monotone croissante de l'ouverture de vanne $w$ : $q_{in} = \phi(w)$. Le contenu du réacteur est extrait par une pompe avec un débit de soutirage $q_{out}$. On suppose que la réaction est endothermique et nécessite dès lors un apport calorifique $W$ fourni par une résistance chauffante $R_0$ alimentée par une source de courant variable $I$ comme illustré sur la figure. On suppose en outre que le réacteur est
-parfaitement mélangé. La réaction (c.à.d. la transformation du réactif A en
-produit B) se passe avec une vitesse de réaction qui obéit à une cinétique du premier ordre, c.à.d. proportionnellement à la quantité de réactif A dans le
-réacteur. Le coefficient de proportionnalité est fonction de la température
-et vérifie la loi d'Arrhenius, $k(T)=k_0 \exp(-\frac{E}{RT})$.
+In a chemical reactor (Figure \ref{fig:reachim}), a reaction transforming a reactive A into a product B takes place in liquid phase with a certain temperature  $T$.  The reactor is fed with reactive
+A via a valve wich introduces the reactive with concentration
+$A_{in}$ with a variable volume flow
+$q_{in}$ which is a monotonous increasing function of the valve opening $w$ : $q_{in} = \phi(w)$. The content of the reactor is extracted by a pump with a flow $q_{out}$. We assume that the reaction is endothermic and then requires a heat input $W$ supplied by a heating resistance $R_0$ fed by a variable current source $I$ as illustrated in the figure. Moreover, we assume that the reactor is
+perfectly mixed. The reaction (i.e. the transformation of the reactive A in
+produced B) takes place with a reaction speed which follows a kinetic of the first order, i.e. proportional to the quantity of reactive A in the
+reactor. The coefficient of proportionality is a function of the temperature
+and verify the law of Arrhenius, $k(T)=k_0 \exp(-\frac{E}{RT})$.\\
 
-On décrit l'évolution de ce système en écrivant les équations de bilan volumétrique, massique et thermique:
+We describe the evolution of this system by writing the equations of volumetric, mass and heat balances:
 \begin{equation*} \begin{split} 
 &\frac{dV}{dt} = q_{in} - q_{out},\\[0.3em]
 &\frac{d}{dt}(AV) = q_{in}A_{in} -q_{out}A-k(T)AV, \\[0.3em]
 &\frac{d}{dt}(BV) = -q_{out}B + k(T)AV, \\[0.3em]
 &\frac{d}{dt}(CTV) = CT_{in}q_{in}-CTq_{out} - hk(T)AV + R_0I^2,
 \end{split} \end{equation*}
-avec~:\\
+with~:\\
 
-$V$ : volume de liquide dans le réacteur, 
+$V$ : liquid volume in the reactor, 
 
-$A$ : concentration en réactif A dans le réacteur,
+$A$ : concentration of reactive A in the reactor,
 
-$B$ : concentration en produit B dans le réacteur,
+$B$ : concentration of reactive B in the reactor,
 
-$k_0$ : constante de vitesse de réaction,
+$k_0$ : reaction speed's constant,
 
-$E$ : énergie d'activation,
+$E$ : activation energy,
 
-$R$ : constante de Boltzmann,
+$R$ : Boltzmann constant,
 
-$C$ : chaleur spécifique,
+$C$ : specific heat,
 
-$h$ : enthalpie de réaction.\\
+$h$ : reaction enthalpy.\\
 
-\noindent Les autres notations ont été définies plus haut. En définissant les variables d'état
+\noindent The other notations are defined above. We can define the state variables
 
-$x_1 = A$ : concentration en réactif dans le réacteur,
+$x_1 = A$ : reactive concentration in the reactor,
 
-$x_2 = B$ : concentration en produit dans le réacteur,
+$x_2 = B$ : product concentration in the reactor,
 
-$x_3 = V$ : volume du milieu réactionnel,
+$x_3 = V$ : volume of the reactionnal environment,
 
-$x_4 = T$ : température du milieu réactionnel,\\
+$x_4 = T$ : temperature of the reactionnal environment,\\
 
-\noindent et les variables d'entrée
+\noindent and the input variables
 
-$u_1 = w$ : ouverture de vanne,
+$u_1 = w$ : valve opening,
 
-$u_2 = q_{out}$ : débit de soutirage,
+$u_2 = q_{out}$ : withdrawal rate,
 
-$u_3 = I$ : courant électrique fourni à la résistance chauffante,\\
+$u_3 = I$ : electrical current supplied in the heating resistance,\\
 
-\noindent on obtient le modèle d'état suivant~:
+\noindent we obtain the following state model~:
 \begin{equation*} \begin{split} 
 \dot x_1 &= \phi(u_1)\dfrac{{\textstyle A_{in} - x_1}}{{\textstyle x_3}} - k(x_4)x_1,\\[0.3em]
 \dot x_2 &= - \phi(u_1) \dfrac{x_2}{x_3} + k(x_4)x_1,\\[0.3em]
 \dot x_3 &= \phi(u_1) - u_2, \\[0.3em]
 \dot x_4 &= \dfrac{{1}}{{x_3}}[\phi(u_1)(T_{in} - x_4) + \dfrac{{R_0}}{{C}}u_3^2] - \dfrac{{h}}{{C}}k(x_4)x_1.
 \end{split} \end{equation*}
-Les réacteurs {\it continus} et {\it isothermes} constituent un cas particulier intéressant. Il s'agit de réacteurs pour lesquels le volume $V$ et la température $T$ sont maintenus constants par des dispositifs de régulation adéquats. Le modèle d'état est alors réduit aux deux premières équations du modèle ci-dessus~:
+{\it Continuous} and {\it isotherms} reactors constitute an interesting particular case. It is about reactors for which the volume $V$ and the temperature $T$ are maintained constant by adequate regulation devices. The state model is then reduced to the first two equations of the model above ~:
 \begin{equation} \begin{split} \label{iso}
 \dot x_1 &= \dfrac{\phi(u_1)}{{V}} (A_{in} - x_1) - k(T)x_1, \\[0.3em]
 \dot x_2 &= - \dfrac{\phi(u_1)}{{V}} x_2 + k(T)x_1.  \xqedhere{4.8cm}{\qed}
@@ -192,9 +183,9 @@ Les réacteurs {\it continus} et {\it isothermes} constituent un cas particulier
 \end{exemple}
 \vv
 
-\begin{exemple}{\bf Des coccinelles et des pucerons}
+\begin{exemple}{\bf Ladybirds and aphids}
 
-Les pucerons sont des insectes ravageurs permanents et redoutables pour les cultures de rosiers. La lutte biologique contre ces ravageurs est une alternative aux traitements par pesticides qui sont de moins en moins efficaces devant les résistances développées par les pucerons. 
+Aphids are permanent pests for the rosebushes cultures. The biological fight against these devastating species is an alternative to the treatments by pesticides, which are less and less effective in front of the resistances developed by aphids.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4cm]{cocci}
@@ -202,151 +193,136 @@ Les pucerons sont des insectes ravageurs permanents et redoutables pour les cult
 \label{fig:cocci}
 \end{center}
 \end{figure}
-Les coccinelles {\em Harmonia axyridis} (Fig. \ref{fig:cocci}) sont utilisées dans cette lutte biologique car elles se nourissent de pucerons avec une grande voracité. Elles sont actives dès le printemps, c'est-à-dire dès l'apparition des colonies de pucerons dans les roseraies. Pour augmenter l'efficacité prédatrice des coccinelles, l'Institut Fran\c cais de Recherche Agronomique (INRA) a développé une variété de coccinelles \og sédentaires \gf qui ne volent pas (et ne risquent donc pas de quitter la culture à tra\^ iter).
+The {\em Harmonia axyridis} ladybirds (Fig. \ref{fig:cocci}) are used in this biological fight because they feed on aphids with great voracity. They are active by spring, that is by the appearance of the aphids colonies in rose gardens. To increase the predatory efficiency of ladybirds, the French institute of agronomic research (INRA) developed a ladybirds variety \og home-bodies \gf who do not fly (and therefore are not likely to leave the cultures).
 
-On souhaite établir un modèle décrivant l'évolution du nombre de pucerons $x_1(t)$ et de coccinelles $x_2(t)$ sous les hypothèses suivantes:
+We wish to establish a model describing the evolution of the number of aphids $x_1(t)$ and of ladybirds $x_2(t)$ under the following assumptions:
 \begin{enumerate}
-\item en l'absence de coccinelles, la population de pucerons dispose d'assez de nourriture (les feuilles des rosiers) pour avoir une croissance exponentielle avec un taux spécifique de croissance constant;
-\item les coccinelles dévorent d'autant plus de pucerons qu'ils sont nombreux;
-\item la prédation par les coccinelles est la seule source de mortalité naturelle des pucerons;
-\item les coccinelles ont un taux spécifique constant de mortalité naturelle;
-\item le jardinier, qui n'est pas très futé, répand un pesticide qui tue indifférem-ment les pucerons et les coccinelles avec un taux d'épandage variable noté $u(t)$.
+\item if there are no ladybirds, the population of aphids has enough food (rosebushes leaves) to have an exponential growth with a specific constant rate of growth;
+\item ladybirds eat more aphids if their population is bigger;
+\item the predation by ladybirds is the only source of aphids natural mortality;
+\item ladybirds have a constant specific rate of natural mortality;
+\item the gardener, who is not very smart, spreads a pesticide which kills indifferently aphids and ladybirds with a variable manuring rate  $u(t)$.
 \end{enumerate}
-Le modèle d'état suivant exprime le bilan du nombre de pucerons et de coccinelles:
+The following state model expresses the balance of the number of aphids and ladybirds:
 \begin{equation} \begin{split}  \label{coc}
 \dot x_1 &= ax_1 - bx_1x_2 - cux_1, \\
 \dot x_2 &= dx_1x_2 - ex_2 - fux_2. 
 \end{split} \end{equation} 
-où $a,b,c,d,e,f$ sont des constantes positives. On peut vérifier que chaque terme de ce modèle formalise une des hypothèses ci-dessus. Cette vérification est laissée comme exercice.
+where $a,b,c,d,e,f$ are positive constants. We can verify that every term of this model formalizes one of the assumptions above. This check is left as exercise.\\
 
-Ce type de modèle fut introduit à l'origine par le mathématicien italien V. Volterra qui cherchait à comprendre les fluctuations du rendement de la pêche en mer Adriatique au début du vingtième siècle. Evidemment, il s'agit d'une simplification assez grossière de la réalité. Le modèle ne prend pas en compte de nombreux facteurs qui peuvent influencer l'évolution des populations (conditions climatiques, autres ressources disponibles, autres prédateurs, migration des populations etc ...). Comme l'illustre notre exemple, une application importante de ce type de modèle est la lutte contre les insectes nuisibles dans l'agriculture. Il arrive souvent que la population nuisible soit contr\^olée par l'introduction de prédateurs. Le modèle constitue alors un outil intéressant pour la conception des programmes d'intervention sur le terrain. \qed \\
+This type of model was originally introduced by the Italian mathematician V. Volterra who tried to understand the fluctuations in the efficiency of the fishing in Adriatic sea at the beginning of the twentieth century. Obviously, it is a rather big simplification of the reality. The model doesn't take into account numerous factors that can influence the evolution of the populations (weather conditions, other available resources, other predators, migration of the populations etc.). As our example shows it, an important application of this type of model is the fight against pests in the agriculture. It often happens that the harmful population is controlled by predator introductions. The model is then an interesting tool for the design of intervention programs on the ground. \qed \\
 \end{exemple}
 
 
-\begin{exemple}{\bf Un moteur à courant continu}
+\begin{exemple}{\bf A DC motor}
 
-Nous examinons maintenant le dispositif électromécanique illustré à la figure \ref{fig:motdc}.
+We now examine the electromechanical device shown in figure \ref{fig:motdc}.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=6cm]{motdc}
-\caption{Moteur à courant continu}
+\caption{DC motor}
 \label{fig:motdc}
 \end{center}
 \end{figure}
-Il s'agit d'un moteur à courant continu qui peut être aussi bien commandé par la tension statorique (ou tension d'excitation) $e$ que par le courant rotorique $I$.
-L'équation électrique du circuit statorique est donnée par
+This is a DC motor which can be controlled by both the stator voltage $e$ and the rotor current $I$.
+The stator circuit equation is given by
 \eqnn
 e=Ri+L\frac{di}{dt}
 \eeqnn
-où $R$ et $L$ représentent la résistance et l'inductance du circuit,
-$e$ est la tension de commande et $i$ est le courant. Le couple
-exercé sur le rotor est donné par $C=\Phi I$ où  $I$ est le courant
-rotorique et $\Phi$ est le flux magnétique 
-proportionnel au courant d'excitation : $\Phi=Ki$. On obtient donc
+where $R$ and $L$ are the resistance and inductance of the circuit,
+$e$ is the control voltage and $ i$ is the current. The couple
+exerted on the rotor is given by $C = \Phi I$ where $I$ is the rotor current and $\Phi$ is the magnetic flow
+proportional to the excitation current $\Phi = Ki$. We therefore obtain
 \eqnn
 C=KiI.
 \eeqnn
-Il reste à modéliser la partie mécanique de ce système. En notant $\theta$ la
-position angulaire du rotor, $J$ son moment d'inertie et  $F$ le coefficient de
-frottement visqueux, l'application de la loi de Newton conduit à~:
+It remains to model the mechanical part of the system. Noting $\theta$ the
+angular position of the rotor, $J$ its moment of inertia and $F$ the viscous friction coefficient, the application of Newton's law leads to~:
 \eqnn
 J\frac{d^2\theta}{dt^2}+F\frac{d\theta}{dt}=C.
 \eeqnn
 
-En définissant comme variables d'état $x_1=\theta, x_2=\dot{\theta}, x_3=i$, et
-comme entrées $u_1=e$, $u_2=I$, on obtient le modèle d'état suivant:
+We can define the state variables $x_1=\theta, x_2=\dot{\theta}, x_3=i$, the inputs $u_1=e$, $u_2=I$, and we obtain the following state model:
 \begin{equation} \begin{split} \label{motDC}
 \dot x_1 &= x_2,  \\[0.3em]
 \dot x_2 &= -\frac{F}{J}x_2+\frac{K}{J}x_3u_2, \\[0.3em]
 \dot x_3 &= -\frac{R}{L}x_3+\frac{1}{L}u_1. \xqedhere{5cm}{\qed}
 \end{split} \end{equation}
 \end{exemple}
-Les quatre exemples que nous venons de traiter ont pour but de montrer
-que l'équation (\ref{eq:modet}) permet effectivement de construire des modèles de systèmes dynamiques dans des domaines variés d'application 
-des sciences de l'ingénieur puisque nous avons traité successivement des exemples relevant de la thermodynamique, du génie chimique, de l'écologie et de l'électrotechnique.  Ils permettront aussi de mieux appréhender la terminologie qui est présentée dans la section suivante. 
+The four examples we just discussed are intended to show
+that equation (\ref{eq:modet}) actually helps to build models of dynamic systems in various application areas
+of engineering as we treated successively examples about thermodynamics, chemical engineering, ecology and electronics. They will also help to understand better the terminology that is introduced in the next section. 
 
-\section{Terminologie et notations}
+\section{Terminology and notations}
 
-Comme les exemples précédents l'ont illustré, nous étudions des {\em systèmes
-dynamiques} dont le comportement est décrit par un {\em modèle d'état} formé
-d'un ensemble d'équations différentielles écrites sous forme condensée :
+As the previous examples illustrated it, we study {\em dynamic systems} whose behavior is described by a {\em state model} composed by a set of differential equations written under condensed shape:
 \eqn
-\dot x = f(x,u). \label{sysdyn}
+\dot x = f (x, u). \label{sysdyn}
 \eeqn
-On considère ce modèle d'état à partir d'un instant initial noté $t_0$. 
-L'état $x \in \real^n$ et l'entrée $u \in \real^m$ sont des fonctions vectorielles du
-temps que l'on notera parfois $x(t)$ et $u(t)$.  Cependant
-l'argument $t$ sera souvent omis sans risque de confusion.
+We consider this state model from an initial time $t_0$. 
+The state $x \in \real^n$ and the entry $u \in \real^m$ are vectorial functions of
+time that we can sometimes note $x(t)$ and $u(t)$. However,
+the argument $t$ is often omitted without confusion.
 
-Pour un système donné, l'entrée $u(t)$ est a priori une fonction quelconque du
-temps.  On supposera cependant toujours qu'il s'agit d'une fonction {\em continue par morceaux} et {\em
-bornée}~: $u(t) \in {\cal U}$ où ${\cal U}$ désigne un ensemble de fonctions continues par morceaux et 
-bornées de $\real$ dans $\real^m$.
+For a given system, the entry $u(t)$ is a priori any function of the time. However, we always assume that it is a {\em piecewise continuous} and {\em bounded} function ~: $u(t) \in {\cal U}$ where ${\cal U}$ is a set of piecewise continuous and
+bounded of $\real$ to $\real^m$ functions.
 
-Pour une valeur donnée de l'état initial $x(t_0) = x_0$ et pour une entrée
-$u(t)$ donnée, la solution $x(t) \;\; t \geq t_0$ du système différentiel
-(\ref{sysdyn}) est appelée {\em trajectoire} du système.  Parfois, quand ce
-sera nécessaire pour la clarté de l'exposé, la trajectoire sera notée
-$x(t, x_0, u)$.  Nous supposerons toujours qu'une telle trajectoire existe
-à tout instant $t\geq t_0$, est unique et est une fonction continue du temps.
-Graphiquement, une trajectoire peut donc être visualisée par une courbe continue dans l'espace $\real^{n+1}$.  La projection de la trajectoire dans
-{\em l'espace d'état} $\real^n$ (on dit aussi {\em espace de phase}) est appelée
-une {\em orbite} du système.
+For a given value of the initial state $x(t_0) = x_0$ and an input $u(t)$ given, the solution $x(t) \;\; t \geq t_0$ of the differential system
+(\ref{sysdyn}) is called {\em path} of the system. Sometimes, when it
+will be necessary for the presentation clarity, the path will be denoted
+$x(t, x_0, u)$. We always assume that such a path exists
+at any time $t \geq t_0$, is unique and is a continuous function of time.
+Graphically, a path may be displayed by a continuous curve in $\real^{n+1}$. The path projection in the
+{\em state space} $\real^n$ (also called {\em phase space}) is called
+an {\em orbit} of the system.
 
-Lorsque l'entrée $u(t)$ peut être choisie librement dans ${\cal U}$, on dit
-que le système $\dot x = f(x,u)$ est un système {\em forcé} ou encore un
-système {\em commandé}.  Le qualificatif {\em forcé} est utilisé pour
-signifier qu'au départ d'un état initial $x_0$, l'allure de la trajectoire
-est en quelque sorte forcée par le choix que l'on a fait d'une entrée $u(t)$. De même, dans un contexte d'automatique, le qualificatif {\em commandé}
-signifie que l'état du système peut être piloté dans l'espace d'état par une manipulation appropriée de l'entrée $u(t)$.
+When the input $u(t)$ can be freely chosen in ${\cal U}$, we say
+that the system $\dot x = f(x,u)$ is a {\em forced} system, or a {\em controlled} system. The term {\em forced} is used to
+mean that starting from an initial state $x_0$, the shape of the path
+is somehow forced by the choices we made of an input $u(t)$. Similarly, in an automatic context, the term {\em controlled}
+means that the system state can be manipulated in the state space by suitable manipulation of the input $u(t)$.
 
-Nous serons cependant souvent amenés, dans les chapitres suivants, à nous
-intéresser à la solution de l'équation $\dot x = f(x,u)$ lorsque l'entrée est
-en réalité une constante fixée a priori : $u(t) = \bar u \;\; \forall t \geq
-t_0$.  Dans ce cas, on écrit le modèle d'état sous la forme $\dot x = f(x,
-\bar u)$.  Parfois on écrit aussi 
+In the next chapters however, we will be interested in the solution of the equation $\dot x = f(x,u)$ when the input is
+actually a constant fixed a priori : $u(t) = \bar u \;\; \forall t \geq
+t_0$.  In that case, we write the state model as $\dot x = f(x,
+\bar u)$.  We sometimes also write 
 \eqnn
 \dot x = f_{\bar u} (x)
 \eeqnn
-pour exprimer plus clairement que $f$ est une fonction de $x$ seulement,
-paramétrée par la constante $\bar u$.  Dans un tel cas, il n'y a évidemment
-qu'une seule trajectoire possible évoluant librement au départ d'un état
-initial $x_0$.  En fixant d'avance l'entrée à une valeur constante, on se
-prive de la possibilité de piloter les trajectoires du système et on dit que
-le système est {\em libre} (on dit aussi système {\em autonome} ou système
-{\em stationnaire}).  La trajectoire est parfois appelée {réponse libre} du
-système.  
+to express more clearly that $f$ is only a function of $x$,
+parameterized by the constant $\bar u$. In such a case, there is
+only one possible path moving freely at the start of an initial state  $x_0$. By fixing in advance the input at a constant value, we have no longer the ability to control the paths of the system and say that
+the system is a {\em free} system (we also say an {\em autonomous} system, or
+{\em stationary} system). The path is sometimes called {free response} of the system.
 
-Lorsque l'on s'intéresse à la solution de l'équation $\dot x = f(x,u)$ pour
-{\em une} entrée $u(t)$ variant au cours du temps mais particulière (par
-exemple une sinusoide), on peut tout aussi bien oublier que l'on a
-sélectionné cette entrée dans ${\cal U}$ et écrire tout simplement : 
+When we are interested in the solution of the equation $\dot x = f(x,u)$ for
+{\em one} input $u(t)$ that is not constant over time but specific (for
+example a sine wave), we may as well forget that we
+selected an input in ${\cal U}$ and simply write:
 \eqnn
 \dot x = f(x,t)
 \eeqnn
-Un système dynamique représenté de cette manière est appelé système {\em  non
-autonome} ou {\em instationnaire}.  
+A dynamic system represented this way is called a {\em  non-autonomous} or {\em unstationary} system. 
 
-Nous serons parfois amenés à considérer divers cas particuliers du modèle
-d'état général (\ref{sysdyn}).  On distinguera notamment~:\\
+We will sometimes consider various special cases of the
+general state model (\ref{sysdyn}). We distinguish in particular~;\\
 
-\noindent \textbf{\textit{Les systèmes affines en l'entrée}}
+\noindent \textbf{\textit{Affine systems relative to the input}}
 \eqnn
 \dot x = f(x) + \sum^m_{i=1} u_ig_i(x) \triangleq f(x) + G(x)u
 \eeqnn
-où $f$ et les $g_i$ sont des applications de $\real^n$ dans $\real^n$.
-Le modèle d'état \eqref{four1} d'un four de verrerie est de cette forme avec les définitions suivantes~:
+where $f$ and the $g_i$ are applications from $\real^n$ to $\real^n$.
+The state model \eqref{four1} of a glass furnace is of this form with the following definitions~:
 \begin{equation*}
 f(x) = 0, \hh \hh \hh \hh G(x) = \left(\begin{array}{ccc}
 1&-1 & 0 \\[0.3em] (\alpha-x_2)/x_1 & 0 & 1/x_1 \end{array} \right).
 \end{equation*}\\
 
-\noindent \textbf{\textit{Les systèmes affines en l'état}}
+\noindent \textbf{\textit{ffine systems relative to the state}}
 \eqnn
 \dot x = \sum^m_{i=1}x_i a_i(u) + b(u) \triangleq A(u) x + b(u) 
 \eeqnn
-où $b$ et les $a_i$ sont des applications de $\real^m$ dans $\real^n$. Le modèle d'état d'un réacteur chimique continu isotherme \eqref{iso} est de
-cette forme avec les définitions suivantes~:
+where $b$ and the $a_i$ are applications from $\real^m$ to $\real^n$. The state model of an isothermal continuous chemical reactor \eqref{iso} is of this form with the following definitions~:
 \begin{equation*} \begin{split}
 A(u) &= \left(\begin{array}{cc}
 -(\dfrac{\phi(u_1)}{V} +k(T)) & 0 \\[0.3em] k(T) & -\dfrac{ \phi(u_1)}{V}
@@ -355,18 +331,17 @@ b(u) &=  \left(\begin{array}{c} \dfrac{ \phi(u_1) A_{in}}{V}\\[0.7em] 0
 \end{array}\right).
 \end{split} \end{equation*}\\
 
-\noindent \textbf{\textit{Les systèmes bilinéaires}}
+\noindent \textbf{\textit{The bilinear systems}}
  
-Ce sont des systèmes affines à la fois en l'état et en
-l'entrée
+These systems are affine relative both to the state and the input
 \begin{eqnarray*}
 \dot x &=& \left ( A_0 + \sum^m_{i=1} u_iA_i \right) x + B_0u, \\[0.3em]
 &=& A_0x + (B_0+ \sum^n_{i=1} x_i B_i)u,
 \end{eqnarray*}
-où les $A_i$ $(i = 0, \ldots, m)$ sont des matrices de dimension $(n
-\times n)$ et les $B_i$ $(i = 0, \ldots, n)$ sont des matrices de
-dimension $(n \times m)$.  Le modèle d'état d'un moteur à courant continu
-(\ref{motDC}) est de cette forme avec les définitions suivantes~:
+where the $A_i$ $(i = 0, \ldots, m)$ are matrices of dimension $(n
+\times n)$ and the $B_i$ $(i = 0, \ldots, n)$ are matrices of
+dimension $(n \times m)$.  The state model of a DC motor
+(\ref{motDC}) is of this form with the following definitions~:
 \begin{equation*} \begin{split}
 A_0 &= \left( \begin{array}{ccc}
 0 & 1 & 0 \\[0.3em] 0 &-\dfrac{B}{J} & 0\\[0.3em]
