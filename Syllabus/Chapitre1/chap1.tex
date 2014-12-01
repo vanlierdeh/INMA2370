@@ -381,15 +381,11 @@ A_2 &= \left( \begin{array}{ccc}
 \end{array} \right).
 \end{split} \end{equation*}\\
 
-\noindent \textbf{\textit{Les systèmes linéaires}}
+\noindent \textbf{\textit{Linear systems}}
 $$
 \dot x = Ax +Bu
 $$
-où $A$ est une matrice de dimension $(n \times n)$ et $B$ est une
-matrice de dimension $(n \times m)$.  Si on considère le modèle d'état
-du moteur à courant continu en supposant que la source de courant rotorique
-est constante ($I$ = constante), on obtient un exemple de système linéaire
-avec
+where $A$ is a matrix of dimension $(n \times n)$ and $B$ is a matrix of dimension $(n \times m)$.  If we consider the state model of the DC motor assuming that the rotor current source is constant ($I$ = constant), we obtain an example of a linear system with
 \begin{equation*}
 A = \left( \begin{array}{ccc}
 0 & 1 & 0 \\[0.3em] 0 &-\dfrac{B}{J} & \dfrac{KI}{J}\\[0.9em]
@@ -400,63 +396,53 @@ A = \left( \begin{array}{ccc}
 \end{equation*}
 \vv
 
-\section{Modélisation et analyse}
+\section{Modeling and analysis}
 
-Un système dynamique, tel que nous le concevons dans ce livre, est donc une partie de la réalité {\it concrète} qui nous semble pertinente dans un problème d'ingénierie et que nous choisissons d'isoler par la pensée pour en décrire le comportement en termes mathématiques à l'aide d'un modèle. Nous sommes intéressés en particulier à caractériser quantitativement l'évolution, au cours du temps, de l'{\it état} de ce système. Nous utilisons pour cela des modèles d'état {\it déterministes à paramètres localisés} qui sont formés d'équations différentielles ordinaires.
+A dynamic system, as we conceive it in this book, is thus a part of the {\it concrete} reality that seems relevant in an engineering problem and that we choose to isolate in thought to describe its behavior in mathematical terms using a model. In particular, we are interested in characterize quantitatively the evolution over time of the {\it state} of the system. For this, we use \blue{deterministic, lumped parameters state models} which consist of ordinary differential equations.
 
-D'autres démarches de modélisation des systèmes dynamiques sont toutefois possibles. Pour les différents exemples décrits dans la section \ref{exemple} nous aurions pu tout aussi bien construire des modèles d'état déterministes {\it à paramètres distribués} constitués d'équations aux dérivées partielles. C'est ainsi que dans l'exemple du four de verrerie, nous avons fait l'hypothèse que la température est homogène  dans l'ensemble du bain de verre. C'est un point de vue simplificateur mais très utile pour construire des modèles simples et efficaces en vue par exemple de la régulation et de l'optimisation du comportement dynamique du four. Toutefois, si cette hypothèse n'est pas retenue et que l'on souhaite étudier les variations spatiales de la température, on pourra développer un modèle d'état formé d'équations aux dérivées partielles décrivant l'évolution au cours du temps des champs de température et de vitesse du fluide dans le bain de verre en fusion. Aucun des deux modèles n'est meilleur que l'autre.  Il s'agit simplement de modèles différents obtenus en vue
-d'objectifs différents, correspondant le plus souvent à des échelles
-spatiales et temporelles différentes.
+However, other modeling approaches of dynamic systems are possible. For the various examples described in the section \ref{exemple} we could have  build \blue{deterministic, {\it distributed parameters} state models} composed of partial differential equations. This is how, in the example of the glass furnace, we made the hypothesis that the temperature was uniform across the glass bath. This is a simplistic view, but very useful to build simple and effective models for instance in view of the control and optimization of the dynamic behavior of the furnace. However, if this hypothesis is not accepted and we want to study the spatial variations of temperature, we can develop a state model consisting of partial differential equations describing the evolution over time of the temperature and velocity of the fluid fields in the molten glass bath. Neither model is better than the other. They simply are different models obtained for different objectives, usually corresponding to different spatial and temporal scales.
 
-L'interaction entre le système et le \og monde extérieur \gf est représentée par les entrées $u_i(t)$ du modèle qui sont, comme nous l'avons indiqué plus haut, des fonctions du temps, réelles et déterministes. Dans la réalité, un système donné est souvent soumis à des influences aléatoires que l'on peut représenter en introduisant des entrées {\it stochastiques}, c'est-à-dire des fonctions $u_i(t)$ aléatoires (aussi appelées processus stochastiques). On obtient alors des modèles d'état stochastiques dont les variables d'état sont elles mêmes des fonctions aléatoires et dont l'étude fait appel à des techniques mathématiques  différentes de celles mises en oeuvre dans ce livre.
+The interaction between the system and the \og outside world \gf is represented by the inputs of the model $u_i(t)$ which are, as we mentioned above, functions of time, real and deterministic. In reality, a given system is often subject to random influences that can be represented by introducing stochastic inputs, i.e. random functions $u_i(t) $ (also called stochastic processes). We then obtain stochastic state models whose state variables are themselves random functions and whose study uses different mathematical techniques than those used in this book.
 
-Le modèle d'état d'un système dynamique est donc une représentation mathématique simplifiée du comportement du système. Pourtant,  lorsque cela ne nuira pas à la clarté de l'argumentation, il nous arrivera souvent de confondre les deux notions et de les considérer comme des synonymes dans le but d'alléger l'exposé. On parlera alors du système dynamique $\dot x = f(x,u)$ en signifiant par là que l'on parle en réalité d'un modèle d'état déterministe de ce système.
+The state model of a dynamic system is thus a simplified mathematical representation of the behavior of the system. Yet, when it will not affect the clarity of the argumentation, we will often consider these two notions as equivalent in order to simplify the presentation. We will then speak of the dynamic system $\dot x = f(x,u)$, implying that we actually speak of a deterministic state model of the system.
 
-La {\it modélisation} d'un système dynamique, telle que nous la concevons dans ce livre, c'est donc l'exercice qui vise, au départ d'une description discursive et qualitative du système, à en établir une description mathématique quantitative sous la forme d'un modèle d'état. Sans être inutilement compliqué, le modèle ainsi obtenu doit être un outil efficace pour la résolution du problème d'ingénierie posé pour le système considéré. Les hypothèses adoptées pour la modélisation doivent être clairement formulées et mises en évidence.
+The {\it modeling} of a dynamic system, as we conceive it in this book, is thus the exercise that aims to, given a discursive and qualitative description of the system, establish a mathematical description of it as a state model. Without being unnecessarily complicated, the resulting model should be an effective tool for solving the engineering problem posed for the system considered. The assumptions adopted for modeling should be clearly identified and highlighted.
 
-Dans la première partie du livre, nous allons montrer
-comment la démarche de modélisation peut être systématisée pour différentes
-classes de systèmes relevant de l'ingénierie.  Nous aborderons successivement les systèmes
-méca\-niques, les systèmes électriques et électromécaniques, les systèmes à
-compartiments et les systèmes réactionnels dans les chapitres 2 à 5.  Dans chaque cas, nous
-décrirons les principes physiques de base et la manière dont ceux-ci sont
-mis en oeuvre pour obtenir des modèles d'état. Dans le chapitre 6, nous verrons comment définir et utiliser des {\it transformations d'état} pour obtenir des modèles équivalents d'un système donné. 
+In the first part of the book, we will show
+how the modeling approach can be systematized for different
+relevant classes of systems in engineering. We will successively discuss mechanical systems, electrical and electromechanical systems,
+\blue{compartment systems} and \blue{reaction systems} in Chapters 2-5. In each case, we will 
+describe the basic physical principles and how they are
+used to obtain the state models. In Chapter 6, we will see how to define and use {\it state transformations} to obtain equivalent models of a given system.
 
-Il n'entre cependant pas dans nos intentions de
-décrire et de justifier en détail l'ensemble des principes physiques des
-différentes disciplines qui constituent l'art de l'ingénieur.  Dans des
-cas de modélisation plus complexes que ceux abordés dans ce livre, le lecteur se référera utilement aux
-ouvrages spécialisés des disciplines concernées. Nous espérons cependant que le caractère unificateur du concept de modèle d'état dans les sciences de l'ingénieur sera clairement per\c{c}u. 
+However, we do not intend to describe and justify in detail all the physical principles of the different disciplines which constitute the art of engineering. In more complex modeling cases than those covered in this book, the reader should refer to the literature of the disciplines. However, we hope that the unifying character of the state model concept in engineering sciences will be clearly perceived.
 
-Une fois le modèle obtenu, on peut en analyser les propriétés et en tirer un certain nombre
-d'enseignements, soit sur la pertinence du modèle lui-même, soit sur les
-propriétés du système dynamique qui fait l'objet de la
-modélisation. C'est à cette analyse que la deuxième partie du livre est consacrée. 
+After obtaining the model, we can analyze its properties and derive a certain number of lessons, or on the appropriateness of the model itself, or on the
+properties of the dynamic system which is the subject of modeling. It is to this analysis that the second part of the book is dedicated.
 
-Dans les chapitres 7, 8 et 9 on étudie le comportement des systèmes dynamiques libres dont les entrées sont {\it constantes}~: $\dot x= f(x,\bar u)$. Au chapitre 7 on examine tout d'abord les conditions  
-d'existence d'états d'équilibre et de sous ensembles invariants dans l'espace d'état. Le chapitre 8 est consacré à l'étude des systèmes {\it plans} c'est-à-dire des sytèmes dont le vecteur d'état est de dimension 2. On y examine en particulier le comportement du système au voisinage des états d'équilibre, ainsi que les trajectoires périodiques et les bifurcations. L'objectif du chapitre 9 est d'analyser la stabilité des états d'équilibre par la méthode de Lyapunov et de caractériser les bassins d'attraction.
+In Chapters 7, 8 and 9, we analyze the behavior of dynamic systems which inputs are {\it constant}~: $\dot x= f(x,\bar u)$. In Chapter 7, we first examine the conditions of existence of equilibrium states and invariant subsets of the state space. Chapter 8 is devoted to the study of \blue{{\it plan} systems}, i.e. systems whose state vector is of dimension 2. We examine in particular the behavior of the system near the equilibrium states, as well as periodic trajectories and bifurcations. The purpose of Chapter 9 is to analyze the stability of equilibrium states by the Lyapunov's method and characterize the basins of attraction.
 
-Enfin, dans le chapitre 10, on s'intéresse à la question de la commandabilité des systèmes dynamiques qui peut être formulée comme suit : pour un système dynamique forcé $\dot x = f(x,u)$, sous quelles conditions et comment peut on déterminer des fonctions d'entrée $u_i(t)$ permettant de conduire le système d'un état initial $x_0$ à un état final $x_f$ donnés, en un temps prescrit. La réponse à cette question a évidemment des implications importantes dans de nombreux problèmes d'ingénierie comme par exemple le pilotage des engins électro-mécaniques ou la conduite des procédés industriels.
-
+Finally, in Chapter 10, we look at the issue of controllability of dynamical systems that can be formulated as follows: for a forced dynamic system $ \dot x = f(x,u)$, under what conditions and how we can determine the input functions $u_i(t)$ to conduct the system of a given initial $x_0$ state to a given final state $x_f$ in a prescribed time. The answer to this question obviously has important implications in many engineering problems such as \blue{the steering of electro-mechanical devices} or the conduct of industrial processes.
+\newpage
 \section{Exercices}
 
-\begin{exercice} {\bf \em Un four de verrerie}
+\begin{exercice} {\bf \em A glass furnace}
 
-Pour le four de verrerie qui a été décrit dans ce chapitre~:
+For the glass melting furnace that has been described in this chapter~:
 \begin{enumerate}
-\item Etablir un modèle d'état dont les variables d'état sont la masse $M$ et la chaleur emmagasinée $C_TM$.
-\item  Etablir un modèle d'état dont les variables d'état sont la température $T$ et la chaleur emmagasinée $C_TM$.
-\item Indiquer comment modifier le modèle d'état pour tenir compte de pertes de chaleur vers l'extérieur à travers les parois du four.
-\item Le modèle d'état a été construit sous l'hypothèse implicite d'une fusion quasi-instantanée de la matière première. Imaginer comment modifier simplement le modèle pour y inclure explicitement le fusion (indication : découper le four en deux compartiments de masse variable, l'un contenant la matière non encore fondue et l'autre contenant la matière fondue).
+\item Establish a state model whose state variables are the mass $M$ and the stored heat $C_TM$.
+\item Establish a state model whose state variables are the temperature $T$ and the stored heat $C_TM$.
+\item Indicate how to change the state model to take into account the heat loss to the outside through the walls of the furnace.
+\item The state model was built under the implicit assumption of near-instantaneous fusion of the raw material. Imagine how to easily modify the model to explicitly include the fusion (indication: cut the oven into two compartments of variable mass, one containing the not yet molted material and the other one containing the melt).
 \end{enumerate}
 \end{exercice}
 
-\begin{exercice}{\bf \em Des coccinelles et des pucerons}
+\begin{exercice}{\bf \em Beetles and aphids}
 
 \begin{enumerate}
-\item Justifier chaque terme du modèle (\ref{coc}) en expliquant comment il formalise l'une des hypothèses de modélisation.
-\item Le modèle (\ref{coc}) est-il affine en l'entrée, affine en l'état, bilinéaire, linéaire ? 
-\item Le modèle (\ref{coc}) a été établi avec deux populations : les pucerons ($x_1$) et les coccinelles ($x_2$). La coccinelle adulte peut ingérer jusqu'à 100 pucerons par jour, mais la larve est encore plus vorace, pouvant en ingérer jusqu'à 150 par jour. En formulant des hypothèses de modélisation pertinentes supplémentaires, établir un modèle d'état plus précis en y distinguant les coccinelles adultes et les larves (c'est-à dire un mod\' ele avec trois variables d'état : les pucerons ($x_1$), les larves ($x_2$) et les coccinelles adultes ($x_3$)).
+\item Justify each term of the model (\ref{coc}) explaining how it formalizes one of the modeling assumptions.
+\item Is the model (\ref{coc}) affine in the input, affine in the state, bilinear, linear? 
+\item The model (\ref{coc}) was established with two populations : the aphids ($x_1$) and the beetles ($x_2$). The adult beetle can ingest up to 100 aphids per day, but the larvae is even more voracious, it can ingest up to 150 per day. By formulating additional relevant modeling assumptions, establish a more accurate state model distinguishing adult beetles and larvae (i.e. a model with three state variables: aphids ($x_1$), larvae ($x_2$) and adult beetles ($x_3$)).
 \end{enumerate}
 \end{exercice}
 
