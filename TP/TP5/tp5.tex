@@ -1,1 +1,237 @@
-TODO
+TODO: 5.3, 5.4
+
+\section*{5.1: A chemical process}
+%%% AUTHOR: BENOIT SLUYSMANS %%%
+
+In order to construct the state model, let's define the foowwing state variables:\\
+\indent $x_1$ = species A concentration in the reactor\\
+\indent $x_2$ = species B concentration in the reactor\\
+\indent $x_3$ = species C concentration in the reactor\\
+\indent $x_4$ = species B concentration in the recycling tank\\
+\indent $V_1$ = reactor volume\\
+\indent $V_2$ = recycling tank volume\\
+
+By placing adequately the different flows $F_0, F_1, F_2, F_3, F_4$, it directly follows that
+\begin{eqnarray*}
+\dot{V_1} = F_1+F_2-F_0\\
+\dot{V_2} = F_3+F_4-F_2
+\end{eqnarray*}
+
+By writing the system with two irreversible reactions, we obtain
+\begin{eqnarray*}
+A+B\rightarrow C \\
+C\rightarrow A+B
+\end{eqnarray*}
+
+From there, we can write the stoechiometric matrix $C$ and, using the mass action law, the rate of these reactions $r_1$ and $r_2$:
+
+\begin{equation*}
+C = \begin{bmatrix}
+-1 & 1\\
+-1 & 1\\
+1 & -1
+\end{bmatrix}
+\end{equation*}
+and
+\begin{eqnarray*}
+r_1 &=& k_1 x_1 x_2\\
+r_2 &=& k_2 x_3 
+\end{eqnarray*}
+
+
+If $x_A^{in}$ and $x_B^{in}$ are the concentrations of species A and B that enter the system, the balance equations give:
+\begin{eqnarray*}
+\dot{V_1x_1} &=& (-k_1 x_1 x_2+k_2 x_3 )V_1 + F_1 x_A^{in} - F_0 x_1 \\
+\dot{V_1x_2} &=& (-k_1 x_1 x_2+k_2 x_3 )V_1 + F_2 x_4 - F_0 x_2 \\
+\dot{V_1x_3} &=& (k_1 x_1 x_2-k_2 x_3 )V_1  - F_0 x_3 \\
+\dot{V_2x_4} &=& F_0 x_2 + F_3 x_B^{in} - F_2 x_4
+\end{eqnarray*}
+
+As we have a perfect separator, it follows that $F_4 \rho_B = F_0 x_2$, with $\rho_B$ the density of species B. Finally, defining the input variables
+\begin{eqnarray*}
+u_0 &=& \frac{F_0}{V_1}\\
+u_1 &=& \frac{F_1}{V_1}\\
+u_2 &=& \frac{F_2}{V_1}\\
+u_3 &=& \frac{F_3}{V_2}
+\end{eqnarray*}
+we obtain the following state model
+\begin{eqnarray*}
+\dot{x_1} &=& -k_1 x_1 x_2+k_2 x_3 + u_1 (x_A^{in}-x_1)-u_2 x_1\\
+\dot{x_2} &=& -k_1 x_1 x_2+k_2 x_3 + u_2 x_4-(u_1+u_2)x_2\\
+\dot{x_3} &=& k_1 x_1 x_2-k_2 x_3 -(u_1+u_2)x_3\\
+\dot{x_4} &=& u_0\frac{V_1}{V_2}x_2(1-\frac{x_4}{\rho_B})+u_3(x_B^{in}-x_4)\\
+\dot{V_1} &=& (u_1+u_2-u_0)V_1\\
+\dot{V_2} &=& u_3V_2+(\frac{u_0x_2}{\rho_B}-u_2)V_1
+\end{eqnarray*}
+
+
+
+
+
+
+\section*{5.2: Reactors with separate power supplies}
+%%% AUTHOR: BENOIT SLUYSMANS %%%
+
+\subsection*{1.}
+Let's define the input variables
+\begin{eqnarray*}
+u_1 &=& \frac{F_{01}}{V}\\
+u_2 &=& \frac{F_{02}}{V}
+\end{eqnarray*}
+Remembering that the stoechiometric matrix was
+\begin{eqnarray*}
+C = \begin{bmatrix}
+-1 & 0 \\
+-1 & 0 \\
+2 & -2 \\
+0 & 1
+\end{bmatrix}
+\end{eqnarray*}
+and that the rate of the two reactions were
+\begin{eqnarray*}
+r_1 &=& k_1x_1x_2e^{(-Kx_4)}\\
+r_2 &=& k_2x_3^2
+\end{eqnarray*}
+we can write the following state model, with $c_1^{in}$ and $c_2^{in}$ the concentrations of species 1 and 2 that enter the system:
+\begin{eqnarray*}
+\dot{x_1} &=& -k_1x_1x_2e^{(-Kx_4)} + u_1 c_1^{in} - (u_1+u_2)x_1 \\
+\dot{x_2} &=& -k_1x_1x_2e^{(-Kx_4)} + u_2 c_2^{in} - (u_1+u_2)x_2 \\
+\dot{x_3} &=& 2k_1x_1x_2e^{(-Kx_4)} - 2k_2x_3^2 - (u_1+u_2)x_3 \\
+\dot{x_4} &=& k_2x_3^2 - (u_1+u_2)x_4
+\end{eqnarray*}
+Indeed, the volume $V$ is constant and therefore $F_{out} = F_{01} + F_{02}$.
+
+\subsection*{2.}
+Here, $F_{01}+F_{02} = cst = dV \Leftrightarrow u_1 + u_2 = d$, so we only need one input variable. Let's take $u_1=w$ and $u_2=d-w$. We can rewrite
+\begin{eqnarray*}
+\dot{x_1} &=& -k_1x_1x_2e^{(-Kx_4)} + w c_1^{in} - d x_1 \\
+\dot{x_2} &=& -k_1x_1x_2e^{(-Kx_4)} + (d-w) c_2^{in} - dx_2 \\
+\dot{x_3} &=& 2k_1x_1x_2e^{(-Kx_4)} - 2k_2x_3^2 - dx_3 \\
+\dot{x_4} &=& k_2x_3^2 - dx_4
+\end{eqnarray*}
+We can show that this model can be written as (5.8):
+\begin{eqnarray*}
+\frac{dx}{dt} &=& \begin{bmatrix}
+-1 & 0 \\
+-1 & 0 \\
+2 & -2 \\
+0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+k_1x_1x_2e^{(-Kx_4)} \\
+k_2x_3^2
+\end{bmatrix} - d\begin{bmatrix}
+x_1\\
+x_2\\
+x_3\\
+x_4
+\end{bmatrix} + \begin{bmatrix}
+w c_1^{in} \\
+(d-w) c_2^{in}\\
+0\\
+0
+\end{bmatrix}  \\
+\Leftrightarrow \frac{dx}{dt} &=& C r(x) - q_{out}(x,w) + q_{in}(x,u)
+\end{eqnarray*}
+
+
+
+
+\section*{5.3: Gazeous reactives and products}
+
+\section*{5.4: An aerobic biological wastewater treatment plant}
+
+
+
+
+
+\section*{5.5: A nonconservative system}
+%%% AUTHOR: BENOIT SLUYSMANS %%%
+\subsection*{1.}
+Starting from
+\begin{eqnarray*}
+X_1\rightarrow X_2+X_3 \\
+X_3\rightarrow 2X_1+X_4
+\end{eqnarray*}
+we can write the stoechiometric matrix
+\begin{eqnarray*}
+\begin{bmatrix}
+-1 & 2 \\
+1 & 0 \\
+1 & -1 \\
+0 & 1
+\end{bmatrix}
+\end{eqnarray*}
+and the rate of these reactions as described in the exercise
+\begin{eqnarray*}
+r_1 &=& k_1 x_1^2\\
+r_2 &=& k_2 \frac{x_3}{K_3+x_3}\frac{K_2}{K_2+x_2}
+\end{eqnarray*}
+As this is a closed system, we can directly write the following state model
+\begin{eqnarray*}
+\dot{x_1} &=& - k_1 x_1^2 + 2k_2 \frac{x_3}{K_3+x_3}\frac{K_2}{K_2+x_2} \\
+\dot{x_2} &=& k_1 x_1^2  \\
+\dot{x_3} &=& k_1 x_1^2 - k_2 \frac{x_3}{K_3+x_3}\frac{K_2}{K_2+x_2} \\
+\dot{x_4} &=& k_2 \frac{x_3}{K_3+x_3}\frac{K_2}{K_2+x_2}
+\end{eqnarray*}
+
+
+\subsection*{2.}
+The system is conservative if $\exists w>0 | C^Tw = 0$, which is equivalent to
+\begin{eqnarray*}
+\begin{bmatrix}
+-1 & 1 & 1 &0\\
+2 & 0 & -1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+w_1 \\
+w_2\\
+w_3\\
+w_4
+\end{bmatrix} = \begin{bmatrix}
+-w_1+w_2+w_3 \\
+2w_1-w_3+w_4
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
+\end{eqnarray*}
+If we sum these two equations, we have $w_1+w_2+w_4=0$. That condition is impossible with $w_i > 0$. We can conclude that this system is nonconservative. Intuitively, we can see that one $X_1$ gives one $X_3$, and one $X_3$ gives two $X_1$, so the system would explode.
+
+\subsection*{3.}
+To make this system conservative, we can add a reactive to the first reaction, in order to modify $C$:
+\begin{eqnarray*}
+X_0 + X_1\rightarrow X_2+X_3 \\
+X_3\rightarrow 2X_1+X_4
+\end{eqnarray*}
+\begin{eqnarray*}
+C = \begin{bmatrix}
+-1 & 0\\
+-1 & 2 \\
+1 & 0 \\
+1 & -1 \\
+0 & 1
+\end{bmatrix}
+\end{eqnarray*}
+The condition to have a conservative system becomes 
+\begin{eqnarray*}
+\begin{bmatrix}
+-1 & -1 & 1 & 1 &0\\
+0 & 2 & 0 & -1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+w_1 \\
+w_2\\
+w_3\\
+w_4\\
+w_5
+\end{bmatrix} = \begin{bmatrix}
+-w_1-w_2+w_3+w_4 \\
+2w_2-w_4+w_5
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
+\end{eqnarray*}
+which is verified if $w = (3,1,1,3,1)^T$. Here, the intuition is that we can produce two $X_1$ from one $X_1$ and another reactive $X_0$.
+
