@@ -6,7 +6,7 @@
 	\begin{document}
 \fi
 	
-\graphicspath{ {Chapitre3/images/} }
+\graphicspath{ {images/} }
 
 \setcounter{chapter}{2}
 \chapter{Systèmes électriques et électromécaniques}
@@ -965,116 +965,116 @@ constant speed ?  \qed
 \end{exercice}
 \newpage
 
-\begin{exercice}{\bf \em Machine synchrone unipolaire diphasée.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% PARTIE DE Nicolas Stevens    %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Il s'agit d'une machine portant deux enroulements
-statoriques (indices $a$ et $b$) disposés en quadrature et un
-enroulement rotorique (indice $r$). Les inductances propres
-et mutuelle des enroulements statoriques varient en fonction
-de la position angulaire $\theta$ du rotor suivant les lois
-suivantes : 
+\begin{exercice}{\bf \em Unipolar of-phase synchronous machine} %Machine synchrone unipolaire diphasée.
+
+This is a machine holding two stator windings (labelled $a$ and $b$) 
+arrange in quadrature and a rotor winding (labelled $r$). 
+The self and mutual inductances of the stator winding vary depending
+on the angular position $\theta$ of the rotor according to the following laws : 
 \eqnn 
 L_a &=& L_o + L_1\cos 2\theta \nonumber \\ 
 L_b &=& L_o - L_1\cos 2\theta \nonumber \\ 
 L_{ab} &=& L_1 \sin 2\theta \nonumber 
 \eeqnn 
-L'inductance propre du
-rotor $L_r$ est constante. Les inductances mutuelles entre le
-rotor et les enroulements statoriques sont aussi fonction de
-$\theta$ : 
+The self inductance of the rotor $L_r$ is constant. The mutual 
+inductances between the rotor and the stator windings are expressed in
+terms of $\theta$ : 
 \eqnn 
 L_{ar} &=& L_2 \cos \theta \nonumber \\
 L_{br} &=& L_2 \sin \theta \nonumber  
 \eeqnn
 \begin{enumerate} 
-\item Etablir les équations de couplage
-électromécanique du système (voir Section 3.4) 
-\item Le
-rotor est alimenté par une source de courant constant
-$I_r$. Etablir le modèle d'état de cette machine lorsqu'elle
-fonctionne en moteur (inspirez vous de l'exemple 3.3). \qed
+\item Establish the coupling equations of the electromechanics 
+system (see Section 3.4) 
+\item The rotor is supplied by a constant current source
+$I_r$. Establish the state model of this machine when 
+it works as an engine (you might need to use the example 3.3). \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Machine élémentaire à deux enroulements.}
+\begin{exercice}{\bf \em Elementary machine with two windings.}
 
- On considère la machine élémentaire à deux enroulements, 
-fonctionnant en génératrice, telle que décrite dans l'exemple 3.3.
-Indiquez comment se modifient les équations d'état sous les
-hypothèses de modélisation suivantes :
+Let's consider the elementary machine with two windings working as 
+a generator, such as it is described in the example 3.3.
+Denote how to revise the state equations under the following hypothesis : 
 \begin{enumerate}
-\item  La charge du circuit statorique est capacitive 
-\item  L'enroulement rotorique est fermé par un court - circuit. \qed
+\item  The electric charge of the stator circuit is capacitive
+\item  The rotor winding is closed using a short-circuit. \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Moteur DC avec auto-excitation}
+\begin{exercice}{\bf \em DC motor with self-excitation}
 
-Un moteur à courant continu avec auto-excitation est conçu de
-telle manière que le courant statorique et le courant rotorique soient
-fournis par la même source de tension (voir figure \ref{fig:autoex}). Etablir le
-modèle d'état de ce système en considérant que la source de
-tension $u$ est la seule variable d'entrée de ce système. \qed
+A DC motor with self-excitation is designed such as the stator 
+current and the rotor current are supplied by the same power source
+(see figure \ref{fig:autoex}). Establish the state model of the state model 
+of this system using the tension source $u$ as the only input 
+variable of this system. \qed
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{autoex}
-\caption{Moteur DC avec auto-excitation}
+\caption{DC motor with self-excitation}
 \label{fig:autoex}
 \end{center}
 \end{figure}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Génératrice DC avec auto-excitation}
-
-On considère une génératrice DC avec auto-excitation. La tension
-rotorique induite est, à vitesse constante, une fonction {\em monotone
-croissante bornée} du courant d'excitation $E(I_s)$ telle que $E(0) >
-0$. La génératrice débite sur une charge capacitive. L'entrée de
-commande du système est la vitesse de rotation de la
-génératrice.
+\begin{exercice}{\bf \em DC generator with self-excitation}
+Let's consider a DC generator with self-excitation. The rotor tension 
+induced at constant rate is a {\em strictly  increasing and bounded} function 
+depending on the excitation current $E(I_s)$ such as $E(0) >
+0$. The generator provides a capacitive electric charge. 
+The input control variable of the system is the rotation speed of 
+the generator. 
 \begin{enumerate}
-\item Proposez une forme analytique pour la fonction $E(I_s)$.
-\item Proposez un modèle d'état pour ce système.
-\item Justifiez l'existence de la tension résiduelle non-nulle $E(0)$. \qed
+\item Propose an analytical form for the function $E(I_s)$.
+\item Propose a state model for this system.
+\item Justify the existence of a non-zero residual voltage $E(0)$. \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Moteur DC avec charge décentrée}
+\begin{exercice}{\bf \em DC motor with off-center load}
 
- Un moteur DC à excitation indépendante et commandé par le
-courant rotorique entra{\^\i}ne une charge décentrée (l'axe du moteur
-ne passe pas par le centre de masse de la charge : il y a un effet de
-balourd) à travers une transmission dont la flexibilité n'est pas
-négligeable. Proposez un modèle d'état qui tienne compte de ces
-caractéristiques.
+A DC motor with independent excitations is controlled by the rotor current
+driving an off-center load (the motor shaft do not pass through the 
+center of mass of the load : indeed, there is an unbalanced effect)
+through a transmission whose flexibility is significant. 
+Propose a state model taking into account this features. 
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Convertisseur DC-DC}
+\begin{exercice}{\bf \em DC-DC converters}
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=85mm]{DCDC}
-\caption{Convertisseur DC-DC}
+\caption{DC-DC converter}
 \label{fig:DCDC}
 \end{center}
 \end{figure}
-Le circuit représenté sur la figure ci-dessus schématise un convertisseur
-DC-DC.  Le dispositif noté ``S" représente un interrupteur
-électronique de type MOSFET qui est ouvert et fermé de manière périodique.\\
+The circuit depicted at the figure above describes a DC-DC converter.  
+The device labelled ``S" picture an electronic switch of type MOSFET 
+which is open and close periodically.\\
 
-Etablir un modèle d'état du système sous les hypothèses de modélisation
-suivantes :
+Establish a state model of the system under the following modelling 
+hypothesis :
 \begin{itemize}
-\item[a)] la tension $E$ de la batterie d'alimentation est constante
-\item[b)] les deux résistances $R_1, R_2$, l'inductance $L$ et la capacité
-$C$ sont linéaires
-\item[c)] la variable d'entrée est la fréquence de commutation de
-l'interrupteur. \qed
+\item[a)] the voltage $E$ of the supply battery is constant
+\item[b)] both resistances $R_1, R_2$, the inductance $L$ and the 
+capacitor $C$ are linear
+\item[c)] the input variable is the commutation frequency of the switch. \qed
 \end{itemize} 
 \end{exercice}
 
