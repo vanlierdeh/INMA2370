@@ -609,89 +609,69 @@ on obtient finalement le modèle d'état du système :
 
 \end{exemple}
 
-\section{Les machines électriques tournantes}
+\section{Rotating electric machines}
 
-Les machines électriques tournantes constituent une catégorie particulière
-de systè\-mes électromécaniques formés de deux corps.  Le
-premier, appelé {\em rotor}, est en rotation autour d'un axe
-dont la position est fixe par rapport au second appelé
-{\em stator}.  Ces deux corps sont munis de différents
-enroulements inducteurs ayant pour fonction de réaliser les
-conversions électromécaniques dont ces machines sont le siège.
+The rotating electric machines constitute a particular category of electromechanical systems formed by two bodies. The first one, called {\em rotor}, is in rotation around an axe whose position is fixed to the second one, called {\em stator}. These two pieces are provided with different \blue {field windings} whose utility is to realise electromechanical conversions of which the machines are the centre. 
 
-Lorsque le stator est lui-même fixe par rapport au repère
-inertiel, une machine électrique ne comporte qu'un seul degré de
-liberté mécanique : l'angle de rotation du rotor noté $\theta$. 
-La partie mécanique de la dynamique du système se
-réduit dès lors à une équation scalaire de la forme :
+When the stator itself is fixed to the inertial landmark, an electrical machine has only one mechanical degree of freedom : the rotor’s rotation angle, written $\theta$. The mechanical part of the system shrinks therefore to a scalar equation of the form : 
+
 \eqn \label{meca}
 J \ddot \theta + h(\dot \theta) = T_{em}+ T_a 
 \eeqn
-où $h(\dot \theta)$ représente le couple de frottement, $T_{em}$ le
-couple d'origine électromagnétique et $T_a$ l'ensemble des autres couples
-extérieurs appliqués au rotor.
+where $h(\dot \theta)$ represents the friction torque, $T_{em}$ the electromagnetical torque and $T_a$ all the other external torques applied to the rotor. 
 
-D'autre part, la partie électrique de la dynamique a la
-forme générale (\ref{ELECM}) :
+On the other hand, the electrical part of the dynamic has the general form (\ref{ELECM}) :
 \eqnn
 V = RI + E. 
 \eeqnn
-Dans la plupart des machines courantes, lorsque les effets de saturation
-magnétique sont négligeables (ou négligés), on peut représenter les flux
-$\phi_{ij}$ par une expression de la forme : 
+
+In most running machines, when the magnetical saturation effects are negligible (or neglected), it is possible to present the flows $\phi_{ij}$ by an expression of the form : 
+
 \eqnn
 \phi_{ij} = L_{ij}(\theta)I_i
 \eeqnn
-qui est linéaire par rapport au courant inducteur $I_i$ mais qui dépend
-de la position angulaire $\theta$ du rotor suivant une loi
-$L_{ij}(\theta)$ généralement périodique. On définit la
-matrice (symétrique) d'inductances :
+which is linear to the inductor current $I_i$ but that depends on the angular position $\theta$ of the rotor, following a law $L_{ij}(\theta)$ usually periodic. The inductance matrix (symmetrical) is defined as : 
+
 \eqnn
 L(\theta) \triangleq [L_{ij}(\theta)]
 \eeqnn
-et sa dérivée par rapport à $\theta$ :
+and its derivative to $\theta$ is : 
 \eqnn
 K(\theta) \triangleq \frac{\partial L(\theta)}{\partial \theta}.
 \eeqnn
-Alors, l'application de la théorie qui a été présentée à la section
-précédente conduit à des équations générales de couplage
-électromécanique de la forme suivante :
+Then, the use of the theory that was introduced in the last sections leads to general equations of electromechanical coupling, whose form is the following: 
 \begin{align}
 E &= L(\theta)\frac{dI}{dt} + \frac{d\theta}{dt}K(\theta)I, \label{coup1}\\
 T_{em} &= \frac{1}{2}I^TK(\theta)I. \label{coup2}
 \end{align}
-En combinant les équations (\ref{meca}),(\ref{ELECM}),(\ref{coup1}) et (\ref{coup2}) on obtient le modèle général des machines électriques~:
+By combining the equations (\ref{meca}),(\ref{ELECM}),(\ref{coup1}) and (\ref{coup2}) we get the general model of the electrical machines~: 
 \begin{equation*} \begin{split}
 L(\theta)\dot I &= - \omega K(\theta) I - RI + V, \\
 \dot \theta &= \omega, \\
 J \dot \omega &= \frac{1}{2} I^TK(\theta)I - h(\omega) + T_a.
 \end{split} \end{equation*}
-C'est ce modèle général qui est à la base de l'établissement des modèles d'état particuliers dans les applications. Souvent, mais ce n'est pas une norme, le vecteur des tensions $V$ ou le couple $T_a$ sont paramétrés par des variables d'entrée convenablement choisies qui représentent l'influence extérieure sur le comportement de la machine.
-Voici un exemple. D'autres exemples sont donnés en exercices.
+It is this general model that is on the basis of the particular models establishment in the applications. Often, but it not a standard, the voltage vector $V$ or the torque $T_a$ are parameterized by  well selected entrance variables that represent the external influence on the machine’s behaviour. Here is an example. Other examples are provided in the exercises. 
 
-\begin{exemple}{\bf \em Machine élémentaire à deux enroulements}
+\begin{exemple}{\bf \em Elementary machine with two windings}
 
+Let’s consider an electrical machine whose rotor and stator are concentric cylinders with a winding on the stator and another on the rotor ( Fig.~\ref{fig:rotorstator}). The statorical and rotorical auto-inductances $L_s$ and $L_r$ are constants. The mutual inductance $L_{sr}$ is a cosinusoidal periodical function of angle $\theta$  
 
-Nous considérons une machine électrique dont le rotor et le
-stator sont des cylindres concentriques avec un enroulement sur le
-stator et un enroulement sur le rotor (voir Fig.~\ref{fig:rotorstator}). Les auto-inductances statorique et
-rotorique $L_s$ et $L_r$ sont constantes. L'inductance mutuelle $L_{sr}$ est
-une fonction périodique cosinuso{\"\i}dale de l'angle $\theta$ :
 \eqnn
 L_{sr}(\theta) = L_o \cos \theta.
 \eeqnn
-Les matrices $L(\theta)$ et $K(\theta)$ s'écrivent comme suit :
+
+Matrices $L(\theta)$ and $K(\theta)$ are written as follows:
+
 \eqnn
 L(\theta) =   \bma{cc} L_s & L_o \cos \theta\\ L_o \cos \theta & L_r \ema
 \;\;\;\;  K(\theta) = \bma{cc} 0 & -L_o \sin \theta\\ -L_o \sin \theta & 0
 \ema.
 \eeqnn
-Les vecteurs des courants et tensions induites sont notés
+Vectors of current and induced tensions are noted : 
 \eqnn
 I = \bma{c} I_s \\ I_r \ema \;\;\;\; E = \bma{c} e_s \\ e_r \ema.
 \eeqnn
-Les équations de couplage électromécanique (\ref{coup1}), (\ref{coup2})
-se particularisent comme suit :
+Electromechanical coupling equations (\ref{coup1}), (\ref{coup2})  particularize themselves by:
 \begin{equation*} \begin{split}
 e_s &= L_s \dot I_s + L_o \cos\theta \dot I_r - \dot \theta L_o \sin \theta
 I_r, \\ 
@@ -699,40 +679,35 @@ e_r &= L_r \dot I_r + L_o \cos\theta \dot I_s - \dot \theta L_o \sin
 \theta I_s, \\
 T_{em} &= -L_o \sin \theta I_sI_r.
 \end{split} \end{equation*}
-Le circuit
-rotorique est alimenté par une source de courant $I_r$ constante. Une telle machine peut être utilisée soit comme génératrice (qui transforme la puissance mécanique fournie par le couple extérieur $T_a$ en puissance électrique délivrée par la force électromotrice statorique $e_s$) soit
-comme moteur (qui transforme la puissance électrique fournie au stator par la source $v_s$ en puissance mécanique délivrée par le couple électromagnétique $T_{em}$). 
-
+The rotorical circuit is being supplied by a constant current source $I_r$. Such a machine can be used either as a generator (that transforms the mechanical power provided by the external torque $T_a$ in electrical power delivered by the statoric electromotive power $e_s$), or as an engine  (that transforms the electrical power delivered to the stator by the source $v_s$  in a mechanical power delivered by the electromagnetical torque $T_{em}$). 
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=5cm]{rotorstator}
-\caption{Machine élémentaire à deux enroulements}
+\caption{Elementary machine with two windings}
 \label{fig:rotorstator}
 \end{center}
 \end{figure}
 
-
-
-Le système possède trois variables d'état :
+The system has three state variables :
 \begin{equation*} \begin{split}
 x_1 &= I_s, \\
 x_2 &= \theta, \\
 x_3 &= \dot \theta,
 \end{split} \end{equation*}
-et deux variables d'entrée :
+and two input variables :
 \begin{equation*} \begin{split}
 u_1 &= v_s, \\
 u_2 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état du système s'écrit comme suit :
+The state-spaced model of the system is noted as follows: 
 \begin{align*}
 L_s\dot x_1 &= L_oI_rx_3 \sin x_2 - R_s x_1 + u_1, \\
 \dot x_2 &= x_3, \\
 J\dot x_3 &= -h(x_3) - L_oI_rx_1 \sin x_2 + u_2.
 \end{align*}
 
-Dans le cas du fonctionnement en génératrice on peut également fermer la partie électrique du circuit par une résistance de charge $R_L$, on peut alors poser $u_1=R_L x$ et on obtient un modèle d'état avec pour seule entrée $u_2=T_a$.
+In the case of generator mode, we can also close the electrical part of the circuit with a resistance of charge $R_L$, we can then set $u_1=R_L x$ and we obtain a state-spaced model with only one input $u_2=T_a$.
 
 \cqfd
 
@@ -740,70 +715,55 @@ Dans le cas du fonctionnement en génératrice on peut également fermer la part
 
 \end{exemple}
 
-\section{Les machines à courant continu}
-\markboth{{\hspace*{5mm}\bf Chapitre 3} \hfill Systèmes électriques}{{ \bf Sec. \thesection}
-\hfill Les machines à courant continu\hspace*{5mm}} 
+\section{Direct current machines}
+\markboth{{\hspace*{5mm}\bf Chapitre 3} \hfill Electrcical systems}{{ \bf Sec. \thesection}
+\hfill Direct current machines\hspace*{5mm}} 
 
 
-Les machines à courant continu (voir fig.
-\ref{fig:machineDC}) comportent généralement un enroulement statorique
-et un enroulement rotorique.  
+Direct current machines (fig.
+\ref{fig:machineDC}) generally include a stator winding and a rotor one.  
 \begin{figure}[t]
 \begin{center}
 \includegraphics[height=4cm]{machineDC}
-\caption{Machine à courant continu}
+\caption{Direct current machines}
 \label{fig:machineDC}
 \end{center}
 \end{figure}
-L'enroulement du stator est le circuit
-inducteur dont le courant est noté $I_s$.  L'enroule\-ment du rotor
-est le circuit d'induit dont le courant est noté $I_r$. 
 
-Ainsi décrite, une machine à courant continu (ou machine DC) semble tout à
-fait similaire à la machine élémentaire à deux enroulements que nous
-avons étudiée à la section précédente. Il y a cependant une
-différence fondamentale : une machine DC est munie d'un système de
-commutation qui a pour effet de modifier le couplage électromécanique. Une description détaillée de l'effet de la commutation sur les
-équations de couplage sort du cadre de ce livre. Nous
-nous limitons ici à en donner les résultats. Lorsque les effets de
-saturation magnétique sont négligeables et lorsque la commutation
-n'introduit pas de nonlinéarité significative, les équations de couplage
-électromécanique d'une machine DC prennent la forme multilinéaire
-suivante :  
+The stator winding is the inductive circuit whose current is noted  by $I_s$. The rotor winding is the \blue {induced circuit} whose current is written by $I_r$. 
+
+So a direct current machine (DC machine) seems similar to the elementary two-winding machine we studied in the previous section. However, there is a fundamental difference : a DC machine is designed with a 
+\blue {commutation} system whose effect is to modify the electromechanical coupling. A detailed description of this commutation effect on the coupling equations is beyond the scope of this book.  So we restrict ourselves to give the results. When the effect of magnetic saturation are negligible and when the commutation  
+doesn't generate significant non-linearities, the equations  of electromechanical coupling  of a DC machine are witten  as the following multilinear form :
+ 
 \begin{equation*} \begin{split}
 &e_s = L_s \frac{dI_s}{dt}, \\[2mm]
 &e_r = L_r \frac{dI_r}{dt} + \frac{d\theta}{dt}K_eI_s, \\[2mm]
 &T_{em} = K_mI_rI_s.
 \end{split} \end{equation*}
-On notera la ressemblance, mais non la similitude, de ces équations avec les
-équations générales (\ref{coup1}), (\ref{coup2}) des machines
-électriques sans commutation qui ont été établies
-précédemment. On remarquera en particulier le défaut de symétrie
-entre la forme de $e_s$ et celle de $e_r$ qui est précisément d{\^u} à la
-commutation.
+Let's notice the the \blue {resemblance, but not the similarity},
+of those equations with the general one (\ref{coup1}), (\ref{coup2}) of electrical machines without commutation which have been previously defined. We notice in particular the default of symmetry between 
+the form of $e_s$ and the one of $e_r$ which is precisely  due to commutation. 
 
-Selon la manière dont elles sont construites et dont elles
-sont mises en oeuvre, les machines à courant continu peuvent être
-utilisées soit comme moteurs soit comme génératrices.  Voici quelques
-exemples courants de réalisation. \\
+According to the way they are build and implemented, direct current machines can be used as motors or as generators.
+Here are some usual examples of applications. \\
 
-\noindent{\em Modèle général d'une machine DC}
+\noindent{\em General model for DC machine}
 
-Le système possède quatre variables d'état :
+The system has four state variables  :
 \begin{equation*} \begin{split}
 x_1 &= \theta, \\
 x_2 &= \dot{\theta}, \\
 x_3 &= I_s, \\
 x_4 &= I_r.
 \end{split} \end{equation*}
-Les entrées du système sont les tensions aux bornes du cicuit inducteur
-$v_s$ et du circuit d'induit $v_r$, ainsi que le couple extérieur $T_a$ :
+The system inputs are the voltages at the terminals of the inductor circuit $v_s$ and of the induced circuit $v_r$ as well as  the external torque $T_a$ :
 \begin{equation*} \begin{split}
 u_1 &= v_s, \\
 u_2 &= v_r, \\
 u_3 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état du système s'écrit comme suit :
+The state-spaced model can be written as follows :
 \begin{equation*} \begin{split}
 \dot x_1 &= x_2,\\
 J\dot x_2 &= -h(x_2) + K_m x_3x_4 + u_3,\\
@@ -811,78 +771,73 @@ L_s\dot x_3 &= -R_s x_3 + u_1,\\
 L_r\dot x_4 &= -R_r x_4 - K_ex_2x_3 + u_2.
 \end{split} \end{equation*}
 \\
-\noindent{\em Moteur DC commandé par le stator.}
+\noindent{\em DC engine controlled by stator.}
 
-C'est un moteur DC dont le courant rotorique est fourni par une source de
-courant constante (voir figure \ref{fig:cominducteur}) :
+It's a DC engine whose rotor current is provided by a constant current source (figure \ref{fig:cominducteur}) :
 \eqnn
-I_r = constante
+I_r = constant
 \eeqnn
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{cominducteur}
-\caption{Moteur DC commandé par le stator}
+\caption{ DC engine controlled by the stator}
 \label{fig:cominducteur}
 \end{center}
 \end{figure}
 
-\noindent Le système possède trois variables d'état :
+\noindent The system has three state variables :
 \begin{equation*} \begin{split}
 x_1 &= \theta, \\
 x_2 &= \dot{\theta}, \\
 x_3 &= I_s. 
 \end{split} \end{equation*}
-Les entrées du système sont la tension aux bornes du circuit statorique
-$v_s$ et le couple extérieur $T_a$ : 
+The system inputs are the voltages at the terminals of the stator circuit $v_s$ and the external torque $T_a$ : 
 \begin{equation*} \begin{split}
 u_1 &= v_s, \\
 u_2 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état s'écrit comme suit :
+The state-spaced model is written as follows :
 \begin{equation*} \begin{split}
 \dot x_1 &= x_2,\\
 J\dot x_2 &= -h(x_2) + K_m I_r x_3 + u_2,\\
 L_s\dot x_3 &= -R_s x_3 +u_1.
 \end{split} \end{equation*}
 \\
-\noindent{\em Moteur DC commandé par le rotor.}
+\noindent{\em DC engine controlled by the rotor.}
 
-C'est un moteur DC dont le courant statorique est fourni par une source de
-courant constante (voir figure \ref{fig:cominduit}):
+It's a DC engine whose stator current is provided by a constant current source ( figure \ref{fig:cominduit}):
 \eqnn
-I_s = constante
+I_s = constant
 \eeqnn
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{cominduit}
-\caption{Moteur DC commandé par le rotor}
+\caption{DC engine controlled by rotor}
 \label{fig:cominduit}
 \end{center}
 \end{figure}
-Le système possède trois variables d'état :
+The system has three state variables :
 \begin{equation*} \begin{split}
 x_1 &= \theta, \\
 x_2 &= \dot{\theta}, \\
 x_3 &= I_r. 
 \end{split} \end{equation*}
-Les entrées du système sont la tension aux bornes du cicuit rotorique
-$v_r$ et le couple extérieur $T_a$ : 
+The system inputs are the voltage at the terminals of the rotor circuit $v_r$ and the external torque $T_a$ : 
 \begin{equation*} \begin{split}
 u_1 &= v_r, \\
 u_2 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état du système s'écrit comme suit :
+The state-spaced model is written as follows :
 \begin{equation*} \begin{split}
 \dot x_1 &= x_2,\\
 J\dot x_2 &= -h(x_2) + K_m I_s x_3 + u_2,\\
 L_r\dot x_3 &= -R_r x_3 - K_e I_s x_2 + u_1.
 \end{split} \end{equation*}
 \\
-\noindent{\em Génératrice DC.}
+\noindent{\em DC generator.}
+The function of a generator is to convert mechanical power in electrical power \blue{delivered} by the rotor circuit on any load impedance of $Z_L$.
 
-La génératrice a pour fonction de convertir une puissance mécanique en une puissance électrique débitée par le circuit
-rotorique sur une impédance de charge $Z_L$ quelconque. Lorsque celle-ci est
-résistive ($R_L$),  le système possède trois variables d'état (voir figure
+When this impedance is resistive ($R_L$),  the system has three state variables ( figure
 \ref{fig:genDC})~: 
 \begin{equation*} \begin{split} 
 x_1 &= I_s, \\ x_2 &= I_r, \\ x_3 &= \omega.
@@ -890,17 +845,16 @@ x_1 &= I_s, \\ x_2 &= I_r, \\ x_3 &= \omega.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{genDC}
-\caption{Génératrice DC}
+\caption{ DC generator}
 \label{fig:genDC}
 \end{center}
 \end{figure}
-Les entrées du système sont la tension aux bornes du circuit statorique
-$v_s$ et le couple $T_a$ :
+The system inputs are the voltage at the terminals of the stator circuit $v_s$ and the torque $T_a$ :
 \begin{equation*} \begin{split}
 u_1 &= v_s, \\
 u_2 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état du système s'écrit comme suit :
+The state-spaced model is written as follows :
 \begin{equation*} \begin{split}
 L_s\dot x_1 &= -R_s x_1+ u_1, \\
 L_r\dot x_2 &=  - (R_r +R_L) x_2 - K_e x_3 x_1,\\
@@ -910,13 +864,13 @@ J\dot x_3 &= -h(x_3) + K_m x_1x_2 + u_2.
 
 \section{Exercices}
 
-\begin{exercice} {\bf \em Un circuit linéaire}
+\begin{exercice} {\bf \em Linear circuit}
 
-Etablir un modèle d'état du circuit linéaire représenté à la figure \ref{fig:circuitlin} avec la tension appliquée $e$ et la résistance ajustable $r$ comme variables d'entrée. \qed
+Establish a state-spaced model of the linear circuit shown in figure  \ref{fig:circuitlin} with the applied voltage $e$ and the adjustable resistance $r$ as input variables. \qed
  \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{circuitlin}
-\caption{Circuit linéaire}
+\caption{Linear circuit}
 \label{fig:circuitlin}
 \end{center}
 \end{figure}
@@ -924,101 +878,89 @@ Etablir un modèle d'état du circuit linéaire représenté à la figure \ref{f
 \end{exercice}
 \vv
 
-\begin{exercice} {\bf \em Un pont doubleur de tension}
+\begin{exercice} {\bf \em Voltage doubler bridge}
 
-Le schéma électrique d'un pont doubleur de tension est représenté à la figure
-\ref{fig:pont}. Etablir le modèle d'état de système sous l'hypothèse que tous 
-les dip{ô}les sont linéaires à l'exception des diodes. \qed
+The electrical diagram of a voltage doubler bridge is shown in figure \ref{fig:pont}. Establish the state-spaced model of the system assuming that all the dipoles are linear except the diodes. \qed
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{pont}
-\caption{Pont doubleur de tension}
+\caption{Voltage doubler bridge}
 \label{fig:pont}
 \end{center}
 \end{figure}
 \end{exercice}
 \vv
 
-\begin{exercice} {\bf \em Un transformateur}
-
-Le schéma électrique équivalent d'un transformateur est représenté à la figure
+\begin{exercice} {\bf \em Transformer}
+The electrical diagram of a transformer is shown in figure
 \ref{fig:transfo}.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=3cm]{transfo}
-\caption{Circuit équivalent d'un transformateur}
+\caption{Transformer equivalent circuit}
 \label{fig:transfo}
 \end{center}
 \end{figure}
 \begin{enumerate}
-\item Ce réseau électrique comporte-t-il des mailles de capacités et/ou des coupes
-d'inductances ?  Explicitez votre réponse.
-\item Etablir le modèle d'état du système sous l'hypothèse que tous les dip{ô}les sont
-linéaires. \qed
+\item Has this electrical network some capacity \blue {mesh} and/or inductance \blue {cuts} ? 
+ Explain your answer.
+\item Establish the state-spaced model assuming that the dipoles are linear. \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em  Un circuit avec diode tunnel}
+\begin{exercice}{\bf \em  A circuit with a tunnel diode}
 
-Un circuit électrique est décrit par les équations d'état suivantes :
+A electrical circuit is described by the following state equations :
 \eqnn
 C \dot x_1 &=& -h(x_1)+x_2,\\
 L\dot x_2 &=& -x_1-Rx_2 +u.
 \eeqnn
-$x_1$ est la tension aux bornes d'une capacité linéaire, $x_2$ est le 
-courant dans une inductance linéaire, $h(x_1) = x^3_1 - 10 x^2_1 + 25 x_1$  
-est la caractéristique d'une diode tunnel. Etablir le schéma du circuit. \qed
+$x_1$ is the voltage to the terminals of a linear capacity, $x_2$ is the current in a linear inductance, $h(x_1) = x^3_1 - 10 x^2_1 + 25 x_1$  
+is the characteristic of a tunnel diode. Establish the circuit diagram. \qed
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un convertisseur électromécanique}
+\begin{exercice}{\bf \em Electromechanical converter }
 
-Le dispositif représenté à la figure \ref{fig:convem} pemet de transformer une
-puissance
-électrique fournie par la source de tension en un mouvement mécanique de translation.  Il
-est constitué d'un noyau cylindrique en acier se déplaçant longitudinalement à
-l'intérieur d'un solénoïde. \qed
+The device illustrated in figure \ref{fig:convem} transforms an electrical power provided
+by the voltage source in a mechanical mouvement of translation.  It is made of a cylindrical steel core moving
+longitudinally inside a solenoid. \qed
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=3cm]{convem}
-\caption{Convertisseur électromécanique}
+\caption{electromechanical converter}
 \label{fig:convem}
 \end{center}
 \end{figure}
 
-Proposez un modèle d'état de ce système sous les hypothèses de modélisation
-suivantes :
+Suggest a state-spaced model of this system according to the following  modeling assumptions :
 \begin{enumerate}
-\item Le mouvement du noyau est contraint à être horizontal par une glissière.  Le
-frottement peut être considéré comme visqueux et linéaire.
-\item Le noyau est plus court que le solénoïde.
-\item Le flux dans le solénoïde est une fonction affine de la longueur $h$ de la partie du
-noyau qui se trouve à l'intérieur du solénoïde.
-\item Le flux est une fonction monotone croissante saturée du courant.
-\item Le ressort est linéaire. \qed
+\item The core movement is forced to be linear by a slide.  The friction can be considered as viscous and linear.
+\item The core is shorter than the solenoid.
+\item The flow in the solenoid is a linear function of the length $h$ of the core part which is inside the solenoid.
+\item The flow is a saturated monotonically increasing function of the current.
+\item The spring is linear. \qed
 \end{enumerate}
 \end{exercice}
 
-\begin{exercice}{\bf \em Un moteur d'horlogerie}
-
-Un petit moteur utilisé en horlogerie est schématisé à la figure
-\ref{fig:mothor}.  Le stator est muni d'un enroulement inducteur dont l'inductance
-$L(\theta)$ est une fonction sinusoïdale de la position angulaire $\theta$ du rotor.
+\begin{exercice}{\bf \em Clockwork motor}
+A small motor used in watchmaking is presented in figure
+\ref{fig:mothor}.  The stator is provided with field winding whose inductance
+$L(\theta)$ is a sinusoidal function of the rotor angular position $\theta$.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=40mm]{mothor}
-\caption{Moteur d'horlogerie}
+\caption{Clockwork motor}
 \label{fig:mothor}
 \end{center}
 \end{figure}
 \begin{enumerate}
-\item Proposez un modèle pour la fonction $L(\theta)$ et calculez le flux.
-\item Etablir le modèle d'état du système sous l'hypothèse d'un frottement 
-visqueux linéaire. Les entrées sont la tension $u$ aux 
-bornes de l'inducteur et le couple résistant $T_a$.
-\item Quelle doit être la forme du signal d'entrée $u$ lorsque $T_a$ est constant pour 
-que le rotor tourne à vitesse constante ? \qed
+\item Suggest a model for the function $L(\theta)$ and compute the flow.
+\item Establish the state-spaced model of the system assuming a linear viscous friction. The inputs are the 
+voltage $u$ at the terminals of the inductor and the load torque $T_a$.
+\item What has to be the waveform of the input signal $u$ when $T_a$ is constant and so that the rotor rotates at 
+constant speed ?  \qed
 \end{enumerate}
 \end{exercice}
 \newpage
