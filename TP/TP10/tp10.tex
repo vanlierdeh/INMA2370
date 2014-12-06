@@ -1,1 +1,175 @@
-TODO
+
+\textbf{Exercice 10.1 A balloon}\\
+
+
+\textbf{1. Meaning of the equations:}\\
+
+We are given the following system
+$$\begin{array}{lll}
+\dot{\theta} & = & -\frac{\theta}{\tau_{1}}+u\\
+\dot{v} & = & -\frac{v}{\tau_{2}}+\sigma\theta \\
+\dot{h} & = & v.\\
+\end{array}$$
+
+The meaning of the equations in their respective order is
+\begin{itemize}
+\item Heat conservation,
+\item Newton's law,
+\item Definition of velocity.\\\end{itemize}
+
+
+\textbf{2. Controllability:}\\
+
+We now analyse the controllability of the system. A theorem states that the system is controllable if and only if 
+$$\text{rank}[B \text{  } AB\text{  } A^{2}B \text{  }\dots\text{  } A^{n-1}B]=n$$
+where the matrix $A$ and $B$ are defined from the general form of a system of $n$ variables
+$$\dot{x}=Ax+Bu.$$
+
+In this case we have $B=\begin{pmatrix}
+1\\
+0\\
+0\\
+\end{pmatrix}$ and $A=\begin{pmatrix}
+\frac{-1}{\tau_{1}} & 0 & 0\\
+\sigma & \frac{-1}{\tau_{2}} & 0 \\
+0 & 1 & 0 \\
+\end{pmatrix}.$
+
+Straightforward computation gives the matrix of controllability $M=\begin{pmatrix}
+1      & \frac{-1}{\tau_{1}} & \frac{1}{\tau_{1}^{2}}\\
+0 & \sigma & \textcolor{blue}{-\frac{\sigma}{\tau_{1}}-\frac{\sigma}{\tau_{2}}} \\
+0      & 0 & \sigma \\
+\end{pmatrix}.$
+
+Clearly the matrix has full rank since we can assume $\sigma>0$ for physical reasons.
+\textcolor{blue}{Remark : Instead of $\frac{-2\sigma}{\tau_{1}}$ (as in the current solution) , the coefficient $M_{23}$ should be $-\frac{\sigma}{\tau_{1}}-\frac{\sigma}{\tau_{2}}$}.\\
+
+
+\textbf{3. Trajectory control:}\\
+
+We look for a transformation to express the system under a Brunovski form. 
+
+
+
+Starting from $\dot{h}=v$, we set $z_{1}=h$ and $z_{2}=v$ wich already gives $\dot{z_{1}}=z_{2}$. Looking for $z_{3}$ we write $z_{3}=\dot{z_{2}}=\dot{v}=\sigma\theta-\frac{v}{\tau_{2}}$.
+
+
+
+This allows us to fully define our transformation $(z_{1},z_{2},z_{3})=T(\theta,v,h)$ by
+$$\begin{array}{lll}
+z_{1}=h\\
+z_{2}=v\\
+z_{3}=\sigma\theta-\frac{v}{\tau_{2}}.\\
+\end{array}$$
+
+We find 
+\begin{align*}
+\dot{z_{3}}&=\sigma\dot{\theta}-\frac{\dot{v}}{\tau_{2}}\\
+&=\sigma\dot{\theta}-\frac{z_{3}}{\tau_{2}}\\
+&=\sigma(-\frac{\theta }{\tau_{1}}+u)-\frac{z_{3}}{\tau_{2}}\\
+&=\sigma(-\frac{1}{\tau_{1}\sigma}(z_{3}+\frac{z_{2}}{\tau_{2}})+u)-\frac{z_{3}}{\tau_{2}}\\
+&=-\frac{z_{2}}{\tau_{1}\tau_{2}}-z_{3}(\frac{1}{\tau_{1}}+\frac{1}{\tau_{2}})+\sigma u\\
+\end{align*}
+
+We want to plan a trajectory from $z(t=0)=T(x(0))=T\begin{pmatrix}
+0\\
+0\\
+h_{0}\\
+\end{pmatrix}=\begin{pmatrix}
+h_{0}\\
+0\\
+0\\
+\end{pmatrix}$ to $z(t=1)=T(x(1))=T\begin{pmatrix}
+0\\
+0\\
+h_{1}\\
+\end{pmatrix}=\begin{pmatrix}
+h_{1}\\
+0\\
+0\\
+\end{pmatrix}.$
+
+Having $6$ conditions we set a trajectory for $z_{1}$ that is a polynomial of degree 5, 
+$$z_{1}(t)=\lambda_{5} t^{5}+\lambda_{4} t^{4} + \lambda_{3} t^{3} + \lambda_{2} t^{2} +\lambda_{1} t+\lambda_{0}.$$
+By differentiating we find
+$$z_{2}(t)=\dot{z_{1}(t)}=5\lambda_{5} t^{4}+4\lambda_{4} t^{3} + 3\lambda_{3} t^{2} + 2\lambda_{2} t +\lambda_{1},$$
+$$z_{3}(t)=\dot{z_{2}(t)}=20\lambda_{5} t^{3}+12\lambda_{4} t^{2} + 6\lambda_{3} t + 2\lambda_{2}.$$
+
+We find the unknown coefficients solving
+
+$$\left\{\begin{array}{ccc}
+z_{1}(0) & = & h_{0}\\
+z_{1}(1) & = & h_{1}\\
+z_{2}(0) & = & 0\\
+z_{2}(1) & = & 0\\
+z_{3}(0) & = & 0\\
+z_{3}(1) & = & 0\\
+\end{array}\right.$$
+
+This gives 
+$$\left\{\begin{array}{ccc}
+\lambda_{0} & = & h_{0}\\
+\lambda_{1} & = & 0\\
+\lambda_{2} & = & 0\\
+\lambda_{3}& = & 10(h_{1}-h_{0})\\
+\lambda_{4}& = & -15(h_{1}-h_{0})\\
+\lambda_{5}& = & 6(h_{1}-h_{0})\\
+\end{array}\right.$$
+
+
+
+This gives us the trajectories
+\begin{align*}
+z_{1}(t)&=6(h_{1}-h_{0}) t^{5}-15(h_{1}-h_{0}) t^{4} + 10(h_{1}-h_{0}) t^{3} + h_{0},\\
+z_{2}(t)&=30(h_{1}-h_{0}) t^{4}-60(h_{1}-h_{0}) t^{3} + 30(h_{1}-h_{0}) t^{2},\\
+z_{3}(t)&=120(h_{1}-h_{0}) t^{3}-180(h_{1}-h_{0}) t^{2} + 60(h_{1}-h_{0}) t.
+\end{align*}
+
+
+We can get $u(t)$ by the formula
+$$u(t)=\dfrac{\dot{z_{3}(t)}-\alpha(z(t))}{\beta},$$
+where $\alpha(z(t))=-\frac{z_{2}(t)}{\tau_{1}\tau_{2}}-z_{3}(t)(\frac{1}{\tau_{1}}+\frac{1}{\tau_{2}})$ and $\beta=\sigma$.\\
+
+
+\textbf{Exercice 10.1 A jumping robot}\\
+
+
+\textbf{1. Model:}\\
+
+Given the equations 
+$$\left\{ \begin{array}{rrr}
+M\dot{\theta}+ m(z+d)^{2}(\dot{\theta}+\dot{\phi}) & = & 0\\
+u_{1} & = & \dot{\phi}\\
+u_{2} & = & \dot{z}\\
+\end{array}\right.$$
+One can find $$\dot{\theta}=\dfrac{-m(z+d)^{2}}{M+m(z+d)^{2}}u_{1}.$$
+And therefore express the system of variables $z, \theta, \phi$ with entrance $u_{1}, u_{2}$
+$$\begin{pmatrix}
+\dot{z}\\
+\dot{\theta}\\
+\dot{\phi}\\
+\end{pmatrix}=
+\underbrace{
+\begin{pmatrix}
+0\\
+\dfrac{-m(z+d)^{2}}{M+m(z+d)^{2}}=k(z)\\
+1\\
+\end{pmatrix}}_{g_{1}}u_{1}+
+\underbrace{
+\begin{pmatrix}
+1\\
+0\\
+0\\
+\end{pmatrix}}_{g_{2}}u_{2}.$$
+
+\textbf{2. Controllability:}\\
+
+We compute
+$$[g_{1},g_{2}]=\dfrac{\partial g_{2}}{\partial x}g_{1}-\dfrac{\partial g_{1}(z)}{\partial z}g_{2}=\begin{pmatrix}
+0\\
+k'(z)\\
+0\\
+\end{pmatrix}.$$
+
+As we see, $[g_{1},g_{2}]\notin \text{span}\{g_{1},g_{2}\}\text{, } \forall z>-d$. The rank of reachability is $3$ and according to theorem $10.10$ we have controllability for $z>-d$.
+
