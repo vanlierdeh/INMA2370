@@ -10,8 +10,8 @@
 \graphicspath{ {Chapitre4/images/} }
 
 \setcounter{chapter}{3}
-\chapter{Compartment systems}
-\chaptermark{Compartment system}\label{syscompart}
+\chapter{Compartments systems}
+\chaptermark{Compartments systems}\label{syscompart}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -19,7 +19,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lettrine[lines=1]{\bf T}{}he notion of compartment system is used to specify a wide set of systems for which the dynamic can be described  by balanced equations.
+\lettrine[lines=1]{\bf T}{}he notion of compartments system is used to specify a wide set of systems for which the dynamic can be described  by balanced equations.
 It is used in many engineering fields (such as chemistry engineering, biomedical engineering or ecology), in economy and social sciences as well. 
 
 \section{Definitions and notations}
@@ -33,27 +33,27 @@ These flows are always {\em positive}, by convention.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics{compartiment}
-\caption{Symbolic representation of the compartment.}
+\caption{Symbolic representation of a compartment.}
 \label{fig:compartiment}
 \end{center}
 \end{figure}
 
-A compartment system is made of one {\em network} of compartments 
+A compartments system is made of one {\em network} of compartments 
 interconnected and labelled $1$ through $n$.
 To be clear, an example of system made of $3$ compartments is shown
 at figure \ref{fig:exemplecomp}. The arrows specify the flows of content
-exchanged by the the compartment in the network and with outside of 
+exchanged by the the compartments in the network and with outside of 
 the system.
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=5cm]{exemplecomp}
-\caption{An example of a compartment system graph.}
+\caption{An example of a compartments system graph.}
 \label{fig:exemplecomp}
 \end{center} 
 \end{figure}
 
-In general, a compartment system is represented by an {\em oriented graph} 
+In general, a compartments system is represented by an {\em oriented graph} 
 whose nodes correspond to compartments and arcs to flows. 
 The following notations are introduced~:
 \begin{description}
@@ -66,8 +66,9 @@ variable which is always {\em positive} by convention.
 \end{description}
 
 \begin{definition}{\bf \em Open or close system}
+
 A system is {\bf open} when there exists a possibility to exchange matter
-with outside the system.
+with outside of the system.
 In this case :  
 \begin{description}
 \item $q_{io}$ specify the flow from  compartment $i$ towards the outside
@@ -79,29 +80,29 @@ q_{oi} = 0$ for all $i$. \qed
 
 \begin{definition}{\bf \em System connected to entrances and exits}
 
-A compartment $i$ is {\it connected to an exit} if there is a path $i \rightarrow j \rightarrow k \rightarrow \dots \rightarrow \ell$ from this compartment ending in a compartment $\ell$ from which there is an outgoing flow  $q_{\ell o}$. The system is {\it completely connected to the exits} (CCO) if each and every compartment is connected to an exit.
+A compartment $i$ is {\it connected to an exit} if there is a path $i \rightarrow j \rightarrow k \rightarrow \dots \rightarrow \ell$ from this compartment ending in a compartment $\ell$ from which there is an outgoing flow  $q_{\ell o}$. The system is {\it completely connected to the exits} (CCO) if each compartment is connected to an exit.
 
-A compartment $\ell$ is {\it connected to an entry} if there is a path $i \rightarrow j \rightarrow k \rightarrow \dots \rightarrow \ell$ ending in this compartment and coming from a compartment $i$ in which there is an entering flow $q_{oi}$. The system is {\it completely connected to the entries} (CCI) if every compartment is connected to an entry. \qed 
+A compartment $\ell$ is {\it connected to an entry} if there is a path $i \rightarrow j \rightarrow k \rightarrow \dots \rightarrow \ell$ ending in this compartment and coming from a compartment $i$ in which there is an entering flow $q_{oi}$. The system is {\it completely connected to the entries} (CCI) if each compartment is connected to an entry. \qed 
 \end{definition}
 
 
 \section{State model}
-\markboth{ {\bf \hspace*{5mm}Chapter 4 }\hfill Compartment system} {{ \bf Sec. \thesection} \hfill
+\markboth{ {\bf \hspace*{5mm}Chapter 4 }\hfill Compartments systems} {{ \bf Sec. \thesection} \hfill
 State model \hspace*{5mm}}
 
-The balanced equation of every compartment (also called continuity equation)
+The balanced equation of each compartment (also called continuity equation)
 \eqnn
 \dot{x_i} = \sum_{j=0}^n q_{ji}(t) - \sum_{j=0}^n q_{ij}(t) \hspace{1cm} i=1,...,n
 \label{bilan}
 \eeqnn
-is the basic statement to establish the state model of a compartment system.
+is the basic statement to establish the state model of a compartments system.
 This equation tells us that the variation, per unit of time, of the 
 quantity contained in a compartment is the difference between the 
 sum of the entering flows (or debits) and the sum of the outgoing flows (or debits). 
-In practice, of course, the flows wich are structurely null are not explicitly in the equation  
+In practice, of course, the flows which are structurally null are not explicitly in the equation  
 (\eqref{bilan}).
 
-Computing the equations of the sate model of a compartment system required two 
+Computing the equations of the sate model of a compartments system required two 
 fundamental aspects. 
 
 First of all, the structure of the graph related to the system determines the 
@@ -114,27 +115,27 @@ state variables and input variables :
 \eqnn
 q_{ij}(x,u)
 \eeqnn
-where $x$ et $u$ are, as usual, the vector of state and entries. 
+where $x$ and $u$ are, as usual, the vector of states and entries. 
 This modelling is the point of the next section.
 
-The general form of the state equations of a compartment system is the 
+The general form of the state equations of a compartments system is the 
 following :  
-\eqnn
-\dot{x_i} = \sum_{j=0}^n q_{ji}(x,u) - \sum_{j=0}^n q_{ij}(x,u) \hspace{1cm} i=1,...,n \label{eqetcomp}
+\eqnn 
+\dot{x_i} = \sum_{j=0}^n q_{ji}(x,u) - \sum_{j=0}^n q_{ij}(x,u) \hspace{1cm} i=1,...,n  \label{eqetcomp}
 \eeqnn
 In this model, the physical meaning of the state variables $x_i$ is obvious : these are
 the quantities contained in each compartment. But, the input variables $u$ can be 
-of different nature, depending on the applications, as the next examples will show.
+of different natures, depending on the applications, as the next examples will show.
 
 If the {\em flows vector} $q(x,u)$ is defined as containing, in an arbitrary order, all the
 flows $q_{ij}(x,u)$ which are not structurally null, then the sate model (\eqref{eqetcomp}) 
 can also be written in a more compact matrix form :
-\eqn
-\dot{x} = Lq(x,u) \label{modetcomp}
+\eqn 
+\dot{x} = Lq(x,u)  \label{modetcomp}
 \eeqn
 where $L$ is the incident matrix of the oriented graph, whose  
-coefficents all belong to 
-$(-1,0,1)$, which is ?????.
+coefficients all belong to 
+$(-1,0,1)$.
 
 \begin{exemple}
 For the system depicted at figure \ref{fig:exemplecomp}, the
@@ -162,7 +163,7 @@ L \triangleq \bma{ccccccc} 1 & 0 & -1 & -1 & 1 & 0 & 0 \\
 \section{Modelling of the flows}
 
 Depending on the applications, the functions $q_{ij}(x,u)$ depicting the flows can take different types of
-forms. However, they must be defined in a way which guarantees the compartment system to be a {\em positive system}, that is a system for which every state variable remains positive along the trajectories. 
+forms. However, they must be defined in a way which guarantees the compartment system to be a {\em positive system}, that is a system for which each state variable remains positive along the trajectories. 
 It is a likelihood guarantee of the model, because the state variables represent measures which do not have a 
 physical meaning if they are negative.
 
@@ -194,7 +195,7 @@ A dynamical system $\dot x=f(x,u)$ is a positive system if $f(x,u)$ is different
 x \in \real_+^n \;\;\;\; \mbox{et} \;\;\;\; x_i = 0 \;\; \Longrightarrow \;\; \dot x_i \geq 0 \;\;\;\; \forall i. \qed
 \eeqnn
 \end{theoreme}
-To ensure that a compartment system is a positive system, let's impose the following conditions on the 
+To ensure that a compartments system is a positive system, let's impose the following conditions on the 
 flows functions $q_{ij}(x,u)$~:
 \begin{itemize}
 \item[C1.]  The functions $q_{ij}(x,u)$ are positive functions of their arguments on their definition domain~:
@@ -220,7 +221,7 @@ is a positive system.
 
 Let's consider an hydraulic system made of a set of 
 tanks located at different elevations and whose the liquid content  
-flows " as waterfall " from the highest tanks to the lowest tanks, 
+flows "as waterfalls" from the highest tanks to the lowest tanks, 
 thanks to gravity action. An example is illustrated at figure \ref{Fig:cascade}.
 
 \begin{figure}[h] 
@@ -231,7 +232,7 @@ thanks to gravity action. An example is illustrated at figure \ref{Fig:cascade}.
 \end{center} 
 \end{figure}
 
-It is clearly a compartment system whose the associated graph 
+It is clearly a compartments system whose the associated graph 
 is depicted at figure \ref{Fig:grafassoc} and whose the continuity 
 equations are written as~:
 \begin{equation*} \begin{split} 
@@ -257,14 +258,14 @@ is a positive function of the volume $x_i$ of the tank. The form of
 this function depends on the shape of the tanks and the configuration of 
 the holes through which the water flows. Let's consider the case where the tanks 
 have a constant horizontal section and where the flow goes through a 
-rectangular hole located at the bottom of the tanks. The elevation of the water in 
+rectangular hole located at the bottom of the tanks. The water elevation in 
 a tank is expressed as~:
 \eqnn
 h_i = \frac {x_i}{S_i}
 \eeqnn
 where $S_{i}$ specifies the section of the tank.
 According to the hydraulic laws, we know that when the elevation of the water $h_i$ is big 
-toward the elevation of the hole, the link between the elevation of the water is proportional to 
+toward the elevation of the hole, the link between the debit and the elevation of the water is proportional to 
 $\sqrt{h_i}$ (Torricelli's law~\footnote{This law written by Torricelli in 1643 states that the speed $v$ of
 the outgoing water of a tank of elevation $h$ verifies $v^2=2gh$. It can be proven intuitively by 
 analogy with a body in free fall: a elementary volume of water at the surface of the tank has a potential energy 
@@ -290,7 +291,7 @@ Finally, the state model can be written as~:
 \dot x_3 &= \frac{k_{13}x_1\sqrt{x_1} }{S_1 \beta_{13} + x_1} + \frac {k_{23}x_2\sqrt{x_2} }{S_2 \beta_{23} + x_2} -
 \frac {k_{30}x_3\sqrt{x_3} }{S_3 \beta_{30} + x_3}.
 \end{split} \end{equation}
-Let's notice that the functions $q_{ij}(x_{i})$ verifies the positivity conditions C1, C2 and C3. \qed
+Let's notice that the functions $q_{ij}(x_{i})$ verify the positivity conditions C1, C2 and C3. \qed
 \end{exemple}
 
 

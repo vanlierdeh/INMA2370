@@ -973,11 +973,11 @@ constant speed ?  \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{exercice}{\bf \em Unipolar of-phase synchronous machine} %Machine synchrone unipolaire diphasée.
+\begin{exercice}{\bf \em Unipolar off-phase synchronous machine} %Machine synchrone unipolaire diphasée.
 
 This is a machine holding two stator windings (labelled $a$ and $b$) 
 arrange in quadrature and a rotor winding (labelled $r$). 
-The self and mutual inductances of the stator winding vary depending
+The self and mutual inductances of the stator windings vary depending
 on the angular position $\theta$ of the rotor according to the following laws : 
 \eqnn 
 L_a &=& L_o + L_1\cos 2\theta \nonumber \\ 
@@ -996,7 +996,7 @@ L_{br} &=& L_2 \sin \theta \nonumber
 system (see Section 3.4) 
 \item The rotor is supplied by a constant current source
 $I_r$. Establish the state model of this machine when 
-it works as an engine (you might need to use the example 3.3). \qed
+it works as a motor (you might need to use the example 3.3). \qed
 \end{enumerate}
 \end{exercice}
 \vv
@@ -1017,7 +1017,7 @@ Denote how to revise the state equations under the following hypothesis :
 
 A DC motor with self-excitation is designed such as the stator 
 current and the rotor current are supplied by the same power source
-(see figure \ref{fig:autoex}). Establish the state model of the state model 
+(see figure \ref{fig:autoex}). Establish the state model
 of this system using the tension source $u$ as the only input 
 variable of this system. \qed
 \begin{figure}[htbp]
@@ -1032,10 +1032,10 @@ variable of this system. \qed
 
 \begin{exercice}{\bf \em DC generator with self-excitation}
 Let's consider a DC generator with self-excitation. The rotor tension 
-induced at constant rate is a {\em strictly  increasing and bounded} function 
+induced at constant rate is a {\em strictly increasing and bounded} function 
 depending on the excitation current $E(I_s)$ such as $E(0) >
 0$. The generator provides a capacitive electric charge. 
-The input control variable of the system is the rotation speed of 
+The input control variable of the system is the angular velocity of 
 the generator. 
 \begin{enumerate}
 \item Propose an analytical form for the function $E(I_s)$.
@@ -1047,8 +1047,8 @@ the generator.
 
 \begin{exercice}{\bf \em DC motor with off-center load}
 
-A DC motor with independent excitations is controlled by the rotor current
-driving an off-center load (the motor shaft do not pass through the 
+A DC motor with independent excitations and controlled by the rotor current
+drives an off-center load (the motor shaft do not pass through the 
 center of mass of the load : indeed, there is an unbalanced effect)
 through a transmission whose flexibility is significant. 
 Propose a state model taking into account this features. 
@@ -1065,7 +1065,7 @@ Propose a state model taking into account this features.
 \end{center}
 \end{figure}
 The circuit depicted at the figure above describes a DC-DC converter.  
-The device labelled ``S" picture an electronic switch of type MOSFET 
+The device labelled "S" pictures an electronic switch of type MOSFET 
 which is open and close periodically.\\
 
 Establish a state model of the system under the following modelling 
