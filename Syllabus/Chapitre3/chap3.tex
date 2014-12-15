@@ -146,129 +146,89 @@ Il est important de bien comprendre que les impédances et les sources sont des 
 \end{figure}
 
 
-\section{Equivalence entre systèmes ouverts et fermés}
+\section{Equivalency between open and closed systems}
 
-Nous avons vu un système électrique comme ``ouvert'', c'est-à-dire muni de variables d'entrées et de sortie, qui sont des courants ou des tensions. L'ajout de sources permet toutefois de considérer un système fermé équivalent. Par exemple un dipôle dont la tension $v(t)$ est l'entrée, peut être fermé par une source de tension variable qui délivre précisément la tension $v(t)$ (voir fig.~\ref{fig:equivouvertferme}). Il est quelquefois commode pour l'analyse de se ramener à un graphe fermé.
+We have seen an electrical system as “open”, i.e. equipped with inputs and outputs, which are currents or tensions.  Adding sources, however, allows us to consider an equivalent closed system.  For example, a dipole whose tension $v(t)$ is the input, may be closed by a variable tension source that precisely delivers the tension $v(t)$ (see figure~\ref{fig:equiouvertferme}).  However, for the sake of the analysis, it is comfortable to return to a closed graph.
 
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=6cm]{equivouvertferme}
-\caption{Equivalence entre un circuit ouvert et un circuit fermé: le cas d'un dipôle dont l'entrée est la tension, et la sortie le courant}
+\caption{Equivalence between an open circuit and closed circuit:  the case where a dipole where the input is tension and the output power.}
 \label{fig:equivouvertferme}
 \end{center}
 \end{figure}
 
-Si le dipôle est conçu pour fournir de l'énergie à l'extérieur ($v(t) i(t) >0$), alors on peut également fermer le circuit par la charge supposée absorber l'énergie, qu'on modélise souvent comme une (grande) résistance de charge. Ceci est une restriction, car la charge pourrait être autre chose qu'une résistance. Par exemple un moteur est plutôt de nature inductive.
+If the dipole is adapted to supply energy to the outside ($v(t) i(t) >0$), then it can also close the circuit by the load supposed to absorb the energy, often modeled like a (great) load resistance.  For example, an engine is rather of an inductive nature.
 
-\section{Réseaux électriques et mise en équation du modèle d'état}
+\section{Electrical networks and the setting in equation of the state model}
 
-Les systèmes électriques complexes sont généralement créés par l'interconnection en réseau d'un nombre fini de systèmes élémentaires. Dans ce chapitre nous considérons les réseaux formés de  dipôles élémentaires (impédances et sources). Il est clair qu'un tel
-réseau a une structure de graphe dont les branches sont formées
-par les dip{ô}les. Un exemple de réseau
-et de graphe  associé est donné à la figure
-\ref{fig:exemplereseau} qui représente un pont d'impédances. Les flèches sur le graphe indiquent le sens conventionnel choisi pour le courant dans chacune des branches. 
+Complex electrical systems are generally created by the interconnection of a defined number of elementary systems.  In this chapter we will consider networks designed by elementary dipoles (impedances and sources)  It is clear that such a network has a graph representation the branches of which are defined by the dipoles.  An example of such a network and its graph is given in figure \ref{fig:exemplereseau}, representing an impedance bridge.  The arrows on the graph indicate the conventional flow chosen by the current in each of the branches.  
+
 \begin{figure}[t]
 \begin{center}
 \includegraphics[height=45mm]{exemplereseau}
-\caption{Pont d'impédances}
+\caption{Impedance bridge}
 \label{fig:exemplereseau}
 \end{center}
 \end{figure}
-Nous considérons des réseaux électriques fermés (au moyen de sources de tension et/ou de courant, voire avec des résistances de charge) {\bf connexes} 
-comportant $N$ noeuds et $M$ branches. 
-% et qui satisfont l'hypothèse
-%suivante (voir figure \ref{fig:resint}) : {\em toutes les sources de tension sont incorporées dans
-%une branche avec une résistance interne en série, toutes les sources de
-%courant possèdent une résistance interne en parallèle}.  
-Un graphe est connexe lorsqu'il existe toujours un chemin du graphe reliant deux
-noeuds quelconques.
+We are considering closed associated electrical networks (with sources of tension and/or power, even with load resistors) with $N$ nodes and $M$ branches.  A graph is considered associated when there is link between any two nodes.\\
 
-Définissons deux notions utiles par la suite : les
-mailles et les coupes d'un réseau électrique.
+Let’s define two concepts that will be used subsequently:  meshes and sections of an electrical network.
+
 \begin{description}
-\item Une {\em maille} est un cycle, c'est-à-dire un chemin ``fermé" sans répétition de noeud.
-\item Une {\em coupe} est ensemble  de branches dont
-l'extraction partage un réseau connexe en au moins deux sous-réseaux connexes séparés.
+\item A {\em mesh} is a cycle, i.e. a closed path without repeating nodes.
+\item A {\em section} is an ensemble of branches the extraction of which will split an associated network in at least two associated separate sub-networks.
 \end{description}
 
-L'établissement du modèle d'état d'un réseau électrique est
-basé sur les lois de Kirchhoff qui s'énoncent comme suit :
+The organization of a electrical network state model is based on Kirchhoff’s laws, as follows:
 \begin{itemize}
-\item Loi de Kirchhoff des courants : la somme algébrique des
-courants dans les branches incidentes à un noeud est nulle.
-\item Loi de Kirchhoff des tensions : la somme algébrique des
-tensions dans une maille est nulle.
+\item Kirchhoff’s law on currents:  the algebraic sum of the currents in the branches incident to node a is equal to zero.
+\item Kirchhoff’s law on tensions:  the algebraic sum of tensions in a mesh is equal to zero.
 \end{itemize}
 
+If the graph is closed, the sum of Kirchhoff’s equations on current of all the $N$ nodes gives the trivial equality $0 = 0$, since each current occurs twice with an opposite sign.  There are $N-1$ Kirchhoff’s independent equations on the currents.  For any section, we also find out that the sum of currents on the brances of the section is equal to zero;  this result is acquired by summing Kirchhoff’s current equations on all nodes on one side of the section.\\
 
-Si le graphe est fermé, la somme des équations de Kirchhoff de courant sur tous les $N$ noeuds donne l'égalité triviale $0=0$, car chaque courant intervient deux fois avec un signe opposé. Il y a $N-1$ équations de Kirchhoff indépendantes sur les courants. Pour toute coupe, on trouve également que la somme des courants sur les branches de la coupe est nulle, ce qui est obtenu en sommant les équations de Kirchhoff des courants sur tous les noeuds d'un côté de la coupe.
+In order to find the number of Kirchhoff’s independent equations on meshes in a closed network, let’s consider the tree at the origin of the graph, i.e. an associated sub-graph, without any mesh or signal breakdown on any of the nodes.  Such a tree has $N - 1$ edges.  Every network branch added to this tree creates one and only one independent mesh.  Thus, we can create $M-N + 1$ mesh equations which will be independent.
 
-Pour trouver le nombre d'équations indépendantes de Kirchhoff sur les mailles dans un réseau fermé, considérons un arbre sous-tendant du graphe, c'est-à-dire un sous-graphe connexe, sans maille et incident à tous les noeuds. Un tel arbre a $N-1$ arêtes. Chaque branche du réseau ajoutée à cet arbre  créée une et une seule nouvelle maille indépendante. On peut ainsi créer $M-N+1$ équations de maille qui se trouvent être indépendantes.
-
-
-Les variables d'état d'un réseau sont les courants dans
-certaines inductances et les tensions aux bornes de certaines
-capacités.   Pour établir le modèle d'état d'un réseau, il suffit
-de procéder comme suit :
+Variables of a network state are the currents in some inductors and tensions at the terminals of certain capacitors. In order to establish a state model for a network, we proceed as follows:
 \begin{enumerate}
-\item Ecrire $N-1$ équations de Kirchhoff  pour les courants.
-\item Ecrire $M-N+1$ équations de Kirchhoff linéairement
-indépendan\-tes pour les tensions.
-\item Ecrire les lois de définition des impédances correspondant
-aux  tensions ou aux courants intervenant dans les équations de
-Kirchhoff 
-\item Eliminer les tensions et les courants redondants.
+\item Write $N - 1$ Kirchhoff’s equations for all currents
+\item Write $M - N +1$ Kirchhoff’s linearly independent equations for all tensions.
+\item Write definition impedance laws corresponding to the tensions or currents prevailing in Kirchhoff’s equations.
+\item 	Eliminate redundant tensions and currents.
 \end{enumerate}
 
-Il est à noter que si un circuit comporte plusieurs branches successives formant un dipôle composé de plusieurs dipôles élémentaires en série, les lois de Kirchhoff de courant sur les noeuds intermédiaires seront triviales. De même les équations de Kirchhoff de maille ne feront intervenir que la tension totale du dipôle, et non les tensions élémentaires isolément.
-En ce qui concerne l'écriture des équations de Kirchhoff, on peut donc compter ce dipôle composé comme  créant une seule branche et deux noeuds.
+It is interesting to note that if a circuit is comprised of several successive branches creating a dipole composed of several elementary dipoles placed in series, Kirchhoff’s current laws on intermediary nodes will be negligible.  Similarly, Kirchhoff’s mesh equations will only take the total dipole tension into consideration, and not isolated elementary tensions.  As far as writing Kirchhoff’s equations, one can consider this composed dipole as a single branch and two nodes.\\
 
+If the network is comprised of a mesh of capacitors, it is clear that the tension at the terminals of one of those capacitors can be written as the (signed) sum of the others, thus creating a linear relation in state variables.  On the contrary, when a network does not contain a mesh of capacitors, all tensions at the capacitors’ terminals are independent state variables.  Similarly, any inductors section imposes a linear relationship between currents crossing the section, since their (signed) sum is equal to zero.  One of these currents is not considered an independent state variable.  On the contrary, when a network is not comprised of inductors section, all currents in inductors are independent state variables.
 
-Si le réseau contient une maille de capacités, il est clair que la tension aux bornes d'une de ces capacité peut être écrite comme la somme (signée) des autres, créant une relation linéaire en variables d'état. A contrario, lorsque le réseau ne contient pas de mailles de capacités, toutes
-les tensions aux bornes des capacités sont des variables d'état indépendantes.
-De même, toute coupe d'inductances impose une relation linéaire entre les courants qui les traversent, puisque leur somme (signée) est nulle. Un de ces courants n'est donc pas pris comme variable d'état indépendante. A contrario, lorsqu'un réseau ne contient pas de coupes d'inductances,
-tous les courants dans les inductances sont des variables d'état indépendantes. 
-%Dans ce
-%cas, on peut d'emblée réduire le nombre $M$ de branches et le nombre $N$
-%de noeuds en convenant qu'une branche peut être définie comme un
-%ensemble de dipôles placés en série et comportant au plus une capacité
-%ou une inductance.
-\begin{exemple}{\bf \em Circuit redresseur avec filtre LC}
+\begin{exemple}{\bf \em Rectifier Circuit with Low Pass Filter}
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{redresseur}
-\caption{Circuit redresseur}
+\caption{Rectifier Circuit}
 \label{fig:redresseur}
 \end{center}
 \end{figure}
-La figure \ref{fig:redresseur} représente un circuit
-redresseur à diode avec un filtre formé d'une capacité et d'une
-inductance. La diode est une résistance nonlinéaire dont la caractéristique courant-tension s'exprime comme suit :
+
+Figure \ref{fig:redresseur} represent a diode rectifier circuit with a filter composed of a capacitor and an inductor.  The diode is a non-linear resistor where the current-tension characteristic is expressed as follows:
 \eqnn
 i = i_0[e^{\frac{v}{\alpha}} -1]
 \eeqnn
-où $\alpha$ est une constante proportionnelle à la température
-et inversement proportionnelle à la charge de l'électron, tandis
-que $i_0$ désigne le courant de fuite de la diode.  Il est clair que
-ce circuit ne contient ni maille de capacités ni coupe
-d'inductances.  Donc son modèle d'état comportera deux variables
-d'état : la tension $v_c$ aux bornes de la capacité et le courant
-$i_1$ dans l'inductance.
+where $\alpha$ is a constant proportional to temperature and inversely proportional to the electron charge, whereas $i_0$ defines the leakage current of the diode.  It is clear that the circuit does not contain any capacitors mesh or inductors section. So this state model will have two state variables:  tension $v_c$ at the capacitor terminals et current $i_1$ in the inductor.
 
-Le circuit comporte $N=6$ noeuds et $M=7$ branches. Toutefois on peut par commodité regrouper les dipôles en série en une seule branche, ce qui nous laisse $N=2$ noeuds et $M=3$ branches.  Pour établir le modèle d'état du système, on écrit $N-1 = 1$
-équation de Kirchhoff pour les courants : 
+The circuit is comprised of $N = 6$ nodes and $M = 7$ branches.  However, for convenience, we can group dipoles in series in one branch which leaves us with $N = 2$ nodes and $M = 3$ branches.  In order to establish the state model of the system, we would then write $N – 1 = 1$ Kirchhoff equation for the currents:
 \eqnn
 i_c - i_1 + i_2 = 0,
 \eeqnn
-et $M-N+1 =2$ équations de Kirhhoff pour les tensions :
+And $M - N +Where       is self-inductance. In matrix notation that gives 1 =  2$ Kirchhoff equations for the tensions:
 \begin{equation} \begin{split}
 &v_c - v_2 = 0,\\
 &v_g +v_d +v_\ell +v_1 +v_c -e = 0.
 \end{split} \end{equation}
-Ces équations sont complétées par les équations de
-définition des divers éléments du circuit :
+These equations are completed by equations of the definition of the different elements of the circuit:
 \begin{equation*} \begin{split}
 v_g &= R_gi_1, \\
 v_d &= \alpha \ln \frac{i_0+i_1}{i_0},\\
@@ -277,19 +237,17 @@ i_c &= C \frac{dv_c}{dt}, \\
 v_1 &= R_1i_1,\\
 v_2 &=R_2i_2.
 \end{split} \end{equation*}
-En éliminant les 7 variables $i_2,i_c, v_g, v_d, v_\ell, v_1, v_2$
-entre ces 9 équations, on obtient aisément les deux équations
-suivantes~:
+By eliminating the 7 variables $i_2,i_c, v_g, v_d, v_\ell, v_1, v_2$ between the 9 equations, we easily get the following equations:
 \eqnn
 &&R_gi_1 + \alpha \ln \frac{i_0+i_1}{i_0} + L \frac{di_1}{dt} + R_1i_1
 + v_c - e = 0,\\
 &&C\frac{dv_c}{dt} - i_1 + \frac{v_c}{R_2} = 0.
 \eeqnn
-En définissant les variables d'état et d'entrée comme suit :
+By defining the state and input variables as follows:
 \e
 x_1 = i_1, \;\;\; x_2= v_c, \;\;\; u = e,
 \ee
-on obtient finalement les équations d'état :
+We finally get the following state equations:
 \begin{equation*} \begin{split}
 \dot x_1 &= -\frac{R_1+R_g}{L} x_1 - \frac{\alpha}{L} \ln
 \left(\frac{i_0+x_1}{i_0} \right) - \frac{1}{L} x_2 + \frac{1}{L} u,\\
@@ -299,9 +257,7 @@ on obtient finalement les équations d'état :
 
 \end{exemple}
 
-Lorsque le réseau contient des mailles de capacités ou des coupes
-d'inductances, on cherche une forêt (sous-graphe sans maille) de capacités de taille maximale, et une non-coupe d'inductances 
-de taille maximale. Le nombre de capacités et d'inductances ainsi sélectionnées est le nombre de variables d'état indépendantes.
+When the network contains capacitor meshes or inductor cuts, one searches for a forest (sub-graph without mesh) of maximum size and an inductor non-cut of maximum size.  The number of selected capacitors and inductors represent the number of independent state variables.
 
 %On introduit les définitions
 %suivantes :
@@ -316,80 +272,64 @@ de taille maximale. Le nombre de capacités et d'inductances ainsi sélectionné
 %Le nombre de
 %variables d'état peut alors être déterminé par la règle suivante :
 
-On peut montrer aisément que ceci revient trouver un arbre qui contienne  le plus grand nombre possible de capacités, tel que le co-arbre (i.e. le sous-réseau complémentaire de l'arbre) contienne le plus grand nombre possible d'inductances.Le nombre de variables d'état indépendantes est alors la somme du nombre de
-capacités de l'arbre et du nombre d'inductances du co-arbre.
+One can easily demonstrate that is like finding a tree that contains the greatest possible number of capacitors, so that the “co-tree” (i.e. the complementary sub-network of the tree) contains the greatest number of inductors.  The number of independent state variables, thus, is the sum of the number of capacitors and number of inductors of the co-tree.
 
 %L'intuition de cette règle peut se comprendre en observant que les capacités contenues dans un arbre (par définition sans maille) déterminent toutes des variables d'états linéairement indépendantes. On cherchera donc un arbre qui en contiennent le plus grand nombre. De même un coarbre ne contient pas de coupe du réseau. Il est donc avantageux d'y placer un nombre maximal d'inductances, dont les
 %courants formeront des variables d'état linéairement indépendantes. Un peu d'algèbre linéaire montre qu'on obtient ainsi un ensemble complet et non redondant de variables d'état. 
 
 
-\section{Les systèmes électromécaniques} 
+\section{Electromechanical systems} 
 
-Un système mécanique pourrait être défini similairement à un système électrique, dont les bornes 
-sont soumises,  non pas à des courants et des voltages, mais à des forces $F_i$ et des vitesses $v_i=\dot{q}_i$ (à ne pas confondre avec le symbole de tension).  La translation de toutes les vitesses $v_i(t)$ vers $v_i(t)+v$ ne modifie pas le comportement du système, par relativité galiléenne. La somme des forces $\sum_{i} F_i(t)$ est en générale nulle à tout moment dans les systèmes mécaniques de l'ingénieur. L'énergie mécanique transmise au système est dans ces conditions univoquement définie comme $\sum_i F_i(t) v_i(t)$.
-Certaines forces ou vitesses sont choisies comme entrées, et d'autres comme sorties. Un exemple de dipôle mécanique est la combinaison de deux forces opposées $F_1(t)+F_2(t)=0$ s'appliquant à des points différents, qui peut être résumé à un couple $T$ et une vitesse angulaire $\omega$ (voir Chapitre 2).
+Could a mechanical system be define similarly with an electric system, whose terminals are subjected, not with currents and voltages, but with forces Fi and speeds $v_i=\dot{q}_i$ (not to be confused with the symbol of tension). Translation all speed $v_i(t)$ vers $v_i(t)+v$ do not modified the behavior of the system, by Galilean relativity. The sum of the forces $\sum_{i} F_i(t)$ in general worthless constantly in the mechanical systems of the engineer. The mechanical energy transmitted to the system under the conditions univocally define as $\sum_i F_i(t) v_i(t)$.  Certain forces or speeds are selected like entries, and others like outputs. An example of a mechanical dipole is a combination of two forces $F_1(t)+F_2(t)=0$ applying to different points  which can be summarized at a couple $T$ and an angular velocity $\omega$! (see Chapter 2)
 
-Un système électromécanique est bien sûr défini comme une boîte noire dont certaines variables sont de nature électrique et d'autres de nature mécanique (voir fig.~\ref{fig:systemelectromec}).
-
+An electromechanical system is of course defined as a black box whose certain variables are of electric nature and others of mechanical nature (see fig.~\ref{fig:systemelectromec}). 
 
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=7cm]{systemelectromec}
-\caption{Système électromécanique}
+\caption{Electromechanical system}
 \label{fig:systemelectromec}
 \end{center}
 \end{figure}
-
-Par exemple un quadrupôle électromécanique dont les variables sont $v(t)$, $i(t)$, $T(t)$,  $\omega(t)$ peut modéliser un générateur si $T\omega<0, vi>0$ (énergie électrique convertie en énergie mécanique) ou un moteur si $T\omega>0, vi<0$ (énergie mécanique convertie en énergie électrique).
+For example an electromechanical quadrupole whose variables are $v(t)$, $i(t)$, $T(t)$, $w(t)$ can model a generator if $T\omega<0, vi>0$ electrical energy converted into mechanical energy) or an engine si $T\omega>0, vi<0$ (mechanical energy converted into electrical energy).
 
 
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=7cm]{quadrupelectromec}
-\caption{Quadrupôle électromécanique}
+\caption{Electromechanical quadrupole}
 \label{fig:quadrupelectromec}
 \end{center}
 \end{figure}
 
+Concretely, an electromechanical system often arises as an articulated mechanical system (with $p$ degrees of freedom) which can be built partially in a magnetic material and whose certain bodies carry one or more inductive electrical circuits (coils, winding, ...). The equations constitutive of an electromechanical system consequently comprise a mecanical part and an electric part. The two sections that follow explain, with some electromagnetism refreshers, how the electromagnetic variables (loads, flow, currents, tensions) and mechanics (generalized positions, speeds, forces) can interact.
 
-Concrètement, un système électromécanique se présente souvent comme un système
-mécanique articulé (à $p$ degrés de liberté) qui peut être
-construit partiellement dans un matériau magnétique et dont
-certains corps portent un ou plusieurs circuits électriques inductifs (bobines,
-enroulements, etc.). Les équations constitutives d'un système
-électromécanique comportent dès lors une partie mécanique et
-une partie électrique.
+\section{Influence of a mechanical movement on the electric quantities} 
 
-Les deux section suivantes expliquent, via quelques rappels d'électromagnétisme, comment les variables électromagnétiques (charges, flux, courants, tensions) et mécaniques (positions, vitesses, forces généralisées) peuvent interagir.
+The Faraday’s law $E_i=\frac{d\phi_i}{dt}$ describes the electromotive force (tension) undergone by an inductance crossed by one magnetic flow $\phi_i$. Up to now it was supposed that this flow was created only by the current $I_i$ going through it (self-inductance). For a linear relation  $\phi_i=L_iI_i$, one obtains the law constitutive $V_i=L_i \dot{I}_i$.
 
-\section{Influence d'un mouvement mécanique sur les grandeurs électriques} 
-
-La loi de Faraday $E_i=\frac{d\phi_i}{dt}$ décrit la force électromotrice (tension) subie par une inductance traversée par un flux magnétique $\phi_i$. Jusqu'ici on a supposé que ce flux était créé uniquement par le courant $I_i$ qui la traverse (auto-inductance). Pour une relation linéaire $\phi_i=L_iI_i$, on obtient la loi constitutive $V_i=L_i \dot{I}_i$.
-
-En réalité chaque courant $I_j$ génère un champ magnétique et donc un flux dans l'inductance $i$. Ce flux dépend de $I_j$, mais aussi de la position relative des conducteurs qui portent ces courants, éventuellement variable dans le temps à cause d'un mouvement mécanique des pièces qui supportent les conducteurs.
-Généralement seuls les courants qui traversent une inductance génèrent un champ magnétique non négligeable. Si $\phi_i$ dépend linéairement de chaque $I_j$, on peut écrire
+Actually each current  $I_j$ generates a magnetic field and thus a flow in the inductance $i$. This flow depends on $I_j$, but also on the relative position of the conductors which carry these currents, possibly varying with time because of the mechanical movement of the parts which support the conductors. Generally only the currents which cross an inductance generate a non-negligeable magnetic field. If $\phi_i$ depends linearly of each $I_j$, one can write
 \begin{equation}
 \phi_i=\sum_j L_{ij} I_j,
 \label{eq:PhiLI}
 \end{equation}
-où $L_{ii}$ est l'auto-inductance. En notation matricielle cela donne
+Where   $L_{ii}$    is self-inductance. In matrix notation that gives
 \begin{equation}
 \Phi=L(q) I,
 \label{eq:PhiLI2}
 \end{equation}
-où $L(q)$ est une matrice symétrique d'inductance dépendant des positions généralisées $q$ de la partie mécanique. En combinant ceci avec l'équation de Faraday pour chaque inductance, on arrive aux équations d'état
+where $L(q)$ is a symmetrical matrix of inductance depending on the generalized positions of the mechanical part $q$. By combining this with the equation of Faraday for each inductance, one arrives at the equations of state
 \begin{equation}
 E=\sum_k \frac{\partial L}{\partial q_k} \dot{q}_k I + L\dot{I},
 \label{eq:VqI}
 \end{equation}
-qui mêlent positions, vitesses, courants et tensions.
+which mix positions, speeds, currents and tensions.
 
-La composante électrique des systèmes électromécaniques visités dans ce chapitre est souvent élémentaire, réduite à un ensemble d'inductances, chacune en série avec une résistance représentant l'inévitable résistance interne ou bien une résistance de charge, qui représente la consommation utile d'énergie électrique éventuellement générée par le système (voir fig.~\ref{fig:circel}). Dans ce cas, les tensions aux bornes des circuits s'écrivent de manière matricielle
+The electric component of the electromechanical systems discussed in this chapter are often simply reduced to a set of inductances, each one in  series with a resistance representing inevitable internal resistance or one  resistance of load, which represents the useful consumption of electrical energy possibly generated by the system (see G. 3.11). In this case, voltage at the terminals of the circuits are written in a matrix way
 \eqn
 V = RI + E \label{ELECM}
 \eeqn
-où $R$ est la matrice $\mbox{diag}\{R_i, i = 1,m\}$ et les
-vecteurs $V,I$ et $E$ sont définis comme suit :
+where $R$ is the diagonal matrix $\mbox{diag}\{R_i, i = 1,m\}$ and the vectors  $V,I$ and $E$ are defined as follows:
 \begin{equation*} \begin{split}
 V^T &= (v_1, v_2, \ldots, v_m),\\
 I^T &= (I_1, I_2, \ldots, I_m),\\
@@ -398,16 +338,15 @@ E^T &= (E_1, E_2, \ldots, E_m).
 \begin{figure}[t]
 \begin{center}
 \includegraphics[height=4cm]{circel}
-\caption{Circuit élémentaire}
+\caption{Basic circuit}
 \label{fig:circel}
 \end{center}
 \end{figure}
 
+\section{Creation of a mechanical movement by electromagnetic fields} 
 
+A magnetic field exerts a force known as Force of Lorentz on each carrier of moving load. By integrating this force on all the charge carriers set in movement by an electric current in a conductor one obtains a macroscopic force, known as Laplace force.
 
-\section{Création d'un mouvement mécanique par les grandeurs électromagnétiques} 
-
-Un champ magnétique exerce une force dite de Lorentz sur chaque porteur de charge en mouvement. En intégrant cette force sur tous les porteurs de charge mis en mouvement par un courant électrique dans un conducteur on obtient une force macroscopique, dite de Laplace.  
 
 %Pour peu que ce conducteur appartienne à une boucle rectangulaire de dimension $l \times z$ et soit mobile dans la direction de $z$ (voir Fig.~\ref{fig:laplace}, on constate que cette force de Laplace est aussi proportionnelle à $\frac{\partial \phi}{\partial z}I$,
 %où $\phi$ est le flux créé par $B$ dans la boucle traversée par le courant $I$. 
@@ -420,14 +359,14 @@ Un champ magnétique exerce une force dite de Lorentz sur chaque porteur de char
 %\end{center}
 %\end{figure}
 
-
-
-En général, on peut montrer que la force de Laplace sur la coordonnée $q_k$ est 
+In general, one can show that the Laplace force on the coordinate $q_k$ is
 \begin{equation}
 F_k=\frac{1}{2}\sum_i \frac{\partial \phi_i}{\partial q_k}  I_i = \frac{1}{2} I^T \frac{\partial L}{\partial q_k} I,
 \label{eq:Lorentz}
 \end{equation}
-la dernière égalité concernant les inductances linéaires. Dans ce dernier cas, on peut déduire directement l'expression $F_k$  en supposant que la force dérive d'une énergie potentielle contenue dans les inductances qui génèrent les champs magnétiques, exprimée par $\frac{1}{2} I^T L(q_k) I$.
+
+the last equality concerning linear inductances.  In the latter case case, one can directly assume the expression $F_k$ supposing that the force originates from a potential energy contained in inductances which generate the magnetic fields,
+expressed by $\frac{1}{2} I^T L(q_k) I$.
 
 
 
@@ -526,78 +465,65 @@ la dernière égalité concernant les inductances linéaires. Dans ce dernier ca
 %comportant $2p + m$ variables d'état $q, \dot q, I$.
 
 \vspace{2mm}
-\begin{exemple}{\bf \em  Un système électromécanique de positionnement.} 
+\begin{exemple}{\bf \em  An electromechanical system of positioning.} 
  
-Le schéma de principe d'un électro-aimant utilisé pour un positionnement de précision est indiqué à la figure
-\ref{fig:relaisem}.
+The flow diagram of an electromagnet used for a positioning of precision is indicated in figure \ref{fig:relaisem}.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{relaisem}
-\caption{Système électro-mécanique de positionnement}
+\caption{An electromechanical system of positioning}
 \label{fig:relaisem}
 \end{center}
 \end{figure}
-L'électro-aimant $A$ est muni d'une bobine
-inductrice dans laquelle circule un courant inducteur $I$.  La pièce
-métallique $B$ est mobile et soumise à une force de rappel
-linéaire par le ressort $C$.
+The electromagnet $A$ is equipped with an inductor coil in which circulates an inductor current $I$. The metal piece $B$ is mobile and subject to a linear traction force by the spring $C$  
 
-Le flux magnétique varie proportionnellement au courant $I$
-et inversément proportionnellement à la distance $z$ dans
-l'entrefer : 
+The magnetic flow varies proportionally with the current $I$ and inversely proportionally to the distance $z$ in the gap between $A$ and $B$.
 \eqnn
 \phi (I,z) = \frac{\alpha I}{1+\beta z}.
 \eeqnn
-Ceci est une instance de la loi d'Ohm magnétique (ou loi d'Hopkinson), qui exprime le flux magnétique (équivalent du courant, flux de charges électriques) comme le ratio entre la force magnétomotrice (proportionnelle au courant) et la réluctance (résistance du matériau au flux magnétique), qui est proportionnelle à la longueur du circuit.
+This is an instance of the magnetic law of Ohm (or law d’Hopkinson) which expresses the magnetic flow (equivalent of the current flow of electric charges) like the ratio between the magnetomotive flow (proportional of the current) and the reluctance (resistance of material to the magnetic flow) which is proportional to the length of the circuit.
 
-La tension induite dans le circuit s'écrit donc :
+The tension inducted in the circuit is thus written :
 \eqnn
 e &=& \frac{d\phi}{dt} = \frac{\partial \phi}{\partial I}
 \frac{dI}{dt} + \frac{\partial \phi}{\partial z} \frac{dz}{dt}\\
 &=&\frac{\alpha}{1+\beta z} \frac{dI}{dt} - \frac{\alpha \beta
 I}{(1+\beta z)^2} \frac{dz}{dt}.
 \eeqnn
-La force d'origine électromagnétique s'exer\c cant sur la pièce
-mobile s'écrit :
+The electromagnetic force of origin being exerted on the moving part is written :
 \eqnn
 F_{em} = \frac{1}{2} I \frac{\partial \phi}{\partial z} = -
 \frac{\alpha \beta}{2} \left(\frac{I}{1+\beta z}\right )^2.
 \eeqnn
-En accord avec l'intuition physique, on observe que cette force tend
-à rapprocher la pièce $B$ de l'électro-aimant quel que soit le
-sens du courant $I$.
-
-On peut alors écrire les équations dynamiques du
-système. \\
+In agreement with the physical intuition, one observes that this force tends to bring closer the part $B$ to the electromagnet whatever the direction of the courant $I$.
+One can then write the dynamic equations of the system. \\
 
 \begin{itemize}
-\item{\em Equation mécanique}
+\item{\em Mechanic equation}
 \begin{eqnarray}
 m \ddot z &=& k(z_o - z) + F_{em}\\
 &=& k(z_o - z) - \frac{\alpha \beta}{2} \left (\frac{I}{1+\beta z}
 \right )^2
 \end{eqnarray}
-où $m$ désigne la masse de la pièce $B$, $k$ la
-constante de rappel du ressort et $z_o$ la position du ressort au repos.\\
-\item{\em Equation électrique}
+where $m$ indicates the mass of the constant part $B$, $k$ the contant of the rearward movement of the $s_0$ spring and the position of the spring at rest\\
+\item{\em Electric equation}
 \begin{eqnarray}
 V&=& RI + e\\
   &=& RI + \frac{\alpha}{1+\beta z} \dot I - \frac{\alpha \beta I}{(1+
 \beta z)^2} \dot z 
 \end{eqnarray}
-où $R$ désigne la résistance du circuit électrique.
+where $R$ indicated the resistance of the electric circuit. 
 \end{itemize}
 
-En introduisant les définitions suivantes des variables
-d'état : 
+By introducing the following definitions of the state variables
 \eqnn
 x_1 = z, \;\;\; x_2 = \dot z, \;\;\; x_3 = I
 \eeqnn
-et de la variable d'entrée :
+and of the variable of entry:
 \eqnn
 u = V,
 \eeqnn
-on obtient finalement le modèle d'état du système :
+Finally:
 \begin{eqnarray}
 \dot x_1 &=& x_2,\\
 \dot x_2 &=& \frac{k}{m}(z_o - x_1) - \frac{\alpha \beta}{2m} \left
