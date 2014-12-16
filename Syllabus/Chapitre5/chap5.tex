@@ -6,380 +6,309 @@
 	\begin{document}
 \fi
 
-\graphicspath{ {Chapitre5/images/} }	
+\graphicspath{ {images/} }	
 
 \setcounter{chapter}{4}
-\chapter{Systèmes réactionnels}
-\chaptermark{Systèmes réactionnels}\label{sysreac}	
+\chapter{Reaction systems}
+\chaptermark{Reaction systems}\label{sysreac}	
 	
-\lettrine[lines=1]{\bf L}{}a notion de système réactionnel recouvre une classe de systèmes
-dynamiques utilisés dans des domaines variés des sciences de l'ingénieur 
-tels que le génie
-chimique, le génie biomédical, les biotechnologies ou l'écologie. Sous une
-hypothèse générale d'homogénéité spatiale, la  dynamique des systèmes
-réactionnels est décrite par des équations différentielles de bilan. Ces
-équations sont obtenues par la combinaison d'un {\em réseau réactionnel}
-qui encode les réactions qui sont supposées se dérouler dans le système 
-avec deux phénomènes physiques de base : les {\em cinétiques de
-réaction} d'une part et les {\em dynamiques d'échange} d'autre part. Ces
-divers éléments de la description des systèmes réactionnels seront
-présentés dans les sections qui vont suivre en  commen\c cant par les
-réseaux réactionnels.
+\lettrine[lines=1]{\bf T}{}he reaction system concept applies for a dynamic systems class used in various engineering domains such as chemistry, biomedical, biotechnologies or ecology. Under a spatial homogeneity assumption, reaction systems dynamic is described by 
+balance differential equations.
 
-\section{Réseaux réactionnels}
+These equations are obtained from a combination of a {\em reaction network }
+which encodes the reactions that are supposed to occur in the system with two basic physical phenomena: 
+the {\em reactions kinetic } from one part and the {\em exchange dynamics } from the other part.
+Those various elements describing reaction systems will be presented in the following sections, starting by reaction networks.
 
-Un système réactionnel est caractérisé par un certain nombre de {\em
-réactions}  entre des {\em espèces} de nature chimique ou biologique. Les
-espèces sont en nombre fini $n$ et nous les désignons par
-les symboles suivants : 
+\section{Reaction networks}
+A reaction system is characterized by a given number of {\em reactions} between chemical or biological components.
+The number of components is finite and we denote those components using the following symbols:
 \eqnn 
 X_1, X_2, X_3,  \ldots , X_n.
 \eeqnn 
-Les réactions sont
-elles aussi en nombre fini $m$ et se déroulent à l'intérieur d'un domaine
-géométriquement bien délimité. Par exemple un réacteur chimique s'il
-s'agit de réactions entre espèces chimiques, ou encore une niche
-écologique s'il s'agit d'interactions entre espèces animales. La frontière du
-domaine est elle aussi bien délimitée et elle sépare le système du monde
-extérieur. 
+The number of reactions is also a finite number $m$ and those reactions occur inside a geometrically well defined domain.
+For example, a chemical reactor if it occurs between chemical components or an ecological niche between animal species.
+The domain boundary is also well defined and split the system from the external world.
 
-Pour présenter la notion de réseau réactionnel, le plus simple est de
-commencer par un exemple.
+The easiest way to introduce the reaction network concept is to start with an example.
 
-\begin{exemple} {\bf Réaction chimique}
+\begin{exemple} {\bf Chemical reaction}
 
-Le mécanisme de la réaction entre l'oxyde nitrique et l'hydrogène est
-décrit par le réseau réactionnel suivant qui comprend $m=4$ réactions
-mettant en oeuvre $n=6$ espèces chimiques : 
+The reaction mechanism between nitric oxide and hydrogen is described 
+using the following reaction network which has $m=4$ reactions employing $n=6$ chemical components:
 \eqn 
 2X_1 &\longrightarrow& X_2 \label{oxnit1}\\ 
 X_2 &\longrightarrow& 2X_1 \\ 
 X_2 + X_3&\longrightarrow& X_4 + X_5 \\ 
 X_3 + X_5 &\longrightarrow& 2X_6 \label{oxnit4}  
 \eeqn 
-Les six espèces sont~: $X_1 = NO$, $X_2 = N_2O_2$, $X_3 = H_2$, $X_4 = N_2$,
+The six components are : $X_1 = NO$, $X_2 = N_2O_2$, $X_3 = H_2$, $X_4 = N_2$,
 $X_5 = H_2O_2$, $X_6 = H_2O$.   \qed
 \end{exemple}
 
-Un réseau réactionnel est donc un ensemble de $m$ réactions de la forme
-suivante : 
+A reaction network is therefore a set of $m$ reactions in the following form:
 \eqnn 
 \sum_{i=1}^n\gamma_{ij}X_i \longrightarrow
 \sum_{i=1}^n\delta_{ij}X_i  \hspace{5mm} j=1,\ldots,m \hspace{5mm}
 \gamma_{ij} \geq 0 \hspace{5mm} \delta_{ij} \geq 0.
 \eeqnn 
-Les coefficients
-$\gamma_{ij}$ et $\delta_{ij}$ sont des nombres réels positifs appelés {\em
-coefficients stoechiométriques}. Ils expriment la quantité nominale de
-l'espèce $X_i$ qui est consommée ou produite par la $j$-ième réaction.
-Par exemple, la quatrième réaction du réseau ci-dessus signifie : une
-mole de $X_3$ combinée à une mole de  $X_5$  produit deux moles de
-$X_6$. 
+The coefficients $\gamma_{ij}$ and $\delta_{ij}$ are positive real numbers called {\em stoichiometric coefficients}.
+They represent the nominal quantity for the component $X_i$ 
+which is consumed or produced by the $j^{th}$ reaction.
+For example, the fourth network reaction above means: 
+one mole of $X_3$ combined to one mole of $X_5$ produces two moles of $X_6$. 
 
-Nous introduisons les notations matricielles suivantes~:
+We introduce the following matrix notations :
 \begin{equation*} \begin{split}
-\Gamma &= [\gamma_{ij}] \hh \hh \mbox{matrice } n \times m \text{ avec éléments } \gamma_{ij} \\
-\Delta &= [\delta_{ij}] \hh \hh \mbox{matrice } n \times m \text{ avec éléments } \delta_{ij}
+\Gamma &= [\gamma_{ij}] \hh \hh \mbox{matrix } n \times m \text{ with elements } \gamma_{ij} \\
+\Delta &= [\delta_{ij}] \hh \hh \mbox{matrix } n \times m \text{ with elements } \delta_{ij}
 \end{split} \end{equation*}
-La {\em matrice stoechiométrique} est définie comme suit~:
+The {\em stoichiometric matrix} is defined as :
 \begin{equation*} \begin{split}
 C = \Delta - \Gamma.
 \end{split} \end{equation*}
-Le rang $p$ de cette matrice est appelé {\em rang du
-réseau réactionnel}. Il désigne le nombre de réactions indépendantes.
+The matrix rank $p$ is called the {\em reaction network rank}.
+It corresponds to the numbers of independent reactions.
 
-Par convention, toutes les réactions s'écrivent avec une flèche allant de
-la gauche vers  la droite. Ainsi dans l'exemple ci-dessus, la  réaction {\em
-réversible} $2X_1 \leftrightarrows X_2$ est encodée sous la forme de deux
-réactions simples distinctes : 
+As a convention, all reactions are denoted with an arrow from the left to the right.
+In the example above, the {\em reversible} reaction $2X_1 \leftrightarrows X_2$ 
+is encoded as two simple distinct reactions : 
 \eqnn 
 2X_1 &\longrightarrow& X_2 \\ X_2
 &\longrightarrow& 2X_1 
 \eeqnn
 
-\subsection* {Réactifs et produits}
+\subsection* {Reactants and products}
 
-Les {\em réactifs} sont les espèces $X_i$ qui apparaissent du c\^oté
-gauche  des réactions avec un coefficient $\gamma_{ij} > 0$.
+The {\em reactants} are the components $X_i$ 
+which are written on the left hand side of the arrow with a coefficient $\gamma_{ij} > 0$.
 
-Les {\em produits} sont les espèces $X_i$ qui apparaissent du c\^oté droit
-des réactions et avec un coefficient $\delta_{ij} > 0$. 
+The {\em products} are the components $X_i$ 
+which are written on the right hand side of the arrow with a coefficient $\delta_{ij} > 0$. 
 
-Une espèce $X_i$ peut être à la fois réactif dans une réaction et un
-produit dans la même ou dans une autre  réaction. C'est le cas de l'espèce $X_5$ dans l'exemple 5.1.
+A component $X_i$ can either be a reactant in a reaction and a product in another or the same reaction.
+This is the case of the component $X_5$ in the example 5.1.
 
-Un {\em produit terminal} est une espèce produite par une réaction au
-moins mais qui n'est  réactif d'aucune réaction.
+A {\em terminal product} is a component produced by at least one reaction but which is a reactant of none reaction.
 
-Un {\em réactif initial} est une espèce consommée par une réaction au
-moins mais qui n'est  produite par aucune réaction. 
+An {\em initial reactant} is a component consumed by at least one reaction but which is produced by no reaction.
 
-A titre d'exemple, dans le réseau réactionnel (\ref{oxnit1}) - (\ref{oxnit4}),
-on peut identifier les sous-ensembles suivants : 
-\begin{itemize} 
-\item[] Réactifs : $X_1, X_2, X_3, X_5$ 
-\item[] Produits : $X_1, X_2, X_4, X_5, X_6$ 
-\item[] Réactifs initiaux : $X_3$ 
-\item[] Produits terminaux : $X_4, X_6$ 
-\end{itemize} 
+As an example, in the reaction network (\ref{oxnit1}) - (\ref{oxnit4}),
+we identify the following subsets : 
 
-\subsection* {Catalyseurs et autocatalyseurs}
+\begin{tabular}{ccc}
+Reactants & : & $X_1, X_2, X_3, X_5$ \\
+Products  & : & $X_1, X_2, X_4, X_5, X_6$ \\
+Initial reactant & : & $X_3$ \\
+Terminal products & : & $X_4, X_6$ \\
+\end{tabular}
 
-Comme nous venons de l'indiquer, une espèce donnée peut apparaître
-des deux côtés d'une même réaction. C'est par exemple le cas de
-l'espèce $X_2$ dans la réaction suivante : \eqnn \gamma_1X_1 + \gamma_2X_2
-\longrightarrow \delta_2X_2 + \delta_3X_3 \eeqnn Si $\gamma_2 = \delta_2$,
-l'espèce $X_2$ est un {\em catalyseur}, c'est à dire une espèce  qui n'est ni
-consommée, ni produite mais dont la présence est indispensable pour que la
-réaction ait lieu.
+\subsection* {Catalysts et autocatalysts}
 
-Si $\gamma_2 < \delta_2$, l'espèce $X_2$ est un {\em autocatalyseur},
-c'est à dire une espèce  qui est un catalyseur de sa propre production.
+As we just explained, a given component can be on both sides of a reaction.
+The component $X_2$ is an example in the following reaction :
+\eqnn \gamma_1X_1 + \gamma_2X_2 \longrightarrow \delta_2X_2 + \delta_3X_3 \eeqnn 
 
-Pour les réactions catalytiques et autocatalytiques, on utilise aussi une
-représentation  alternative qui consiste à ne pas faire figurer le catalyseur
-à gauche de la réaction, mais à l'indiquer sous la flèche sans coefficient
-et à le pondérer à droite avec le coefficient $\delta_2 - \gamma_2$ : \eqnn
-\gamma_1X_1  \cata{X_2} (\delta_2 - \gamma_2)X_2 + \delta_3X_3 \eeqnn Parmi
-les exemples les plus typiques de réactions autocatalytiques on peut citer
- les réactions de polymérisation ou encore les réactions de croissance
-microbienne comme dans l'exemple ci dessous.
+If $\gamma_2 = \delta_2$ the component $X_2$ is a {\em catalyst}, in other words a component which is neither consumed nor produced but whose presence is required to perform the reaction.
 
-\begin{exemple} {\bf \em Fermentation alcoolique}
+If $\gamma_2 < \delta_2$, the component $X_2$ is an {\em autocatalyst},
+a component which is a catalyst in its own production.
 
-Le mécanisme sous-jacent aux fermentations alcooliques peut
-être décrit par le réseau réactionnel suivant : \eqnn X_1 + 2.33X_2 +
+We also use an alternative representation for catalytic and autocatalytic reactions.
+It consists in not writing the catalyst on the left side of the reaction
+but indicating it under the arrow without coefficient 
+and balancing it on the right side of the reaction with the coefficient $\delta_2 - \gamma_2$ :
+\eqnn \gamma_1X_1  \cata{X_2} (\delta_2 - \gamma_2)X_2 + \delta_3X_3 \eeqnn 
+
+Among the most typical autocatalytic reaction examples we can quote 
+polymerization reactions or microbial growth reactions as described in the following example.
+
+\begin{exemple} {\bf \em Alcoholic fermentation}
+
+The alcoholic fermentation underlying mechanism can be described by the following reaction network :
+
+ \eqnn X_1 + 2.33X_2 +
 0.525X_3 &\cata{X_4}& 3.5X_4 + 2.5X_5 + 3.66X_6 \nonumber \\ X_1 +
 0.054X_3 &\cata{X_4}& 0.36X_4 + 1.89X_5 + 0.14X_6 + 1.88X_7 \nonumber \\
 1.61X_2 + 0.193X_3 + X_7 &\cata{X_4}& 1.32X_4 + 0.68X_5 + 2.12X_6
-\nonumber \eeqnn Les sept espèces sont : glucose $X_1$, oxygène $X_2$,
-ammoniaque $X_3$, levures $X_4$,  dioxide de carbone $X_5$, eau $X_6$,
-éthanol $X_7$.  \qed
+\nonumber \eeqnn 
+
+The seven components are :
+glucose $X_1$, 
+oxygen $X_2$,
+ammoniac $X_3$,
+yeasts $X_4$, 
+carbon dioxide $X_5$, 
+water $X_6$,
+ethanol $X_7$.  \qed
 \end{exemple}
 
-\section{Modèle d'état des systèmes réactionnels}
+\section{Reaction systems state model}
 
-La présence de chacune des espèces à l'intérieur du système peut être
-quantifiée.  On note $x_i(t)$ la quantité de l'espèce $X_i$ par unité de
-volume dans le système. Le vecteur des concentrations, qui sera aussi le
-vecteur d'état du  modèle est noté~: 
-$$
-x(t) \teq (x_1(t), x_2(t), \cdots , x_n(t))^T.
-$$
+The presence of each component inside the system can be quantified.
+The component $X_i$ concentration denoted $x_i(t)$ corresponds to its amount in the system divided by the mixture volume.
+The concentrations vector, which is also the model state vector, is denoted:
+$$ x(t) \teq (x_1(t), x_2(t), \cdots , x_n(t))^T. $$
 
-Les vitesses de réaction, aussi appelées {\em cinétiques de réaction},
-expriment la vitesse de consommation des réactifs et de formation des
-produits par unité de volume dans le système, selon le réseau
-réactionnel. Une vitesse de réaction  $r_j$ est associée à chaque
-réaction du réseau $(j = 1, \cdots , m)$. Les vitesses de réaction sont fonction des concentrations $x_i$ des différentes espèces, mais aussi éventuellement d'autres facteurs physico-chimiques qui sont en jeu dans le système tels, par exemple, la température ou la lumière. Nous considérons ici le cas particulier où elles ne dépendent que de l'état $x$. Le vecteur des cinétiques
-de réaction est noté :  $$  r(x) \teq (r_1(x), r_2(x), \cdots ,
-r_m(x))^T.  $$
-Chacune des fonctions $r_j :
-\mathbb{R}_{+}^{n} \rightarrow \mathbb{R}_{+}$ est à valeurs positives
- et définie sur l'orthant positif. Il est clair qu'une réaction ne peut se
-dérouler que si tous les réactifs sont présents en quantité non nulle dans
-le système. Autrement dit, la vitesse d'une réaction est nécessairement
-nulle si l'un des réactifs de la réaction est absent du système. En termes
-mathématiques, cette condition s'exprime comme suit : 
+The reaction rates, also called {\em reaction kinetics}, describes the speed at which reactants are consumed and products are produced per volume unit in the system,
+according to the reaction network.
+A reaction rate $r_j$ is associated to each reaction of the network $(j = 1, \cdots , m)$.
+
+The reaction rates depend on each component concentrations $x_i$, 
+but they can eventually also be influenced by other system physico-chemical factors, such as temperature, catalysts or pressure.
+
+We will here consider reactions depending only on state $x$.
+The reaction kinetics vector is denoted:  
+$$  r(x) \teq (r_1(x), r_2(x), \cdots , r_m(x))^T.  $$
+
+Each function $r_j : \mathbb{R}_{+}^{n} \rightarrow \mathbb{R}_{+}$ has positive values and is defined on the positive orthant. 
+A reaction cannot occurs unless all the reactants are presents in the system. 
+In other words, the reaction rate is therefore null if one of the reactants is missing.
+Mathematically, this condition can be stated as: 
 \begin{hypothese} \label{cond}
-
 \eqn 
 && \mbox{1) } r_j(x) \geq 0 \hspace{3mm} \forall j \hspace{3mm} \forall x \in \mathbb{R}_{+}, \label{cond1}\\ 
-&& \mbox{2) }  r_j(x) = 0 \mbox{ si } x_i = 0  \mbox{ pour une valeur de } i, 
+&& \mbox{2) }  r_j(x) = 0 \mbox{ si } x_i = 0  \mbox{ for a value of } i, 
 \in I^{rj} \label{cond2} 
 \eeqn
-où $I^{rj}$ désigne l'index de l'ensemble des réactifs (y compris les
-catalyseurs)
- mis en oeuvre dans la réaction d'indice $j$.  \qed
+where $I^{rj}$ stands for the index of the reactants used in reaction $j$ set (including  catalysts).  \qed
 \end{hypothese}
 
-Sur base de la description des réseaux réactionnels et des vitesses de
-réaction, on vérifie alors aisément que le bilan quantitatif de chaque
-espèce à l'intérieur du domaine du système s'écrit comme suit~: 
-$$
-\dot x_i = \sum_{j = 1}^{m} (\delta_{ij} - \gamma_{ij})r_j(x(t)) + \frac{1}{V}(Q_{0i}(t) -
-Q_{i0}(t)). \label{contireac}
-$$
-Dans cette équation, les notations $\delta_{ij}$, $\gamma_{ij}$ (coefficients
-stoechiométriques) et $r_j(x(t))$ (vitesses de réaction) ont été
-définies plus haut. La notation $V$ désigne le volume (supposé constant) du domaine considéré. Les notations $Q_{0i}(t)$ et $Q_{i0}(t)$ désignent les flux de l'espèce $X_i$ à travers la frontière du domaine~:
+
+Based on the reaction network description and the reaction rates, we can easily check
+that the quantitative balance of each component inside the system bounds can be written as:
+$$ \dot x_i = \sum_{j = 1}^{m} (\delta_{ij} - \gamma_{ij})r_j(x(t)) + \frac{1}{V}(Q_{0i}(t) - Q_{i0}(t)). \label{contireac} $$
+
+In this equation, the notations $\delta_{ij}$, $\gamma_{ij}$ (stoichiometric coefficients) and $r_j(x(t))$ (reaction rate) were defined earlier.
+The notation $V$ stands for the volume (assumed constant) of the domain.
+The notations $Q_{0i}(t)$ and $Q_{i0}(t)$ stand for the flows of the component $X_i$ through the domain boundary :
 \begin{description}
-\item $Q_{io}(t)$ désigne le flux circulant du domaine vers l'extérieur,
-\item $Q_{oi}(t)$ désigne le flux circulant de l'extérieur vers le
-domaine.
+\item $Q_{io}(t)$ is the flow going from the domain towards the outside,
+\item $Q_{oi}(t)$ is the flow going from the outside towards the domain.
 \end{description}
 
-Cette équation de continuité exprime
-que la variation, par  unité de temps,  de la  concentration de l'espèce $X_i$
-résulte de deux mécanismes : 
+This continuity equation states that the variation, per time unit, of the component concentration $X_i$ comes from two distinct mechanisms:
 \begin{itemize}
-\item le terme $\sum_{j = 1}^{m} (\delta_{ij} - \gamma_{ij})r_j(x(t))$
-exprime la différence, par unité de volume, entre la somme des quantités produites et la somme
-des quantités consommées dans les réactions où
-cette espèce $X_i$ est respectivement un produit ou un réactif;
-\item le terme $Q_{0i}(t) - Q_{i0}(t)$ est la différence entre le flux entrant et
-le flux sortant de cette même espèce $X_i$ à travers la frontière du
-domaine.
+\item $\sum_{j = 1}^{m} (\delta_{ij} - \gamma_{ij})r_j(x(t))$ express the difference, per volume unit, 
+between the product quantities sum and consumed quantities sum in the reaction where this component $X_i$ is a product or a reactant respectively;
+\item $Q_{0i}(t) - Q_{i0}(t)$ express the difference between the incoming flow and the outgoing flow from the same component $X_i$ towards the domain boundary.
 \end{itemize}
 
-On dit que le système est {\em fermé} lorsque
-$Q_{io}(t) =  Q_{oi}(t) = 0$ pour tout $i$ et pour tout $t$, c'est à dire lorsqu'il
-n'y a aucun échange avec l'extérieur.  Dans le cas contraire, on dit que le
-système est {\em ouvert}. 
+The system is said to be {\em closed} when $Q_{io}(t) =  Q_{oi}(t) = 0$ for all $i$ and for all $t$,
+in other words, when there is no exchange with the outside.
+In the opposite situation, the system is said {\em open}. 
 
-La mise en équation du modèle d'état d'un système réactionnel
-comporte donc trois aspects fondamentaux.
+A reaction system state modeling has three fundamental aspects.
 
-Premièrement, le réseau réactionnel détermine le nombre de variables
-d'état ainsi que la structure et la valeur numérique des coefficients de la
-matrice stoechiométrique $C$.
+First, the reaction network determines the number of state variables, the structure and the numerical values of the stoichiometric matrix coefficients.
 
-Ensuite se pose la question de la modélisation  des
-vitesses de réaction $r_j(x)$ en fonction des variables d'état $x_i$. Cette
-modélisation fera l'objet de la section suivante.
+Second, we might ask ourselves how to model reaction rates $r_j(x)$ according to the state variables $x_i$.
+The modeling will be presented in the following section.
 
-Il faut enfin modéliser les flux d'entrée et de sortie en fonction des
-variables d'état et d'entrée :
+We will then model the incoming and outgoing flows according to the state and the input variables: 
 \eqnn
 Q_{0i}(x,u) \hspace{1cm} Q_{i0}(x,u)
 \eeqnn
-Cette modélisation sera illustrée par les divers exemples qui seront
-considérés ultérieurement.
+This modeling will be illustrated using various examples.
 
-La dynamique d'un système réactionnel
-est alors représentée par le modèle d'état suivant~: 
+Reaction system dynamic is therefore represented by the following state model:
 \eqn 
 \dot x =  Cr(x) + q_{in}(x,u) - q_{out}(x,u) \label{sysrea} 
 \eeqn
-où la définition des vecteurs $q_{in}(x,u)$ et $q_{out}(x,u)$ est évidente. Il est clair que ce
-modèle d'état n'a de sens et ne peut donc être défini que dans l'orthant
-positif. On montre d'ailleurs facilement que, sous l'hypothèse \ref{cond}, le
-système (\ref{sysrea}) est  un système positif qui possède une structure de système à compartiments.
+where the definition of vectors $q_{in}(x,u)$ and $q_{out}(x,u)$ is obvious.
+This state model can then only be defined on the positive orthant.
+We can easily show that, under the \ref{cond} assumption, the system (\ref{sysrea}) is a positive system with a compartments system structure.
 
-Pour un système fermé, les vecteurs $q_{in}$ et
-$q_{out}$ sont identiquement nuls  et le modèle d'état se réduit à
-l'équation~:
-$$
-\dot{x} = Cr(x). \label{sysreaferm}
-$$
+For a closed system, vectors $q_{in}$ and $q_{out}$ are identically zeros
+and the state model can be reduced to the equation: 
+$$ \dot{x} = Cr(x). \label{sysreaferm} $$
 
-\begin{hypothese} \label{princon} {\bf \em Principe de conservation}
-
-Le noyau de la matrice stoechiométrique contient un vecteur positif~:
-$$
-\exists \hh \omega = (\omega_1, \ldots , \omega_n)^T \hh
-\omega_i > 0 \hh i=1,\ldots,n \hh \mbox{ tel que } \omega \in \ker C^T. \xqedhere{2cm}{\qed}
-$$
+\begin{hypothese} \label{princon} {\bf \em The preservation principle}
+The stoichiometric matrix kernel contains a positive vector:
+$$ \exists \hh \omega = (\omega_1, \ldots , \omega_n)^T \hh
+\omega_i > 0 \hh i=1,\ldots,n \hh \mbox{ tel que } \omega \in \ker C^T. \xqedhere{2cm}{\qed} $$
 \end{hypothese}
 
-Sous cette hypothèse on vérifie aisément que la quantité
-$$
-z = \sum_{i=1}^m \omega_i x_i = \omega^Tx
-$$
-est un invariant du système (\ref{sysreaferm}) (c'est-à-dire que $z(t)$
-est constante le long des solutions du système). En effet
-$$
-\dot z = \sum_{i=1}^n \omega_i \dot x_i = [\omega^TC]r(x) = 0 
-$$
-et la quantité entre crochets est nulle en vertu de l'hypothèse \ref{princon}.
+Under this assumption, we easily check that the quantity
+$$ z = \sum_{i=1}^m \omega_i x_i = \omega^Tx $$
+is a system invariant (\ref{sysreaferm}) (in other words, $z(t)$ is constant along system solutions).
 
-Cette hypothèse est fondamentale car elle exprime en fait que, en accord
-avec la réalité physique, un système réactionnel fermé est un système
-conservatif en ce sens que la quantité totale contenue dans le système est
-constante : les quantités produites compensent exactement les quantités
-consommées (moyennant le choix de coefficients de normalisation
-$\omega_i$ appropriés) ou, comme disait Lavoisier, \og rien ne se perd, rien
-ne se crée \fg.
+$$ \dot z = \sum_{i=1}^n \omega_i \dot x_i = [\omega^TC]r(x) = 0 $$
+and the quantity between brackets is indeed zero thanks to the assumption \ref{princon}.
 
-\section{Modélisation des cinétiques de réactions}
+This assumption is essential because it express the fact that, according to the reality,
+a closed reaction system is a preservative system; the total quantity inside the system is a constant:
+the produced quantities are equal to the consumed quantities (using appropriate normalization coefficients).
+As Lavoisier said, \og rien ne se perd, rien ne se crée \fg.
 
-Lorsqu'une réaction obéit au {\em principe d'action des masses}, une
-expression  générale classique de fonction cinétique satisfaisant les
-conditions (\ref{cond1}) - (\ref{cond2}) est la suivante : 
-$$ 
-r_j(x) = k_j\prod_{i \in I^{rj}} x_i^{\nu_{ij}} 
-$$
-où $k_j$ est la {\em constante de vitesse} de la $j$-ième réaction. Le principe d'action des masses consiste donc à exprimer chaque vitesse de réaction comme étant proportionnelle
-au produit des concentrations des réactifs de la réaction (y compris les
-catalyseurs), chaque concentration étant élevée à la puissance positive
-$\nu_{ij}$ appelée {\em ordre} de la $j$-ième réaction par rapport à la
-$i$-ième espèce. La {\em loi d'action des  masses} correspond au cas
-particulier où $\nu_{ij} = \gamma_{ij} \hh \forall (i,j)$, c'est à dire 
-où les ordres de la réaction coïncident avec les coefficients stoechiométriques des 
-réactifs.
 
-Il arrive souvent que le principe d'action des masses ne suffise pas à rendre
-compte des vitesses de réaction observées expérimentalement. On est
-amené alors à généraliser le modèle de la fa\c con suivante : \eqnn r_j(x) = 
-k_j\prod_{i \in I^{rj}} \rho_{ij}(x_i) \eeqnn où les fonctions $\rho_{ij} :
-\mathbb{R}_{+} \rightarrow \mathbb{R}_{+}$ satisfont les conditions suivantes : \eqnn
-&& \rho_{ij}(x_i) \geq 0 \hh \hh \forall x_i \geq 0 \\ && \rho_{ij}(0) = 0 \eeqnn
-Souvent, les fonctions $\rho_{ij}(x_i)$ sont monotones croissantes, comme
-sur la figure  \ref{Fig:monocrois}. 
+\section{Reaction kinetics modeling}
+If a reaction respects the {\em Law mass action}, a classical general expression, respecting the conditions (\ref{cond1}) - (\ref{cond2}), can be written:
+$$ r_j(x) = k_j\prod_{i \in I^{rj}} x_i^{\nu_{ij}} $$
+where $k_j$ is the {\em rate constant} of the  $j^{th}$ reaction. 
+The mass action principle consists in expressing each reaction rate as being proportional to the product of the reactants concentrations in the reaction
+(including catalysts), each concentration being set to the $\nu_{ij}$ positive power called {\em order} of the $j^{reaction}$s.
+
+The mass action Law corresponds to the particular case where $\nu_{ij} = \gamma_{ij} \hh \forall (i,j)$, 
+where the reaction orders match the reactants stoichiometric coefficients.
+
+However, the mass action principle is often not enough to match the experimentally observed reaction rates.
+We therefore have to generalize the model :
+\eqnn r_j(x) =  k_j\prod_{i \in I^{rj}} \rho_{ij}(x_i) \eeqnn
+where functions $\rho_{ij} :\mathbb{R}_{+} \rightarrow \mathbb{R}_{+}$ 
+respect the following conditions: 
+\eqnn && \rho_{ij}(x_i) \geq 0 \hh \hh \forall x_i \geq 0 \\ && \rho_{ij}(0) = 0 \eeqnn
+
+Functions  $\rho_{ij}(x_i)$ are often monotonically increasing function, as shown in figure \ref{Fig:monocrois}. 
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=4cm]{monocrois} 
-   \caption{Fonction cinétique monotone croissante}
+   \caption{Monotonically increasing kinetic function}
    \label{Fig:monocrois}
 \end{figure}
-Un des exemples les plus courants est connu
-sous le nom de  cinétique de Michaelis-Menten représentée par la fonction
-$$ 
-\rho_{ij}(x_i) = \frac{x_i}{K_{ij} + x_i}.
-$$ 
+One of the most famous example is called the Michaelis-Menten kinetic and is represented by the function:
+$$ \rho_{ij}(x_i) = \frac{x_i}{K_{ij} + x_i}. $$ 
 
 
-\subsection*{Inhibiteurs et activateurs}
-
-Il peut arriver qu'une réaction soit ralentie par la présence d'un produit
-de la réaction ou d'une autre espèce quelconque apparaissant dans le
-réseau réactionnel. Un tel effet {\it inhibiteur} est modélisé en ajoutant un
-terme multiplicatif supplémentaire dans le modèle  cinétique. Ce terme est
-une fonction décroissante de la concentration du composant inhibiteur. Les
-deux modèles suivants sont les plus fréquents~: 
+\subsection*{Inhibitors and activators}
+A reaction can be slowed down by a reaction product of any other component being in the reaction network.
+Such an {\it inhibitor} effect is modeled by adding an additional multiplicative term in the kinetic model.
+This term is a decreasing function of the inhibitor component concentration.
+The two most frequent models are the following: 
 \eqn 
-&& \mbox{inhibition hyperbolique : } \rho_{ij}(x_i) = \frac {K_{ij}}{K_{ij} + x_i}, \label{inhibhyper} \\ && \mbox{inhibition exponentielle : } \rho_{ij}(x_i) = e^{-(K_{ij}x_i)}.
+&& \mbox{hyperbolic inhibition : } \rho_{ij}(x_i) = \frac {K_{ij}}{K_{ij} + x_i}, \label{inhibhyper} \\ && \mbox{exponential inhibition : } \rho_{ij}(x_i) = e^{-(K_{ij}x_i)}.
 \label{inhibexpo} 
 \eeqn
 
-\begin{exemple}  Considérons le réseau réactionnel suivant~:
+\begin{exemple}  Let consider the following reaction network:
 \begin{equation} \begin{split} \label{exa}
 X_1 + X_2 \; &\longrightarrow \; 2X_3, \\ 
 2X_3 \; &\longrightarrow \; X_4. 
 \end{split} \end{equation}
-Supposons que les cinétiques obéissent à la loi d'action des
-masses et que la première réaction soit de plus 
-inhibée par le produit $X_4$ de la
-seconde réaction selon une loi  exponentielle (\ref{inhibexpo}). Les deux
-cinétiques de réactions auront la forme suivante : 
+Suppose that kinetics respect the mass action law and that the first reaction is the most inhibited by the $X_4$ product of the second reaction, 
+following an exponential law (\ref{inhibexpo}).
+Both reaction kinetics will have the following form:
 \begin{equation} \begin{split} \label{cin}
 r_1(x) &= k_1x_1x_2e^{-(Kx_4)}, \\
 r_2(x) &= k_2x_3^2. \xqedhere{6.2cm}{\qed}
 \end{split} \end{equation}
 \end{exemple}
 
-Il peut arriver aussi qu'une espèce  quelconque apparaissant dans le schéma 
-ait un effet accélérateur sans pour autant être indispensable 
-à la réaction
-(ce n'est ni un réactif ni un catalyseur de la réaction). Un tel effet {\it activateur} 
-est modélisé en ajoutant un
-terme multiplicatif supplémentaire dans le modèle  cinétique. Ce terme est
-une fonction croissante de la 
-concentration du composant activateur {\em qui ne s'annulle pas à l'origine}.
+A component in the reaction can also have a speed effect without being required to the reaction
+(this component is nor a reactant nor a catalyst of the reaction).
+Such {\it activator} effect is modeled by adding an additional multiplicative term in the kinetic model.
+This term is an increasing function of the activator component concentration (which is non zero at start).
 
-\section{Les réacteurs parfaitement mélangés}
+\section{Perfectly mixed reactors}
 
-Les réacteurs chimiques ou biologiques parfaitement
-mélangés constituent l'un des exemples les
-plus typiques de système réactionnel. Ces réacteurs sont constitués d'un
-réservoir contenant un milieu réactionnel liquide qui est mélangé en
-permanence par un système d'agitation approprié et dont la composition
-est homogène. Les différents réactifs peuvent être fournis
-au réacteur sous forme liquide ou sous forme gazeuse. Les produits de réaction
-sont formés en solution dans le milieu réactionnel. Certains de ces produits
-peuvent être facilement gazéïfiables et s'échapper librement du réacteur
-sous forme gazeuse. Le milieu réactionnel est soutiré du réacteur en vue de
-la récolte des produits.
+Perfectly mixed chemical or biological reactors form one of the most typical reaction system example.
+Reactors consists in a vessel containing a liquid reaction medium which is permanently mixed by an appropriate agitation system and has an homogeneous composition.
+The reactants can be provided to the reactor in liquid or gas state.
+Reaction products are formed in the reaction system.
+Some of these products can be easily gasified
+and freely escape from the reactor under their gas state.
+The reaction medium is removed from the reactor to collect the products.
+
 
 \subsection {Réacteurs continus}
 
