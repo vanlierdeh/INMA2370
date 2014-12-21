@@ -1,1 +1,338 @@
-TODO
+\section*{Exercise 6.1 : An electromagnetic relay}
+\underline{1. State transformation :}
+We have the initial state variables :
+\begin{align*}
+x_1 & = z \\
+x_2 & = \dot{z} \\
+x_3 & = I 
+\end{align*}
+We introduce the following new state variables :
+\begin{align*}
+y_1 & = z \\
+y_2 & = \dot{z} \\
+y_3 & = \phi(z,I)
+\end{align*}
+where $$\phi(z,I) = \frac{\alpha I}{1+\beta z}.$$
+To go from the initial state variables $x$ to the new state variables $y$, we have the following non-linear state transformation $T$ : $$y = T(x)$$ with
+\begin{align*}
+y_1 & = x_1 \\
+y_2 & = x_2 \\
+y_3 & = \phi(x_1,x_3) = \frac{\alpha x_3}{1+\beta x_1}
+\end{align*}
+We would like to show that this transformation is valid.\\
+For this, two conditions must be satisfied.
+\begin{enumerate}
+\item The application $T$ has to be bijective, that is that it must exist an inverse function $T^{-1}$ so that $x = T^{-1}(y)$.
+\item $T$ and $T^{-1}$ have to be continuous and differentiable functions.
+\end{enumerate}
+Let's search for the inverse application $T^{-1}$.
+$$x = T^{-1}(y) = T^{-1}(T(x)) = T^{-1}
+\begin{pmatrix}
+x_1 \\
+x_2 \\
+\frac{\alpha x_3}{1+\beta x_1}
+\end{pmatrix}.$$
+We then find that the inverse application $T^{-1}$ is the following :
+$$T^{-1}
+\begin{pmatrix}
+y_1 \\
+y_2 \\
+y_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+y_1 \\
+y_2 \\
+\frac{1+\beta y_1}{\alpha}y_3
+\end{pmatrix}.$$
+We are now going to check the second condition. \\
+Let's calculate the Jacobian matrices of $T$ and $T^{-1}$. We then have
+$$\frac{\partial T}{\partial x} =
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+\frac{\alpha \beta x_3}{(1+\beta x_1)^2} & 0 & \frac{\alpha}{1+\beta x_1}
+\end{pmatrix}, \quad
+\frac{\partial T^{-1}}{\partial y} =
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+\frac{\beta}{\alpha}y_3 & 0 & \frac{1+\beta y_1}{\alpha}
+\end{pmatrix}.$$
+We get that the applications $T$ et $T^{-1}$ are continuous and differentiable when $(1+\beta x_1) \neq 0$ and $\alpha \neq 0$. Since $x_1 = z$ characterize a distance, that variable is always positive. By taking $\alpha > 0$ and $\beta > 0$, we are sure that the transformation is valid.\\
+Let's now establish the state representation of these new variables. The state representation of the initial variables was the following :
+\begin{align*}
+\dot{x}_1 & = x_2, \\
+\dot{x}_2 & = \frac{k}{m}(z_0-x_1)-\frac{\alpha \beta}{2m}\Big(\frac{x_3}{1+\beta x_1}\Big)^2, \\
+\dot{x}_3 & = \frac{\beta x_2 x_3}{1+\beta x_1}-\frac{R}{\alpha}(1+\beta x_1)x_3 + \frac{1+\beta x_1}{\alpha}u.
+\end{align*}
+We are then going to apply the application $T$ to the variables $x_1,x_2$ and $x_3$. As a reminder, we previously had :
+$$\begin{pmatrix}
+y_1\\
+y_2\\
+y_3\\
+\end{pmatrix}
+=T
+\begin{pmatrix}
+x_1\\
+x_2\\
+x_3\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+x_1 \\
+x_2 \\
+\frac{\alpha x_3}{1+\beta x_1}
+\end{pmatrix}.$$
+The state representation of the new variables is then
+\begin{align*}
+\dot{y}_1 & = y_2, \\
+\dot{y}_2 & = \frac{k}{m}(z_0-y_1)-\frac{\alpha \beta}{2m}y_3^2, \\
+\dot{y}_3\frac{1+\beta y_1}{\alpha} + y_3\frac{\beta \dot{y}_1}{\alpha} & = \frac{\beta y_2 y_3}{\alpha}-\frac{R}{\alpha}(1+\beta y_1)\frac{(1+\beta y_1)y_3}{\alpha} + \frac{1+\beta y_1}{\alpha}u.
+\end{align*}
+By isolating $\dot{y}_3$ in the last equation, we finally have the following state representation :
+\begin{align*}
+\dot{y}_1 & = y_2, \\
+\dot{y}_2 & = \frac{k}{m}(z_0-y_1)-\frac{\alpha \beta}{2m}y_3^2, \\
+\dot{y}_3 & = -\frac{R}{\alpha}(1+\beta y_1)y_3 + u.
+\end{align*}
+
+\underline{2. Brunovski canonical form :}
+We are going to show that this system can be put under a Brunovski canonical form. By drawing the graph of the mono-input system, we realize that the shortest path from $u$ to $y_1$ has a length $3$, which is the size of the system. Using Definition 6.10, we conclude that this system is triangular. We can then write it under a Brunovski canonical form.\\
+We are now going to determine the state transformation leading to a Brunovski canonical form. As a reminder, a mono-input system is under a Brunovski canonical form it has the follow structure :
+\begin{align*}
+\dot{z}_1 & = z_2, \\
+\dot{z}_2 & = z_3, \\
+\vdots \\
+\dot{z}_n & = \alpha(z_1,\hdots,z_n,u).
+\end{align*}
+We just have to define
+\begin{align*}
+z_1 & = y_1,\\ 
+z_2 & = y_2,\\
+z_3 & = \frac{k}{m}(z_0-y_1)-\frac{\alpha \beta}{2m}y_3^2,\\
+\end{align*}
+for the model to be rewritten
+\begin{align*}
+\dot{z}_1 & = z_2,\\
+\dot{z}_2 & = z_3,\\
+\dot{z}_3 & = \hdots,
+\end{align*}
+which is a Brunovski canonical form.
+
+\section*{Exercise 6.2 : A biochemical reactor}
+\underline{1. State representation :}
+The general form of the evolution of every entities inside the reactor is given by :
+\begin{align*}
+\dot{x}_A & = (\delta_A-\gamma_A)r(x_A,x_B)+\frac{1}{V}(Q_{0A}-Q_{A0})\\
+\dot{x}_B & = (\delta_B-\gamma_B)r(x_A,x_B)+\frac{1}{V}(Q_{0B}-Q_{B0})
+\end{align*}
+where\\
+$x_i$ is the concentration of entity $i$ inside the reactor.\\
+$\delta_i$ is the coefficient of the entity $i$ in the products of the reaction.\\
+$\gamma_i$ is the coefficient of the entity $i$ in the reactants of the reaction.\\
+$r(x)$ is the speed of the reaction.\\
+$V$ is the volume of the reactor.\\
+$Q_{0i}$ is the flux of entity $i$ leaving the reactor.\\
+$Q_{i0}$ is the flux of entity $i$ entering the reactor.\\
+In our case, we work with a constant volume and we assume that the kinetics  obey the law of mass action, that is $$r(x_A,x_B) = k (x_A)^{\gamma_A} (x_B)^{\gamma_A}$$ where $k$ is the speed constant of the reaction.\\
+Let $F$ be the entering volumetric rate of flow et let $c$ be its concentration in $A$.\\
+From the chemical equation $$A+B \longrightarrow 2B,$$ we deduce
+\begin{align*}
+\delta_A & = 0\\
+\delta_B & = 2\\
+\gamma_A & = 1\\
+\gamma_B & = 1\\
+\end{align*}
+We then have the following state representation :
+\begin{align*}
+\dot{x}_A & = (0-1)k x_A x_B+\frac{1}{V}(Fc-Fx_A)\\
+\dot{x}_B & = (2-1)k x_A x_B+\frac{1}{V}(0-Fx_B)
+\end{align*}
+By setting $u = F/V$, the volumetric inflowing rate, the state representation has finally the following form :
+\begin{align*}
+\dot{x}_A & = -k x_A x_B+u(c-x_A)\\
+\dot{x}_B & = k x_A x_B-ux_B
+\end{align*}
+
+\underline{Conservative system :}
+Let $C$ be the vector with the coefficients in front of $r(x)$ in the state representation. In our case, we have 
+$$C = \begin{pmatrix}
+-1\\
+1
+\end{pmatrix}.$$
+In order to show that the system is conservative, we have to find a vector $\omega$ in which all the entries are strictly positives and which is in the kernel of $C^{\top}$. In the present case, we can, for example, choose
+$$\omega = \begin{pmatrix}
+1\\
+1
+\end{pmatrix}$$ because we have $$C^{\top}\omega = -1+1 = 0.$$
+This implies that, when $u = 0$, we have $$\frac{d(x_A+x_B)}{dt} = \omega_A \dot{x}_A + \omega_B \dot{x}_B = [\omega^{\top}C]r(x) = 0.$$
+
+\underline{3. Brunovski canonical form :}
+Let's search for tow new state variables $z_1$ and $z_2$ such that the system takes the following form :
+\begin{align*}
+\dot{z}_1 & = z_2\\
+\dot{z}_2 & = \alpha(z_1,z_2,u)
+\end{align*}
+where $\alpha$ is some function.\\
+Setting $z_1 = f(x_A,x_B)$, we then have 
+\begin{align*}
+\dot{z}_1 & = \frac{\partial f}{\partial x_A}\dot{x}_A + \frac{\partial f}{\partial x_B}\dot{x}_B\\
+ & = \frac{\partial f}{\partial x_A}(-kx_Ax_B) + \frac{\partial f}{\partial x_B}(kx_Ax_B) + u\Big(\frac{\partial f}{\partial x_A}(c-x_A)-\frac{\partial f}{\partial x_B}x_B\Big).
+\end{align*}
+Since we don't want $\dot{z}_1$ to depend on the input $u$, we will force $$\frac{\partial f}{\partial x_A}(c-x_A)-\frac{\partial f}{\partial x_B}x_B = 0.$$
+An example of function $f$ for which this is true is $$f(x_A,x_B) = \frac{x_B}{c-x_A}.$$
+By setting $$z_2 = \frac{\partial f}{\partial x_A}(-kx_Ax_B) + \frac{\partial f}{\partial x_B}(kx_Ax_B) = \frac{kx_Ax_B(c-x_A-x_B)}{(c-x_A)^2},$$ we then get the following Brunovski canonical form :
+\begin{align*}
+\dot{z}_1 & = z_2\\
+\dot{z}_2 & = ...
+\end{align*}
+
+\underline{4. Reversible reaction :}
+The chemical reaction is $$A + B \longleftrightarrow 2B$$ which equivalent to the two following reactions acting simultaneously
+\begin{align*}
+A + B & \longrightarrow 2B\\
+2B & \longrightarrow A+B
+\end{align*}
+Thus, the state representation of the reversible system is
+\begin{align*}
+\dot{x}_A & = -k_1 x_A x_B + k_2 x_B^2 + u(c-x_A)\\
+\dot{x}_B & = k x_A x_B - k_2 x_B^2 - ux_B
+\end{align*}
+where $k_1$ is the speed constant of the first reaction and $k_2$ is the speed constant of the second one.\\
+We've already seen that when there's only the direct reaction, the system is conservative. If there's only the inverse direction, we have 
+$$C = 
+\begin{pmatrix}
+1\\
+-1
+\end{pmatrix}$$ and by choosing
+$$\omega =
+\begin{pmatrix}
+1\\
+1
+\end{pmatrix},$$ we show that the corresponding system is conservative.\\
+Since the system is conservative for the reaction in both directions, it is conservative for the reversible reaction.\\
+By choosing the same transformation as for the irreversible case, i.e. $$f(x_A,x_B) = \frac{x_B}{c-x_A},$$ we find the following new variables
+\begin{align*}
+z_1 & = \frac{x_B}{c-x_A}\\
+z_2 & = \frac{(k_1x_Ax_B-k_2x_B^2)(c-x_A-x_B)}{(c-x_A)^2}.
+\end{align*} 
+We then get the following Brunovski canonical form :
+\begin{align*}
+\dot{z}_1 & = z_2\\
+\dot{z}_2 & = ...
+\end{align*}
+
+\section*{Exercise 6.3 : A two compartments system}
+The state representation of this two compartments linear system is given by the following general form :
+\begin{align*}
+\dot{x}_1 & = k_{21}x_2-k_{10}x_1-k_{12}x_1+k_{01}u\\
+\dot{x}_2 & = k_{12}x_1-k_{20}x_2-k_{21}x_2
+\end{align*}
+where the $k_{ij} > 0$ are the constants characterizing the incoming and outgoing flux. \\
+Using matrices, the system can be rewritten
+$$\begin{pmatrix}
+\dot{x}_1\\
+\dot{x}_2
+\end{pmatrix}=
+\begin{pmatrix}
+-k_{10}-k_{12} & k_{21} \\
+k_{12} & -k_{20}-k_{21}
+\end{pmatrix}
+\begin{pmatrix}
+x_1\\
+x_2
+\end{pmatrix}+
+\begin{pmatrix}
+k_{01}\\
+0
+\end{pmatrix}u$$
+or, in a simplified notation,
+$$\dot{x} = Ax + Bu.$$
+Let's begin by determining the eigenvalues of $A$. They're the solutions of the equation
+\begin{align*}
+\det(A-\lambda I)=0 & \iff (k_{10}+k_{12}+\lambda)(k_{20}+k_{21}+\lambda)-k_{12}k_{21}=0\\
+ & \iff \lambda^2 + (k_{10}+k_{12}+k_{20}+k_{21})\lambda + (k_{10}k_{20}+k_{10}k_{21}+k_{12}k_{20}) = 0
+\end{align*}
+We then find
+\begin{align*}
+\lambda_1 & = \frac{-(k_{10}+k_{12}+k_{20}+k_{21}) + \sqrt{(k_{10}+k_{12}-k_{20}-k_{21})^2+4k_{12}k_{21}}}{2}\\
+\lambda_2 & = \frac{-(k_{10}+k_{12}+k_{20}+k_{21}) - \sqrt{(k_{10}+k_{12}-k_{20}-k_{21})^2+4k_{12}k_{21}}}{2}.
+\end{align*}
+Since $k_{ij}>0$, the member in the square root is always strictly positive. This implies that the two roots of the characteristic polynomial, which are the two eigenvalues of $A$, are always distinct.\\
+Let's call $T$ the linear state transformation such as $z = Tx$ where $z$ is the vector of the new state variables. Under the transformation $T$, the above system would be written $$T\dot{x} = TAx + TBu \iff \dot{z} = TAT^{-1}z + TBu.$$
+We are searching for a linear transformation $T$ which diagonalize the initial system. In other words, we are searchin for $T$ such as $TAT^{-1}$ is a diagonal matrix. To get there, we need to determine the eigenvectors of $A$. That is two vectors $v$ linearly independent, verifying
+$$\begin{pmatrix}
+-k_{10}-k_{12} & k_{21} \\
+k_{12} & -k_{20}-k_{21}
+\end{pmatrix}
+\begin{pmatrix}
+v_a\\
+v_b
+\end{pmatrix}=
+\lambda
+\begin{pmatrix}
+v_a\\
+v_b
+\end{pmatrix}
+\iff
+\begin{pmatrix}
+(-k_{10}-k_{12})v_a + k_{21}v_b\\
+k_{12}v_a + (-k_{20}-k_{21})v_b
+\end{pmatrix}=
+\lambda
+\begin{pmatrix}
+v_a\\
+v_b
+\end{pmatrix}.$$
+By setting $v_a = k_{21}$ is the first equation and $v_b=k_{12}$ in the second one, the two following eigenvectors of $A$ : 
+$$v_1=\begin{pmatrix}
+k_{21}\\
+\lambda_1 +k_{10} + k_{12}
+\end{pmatrix}, \quad
+v_2 =
+\begin{pmatrix}
+\lambda_2 +k_{20} + k_{21}\\
+k_{12}
+\end{pmatrix}.$$
+We are assured that these two vectors are linearly independent since the determinant of the eigenvectors matrix equals zero if and only if $\lambda_1=\lambda_2$ which is never the case.\\
+We then have
+$$A\begin{pmatrix}
+v_1 & v_2 
+\end{pmatrix}=
+\begin{pmatrix}
+\lambda_1 v_1 & \lambda_2 v_2
+\end{pmatrix}=
+\begin{pmatrix}
+v_1 & v_2 
+\end{pmatrix}
+\begin{pmatrix}
+\lambda_1 & 0\\
+0 & \lambda_2
+\end{pmatrix}.$$
+In other to link with what was done previously, we have 
+$$T = \begin{pmatrix}
+v_1 & v_2 
+\end{pmatrix}^{-1}.$$
+By setting $K = (\lambda_1 +k_{10} + k_{12})(\lambda_2 +k_{20} + k_{21})-k_{12}k_{21}$, we find
+$$T = \frac{1}{K}
+\begin{pmatrix}
+-k_{12} & (\lambda_2 +k_{20} + k_{21})\\
+(\lambda_1 +k_{10} + k_{12}) & -k_{21}
+\end{pmatrix}.$$
+The above transformation $T$ is the one that diagonalize the system.\\
+Let's now find the time constants which are given by $\tau_i = |\lambda_i|^{-1},i=1,\hdots,n$. In our case, the eigenvalues of the system were
+\begin{align*}
+\lambda_1 & = \frac{-(k_{10}+k_{12}+k_{20}+k_{21}) + \sqrt{(k_{10}+k_{12}-k_{20}-k_{21})^2+4k_{12}k_{21}}}{2}\\
+\lambda_2 & = \frac{-(k_{10}+k_{12}+k_{20}+k_{21}) - \sqrt{(k_{10}+k_{12}-k_{20}-k_{21})^2+4k_{12}k_{21}}}{2}.
+\end{align*}
+We verify that these values are both strictly negative. We then have
+\begin{align*}
+|\lambda_1| & = \frac{(k_{10}+k_{12}+k_{20}+k_{21}) - \sqrt{(k_{10}+k_{12}-k_{20}-k_{21})^2+4k_{12}k_{21}}}{2}\\
+|\lambda_2| & = \frac{(k_{10}+k_{12}+k_{20}+k_{21}) + \sqrt{(k_{10}+k_{12}-k_{20}-k_{21})^2+4k_{12}k_{21}}}{2}.
+\end{align*}
+Therefore, we find the following time constants :
+\begin{align*}
+\tau_1 = |\lambda_1|^{-1} & = \frac{2}{(k_{10}+k_{12}+k_{20}+k_{21}) - \sqrt{(k_{10}+k_{12}-k_{20}-k_{21})^2+4k_{12}k_{21}}}\\
+\tau_2 = |\lambda_2|^{-1} & = \frac{2}{(k_{10}+k_{12}+k_{20}+k_{21}) + \sqrt{(k_{10}+k_{12}-k_{20}-k_{21})^2+4k_{12}k_{21}}}.
+\end{align*}

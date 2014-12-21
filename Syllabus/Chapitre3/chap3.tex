@@ -146,129 +146,89 @@ Il est important de bien comprendre que les impédances et les sources sont des 
 \end{figure}
 
 
-\section{Equivalence entre systèmes ouverts et fermés}
+\section{Equivalency between open and closed systems}
 
-Nous avons vu un système électrique comme ``ouvert'', c'est-à-dire muni de variables d'entrées et de sortie, qui sont des courants ou des tensions. L'ajout de sources permet toutefois de considérer un système fermé équivalent. Par exemple un dipôle dont la tension $v(t)$ est l'entrée, peut être fermé par une source de tension variable qui délivre précisément la tension $v(t)$ (voir fig.~\ref{fig:equivouvertferme}). Il est quelquefois commode pour l'analyse de se ramener à un graphe fermé.
+We have seen an electrical system as “open”, i.e. equipped with inputs and outputs, which are currents or tensions.  Adding sources, however, allows us to consider an equivalent closed system.  For example, a dipole whose tension $v(t)$ is the input, may be closed by a variable tension source that precisely delivers the tension $v(t)$ (see figure~\ref{fig:equiouvertferme}).  However, for the sake of the analysis, it is comfortable to return to a closed graph.
 
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=6cm]{equivouvertferme}
-\caption{Equivalence entre un circuit ouvert et un circuit fermé: le cas d'un dipôle dont l'entrée est la tension, et la sortie le courant}
+\caption{Equivalence between an open circuit and closed circuit:  the case where a dipole where the input is tension and the output power.}
 \label{fig:equivouvertferme}
 \end{center}
 \end{figure}
 
-Si le dipôle est conçu pour fournir de l'énergie à l'extérieur ($v(t) i(t) >0$), alors on peut également fermer le circuit par la charge supposée absorber l'énergie, qu'on modélise souvent comme une (grande) résistance de charge. Ceci est une restriction, car la charge pourrait être autre chose qu'une résistance. Par exemple un moteur est plutôt de nature inductive.
+If the dipole is adapted to supply energy to the outside ($v(t) i(t) >0$), then it can also close the circuit by the load supposed to absorb the energy, often modeled like a (great) load resistance.  For example, an engine is rather of an inductive nature.
 
-\section{Réseaux électriques et mise en équation du modèle d'état}
+\section{Electrical networks and the setting in equation of the state model}
 
-Les systèmes électriques complexes sont généralement créés par l'interconnection en réseau d'un nombre fini de systèmes élémentaires. Dans ce chapitre nous considérons les réseaux formés de  dipôles élémentaires (impédances et sources). Il est clair qu'un tel
-réseau a une structure de graphe dont les branches sont formées
-par les dip{ô}les. Un exemple de réseau
-et de graphe  associé est donné à la figure
-\ref{fig:exemplereseau} qui représente un pont d'impédances. Les flèches sur le graphe indiquent le sens conventionnel choisi pour le courant dans chacune des branches. 
+Complex electrical systems are generally created by the interconnection of a defined number of elementary systems.  In this chapter we will consider networks designed by elementary dipoles (impedances and sources)  It is clear that such a network has a graph representation the branches of which are defined by the dipoles.  An example of such a network and its graph is given in figure \ref{fig:exemplereseau}, representing an impedance bridge.  The arrows on the graph indicate the conventional flow chosen by the current in each of the branches.  
+
 \begin{figure}[t]
 \begin{center}
 \includegraphics[height=45mm]{exemplereseau}
-\caption{Pont d'impédances}
+\caption{Impedance bridge}
 \label{fig:exemplereseau}
 \end{center}
 \end{figure}
-Nous considérons des réseaux électriques fermés (au moyen de sources de tension et/ou de courant, voire avec des résistances de charge) {\bf connexes} 
-comportant $N$ noeuds et $M$ branches. 
-% et qui satisfont l'hypothèse
-%suivante (voir figure \ref{fig:resint}) : {\em toutes les sources de tension sont incorporées dans
-%une branche avec une résistance interne en série, toutes les sources de
-%courant possèdent une résistance interne en parallèle}.  
-Un graphe est connexe lorsqu'il existe toujours un chemin du graphe reliant deux
-noeuds quelconques.
+We are considering closed associated electrical networks (with sources of tension and/or power, even with load resistors) with $N$ nodes and $M$ branches.  A graph is considered associated when there is link between any two nodes.\\
 
-Définissons deux notions utiles par la suite : les
-mailles et les coupes d'un réseau électrique.
+Let’s define two concepts that will be used subsequently:  meshes and sections of an electrical network.
+
 \begin{description}
-\item Une {\em maille} est un cycle, c'est-à-dire un chemin ``fermé" sans répétition de noeud.
-\item Une {\em coupe} est ensemble  de branches dont
-l'extraction partage un réseau connexe en au moins deux sous-réseaux connexes séparés.
+\item A {\em mesh} is a cycle, i.e. a closed path without repeating nodes.
+\item A {\em section} is an ensemble of branches the extraction of which will split an associated network in at least two associated separate sub-networks.
 \end{description}
 
-L'établissement du modèle d'état d'un réseau électrique est
-basé sur les lois de Kirchhoff qui s'énoncent comme suit :
+The organization of a electrical network state model is based on Kirchhoff’s laws, as follows:
 \begin{itemize}
-\item Loi de Kirchhoff des courants : la somme algébrique des
-courants dans les branches incidentes à un noeud est nulle.
-\item Loi de Kirchhoff des tensions : la somme algébrique des
-tensions dans une maille est nulle.
+\item Kirchhoff’s law on currents:  the algebraic sum of the currents in the branches incident to node a is equal to zero.
+\item Kirchhoff’s law on tensions:  the algebraic sum of tensions in a mesh is equal to zero.
 \end{itemize}
 
+If the graph is closed, the sum of Kirchhoff’s equations on current of all the $N$ nodes gives the trivial equality $0 = 0$, since each current occurs twice with an opposite sign.  There are $N-1$ Kirchhoff’s independent equations on the currents.  For any section, we also find out that the sum of currents on the brances of the section is equal to zero;  this result is acquired by summing Kirchhoff’s current equations on all nodes on one side of the section.\\
 
-Si le graphe est fermé, la somme des équations de Kirchhoff de courant sur tous les $N$ noeuds donne l'égalité triviale $0=0$, car chaque courant intervient deux fois avec un signe opposé. Il y a $N-1$ équations de Kirchhoff indépendantes sur les courants. Pour toute coupe, on trouve également que la somme des courants sur les branches de la coupe est nulle, ce qui est obtenu en sommant les équations de Kirchhoff des courants sur tous les noeuds d'un côté de la coupe.
+In order to find the number of Kirchhoff’s independent equations on meshes in a closed network, let’s consider the tree at the origin of the graph, i.e. an associated sub-graph, without any mesh or signal breakdown on any of the nodes.  Such a tree has $N - 1$ edges.  Every network branch added to this tree creates one and only one independent mesh.  Thus, we can create $M-N + 1$ mesh equations which will be independent.
 
-Pour trouver le nombre d'équations indépendantes de Kirchhoff sur les mailles dans un réseau fermé, considérons un arbre sous-tendant du graphe, c'est-à-dire un sous-graphe connexe, sans maille et incident à tous les noeuds. Un tel arbre a $N-1$ arêtes. Chaque branche du réseau ajoutée à cet arbre  créée une et une seule nouvelle maille indépendante. On peut ainsi créer $M-N+1$ équations de maille qui se trouvent être indépendantes.
-
-
-Les variables d'état d'un réseau sont les courants dans
-certaines inductances et les tensions aux bornes de certaines
-capacités.   Pour établir le modèle d'état d'un réseau, il suffit
-de procéder comme suit :
+Variables of a network state are the currents in some inductors and tensions at the terminals of certain capacitors. In order to establish a state model for a network, we proceed as follows:
 \begin{enumerate}
-\item Ecrire $N-1$ équations de Kirchhoff  pour les courants.
-\item Ecrire $M-N+1$ équations de Kirchhoff linéairement
-indépendan\-tes pour les tensions.
-\item Ecrire les lois de définition des impédances correspondant
-aux  tensions ou aux courants intervenant dans les équations de
-Kirchhoff 
-\item Eliminer les tensions et les courants redondants.
+\item Write $N - 1$ Kirchhoff’s equations for all currents
+\item Write $M - N +1$ Kirchhoff’s linearly independent equations for all tensions.
+\item Write definition impedance laws corresponding to the tensions or currents prevailing in Kirchhoff’s equations.
+\item 	Eliminate redundant tensions and currents.
 \end{enumerate}
 
-Il est à noter que si un circuit comporte plusieurs branches successives formant un dipôle composé de plusieurs dipôles élémentaires en série, les lois de Kirchhoff de courant sur les noeuds intermédiaires seront triviales. De même les équations de Kirchhoff de maille ne feront intervenir que la tension totale du dipôle, et non les tensions élémentaires isolément.
-En ce qui concerne l'écriture des équations de Kirchhoff, on peut donc compter ce dipôle composé comme  créant une seule branche et deux noeuds.
+It is interesting to note that if a circuit is comprised of several successive branches creating a dipole composed of several elementary dipoles placed in series, Kirchhoff’s current laws on intermediary nodes will be negligible.  Similarly, Kirchhoff’s mesh equations will only take the total dipole tension into consideration, and not isolated elementary tensions.  As far as writing Kirchhoff’s equations, one can consider this composed dipole as a single branch and two nodes.\\
 
+If the network is comprised of a mesh of capacitors, it is clear that the tension at the terminals of one of those capacitors can be written as the (signed) sum of the others, thus creating a linear relation in state variables.  On the contrary, when a network does not contain a mesh of capacitors, all tensions at the capacitors’ terminals are independent state variables.  Similarly, any inductors section imposes a linear relationship between currents crossing the section, since their (signed) sum is equal to zero.  One of these currents is not considered an independent state variable.  On the contrary, when a network is not comprised of inductors section, all currents in inductors are independent state variables.
 
-Si le réseau contient une maille de capacités, il est clair que la tension aux bornes d'une de ces capacité peut être écrite comme la somme (signée) des autres, créant une relation linéaire en variables d'état. A contrario, lorsque le réseau ne contient pas de mailles de capacités, toutes
-les tensions aux bornes des capacités sont des variables d'état indépendantes.
-De même, toute coupe d'inductances impose une relation linéaire entre les courants qui les traversent, puisque leur somme (signée) est nulle. Un de ces courants n'est donc pas pris comme variable d'état indépendante. A contrario, lorsqu'un réseau ne contient pas de coupes d'inductances,
-tous les courants dans les inductances sont des variables d'état indépendantes. 
-%Dans ce
-%cas, on peut d'emblée réduire le nombre $M$ de branches et le nombre $N$
-%de noeuds en convenant qu'une branche peut être définie comme un
-%ensemble de dipôles placés en série et comportant au plus une capacité
-%ou une inductance.
-\begin{exemple}{\bf \em Circuit redresseur avec filtre LC}
+\begin{exemple}{\bf \em Rectifier Circuit with Low Pass Filter}
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{redresseur}
-\caption{Circuit redresseur}
+\caption{Rectifier Circuit}
 \label{fig:redresseur}
 \end{center}
 \end{figure}
-La figure \ref{fig:redresseur} représente un circuit
-redresseur à diode avec un filtre formé d'une capacité et d'une
-inductance. La diode est une résistance nonlinéaire dont la caractéristique courant-tension s'exprime comme suit :
+
+Figure \ref{fig:redresseur} represent a diode rectifier circuit with a filter composed of a capacitor and an inductor.  The diode is a non-linear resistor where the current-tension characteristic is expressed as follows:
 \eqnn
 i = i_0[e^{\frac{v}{\alpha}} -1]
 \eeqnn
-où $\alpha$ est une constante proportionnelle à la température
-et inversement proportionnelle à la charge de l'électron, tandis
-que $i_0$ désigne le courant de fuite de la diode.  Il est clair que
-ce circuit ne contient ni maille de capacités ni coupe
-d'inductances.  Donc son modèle d'état comportera deux variables
-d'état : la tension $v_c$ aux bornes de la capacité et le courant
-$i_1$ dans l'inductance.
+where $\alpha$ is a constant proportional to temperature and inversely proportional to the electron charge, whereas $i_0$ defines the leakage current of the diode.  It is clear that the circuit does not contain any capacitors mesh or inductors section. So this state model will have two state variables:  tension $v_c$ at the capacitor terminals et current $i_1$ in the inductor.
 
-Le circuit comporte $N=6$ noeuds et $M=7$ branches. Toutefois on peut par commodité regrouper les dipôles en série en une seule branche, ce qui nous laisse $N=2$ noeuds et $M=3$ branches.  Pour établir le modèle d'état du système, on écrit $N-1 = 1$
-équation de Kirchhoff pour les courants : 
+The circuit is comprised of $N = 6$ nodes and $M = 7$ branches.  However, for convenience, we can group dipoles in series in one branch which leaves us with $N = 2$ nodes and $M = 3$ branches.  In order to establish the state model of the system, we would then write $N – 1 = 1$ Kirchhoff equation for the currents:
 \eqnn
 i_c - i_1 + i_2 = 0,
 \eeqnn
-et $M-N+1 =2$ équations de Kirhhoff pour les tensions :
+And $M - N +Where       is self-inductance. In matrix notation that gives 1 =  2$ Kirchhoff equations for the tensions:
 \begin{equation} \begin{split}
 &v_c - v_2 = 0,\\
 &v_g +v_d +v_\ell +v_1 +v_c -e = 0.
 \end{split} \end{equation}
-Ces équations sont complétées par les équations de
-définition des divers éléments du circuit :
+These equations are completed by equations of the definition of the different elements of the circuit:
 \begin{equation*} \begin{split}
 v_g &= R_gi_1, \\
 v_d &= \alpha \ln \frac{i_0+i_1}{i_0},\\
@@ -277,19 +237,17 @@ i_c &= C \frac{dv_c}{dt}, \\
 v_1 &= R_1i_1,\\
 v_2 &=R_2i_2.
 \end{split} \end{equation*}
-En éliminant les 7 variables $i_2,i_c, v_g, v_d, v_\ell, v_1, v_2$
-entre ces 9 équations, on obtient aisément les deux équations
-suivantes~:
+By eliminating the 7 variables $i_2,i_c, v_g, v_d, v_\ell, v_1, v_2$ between the 9 equations, we easily get the following equations:
 \eqnn
 &&R_gi_1 + \alpha \ln \frac{i_0+i_1}{i_0} + L \frac{di_1}{dt} + R_1i_1
 + v_c - e = 0,\\
 &&C\frac{dv_c}{dt} - i_1 + \frac{v_c}{R_2} = 0.
 \eeqnn
-En définissant les variables d'état et d'entrée comme suit :
+By defining the state and input variables as follows:
 \e
 x_1 = i_1, \;\;\; x_2= v_c, \;\;\; u = e,
 \ee
-on obtient finalement les équations d'état :
+We finally get the following state equations:
 \begin{equation*} \begin{split}
 \dot x_1 &= -\frac{R_1+R_g}{L} x_1 - \frac{\alpha}{L} \ln
 \left(\frac{i_0+x_1}{i_0} \right) - \frac{1}{L} x_2 + \frac{1}{L} u,\\
@@ -299,9 +257,7 @@ on obtient finalement les équations d'état :
 
 \end{exemple}
 
-Lorsque le réseau contient des mailles de capacités ou des coupes
-d'inductances, on cherche une forêt (sous-graphe sans maille) de capacités de taille maximale, et une non-coupe d'inductances 
-de taille maximale. Le nombre de capacités et d'inductances ainsi sélectionnées est le nombre de variables d'état indépendantes.
+When the network contains capacitor meshes or inductor cuts, one searches for a forest (sub-graph without mesh) of maximum size and an inductor non-cut of maximum size.  The number of selected capacitors and inductors represent the number of independent state variables.
 
 %On introduit les définitions
 %suivantes :
@@ -316,80 +272,64 @@ de taille maximale. Le nombre de capacités et d'inductances ainsi sélectionné
 %Le nombre de
 %variables d'état peut alors être déterminé par la règle suivante :
 
-On peut montrer aisément que ceci revient trouver un arbre qui contienne  le plus grand nombre possible de capacités, tel que le co-arbre (i.e. le sous-réseau complémentaire de l'arbre) contienne le plus grand nombre possible d'inductances.Le nombre de variables d'état indépendantes est alors la somme du nombre de
-capacités de l'arbre et du nombre d'inductances du co-arbre.
+One can easily demonstrate that is like finding a tree that contains the greatest possible number of capacitors, so that the “co-tree” (i.e. the complementary sub-network of the tree) contains the greatest number of inductors.  The number of independent state variables, thus, is the sum of the number of capacitors and number of inductors of the co-tree.
 
 %L'intuition de cette règle peut se comprendre en observant que les capacités contenues dans un arbre (par définition sans maille) déterminent toutes des variables d'états linéairement indépendantes. On cherchera donc un arbre qui en contiennent le plus grand nombre. De même un coarbre ne contient pas de coupe du réseau. Il est donc avantageux d'y placer un nombre maximal d'inductances, dont les
 %courants formeront des variables d'état linéairement indépendantes. Un peu d'algèbre linéaire montre qu'on obtient ainsi un ensemble complet et non redondant de variables d'état. 
 
 
-\section{Les systèmes électromécaniques} 
+\section{Electromechanical systems} 
 
-Un système mécanique pourrait être défini similairement à un système électrique, dont les bornes 
-sont soumises,  non pas à des courants et des voltages, mais à des forces $F_i$ et des vitesses $v_i=\dot{q}_i$ (à ne pas confondre avec le symbole de tension).  La translation de toutes les vitesses $v_i(t)$ vers $v_i(t)+v$ ne modifie pas le comportement du système, par relativité galiléenne. La somme des forces $\sum_{i} F_i(t)$ est en générale nulle à tout moment dans les systèmes mécaniques de l'ingénieur. L'énergie mécanique transmise au système est dans ces conditions univoquement définie comme $\sum_i F_i(t) v_i(t)$.
-Certaines forces ou vitesses sont choisies comme entrées, et d'autres comme sorties. Un exemple de dipôle mécanique est la combinaison de deux forces opposées $F_1(t)+F_2(t)=0$ s'appliquant à des points différents, qui peut être résumé à un couple $T$ et une vitesse angulaire $\omega$ (voir Chapitre 2).
+Could a mechanical system be define similarly with an electric system, whose terminals are subjected, not with currents and voltages, but with forces Fi and speeds $v_i=\dot{q}_i$ (not to be confused with the symbol of tension). Translation all speed $v_i(t)$ vers $v_i(t)+v$ do not modified the behavior of the system, by Galilean relativity. The sum of the forces $\sum_{i} F_i(t)$ in general worthless constantly in the mechanical systems of the engineer. The mechanical energy transmitted to the system under the conditions univocally define as $\sum_i F_i(t) v_i(t)$.  Certain forces or speeds are selected like entries, and others like outputs. An example of a mechanical dipole is a combination of two forces $F_1(t)+F_2(t)=0$ applying to different points  which can be summarized at a couple $T$ and an angular velocity $\omega$! (see Chapter 2)
 
-Un système électromécanique est bien sûr défini comme une boîte noire dont certaines variables sont de nature électrique et d'autres de nature mécanique (voir fig.~\ref{fig:systemelectromec}).
-
+An electromechanical system is of course defined as a black box whose certain variables are of electric nature and others of mechanical nature (see fig.~\ref{fig:systemelectromec}). 
 
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=7cm]{systemelectromec}
-\caption{Système électromécanique}
+\caption{Electromechanical system}
 \label{fig:systemelectromec}
 \end{center}
 \end{figure}
-
-Par exemple un quadrupôle électromécanique dont les variables sont $v(t)$, $i(t)$, $T(t)$,  $\omega(t)$ peut modéliser un générateur si $T\omega<0, vi>0$ (énergie électrique convertie en énergie mécanique) ou un moteur si $T\omega>0, vi<0$ (énergie mécanique convertie en énergie électrique).
+For example an electromechanical quadrupole whose variables are $v(t)$, $i(t)$, $T(t)$, $w(t)$ can model a generator if $T\omega<0, vi>0$ electrical energy converted into mechanical energy) or an engine si $T\omega>0, vi<0$ (mechanical energy converted into electrical energy).
 
 
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=7cm]{quadrupelectromec}
-\caption{Quadrupôle électromécanique}
+\caption{Electromechanical quadrupole}
 \label{fig:quadrupelectromec}
 \end{center}
 \end{figure}
 
+Concretely, an electromechanical system often arises as an articulated mechanical system (with $p$ degrees of freedom) which can be built partially in a magnetic material and whose certain bodies carry one or more inductive electrical circuits (coils, winding, ...). The equations constitutive of an electromechanical system consequently comprise a mecanical part and an electric part. The two sections that follow explain, with some electromagnetism refreshers, how the electromagnetic variables (loads, flow, currents, tensions) and mechanics (generalized positions, speeds, forces) can interact.
 
-Concrètement, un système électromécanique se présente souvent comme un système
-mécanique articulé (à $p$ degrés de liberté) qui peut être
-construit partiellement dans un matériau magnétique et dont
-certains corps portent un ou plusieurs circuits électriques inductifs (bobines,
-enroulements, etc.). Les équations constitutives d'un système
-électromécanique comportent dès lors une partie mécanique et
-une partie électrique.
+\section{Influence of a mechanical movement on the electric quantities} 
 
-Les deux section suivantes expliquent, via quelques rappels d'électromagnétisme, comment les variables électromagnétiques (charges, flux, courants, tensions) et mécaniques (positions, vitesses, forces généralisées) peuvent interagir.
+The Faraday’s law $E_i=\frac{d\phi_i}{dt}$ describes the electromotive force (tension) undergone by an inductance crossed by one magnetic flow $\phi_i$. Up to now it was supposed that this flow was created only by the current $I_i$ going through it (self-inductance). For a linear relation  $\phi_i=L_iI_i$, one obtains the law constitutive $V_i=L_i \dot{I}_i$.
 
-\section{Influence d'un mouvement mécanique sur les grandeurs électriques} 
-
-La loi de Faraday $E_i=\frac{d\phi_i}{dt}$ décrit la force électromotrice (tension) subie par une inductance traversée par un flux magnétique $\phi_i$. Jusqu'ici on a supposé que ce flux était créé uniquement par le courant $I_i$ qui la traverse (auto-inductance). Pour une relation linéaire $\phi_i=L_iI_i$, on obtient la loi constitutive $V_i=L_i \dot{I}_i$.
-
-En réalité chaque courant $I_j$ génère un champ magnétique et donc un flux dans l'inductance $i$. Ce flux dépend de $I_j$, mais aussi de la position relative des conducteurs qui portent ces courants, éventuellement variable dans le temps à cause d'un mouvement mécanique des pièces qui supportent les conducteurs.
-Généralement seuls les courants qui traversent une inductance génèrent un champ magnétique non négligeable. Si $\phi_i$ dépend linéairement de chaque $I_j$, on peut écrire
+Actually each current  $I_j$ generates a magnetic field and thus a flow in the inductance $i$. This flow depends on $I_j$, but also on the relative position of the conductors which carry these currents, possibly varying with time because of the mechanical movement of the parts which support the conductors. Generally only the currents which cross an inductance generate a non-negligeable magnetic field. If $\phi_i$ depends linearly of each $I_j$, one can write
 \begin{equation}
 \phi_i=\sum_j L_{ij} I_j,
 \label{eq:PhiLI}
 \end{equation}
-où $L_{ii}$ est l'auto-inductance. En notation matricielle cela donne
+Where   $L_{ii}$    is self-inductance. In matrix notation that gives
 \begin{equation}
 \Phi=L(q) I,
 \label{eq:PhiLI2}
 \end{equation}
-où $L(q)$ est une matrice symétrique d'inductance dépendant des positions généralisées $q$ de la partie mécanique. En combinant ceci avec l'équation de Faraday pour chaque inductance, on arrive aux équations d'état
+where $L(q)$ is a symmetrical matrix of inductance depending on the generalized positions of the mechanical part $q$. By combining this with the equation of Faraday for each inductance, one arrives at the equations of state
 \begin{equation}
 E=\sum_k \frac{\partial L}{\partial q_k} \dot{q}_k I + L\dot{I},
 \label{eq:VqI}
 \end{equation}
-qui mêlent positions, vitesses, courants et tensions.
+which mix positions, speeds, currents and tensions.
 
-La composante électrique des systèmes électromécaniques visités dans ce chapitre est souvent élémentaire, réduite à un ensemble d'inductances, chacune en série avec une résistance représentant l'inévitable résistance interne ou bien une résistance de charge, qui représente la consommation utile d'énergie électrique éventuellement générée par le système (voir fig.~\ref{fig:circel}). Dans ce cas, les tensions aux bornes des circuits s'écrivent de manière matricielle
+The electric component of the electromechanical systems discussed in this chapter are often simply reduced to a set of inductances, each one in  series with a resistance representing inevitable internal resistance or one  resistance of load, which represents the useful consumption of electrical energy possibly generated by the system (see G. 3.11). In this case, voltage at the terminals of the circuits are written in a matrix way
 \eqn
 V = RI + E \label{ELECM}
 \eeqn
-où $R$ est la matrice $\mbox{diag}\{R_i, i = 1,m\}$ et les
-vecteurs $V,I$ et $E$ sont définis comme suit :
+where $R$ is the diagonal matrix $\mbox{diag}\{R_i, i = 1,m\}$ and the vectors  $V,I$ and $E$ are defined as follows:
 \begin{equation*} \begin{split}
 V^T &= (v_1, v_2, \ldots, v_m),\\
 I^T &= (I_1, I_2, \ldots, I_m),\\
@@ -398,16 +338,15 @@ E^T &= (E_1, E_2, \ldots, E_m).
 \begin{figure}[t]
 \begin{center}
 \includegraphics[height=4cm]{circel}
-\caption{Circuit élémentaire}
+\caption{Basic circuit}
 \label{fig:circel}
 \end{center}
 \end{figure}
 
+\section{Creation of a mechanical movement by electromagnetic fields} 
 
+A magnetic field exerts a force known as Force of Lorentz on each carrier of moving load. By integrating this force on all the charge carriers set in movement by an electric current in a conductor one obtains a macroscopic force, known as Laplace force.
 
-\section{Création d'un mouvement mécanique par les grandeurs électromagnétiques} 
-
-Un champ magnétique exerce une force dite de Lorentz sur chaque porteur de charge en mouvement. En intégrant cette force sur tous les porteurs de charge mis en mouvement par un courant électrique dans un conducteur on obtient une force macroscopique, dite de Laplace.  
 
 %Pour peu que ce conducteur appartienne à une boucle rectangulaire de dimension $l \times z$ et soit mobile dans la direction de $z$ (voir Fig.~\ref{fig:laplace}, on constate que cette force de Laplace est aussi proportionnelle à $\frac{\partial \phi}{\partial z}I$,
 %où $\phi$ est le flux créé par $B$ dans la boucle traversée par le courant $I$. 
@@ -420,14 +359,14 @@ Un champ magnétique exerce une force dite de Lorentz sur chaque porteur de char
 %\end{center}
 %\end{figure}
 
-
-
-En général, on peut montrer que la force de Laplace sur la coordonnée $q_k$ est 
+In general, one can show that the Laplace force on the coordinate $q_k$ is
 \begin{equation}
 F_k=\frac{1}{2}\sum_i \frac{\partial \phi_i}{\partial q_k}  I_i = \frac{1}{2} I^T \frac{\partial L}{\partial q_k} I,
 \label{eq:Lorentz}
 \end{equation}
-la dernière égalité concernant les inductances linéaires. Dans ce dernier cas, on peut déduire directement l'expression $F_k$  en supposant que la force dérive d'une énergie potentielle contenue dans les inductances qui génèrent les champs magnétiques, exprimée par $\frac{1}{2} I^T L(q_k) I$.
+
+the last equality concerning linear inductances.  In the latter case case, one can directly assume the expression $F_k$ supposing that the force originates from a potential energy contained in inductances which generate the magnetic fields,
+expressed by $\frac{1}{2} I^T L(q_k) I$.
 
 
 
@@ -526,78 +465,65 @@ la dernière égalité concernant les inductances linéaires. Dans ce dernier ca
 %comportant $2p + m$ variables d'état $q, \dot q, I$.
 
 \vspace{2mm}
-\begin{exemple}{\bf \em  Un système électromécanique de positionnement.} 
+\begin{exemple}{\bf \em  An electromechanical system of positioning.} 
  
-Le schéma de principe d'un électro-aimant utilisé pour un positionnement de précision est indiqué à la figure
-\ref{fig:relaisem}.
+The flow diagram of an electromagnet used for a positioning of precision is indicated in figure \ref{fig:relaisem}.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{relaisem}
-\caption{Système électro-mécanique de positionnement}
+\caption{An electromechanical system of positioning}
 \label{fig:relaisem}
 \end{center}
 \end{figure}
-L'électro-aimant $A$ est muni d'une bobine
-inductrice dans laquelle circule un courant inducteur $I$.  La pièce
-métallique $B$ est mobile et soumise à une force de rappel
-linéaire par le ressort $C$.
+The electromagnet $A$ is equipped with an inductor coil in which circulates an inductor current $I$. The metal piece $B$ is mobile and subject to a linear traction force by the spring $C$  
 
-Le flux magnétique varie proportionnellement au courant $I$
-et inversément proportionnellement à la distance $z$ dans
-l'entrefer : 
+The magnetic flow varies proportionally with the current $I$ and inversely proportionally to the distance $z$ in the gap between $A$ and $B$.
 \eqnn
 \phi (I,z) = \frac{\alpha I}{1+\beta z}.
 \eeqnn
-Ceci est une instance de la loi d'Ohm magnétique (ou loi d'Hopkinson), qui exprime le flux magnétique (équivalent du courant, flux de charges électriques) comme le ratio entre la force magnétomotrice (proportionnelle au courant) et la réluctance (résistance du matériau au flux magnétique), qui est proportionnelle à la longueur du circuit.
+This is an instance of the magnetic law of Ohm (or law d’Hopkinson) which expresses the magnetic flow (equivalent of the current flow of electric charges) like the ratio between the magnetomotive flow (proportional of the current) and the reluctance (resistance of material to the magnetic flow) which is proportional to the length of the circuit.
 
-La tension induite dans le circuit s'écrit donc :
+The tension inducted in the circuit is thus written :
 \eqnn
 e &=& \frac{d\phi}{dt} = \frac{\partial \phi}{\partial I}
 \frac{dI}{dt} + \frac{\partial \phi}{\partial z} \frac{dz}{dt}\\
 &=&\frac{\alpha}{1+\beta z} \frac{dI}{dt} - \frac{\alpha \beta
 I}{(1+\beta z)^2} \frac{dz}{dt}.
 \eeqnn
-La force d'origine électromagnétique s'exer\c cant sur la pièce
-mobile s'écrit :
+The electromagnetic force of origin being exerted on the moving part is written :
 \eqnn
 F_{em} = \frac{1}{2} I \frac{\partial \phi}{\partial z} = -
 \frac{\alpha \beta}{2} \left(\frac{I}{1+\beta z}\right )^2.
 \eeqnn
-En accord avec l'intuition physique, on observe que cette force tend
-à rapprocher la pièce $B$ de l'électro-aimant quel que soit le
-sens du courant $I$.
-
-On peut alors écrire les équations dynamiques du
-système. \\
+In agreement with the physical intuition, one observes that this force tends to bring closer the part $B$ to the electromagnet whatever the direction of the courant $I$.
+One can then write the dynamic equations of the system. \\
 
 \begin{itemize}
-\item{\em Equation mécanique}
+\item{\em Mechanic equation}
 \begin{eqnarray}
 m \ddot z &=& k(z_o - z) + F_{em}\\
 &=& k(z_o - z) - \frac{\alpha \beta}{2} \left (\frac{I}{1+\beta z}
 \right )^2
 \end{eqnarray}
-où $m$ désigne la masse de la pièce $B$, $k$ la
-constante de rappel du ressort et $z_o$ la position du ressort au repos.\\
-\item{\em Equation électrique}
+where $m$ indicates the mass of the constant part $B$, $k$ the contant of the rearward movement of the $s_0$ spring and the position of the spring at rest\\
+\item{\em Electric equation}
 \begin{eqnarray}
 V&=& RI + e\\
   &=& RI + \frac{\alpha}{1+\beta z} \dot I - \frac{\alpha \beta I}{(1+
 \beta z)^2} \dot z 
 \end{eqnarray}
-où $R$ désigne la résistance du circuit électrique.
+where $R$ indicated the resistance of the electric circuit. 
 \end{itemize}
 
-En introduisant les définitions suivantes des variables
-d'état : 
+By introducing the following definitions of the state variables
 \eqnn
 x_1 = z, \;\;\; x_2 = \dot z, \;\;\; x_3 = I
 \eeqnn
-et de la variable d'entrée :
+and of the variable of entry:
 \eqnn
 u = V,
 \eeqnn
-on obtient finalement le modèle d'état du système :
+Finally:
 \begin{eqnarray}
 \dot x_1 &=& x_2,\\
 \dot x_2 &=& \frac{k}{m}(z_o - x_1) - \frac{\alpha \beta}{2m} \left
@@ -609,89 +535,69 @@ on obtient finalement le modèle d'état du système :
 
 \end{exemple}
 
-\section{Les machines électriques tournantes}
+\section{Rotating electric machines}
 
-Les machines électriques tournantes constituent une catégorie particulière
-de systè\-mes électromécaniques formés de deux corps.  Le
-premier, appelé {\em rotor}, est en rotation autour d'un axe
-dont la position est fixe par rapport au second appelé
-{\em stator}.  Ces deux corps sont munis de différents
-enroulements inducteurs ayant pour fonction de réaliser les
-conversions électromécaniques dont ces machines sont le siège.
+The rotating electric machines constitute a particular category of electromechanical systems formed by two bodies. The first one, called {\em rotor}, is in rotation around an axe whose position is fixed to the second one, called {\em stator}. These two pieces are provided with different \blue {field windings} whose utility is to realise electromechanical conversions of which the machines are the centre. 
 
-Lorsque le stator est lui-même fixe par rapport au repère
-inertiel, une machine électrique ne comporte qu'un seul degré de
-liberté mécanique : l'angle de rotation du rotor noté $\theta$. 
-La partie mécanique de la dynamique du système se
-réduit dès lors à une équation scalaire de la forme :
+When the stator itself is fixed to the inertial landmark, an electrical machine has only one mechanical degree of freedom : the rotor’s rotation angle, written $\theta$. The mechanical part of the system shrinks therefore to a scalar equation of the form : 
+
 \eqn \label{meca}
 J \ddot \theta + h(\dot \theta) = T_{em}+ T_a 
 \eeqn
-où $h(\dot \theta)$ représente le couple de frottement, $T_{em}$ le
-couple d'origine électromagnétique et $T_a$ l'ensemble des autres couples
-extérieurs appliqués au rotor.
+where $h(\dot \theta)$ represents the friction torque, $T_{em}$ the electromagnetical torque and $T_a$ all the other external torques applied to the rotor. 
 
-D'autre part, la partie électrique de la dynamique a la
-forme générale (\ref{ELECM}) :
+On the other hand, the electrical part of the dynamic has the general form (\ref{ELECM}) :
 \eqnn
 V = RI + E. 
 \eeqnn
-Dans la plupart des machines courantes, lorsque les effets de saturation
-magnétique sont négligeables (ou négligés), on peut représenter les flux
-$\phi_{ij}$ par une expression de la forme : 
+
+In most running machines, when the magnetical saturation effects are negligible (or neglected), it is possible to present the flows $\phi_{ij}$ by an expression of the form : 
+
 \eqnn
 \phi_{ij} = L_{ij}(\theta)I_i
 \eeqnn
-qui est linéaire par rapport au courant inducteur $I_i$ mais qui dépend
-de la position angulaire $\theta$ du rotor suivant une loi
-$L_{ij}(\theta)$ généralement périodique. On définit la
-matrice (symétrique) d'inductances :
+which is linear to the inductor current $I_i$ but that depends on the angular position $\theta$ of the rotor, following a law $L_{ij}(\theta)$ usually periodic. The inductance matrix (symmetrical) is defined as : 
+
 \eqnn
 L(\theta) \triangleq [L_{ij}(\theta)]
 \eeqnn
-et sa dérivée par rapport à $\theta$ :
+and its derivative to $\theta$ is : 
 \eqnn
 K(\theta) \triangleq \frac{\partial L(\theta)}{\partial \theta}.
 \eeqnn
-Alors, l'application de la théorie qui a été présentée à la section
-précédente conduit à des équations générales de couplage
-électromécanique de la forme suivante :
+Then, the use of the theory that was introduced in the last sections leads to general equations of electromechanical coupling, whose form is the following: 
 \begin{align}
 E &= L(\theta)\frac{dI}{dt} + \frac{d\theta}{dt}K(\theta)I, \label{coup1}\\
 T_{em} &= \frac{1}{2}I^TK(\theta)I. \label{coup2}
 \end{align}
-En combinant les équations (\ref{meca}),(\ref{ELECM}),(\ref{coup1}) et (\ref{coup2}) on obtient le modèle général des machines électriques~:
+By combining the equations (\ref{meca}),(\ref{ELECM}),(\ref{coup1}) and (\ref{coup2}) we get the general model of the electrical machines~: 
 \begin{equation*} \begin{split}
 L(\theta)\dot I &= - \omega K(\theta) I - RI + V, \\
 \dot \theta &= \omega, \\
 J \dot \omega &= \frac{1}{2} I^TK(\theta)I - h(\omega) + T_a.
 \end{split} \end{equation*}
-C'est ce modèle général qui est à la base de l'établissement des modèles d'état particuliers dans les applications. Souvent, mais ce n'est pas une norme, le vecteur des tensions $V$ ou le couple $T_a$ sont paramétrés par des variables d'entrée convenablement choisies qui représentent l'influence extérieure sur le comportement de la machine.
-Voici un exemple. D'autres exemples sont donnés en exercices.
+It is this general model that is on the basis of the particular models establishment in the applications. Often, but it not a standard, the voltage vector $V$ or the torque $T_a$ are parameterized by  well selected entrance variables that represent the external influence on the machine’s behaviour. Here is an example. Other examples are provided in the exercises. 
 
-\begin{exemple}{\bf \em Machine élémentaire à deux enroulements}
+\begin{exemple}{\bf \em Elementary machine with two windings}
 
+Let’s consider an electrical machine whose rotor and stator are concentric cylinders with a winding on the stator and another on the rotor ( Fig.~\ref{fig:rotorstator}). The statorical and rotorical auto-inductances $L_s$ and $L_r$ are constants. The mutual inductance $L_{sr}$ is a cosinusoidal periodical function of angle $\theta$  
 
-Nous considérons une machine électrique dont le rotor et le
-stator sont des cylindres concentriques avec un enroulement sur le
-stator et un enroulement sur le rotor (voir Fig.~\ref{fig:rotorstator}). Les auto-inductances statorique et
-rotorique $L_s$ et $L_r$ sont constantes. L'inductance mutuelle $L_{sr}$ est
-une fonction périodique cosinuso{\"\i}dale de l'angle $\theta$ :
 \eqnn
 L_{sr}(\theta) = L_o \cos \theta.
 \eeqnn
-Les matrices $L(\theta)$ et $K(\theta)$ s'écrivent comme suit :
+
+Matrices $L(\theta)$ and $K(\theta)$ are written as follows:
+
 \eqnn
 L(\theta) =   \bma{cc} L_s & L_o \cos \theta\\ L_o \cos \theta & L_r \ema
 \;\;\;\;  K(\theta) = \bma{cc} 0 & -L_o \sin \theta\\ -L_o \sin \theta & 0
 \ema.
 \eeqnn
-Les vecteurs des courants et tensions induites sont notés
+Vectors of current and induced tensions are noted : 
 \eqnn
 I = \bma{c} I_s \\ I_r \ema \;\;\;\; E = \bma{c} e_s \\ e_r \ema.
 \eeqnn
-Les équations de couplage électromécanique (\ref{coup1}), (\ref{coup2})
-se particularisent comme suit :
+Electromechanical coupling equations (\ref{coup1}), (\ref{coup2})  particularize themselves by:
 \begin{equation*} \begin{split}
 e_s &= L_s \dot I_s + L_o \cos\theta \dot I_r - \dot \theta L_o \sin \theta
 I_r, \\ 
@@ -699,40 +605,35 @@ e_r &= L_r \dot I_r + L_o \cos\theta \dot I_s - \dot \theta L_o \sin
 \theta I_s, \\
 T_{em} &= -L_o \sin \theta I_sI_r.
 \end{split} \end{equation*}
-Le circuit
-rotorique est alimenté par une source de courant $I_r$ constante. Une telle machine peut être utilisée soit comme génératrice (qui transforme la puissance mécanique fournie par le couple extérieur $T_a$ en puissance électrique délivrée par la force électromotrice statorique $e_s$) soit
-comme moteur (qui transforme la puissance électrique fournie au stator par la source $v_s$ en puissance mécanique délivrée par le couple électromagnétique $T_{em}$). 
-
+The rotorical circuit is being supplied by a constant current source $I_r$. Such a machine can be used either as a generator (that transforms the mechanical power provided by the external torque $T_a$ in electrical power delivered by the statoric electromotive power $e_s$), or as an engine  (that transforms the electrical power delivered to the stator by the source $v_s$  in a mechanical power delivered by the electromagnetical torque $T_{em}$). 
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=5cm]{rotorstator}
-\caption{Machine élémentaire à deux enroulements}
+\caption{Elementary machine with two windings}
 \label{fig:rotorstator}
 \end{center}
 \end{figure}
 
-
-
-Le système possède trois variables d'état :
+The system has three state variables :
 \begin{equation*} \begin{split}
 x_1 &= I_s, \\
 x_2 &= \theta, \\
 x_3 &= \dot \theta,
 \end{split} \end{equation*}
-et deux variables d'entrée :
+and two input variables :
 \begin{equation*} \begin{split}
 u_1 &= v_s, \\
 u_2 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état du système s'écrit comme suit :
+The state-spaced model of the system is noted as follows: 
 \begin{align*}
 L_s\dot x_1 &= L_oI_rx_3 \sin x_2 - R_s x_1 + u_1, \\
 \dot x_2 &= x_3, \\
 J\dot x_3 &= -h(x_3) - L_oI_rx_1 \sin x_2 + u_2.
 \end{align*}
 
-Dans le cas du fonctionnement en génératrice on peut également fermer la partie électrique du circuit par une résistance de charge $R_L$, on peut alors poser $u_1=R_L x$ et on obtient un modèle d'état avec pour seule entrée $u_2=T_a$.
+In the case of generator mode, we can also close the electrical part of the circuit with a resistance of charge $R_L$, we can then set $u_1=R_L x$ and we obtain a state-spaced model with only one input $u_2=T_a$.
 
 \cqfd
 
@@ -740,70 +641,55 @@ Dans le cas du fonctionnement en génératrice on peut également fermer la part
 
 \end{exemple}
 
-\section{Les machines à courant continu}
-\markboth{{\hspace*{5mm}\bf Chapitre 3} \hfill Systèmes électriques}{{ \bf Sec. \thesection}
-\hfill Les machines à courant continu\hspace*{5mm}} 
+\section{Direct current machines}
+\markboth{{\hspace*{5mm}\bf Chapitre 3} \hfill Electrcical systems}{{ \bf Sec. \thesection}
+\hfill Direct current machines\hspace*{5mm}} 
 
 
-Les machines à courant continu (voir fig.
-\ref{fig:machineDC}) comportent généralement un enroulement statorique
-et un enroulement rotorique.  
+Direct current machines (fig.
+\ref{fig:machineDC}) generally include a stator winding and a rotor one.  
 \begin{figure}[t]
 \begin{center}
 \includegraphics[height=4cm]{machineDC}
-\caption{Machine à courant continu}
+\caption{Direct current machines}
 \label{fig:machineDC}
 \end{center}
 \end{figure}
-L'enroulement du stator est le circuit
-inducteur dont le courant est noté $I_s$.  L'enroule\-ment du rotor
-est le circuit d'induit dont le courant est noté $I_r$. 
 
-Ainsi décrite, une machine à courant continu (ou machine DC) semble tout à
-fait similaire à la machine élémentaire à deux enroulements que nous
-avons étudiée à la section précédente. Il y a cependant une
-différence fondamentale : une machine DC est munie d'un système de
-commutation qui a pour effet de modifier le couplage électromécanique. Une description détaillée de l'effet de la commutation sur les
-équations de couplage sort du cadre de ce livre. Nous
-nous limitons ici à en donner les résultats. Lorsque les effets de
-saturation magnétique sont négligeables et lorsque la commutation
-n'introduit pas de nonlinéarité significative, les équations de couplage
-électromécanique d'une machine DC prennent la forme multilinéaire
-suivante :  
+The stator winding is the inductive circuit whose current is noted  by $I_s$. The rotor winding is the \blue {induced circuit} whose current is written by $I_r$. 
+
+So a direct current machine (DC machine) seems similar to the elementary two-winding machine we studied in the previous section. However, there is a fundamental difference : a DC machine is designed with a 
+\blue {commutation} system whose effect is to modify the electromechanical coupling. A detailed description of this commutation effect on the coupling equations is beyond the scope of this book.  So we restrict ourselves to give the results. When the effect of magnetic saturation are negligible and when the commutation  
+doesn't generate significant non-linearities, the equations  of electromechanical coupling  of a DC machine are witten  as the following multilinear form :
+ 
 \begin{equation*} \begin{split}
 &e_s = L_s \frac{dI_s}{dt}, \\[2mm]
 &e_r = L_r \frac{dI_r}{dt} + \frac{d\theta}{dt}K_eI_s, \\[2mm]
 &T_{em} = K_mI_rI_s.
 \end{split} \end{equation*}
-On notera la ressemblance, mais non la similitude, de ces équations avec les
-équations générales (\ref{coup1}), (\ref{coup2}) des machines
-électriques sans commutation qui ont été établies
-précédemment. On remarquera en particulier le défaut de symétrie
-entre la forme de $e_s$ et celle de $e_r$ qui est précisément d{\^u} à la
-commutation.
+Let's notice the the \blue {resemblance, but not the similarity},
+of those equations with the general one (\ref{coup1}), (\ref{coup2}) of electrical machines without commutation which have been previously defined. We notice in particular the default of symmetry between 
+the form of $e_s$ and the one of $e_r$ which is precisely  due to commutation. 
 
-Selon la manière dont elles sont construites et dont elles
-sont mises en oeuvre, les machines à courant continu peuvent être
-utilisées soit comme moteurs soit comme génératrices.  Voici quelques
-exemples courants de réalisation. \\
+According to the way they are build and implemented, direct current machines can be used as motors or as generators.
+Here are some usual examples of applications. \\
 
-\noindent{\em Modèle général d'une machine DC}
+\noindent{\em General model for DC machine}
 
-Le système possède quatre variables d'état :
+The system has four state variables  :
 \begin{equation*} \begin{split}
 x_1 &= \theta, \\
 x_2 &= \dot{\theta}, \\
 x_3 &= I_s, \\
 x_4 &= I_r.
 \end{split} \end{equation*}
-Les entrées du système sont les tensions aux bornes du cicuit inducteur
-$v_s$ et du circuit d'induit $v_r$, ainsi que le couple extérieur $T_a$ :
+The system inputs are the voltages at the terminals of the inductor circuit $v_s$ and of the induced circuit $v_r$ as well as  the external torque $T_a$ :
 \begin{equation*} \begin{split}
 u_1 &= v_s, \\
 u_2 &= v_r, \\
 u_3 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état du système s'écrit comme suit :
+The state-spaced model can be written as follows :
 \begin{equation*} \begin{split}
 \dot x_1 &= x_2,\\
 J\dot x_2 &= -h(x_2) + K_m x_3x_4 + u_3,\\
@@ -811,78 +697,73 @@ L_s\dot x_3 &= -R_s x_3 + u_1,\\
 L_r\dot x_4 &= -R_r x_4 - K_ex_2x_3 + u_2.
 \end{split} \end{equation*}
 \\
-\noindent{\em Moteur DC commandé par le stator.}
+\noindent{\em DC engine controlled by stator.}
 
-C'est un moteur DC dont le courant rotorique est fourni par une source de
-courant constante (voir figure \ref{fig:cominducteur}) :
+It's a DC engine whose rotor current is provided by a constant current source (figure \ref{fig:cominducteur}) :
 \eqnn
-I_r = constante
+I_r = constant
 \eeqnn
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{cominducteur}
-\caption{Moteur DC commandé par le stator}
+\caption{ DC engine controlled by the stator}
 \label{fig:cominducteur}
 \end{center}
 \end{figure}
 
-\noindent Le système possède trois variables d'état :
+\noindent The system has three state variables :
 \begin{equation*} \begin{split}
 x_1 &= \theta, \\
 x_2 &= \dot{\theta}, \\
 x_3 &= I_s. 
 \end{split} \end{equation*}
-Les entrées du système sont la tension aux bornes du circuit statorique
-$v_s$ et le couple extérieur $T_a$ : 
+The system inputs are the voltages at the terminals of the stator circuit $v_s$ and the external torque $T_a$ : 
 \begin{equation*} \begin{split}
 u_1 &= v_s, \\
 u_2 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état s'écrit comme suit :
+The state-spaced model is written as follows :
 \begin{equation*} \begin{split}
 \dot x_1 &= x_2,\\
 J\dot x_2 &= -h(x_2) + K_m I_r x_3 + u_2,\\
 L_s\dot x_3 &= -R_s x_3 +u_1.
 \end{split} \end{equation*}
 \\
-\noindent{\em Moteur DC commandé par le rotor.}
+\noindent{\em DC engine controlled by the rotor.}
 
-C'est un moteur DC dont le courant statorique est fourni par une source de
-courant constante (voir figure \ref{fig:cominduit}):
+It's a DC engine whose stator current is provided by a constant current source ( figure \ref{fig:cominduit}):
 \eqnn
-I_s = constante
+I_s = constant
 \eeqnn
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{cominduit}
-\caption{Moteur DC commandé par le rotor}
+\caption{DC engine controlled by rotor}
 \label{fig:cominduit}
 \end{center}
 \end{figure}
-Le système possède trois variables d'état :
+The system has three state variables :
 \begin{equation*} \begin{split}
 x_1 &= \theta, \\
 x_2 &= \dot{\theta}, \\
 x_3 &= I_r. 
 \end{split} \end{equation*}
-Les entrées du système sont la tension aux bornes du cicuit rotorique
-$v_r$ et le couple extérieur $T_a$ : 
+The system inputs are the voltage at the terminals of the rotor circuit $v_r$ and the external torque $T_a$ : 
 \begin{equation*} \begin{split}
 u_1 &= v_r, \\
 u_2 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état du système s'écrit comme suit :
+The state-spaced model is written as follows :
 \begin{equation*} \begin{split}
 \dot x_1 &= x_2,\\
 J\dot x_2 &= -h(x_2) + K_m I_s x_3 + u_2,\\
 L_r\dot x_3 &= -R_r x_3 - K_e I_s x_2 + u_1.
 \end{split} \end{equation*}
 \\
-\noindent{\em Génératrice DC.}
+\noindent{\em DC generator.}
+The function of a generator is to convert mechanical power in electrical power \blue{delivered} by the rotor circuit on any load impedance of $Z_L$.
 
-La génératrice a pour fonction de convertir une puissance mécanique en une puissance électrique débitée par le circuit
-rotorique sur une impédance de charge $Z_L$ quelconque. Lorsque celle-ci est
-résistive ($R_L$),  le système possède trois variables d'état (voir figure
+When this impedance is resistive ($R_L$),  the system has three state variables ( figure
 \ref{fig:genDC})~: 
 \begin{equation*} \begin{split} 
 x_1 &= I_s, \\ x_2 &= I_r, \\ x_3 &= \omega.
@@ -890,17 +771,16 @@ x_1 &= I_s, \\ x_2 &= I_r, \\ x_3 &= \omega.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{genDC}
-\caption{Génératrice DC}
+\caption{ DC generator}
 \label{fig:genDC}
 \end{center}
 \end{figure}
-Les entrées du système sont la tension aux bornes du circuit statorique
-$v_s$ et le couple $T_a$ :
+The system inputs are the voltage at the terminals of the stator circuit $v_s$ and the torque $T_a$ :
 \begin{equation*} \begin{split}
 u_1 &= v_s, \\
 u_2 &= T_a.
 \end{split} \end{equation*}
-Le modèle d'état du système s'écrit comme suit :
+The state-spaced model is written as follows :
 \begin{equation*} \begin{split}
 L_s\dot x_1 &= -R_s x_1+ u_1, \\
 L_r\dot x_2 &=  - (R_r +R_L) x_2 - K_e x_3 x_1,\\
@@ -910,13 +790,13 @@ J\dot x_3 &= -h(x_3) + K_m x_1x_2 + u_2.
 
 \section{Exercices}
 
-\begin{exercice} {\bf \em Un circuit linéaire}
+\begin{exercice} {\bf \em Linear circuit}
 
-Etablir un modèle d'état du circuit linéaire représenté à la figure \ref{fig:circuitlin} avec la tension appliquée $e$ et la résistance ajustable $r$ comme variables d'entrée. \qed
+Establish a state-spaced model of the linear circuit shown in figure  \ref{fig:circuitlin} with the applied voltage $e$ and the adjustable resistance $r$ as input variables. \qed
  \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{circuitlin}
-\caption{Circuit linéaire}
+\caption{Linear circuit}
 \label{fig:circuitlin}
 \end{center}
 \end{figure}
@@ -924,215 +804,203 @@ Etablir un modèle d'état du circuit linéaire représenté à la figure \ref{f
 \end{exercice}
 \vv
 
-\begin{exercice} {\bf \em Un pont doubleur de tension}
+\begin{exercice} {\bf \em Voltage doubler bridge}
 
-Le schéma électrique d'un pont doubleur de tension est représenté à la figure
-\ref{fig:pont}. Etablir le modèle d'état de système sous l'hypothèse que tous 
-les dip{ô}les sont linéaires à l'exception des diodes. \qed
+The electrical diagram of a voltage doubler bridge is shown in figure \ref{fig:pont}. Establish the state-spaced model of the system assuming that all the dipoles are linear except the diodes. \qed
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{pont}
-\caption{Pont doubleur de tension}
+\caption{Voltage doubler bridge}
 \label{fig:pont}
 \end{center}
 \end{figure}
 \end{exercice}
 \vv
 
-\begin{exercice} {\bf \em Un transformateur}
-
-Le schéma électrique équivalent d'un transformateur est représenté à la figure
+\begin{exercice} {\bf \em Transformer}
+The electrical diagram of a transformer is shown in figure
 \ref{fig:transfo}.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=3cm]{transfo}
-\caption{Circuit équivalent d'un transformateur}
+\caption{Transformer equivalent circuit}
 \label{fig:transfo}
 \end{center}
 \end{figure}
 \begin{enumerate}
-\item Ce réseau électrique comporte-t-il des mailles de capacités et/ou des coupes
-d'inductances ?  Explicitez votre réponse.
-\item Etablir le modèle d'état du système sous l'hypothèse que tous les dip{ô}les sont
-linéaires. \qed
+\item Has this electrical network some capacity \blue {mesh} and/or inductance \blue {cuts} ? 
+ Explain your answer.
+\item Establish the state-spaced model assuming that the dipoles are linear. \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em  Un circuit avec diode tunnel}
+\begin{exercice}{\bf \em  A circuit with a tunnel diode}
 
-Un circuit électrique est décrit par les équations d'état suivantes :
+A electrical circuit is described by the following state equations :
 \eqnn
 C \dot x_1 &=& -h(x_1)+x_2,\\
 L\dot x_2 &=& -x_1-Rx_2 +u.
 \eeqnn
-$x_1$ est la tension aux bornes d'une capacité linéaire, $x_2$ est le 
-courant dans une inductance linéaire, $h(x_1) = x^3_1 - 10 x^2_1 + 25 x_1$  
-est la caractéristique d'une diode tunnel. Etablir le schéma du circuit. \qed
+$x_1$ is the voltage to the terminals of a linear capacity, $x_2$ is the current in a linear inductance, $h(x_1) = x^3_1 - 10 x^2_1 + 25 x_1$  
+is the characteristic of a tunnel diode. Establish the circuit diagram. \qed
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un convertisseur électromécanique}
+\begin{exercice}{\bf \em Electromechanical converter }
 
-Le dispositif représenté à la figure \ref{fig:convem} pemet de transformer une
-puissance
-électrique fournie par la source de tension en un mouvement mécanique de translation.  Il
-est constitué d'un noyau cylindrique en acier se déplaçant longitudinalement à
-l'intérieur d'un solénoïde. \qed
+The device illustrated in figure \ref{fig:convem} transforms an electrical power provided
+by the voltage source in a mechanical mouvement of translation.  It is made of a cylindrical steel core moving
+longitudinally inside a solenoid. \qed
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=3cm]{convem}
-\caption{Convertisseur électromécanique}
+\caption{electromechanical converter}
 \label{fig:convem}
 \end{center}
 \end{figure}
 
-Proposez un modèle d'état de ce système sous les hypothèses de modélisation
-suivantes :
+Suggest a state-spaced model of this system according to the following  modeling assumptions :
 \begin{enumerate}
-\item Le mouvement du noyau est contraint à être horizontal par une glissière.  Le
-frottement peut être considéré comme visqueux et linéaire.
-\item Le noyau est plus court que le solénoïde.
-\item Le flux dans le solénoïde est une fonction affine de la longueur $h$ de la partie du
-noyau qui se trouve à l'intérieur du solénoïde.
-\item Le flux est une fonction monotone croissante saturée du courant.
-\item Le ressort est linéaire. \qed
+\item The core movement is forced to be linear by a slide.  The friction can be considered as viscous and linear.
+\item The core is shorter than the solenoid.
+\item The flow in the solenoid is a linear function of the length $h$ of the core part which is inside the solenoid.
+\item The flow is a saturated monotonically increasing function of the current.
+\item The spring is linear. \qed
 \end{enumerate}
 \end{exercice}
 
-\begin{exercice}{\bf \em Un moteur d'horlogerie}
-
-Un petit moteur utilisé en horlogerie est schématisé à la figure
-\ref{fig:mothor}.  Le stator est muni d'un enroulement inducteur dont l'inductance
-$L(\theta)$ est une fonction sinusoïdale de la position angulaire $\theta$ du rotor.
+\begin{exercice}{\bf \em Clockwork motor}
+A small motor used in watchmaking is presented in figure
+\ref{fig:mothor}.  The stator is provided with field winding whose inductance
+$L(\theta)$ is a sinusoidal function of the rotor angular position $\theta$.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=40mm]{mothor}
-\caption{Moteur d'horlogerie}
+\caption{Clockwork motor}
 \label{fig:mothor}
 \end{center}
 \end{figure}
 \begin{enumerate}
-\item Proposez un modèle pour la fonction $L(\theta)$ et calculez le flux.
-\item Etablir le modèle d'état du système sous l'hypothèse d'un frottement 
-visqueux linéaire. Les entrées sont la tension $u$ aux 
-bornes de l'inducteur et le couple résistant $T_a$.
-\item Quelle doit être la forme du signal d'entrée $u$ lorsque $T_a$ est constant pour 
-que le rotor tourne à vitesse constante ? \qed
+\item Suggest a model for the function $L(\theta)$ and compute the flow.
+\item Establish the state-spaced model of the system assuming a linear viscous friction. The inputs are the 
+voltage $u$ at the terminals of the inductor and the load torque $T_a$.
+\item What has to be the waveform of the input signal $u$ when $T_a$ is constant and so that the rotor rotates at 
+constant speed ?  \qed
 \end{enumerate}
 \end{exercice}
 \newpage
 
-\begin{exercice}{\bf \em Machine synchrone unipolaire diphasée.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% PARTIE DE Nicolas Stevens    %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Il s'agit d'une machine portant deux enroulements
-statoriques (indices $a$ et $b$) disposés en quadrature et un
-enroulement rotorique (indice $r$). Les inductances propres
-et mutuelle des enroulements statoriques varient en fonction
-de la position angulaire $\theta$ du rotor suivant les lois
-suivantes : 
+\begin{exercice}{\bf \em Unipolar off-phase synchronous machine} %Machine synchrone unipolaire diphasée.
+
+This is a machine holding two stator windings (labelled $a$ and $b$) 
+arrange in quadrature and a rotor winding (labelled $r$). 
+The self and mutual inductances of the stator windings vary depending
+on the angular position $\theta$ of the rotor according to the following laws : 
 \eqnn 
 L_a &=& L_o + L_1\cos 2\theta \nonumber \\ 
 L_b &=& L_o - L_1\cos 2\theta \nonumber \\ 
 L_{ab} &=& L_1 \sin 2\theta \nonumber 
 \eeqnn 
-L'inductance propre du
-rotor $L_r$ est constante. Les inductances mutuelles entre le
-rotor et les enroulements statoriques sont aussi fonction de
-$\theta$ : 
+The self inductance of the rotor $L_r$ is constant. The mutual 
+inductances between the rotor and the stator windings are expressed in
+terms of $\theta$ : 
 \eqnn 
 L_{ar} &=& L_2 \cos \theta \nonumber \\
 L_{br} &=& L_2 \sin \theta \nonumber  
 \eeqnn
 \begin{enumerate} 
-\item Etablir les équations de couplage
-électromécanique du système (voir Section 3.4) 
-\item Le
-rotor est alimenté par une source de courant constant
-$I_r$. Etablir le modèle d'état de cette machine lorsqu'elle
-fonctionne en moteur (inspirez vous de l'exemple 3.3). \qed
+\item Establish the coupling equations of the electromechanics 
+system (see Section 3.4) 
+\item The rotor is supplied by a constant current source
+$I_r$. Establish the state model of this machine when 
+it works as a motor (you might need to use the example 3.3). \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Machine élémentaire à deux enroulements.}
+\begin{exercice}{\bf \em Elementary machine with two windings.}
 
- On considère la machine élémentaire à deux enroulements, 
-fonctionnant en génératrice, telle que décrite dans l'exemple 3.3.
-Indiquez comment se modifient les équations d'état sous les
-hypothèses de modélisation suivantes :
+Let's consider the elementary machine with two windings working as 
+a generator, such as it is described in the example 3.3.
+Denote how to revise the state equations under the following hypothesis : 
 \begin{enumerate}
-\item  La charge du circuit statorique est capacitive 
-\item  L'enroulement rotorique est fermé par un court - circuit. \qed
+\item  The electric charge of the stator circuit is capacitive
+\item  The rotor winding is closed using a short-circuit. \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Moteur DC avec auto-excitation}
+\begin{exercice}{\bf \em DC motor with self-excitation}
 
-Un moteur à courant continu avec auto-excitation est conçu de
-telle manière que le courant statorique et le courant rotorique soient
-fournis par la même source de tension (voir figure \ref{fig:autoex}). Etablir le
-modèle d'état de ce système en considérant que la source de
-tension $u$ est la seule variable d'entrée de ce système. \qed
+A DC motor with self-excitation is designed such as the stator 
+current and the rotor current are supplied by the same power source
+(see figure \ref{fig:autoex}). Establish the state model
+of this system using the tension source $u$ as the only input 
+variable of this system. \qed
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[height=4cm]{autoex}
-\caption{Moteur DC avec auto-excitation}
+\caption{DC motor with self-excitation}
 \label{fig:autoex}
 \end{center}
 \end{figure}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Génératrice DC avec auto-excitation}
-
-On considère une génératrice DC avec auto-excitation. La tension
-rotorique induite est, à vitesse constante, une fonction {\em monotone
-croissante bornée} du courant d'excitation $E(I_s)$ telle que $E(0) >
-0$. La génératrice débite sur une charge capacitive. L'entrée de
-commande du système est la vitesse de rotation de la
-génératrice.
+\begin{exercice}{\bf \em DC generator with self-excitation}
+Let's consider a DC generator with self-excitation. The rotor tension 
+induced at constant rate is a {\em strictly increasing and bounded} function 
+depending on the excitation current $E(I_s)$ such as $E(0) >
+0$. The generator provides a capacitive electric charge. 
+The input control variable of the system is the angular velocity of 
+the generator. 
 \begin{enumerate}
-\item Proposez une forme analytique pour la fonction $E(I_s)$.
-\item Proposez un modèle d'état pour ce système.
-\item Justifiez l'existence de la tension résiduelle non-nulle $E(0)$. \qed
+\item Propose an analytical form for the function $E(I_s)$.
+\item Propose a state model for this system.
+\item Justify the existence of a non-zero residual voltage $E(0)$. \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Moteur DC avec charge décentrée}
+\begin{exercice}{\bf \em DC motor with off-center load}
 
- Un moteur DC à excitation indépendante et commandé par le
-courant rotorique entra{\^\i}ne une charge décentrée (l'axe du moteur
-ne passe pas par le centre de masse de la charge : il y a un effet de
-balourd) à travers une transmission dont la flexibilité n'est pas
-négligeable. Proposez un modèle d'état qui tienne compte de ces
-caractéristiques.
+A DC motor with independent excitations and controlled by the rotor current
+drives an off-center load (the motor shaft do not pass through the 
+center of mass of the load : indeed, there is an unbalanced effect)
+through a transmission whose flexibility is significant. 
+Propose a state model taking into account this features. 
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Convertisseur DC-DC}
+\begin{exercice}{\bf \em DC-DC converters}
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=85mm]{DCDC}
-\caption{Convertisseur DC-DC}
+\caption{DC-DC converter}
 \label{fig:DCDC}
 \end{center}
 \end{figure}
-Le circuit représenté sur la figure ci-dessus schématise un convertisseur
-DC-DC.  Le dispositif noté ``S" représente un interrupteur
-électronique de type MOSFET qui est ouvert et fermé de manière périodique.\\
+The circuit depicted at the figure above describes a DC-DC converter.  
+The device labelled "S" pictures an electronic switch of type MOSFET 
+which is open and close periodically.\\
 
-Etablir un modèle d'état du système sous les hypothèses de modélisation
-suivantes :
+Establish a state model of the system under the following modelling 
+hypothesis :
 \begin{itemize}
-\item[a)] la tension $E$ de la batterie d'alimentation est constante
-\item[b)] les deux résistances $R_1, R_2$, l'inductance $L$ et la capacité
-$C$ sont linéaires
-\item[c)] la variable d'entrée est la fréquence de commutation de
-l'interrupteur. \qed
+\item[a)] the voltage $E$ of the supply battery is constant
+\item[b)] both resistances $R_1, R_2$, the inductance $L$ and the 
+capacitor $C$ are linear
+\item[c)] the input variable is the commutation frequency of the switch. \qed
 \end{itemize} 
 \end{exercice}
 

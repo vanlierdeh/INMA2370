@@ -10,116 +10,102 @@
 
 
 \setcounter{chapter}{1}
-\chapter{Systèmes mécaniques articulés}
-\chaptermark{Systèmes mécaniques articulés}\label{systmeca}
+\chapter{Articulated mechanical systems}
+\chaptermark{Articulated mechanical systems}\label{systmeca}
 
 
 
 
-\lettrine[lines=1]{\bf L}{}e sujet de ce chapitre est la mise en équation des modèles d'état des systèmes 
-mécaniques formés d'un ensemble de corps rigides reliés entre eux par des articulations. La méthode systématique de modélisation que nous allons étudier s'applique à de nombreux exemples pratiques de systèmes mécaniques tels que les véhicules (automobiles, trains, avions,...) ou les robots. Cette méthode résulte d'une application systématique de la loi de Newton. 
+\lettrine[lines=1]{\bf T}{}he subject of this chapter is setting in equations state models of mechanical systems formed of a set of rigid bodies connected by joints. The systematic modeling method that we will study is applicable to many practical examples of mechanical systems such as vehicles (cars, trains, planes, ...) or robots. This method results from a systematic application of Newton's law.
 
-Dans le but de simplifier les notations et les calculs nous nous li\-mi\-terons à 
-l'établissement des équations du mouvement dans un espace à deux dimensions
-(c'est à dire dans un plan). L'extension au cas d'un mouvement dans un
-espace à trois dimensions est conceptuellement élémentaire mais plus difficile
-à visualiser. 
+In order to simplify the notations and calculations, we will limit ourselves to the establishment of the motion equations in a two-dimensional space
+(i.e. in a plane). The extension to the case of a movement in a three-dimensional space is conceptually simple but more difficult to visualize.
 
-Nous considérons 
-tout d'abord le cas d'un corps rigide unique en l'absence de frottement. Ensuite, nous traitons la modélisation d'un système articulé constitué de plusieurs corps rigides. La méthode de modélisation est présentée en détail à l'aide d'un exemple de robot manipulateur à deux degrés de liberté. Enfin nous examinons comment étendre le modèle pour prendre en compte le frottement, l'élasticité des articulations et les contraintes non-holonomes.
+We first consider the case of a single rigid body without friction. Then, we discuss the modeling of an articulated system consisting of several rigid bodies. The modeling method is described in detail using an example of a \blue{robot manipulator} with two degrees of freedom. Finally, we discuss how to extend the model to take into account friction, the elasticity of the joints and the non-holonomic constraints.
 
-\section{Dynamique d'un corps rigide dans le plan}
+\section{Dynamics of a rigid body in the plane}
 
-Nous considérons un corps rigide se déplaçant dans un plan dans lequel une
-base inertielle orthonormale $0, X_b, Y_b$ est fixée arbitrairement 
-(Fig.\ref{Fig:corigidplan}).
+We consider a rigid body moving in a plane in which an orthonormal inertial basis $ 0,X_B, Y_b$ is fixed arbitrarily (Fig.\ref{Fig:corigidplan}).
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=6cm]{corigidplan}
-\caption{Coordonnées d'un corps rigide dans le plan}
+\caption{Coordinates of a rigid body in plane}
 \label{Fig:corigidplan}
 \end{center}
 \end{figure}
-Un vecteur $\vec{W}$ est attaché au corps. La position
-du corps est complètement spécifiée par les 3 coordonnées $x, y, \theta$: 
+A vector $\vec{W}$ is attached to the body. The position of the body is completely specified by the 3 coordinates $x, y, \theta$: 
 \begin{itemize}
-\item $x, y$ sont les coordonnées cartésiennes du centre de masse $G$ dans la base
-fixe $0,X_b,Y_b$~;
-\item $\theta$ est l'orientation du vecteur $\vec{W}$ par rapport à la base fixe $0,X_b,Y_b$. 
+\item $x, y$ are the Cartesian coordinates of the center of mass $G$ in the fixed basis $0,X_b,Y_b$~;
+\item $\theta$ is the orientation of the vector $\vec{W}$ with respect to the fixed basis $0,X_b,Y_b$. 
 \end{itemize}
-Nous définissons le vecteur de dimension 3 décrivant la position du corps :
+We define the three-dimensional vector describing the position of the body:
 \eqn
 q \triangleq \bma{c} x \\y \\ \theta \ema. \label{cogen}
 \eeqn
 
-\noindent Une application directe des lois de Newton, coordonnée 
-par coordonnée, conduit alors aux équations générales du mouvement suivantes :
-
+\noindent A direct application of Newton's laws, coordinate by coordinate, then leads to the following general equations of motion:
 \begin{itemize}
-\item Equations de translation du centre de masse :
+\item Equations of translation of the center of mass :
 \eqnn
 m\ddot{x} &=& F_x, \\ m\ddot{y} &=& F_y.
 \eeqnn
-\item Equation de rotation autour du centre de masse :
+\item Equation of rotation around the center of mass :
 \eqnn
 I\ddot{\theta} = T.
 \eeqnn
 \end{itemize}
 
-\noindent où $m$ est la masse du corps, $I$ est son moment d'inertie par rapport au centre
-de masse,
-$F_x$ et 
-$F_y$ désignent les projections de la résultante des forces appliquées au corps sur 
-les axes $0X_b$ et $0Y_b$ 
-respectivement, $T$ est la résultante des moments des forces appliquées
-pour la rotation du corps autour du centre de masse.
+\noindent where $m$ is the mass of the body, $I$ is its moment of inertia with respect to the center
+mass,
+$F_x$ and
+$F_y$ denotes the projections of the resultant of the forces applied to the body on the
+axes $0X_b$ and $0Y_b$ 
+respectively and $T$ is the resultant of the torques applied
+for the rotation of the body around the center of mass.
 
-Ces équations générales du mouvement constituent la base de l'éta\-blis\-sement 
-du modèle d'état du système comme nous allons l'illustrer dans un exemple.
+These general equations of motion form the basis of the establishment
+of the system state model as we will illustrate it in an example.
 
-\begin{exemple}{\bf Modélisation de la dynamique d'une fusée.}
+\begin{exemple}{\bf Modeling of the dynamics of a rocket.}
 
-Nous considérons une fusée se déplaçant dans un plan perpendiculaire à
-la terre. La fusée est propulsée par deux moteurs à réaction disposés symétriquement
-par rapport au corps de la fusée comme indiqué sur la Figure \ref{Fig:fusee}. 
+We consider a rocket moving in a plane perpendicular to the ground. This rocket is propelled by two jet engines arranged symmetrically with respect to the body of the rocket as shown in Figure \ref{Fig:fusee}. 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=8cm]{fusee}\hfill
 \includegraphics[width=4.6cm]{ariane}
-\caption{Modélisation de la dynamique d'une fusée - Photo de la fusée Ariane au décollage (\copyright \,ESA)}
+\caption{Modeling of the dynamics of a rocket - Photo of the Ariane rocket during takeoff (\copyright \,ESA)}
 \label{Fig:fusee}
 \end{center}
 \end{figure}
-Les équations du mouvement sont établies sous {\bf l'hypothèse de modélisation} que la fusée
-constitue un corps rigide de masse constante. 
+The equations of motion are established under  {\bf the modeling assumption} that the rocket is a rigid body of constant mass.
 \begin{itemize}
-\item Equations de translation :
+\item Equations of translation :
 \begin{equation} \begin{split} \label{transfus}
 m\ddot{x} &= F_x = (F_1 + F_2)\cos\theta, \\ 
 m\ddot{y} &= F_y = (F_1 + F_2)\sin\theta - mg_0.  
 \end{split} \end{equation}
-\item Equation de rotation :
+\item Equation of rotation :
 \eqn
 I\ddot{\theta} = T = (F_2 - F_1)d\sin\alpha. \label{rotfus}
 \eeqn
 \end{itemize}
 \noindent 
-Dans ces équations, $(x,y)$ est la position du centre de masse $G$, $\theta$ l'angle du vecteur $\vec W$ par rapport à l'horizontale, $F_{1}, F_{2}$ les poussées des réacteurs, $m$ la masse de la fusée, $I$ son moment d'inertie, $d, \alpha$ des paramètres géométriques (Fig.\ref{Fig:fusee}) et $g_0$ la constante de gravitation.
+In these equations, $(x, y)$ is the position of the center of mass $G$, $\theta$ the angle of the vector $\vec W$ with respect to the horizontal, $F_ {1}, F_ {2}$ \blue{the thrusts of the reactors}, $m$ the mass of the rocket, $I$ its moment of inertia, $d, \alpha$ geometrical parameters (Fig.\ref{Fig:fusee}) and $g_0$ the gravitational constant.
 
-Les équations (\ref{transfus})-(\ref{rotfus}) se mettent sous la forme standard d'un modèle d'état $\dot{x} =
-f(x,u)$ de dimension 6 avec deux entrées si l'on introduit les notations suivantes~:
+The equations (\ref{transfus})-(\ref{rotfus}) can be put in the standard form of a state model $\dot{x} =
+f(x,u)$ of dimension 6 with two inputs if we introduce the following notations~:
 \begin{description}
-\item {\em Variables d'état:}
+\item {\em State variables:}
 \eqnn
 x_1 = x, \hspace{6mm} x_2 = y, \hspace{6mm} x_3 = \theta, \hspace{6mm} x_4 = \dot{x}, \hspace{6mm} 
 x_5 = \dot{y}, \hspace{6mm} x_6 = \dot{\theta}.
 \eeqnn
-\item {\em Variables d'entrée :}
+\item {\em Input variables :}
 \eqnn
 u_1 = F_1, \hspace{10mm} u_2 = F_2.
 \eeqnn
 \end{description}
-Le modèle d'état s'écrit comme suit~:
+The state model is written as follows~:
 \begin{equation*} \begin{split}
 \dot x_1 &= x_4, \\
 \dot x_2 &= x_5, \\
@@ -130,143 +116,102 @@ Le modèle d'état s'écrit comme suit~:
 \end{split} \end{equation*}
 \end{exemple}
 
-Une situation particulière appara\^it lorsque
-le corps considéré est soumis à un ensemble de forces
-dont la résultante est nulle mais qui ne sont pas toutes appliquées au même point. Les
-équations du mouvement s'écrivent alors :
+A special situation appears when the considered body is subject to a set of forces whose resultant is zero but which are not all applied at the same point. The equations of motion can be written as :
 \eqnn
 m\ddot{x} &=& 0\\ 
 m\ddot{y} &=& 0 \\
 I\ddot{\theta} &=& T 
 \eeqnn
-Dans un tel cas, il est d'usage dans certaines applications de ne pas spécifier les forces qui
-sont à l'origine du moment $T$ mais de considérer directement celui ci comme la cause du
-mouvement. On dit, pour simplifier, que le corps est soumis à un {\em couple}. C'est ainsi par
-exemple que l'on parlera du couple fourni par un moteur pour faire tourner un segment de
-robot manipulateur.
+In such a case, it is common, in some applications, to not specify the forces that are behind the torque $T$, but to directly consider this one as the cause of the movement. We say, for simplicity, that the body is subjected to a {\em torque}. Thus, for example, we will talk about the torque provided by an engine to rotate a \blue{robot manipulator} segment.
 
-Le modèle d'état obtenu dans l'exemple de la fusée est non-linéaire par
-rapport aux variables d'état et affine par rapport aux variables d'entrée. Ce sera le cas
-pour la plupart des applications qui nous intéressent et pour lesquelles les équations de
-translation  et de rotation décrivant la dynamique d'un corps rigide peuvent s'écrire sous
-la forme matricielle générale :
+The state model obtained in the example of the rocket is non-linear with respect to the state variables and affine in the input variables. This will be the case for most applications of interest for which the translational and rotational equations describing the dynamics of a rigid body can be written in the general matrix form :
 \eqnn
 J\ddot{q} + b(q) = B(q)u.
 \eeqnn
-Dans cette équation $J$ est la matrice (diagonale et constante) d'inertie, $b(q)$
-représente l'effet de la gravitation et 
-$B(q)$ est une
-matrice (dite cinémati\-que) dépendant non-linéairement des variables d'état. 
-On en déduit que le
-modèle d'état s'écrit sous la forme générale suivante :
+In this equation $J$ is the inertia matrix (diagonal and constant), $b(q)$
+represents the effect of gravity and 
+$B(q)$ is a
+matrix (called kinematic) non-linearly depending on the state variables. 
+We deduce that the state model is written in the following general form :
 \eqnn
 \dot{q} &=& v, \\ 
 \dot{v} &=& J^{-1}[-b(q) + B(q)u],
 \eeqnn
-où $v \triangleq \dot{q}$ est appelé {\em vecteur des vitesses généralisées}.
+where $v \triangleq \dot{q}$ is called {\em vector of generalized velocities}.
 
-\section{Dynamique des systèmes mécaniques articulés}
+\section{Dynamics of articulated mechanical systems}
 
-Nous considérons maintenant le cas d'un système mécanique articulé quelconque 
-comportant $N$ corps. La procédure générale de mise en équations du modèle 
-d'état peut se résumer comme suit~:
-
+We now consider the case of an articulated mechanical system with N body. The general procedure for setting in equations the state model can be summarized as follows~:
 \begin{enumerate}
-\item Fixer un repère inertiel dans l'espace de configuration du système
-et $N$ repères mobiles attachés aux centres de masse des $N$ corps du système. 
-\item Ecrire les équations des contraintes de parcours et de liaison auxquelles est soumis
-le mouvement du système. En déduire le nombre de degrés de liberté.
-\item Ecrire les équations du mouvement (translation et rotation) pour chacune des
-coordonnées en y incluant les forces de liaison relatives aux contraintes (méthode des
-coefficients de Lagrange).
-\item Eliminer les coefficients de Lagrange et les coordonnées redondantes.
+\item Fix an inertial reference frame in the system configuration space and $N$ moving frames attached to the centers of mass of the $N$ bodies of the system.
+\item Write the \blue{path and bonding constraints} equations faced by the movement of the system. Deduce the number of degrees of freedom.
+\item Write the equations of motion (translation and rotation) for each of the coordinates by including the bonding forces related to the constraints (method of Lagrange coefficients).
+\item Remove the coefficients of Lagrange and redundant coordinates.
 \end{enumerate}
 
-Nous allons maintenant détailler cette procédure, expliciter les concepts nouveaux 
-(degrés de liberté, coefficients de Lagrange, coordonnées redondantes) qui ont été 
-mentionnés et l'illustrer avec un exemple typique : le développement du modèle
-dynamique  d'un robot manipulateur à deux degrés de liberté.
+We will now detail the procedure, explaining the new concepts (degrees of freedom, Lagrange coefficients, redundant coordinates) that have been mentioned, and illustrate it with a typical example: the development of the dynamic model of a \blue{robot manipulator} with two degrees of freedom.
 
 \vspace{5mm}
 
-\noindent {\bf Première étape : Définition des coordonnées}
+\noindent {\bf First step: Defining coordinate}
 
-Un repère inertiel est fixé dans l'espace de configuration $\Omega$ du sys\-tè\-me. $N$ 
-repères mobiles sont attachés aux centres de masse des $N$ corps du système.
-La position du système est à tout moment caractérisée par le vecteur des coordonnées 
+An inertial reference frame is set in the configuration space $\Omega$ of the system. $N$ moving frames are attached to the centers of mass of the $N$ bodies of the system. The position of the system is at any time characterized by the coordinate vector
 \eqnn
 \xi = (x_1 \; y_1 \; \theta_1 \; . \; . \; .\; x_N\; y_N\; \theta_N)^{T}
 \eeqnn
-de dimension $3N$.
+of dimension $3N$.
 
 \vspace{5mm}
 
-\noindent {\bf Deuxième étape : Expression des contraintes géométriques}
+\noindent {\bf Step Two: Expression of geometric constraints}
 
-Le mouvement d'un sytème mécanique articulé peut être soumis à deux types de 
-contraintes (dites géométriques) : des contraintes de parcours d'une part et 
-les contraintes de liaison entre corps d'autre part. 
-Ces contraintes s'expriment sous la forme d'un ensemble de relations algébriques entre
-les coordonnées que nous noterons 
+The movement of an articulated mechanical system may be subject to two types of constraints (called geometric) : \blue{path contraints} on the one hand and bonding contraints between the bodies on the other hand. These constraints are expressed as a set of algebraic relations between the coordinates which we will note
 \eqnn
 \Psi (\xi) = 0,
 \eeqnn
-où $\Psi$ est une application $\Omega \rightarrow \RR^p$ de classe $C^1$ et $p$
-désigne le nombre de contraintes. Selon le théorème des fonctions implicites, dans un 
-voisinage de tout point $\xi$
-de l'espace de configuration, il existe une partition $\xi = (q, \bar{q})$ du vecteur des
-coordonnées telle que :
+where $\Psi$ is an application $\Omega \rightarrow \RR^p$ of class $C^1$ and $p$
+denotes the number of constraints. According to the implicit function theorem, in a neighborhood of any point $\xi$
+of the configuration space, there is a partition $\xi = (q, \bar{q})$ of the coordinates vector such that :
 \begin{itemize}
-\item la dimension (notée $\sigma$) de $\bar{q}$ est égale au rang de la matrice 
-jacobienne 
-de l'application $\Psi$ :
+\item the dimension (noted $\sigma$) of $\bar{q}$ is equal to the rank of the Jacobian matrix of the application $\Psi$ :
 \eqnn
-\sigma \triangleq \mbox{dim}\bar{q} = \mbox{rang}\frac{\partial \Psi}{\partial \xi};
+\sigma \triangleq \mbox{dim}\bar{q} = \mbox{rank}\frac{\partial \Psi}{\partial \xi};
 \eeqnn
-\item on peut exprimer les coordonnées $\bar{q}$ en fonction des coordonnées $q$ :
+\item we can express the coordinates $\bar{q}$ depending on coordinates $q$ :
 \eqn
 \bar{q} = \phi (q) \label{red}.
 \eeqn
 \end{itemize}
-\noindent Il en résulte que l'on peut utiliser l'expression (\ref{red}) pour éliminer 
-les {\em coordonnées redondantes} $\bar q$ de la description du système. La dimension 
-du vecteur $q$ des coordonnées qui sont conservées est le {\em nombre de degrés de 
-liberté} du système, noté $\delta$ :
+\noindent This means that we can use the expression (\ref{red}) to remove the {\em redundant coordinates} $\bar q$ of the system description. The size of the vector $q$ of the coordinates that are preserved is the {\em number of degrees of freedom} of the system, denoted $\delta$ :
 \eqnn
 \delta \triangleq 3N - \sigma.
 \eeqnn
 
 \vspace {5mm}
 
-\noindent {\bf Troisième étape : Equations du mouvement}
+\noindent {\bf Step Three: Equations of motion}
 
-On écrit ensuite les équations du mouvement (translation et rotation) pour chacune 
-des coordonnées en y incluant les forces de liaison relatives aux contraintes. 
-La partition $(q,\bar{q})$ des coordonnées induit une partition similaire de l'ensemble 
-des équations du mouvement comme suit :
+Then we write the equations of motion (translation and rotation) for each of the coordinates by including the bonding forces related to the constraints. The partition $(q,\bar{q})$ of the coordinates induces a similar partition of the set of equations of motion as follows :
 \eqn
 J\ddot{q} + b(q,\bar{q}) &=&  B(q,\bar{q})u + w, \label{mo1}\\[2mm]
 \bar{J}\ddot{\bar{q}} + \bar{b}(q,\bar{q}) &=& \bar{B}(q,\bar{q})u + \bar{w}. \label{mo2}
 \eeqn
-Dans ces équations, les vecteurs $w$ et $\bar{w}$ représentent les forces de liaison
-qui garantissent que les contraintes sont satisfaites à tout instant au cours du 
-mouvement du système. On montre dans les ouvrages de base en mécanique que ces forces
-de liaison s'expriment comme suit :
+In these equations, vectors $w$ and  $\bar{w}$ represent the bonding forces that ensure that the constraints are satisfied at any time during the movement of the system. It is shown in the mechanical basic works that these binding forces are expressed as follows :
 \eqnn
 w &=& - A(q)\lambda, \\
 \bar{w} &=& \lambda.
 \eeqnn
-où $\lambda$ est le vecteur des {\em coefficients de Lagrange} (de dimension $\sigma$)
-et $A(q)$ est la matrice de dimensions $\delta \times \sigma$ définie comme suit :
+where $\lambda$ is the vector of {\em Lagrange coefficients} (of dimension $\sigma$)
+and $A(q)$ is the matrix of dimension $\delta \times \sigma$ defined as follows :
 \eqnn
 A(q) \triangleq (\frac{\partial \phi}{\partial q})^{T}.
 \eeqnn
 
 \vspace{5mm}
 
-\noindent {\bf Quatrième étape : Elimination des coordonnées redondantes}
+\noindent {\bf Step Four: Eliminate redundant coordinates}
 
-De l'équation (\ref{mo2}), $\lambda$ s'exprime :
+In the equation (\ref{mo2}), $\lambda$ is expressed as :
 \eqnn
 \lambda = \bar{J}\ddot{\bar{q}} + \bar{b}(q,\bar{q}) - \bar{B}(q,\bar{q})u.
 \eeqnn
