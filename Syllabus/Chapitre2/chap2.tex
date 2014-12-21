@@ -667,25 +667,31 @@ des vitesses.
 
 \section{Exercices}
 
-\begin{exercice}{\bf \em Robots manipulateurs}
+%\begin{exercice}{\bf \em Robots manipulateurs}
+\begin{exercice}{\bf \em \blue{Technician} robots}
 
-On a représenté à la figure \ref{Fig:exe-robot} trois configurations de robots
-planaires à deux degrés de liberté.  Pour chacune de ces
-configurations~:
+%On a représenté à la figure \ref{Fig:exe-robot} trois configurations de robots
+%planaires à deux degrés de liberté.  Pour chacune de ces
+%configurations~:
+Figure \ref{Fig:exe-robot} represents tree configurations of planar robots. For each of this configurations~:
 \begin{enumerate}
-\item Etablir le modèle dynamique du système et le modèle
-d'état correspondant.  Expliciter les matrices $M(q), C(q,\dot q)$
-et $G(q)$ ainsi que le vecteur $g(q)$.
-\item Vérifier que le modèle est conservatif et qu'il satisfait l'équation
-d'Euler-Lagrange.
-\item Indiquer comment se modifient les équations du modèle si
-les segments sont soumis à un frottement visqueux proportionnel au
-carré de la vitesse. \qed
+%\item Etablir le modèle dynamique du système et le modèle
+%d'état correspondant.  Expliciter les matrices $M(q), C(q,\dot q)$
+%et $G(q)$ ainsi que le vecteur $g(q)$.
+\item Establish the dynamic model of the system and the corresponding state model. Make explicit the matrices $M(q), C(q,\dot q)$ and $G(q)$, and the vector $g(q)$.
+%\item Vérifier que le modèle est conservatif et qu'il satisfait l'équation
+%d'Euler-Lagrange.
+\item Check that the model is conservative and that it satisfies Euler-Lagrange equation.
+%\item Indiquer comment se modifient les équations du modèle si
+%les segments sont soumis à un frottement visqueux proportionnel au
+%carré de la vitesse. \qed
+\item Indicate how the equations of the model are modified if the segments are subjected to a viscous friction proportional to the square of the speed. \qed 
 \end{enumerate}
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=3.5in]{exe-robot}
-\caption{Configurations de robots manipulateurs planaires}
+%\caption{Configurations de robots manipulateurs planaires}
+\caption{Configurations of \blue{technician} planar robots}
 \label{Fig:exe-robot}
 \end{center}
 \end{figure}
@@ -694,136 +700,175 @@ carré de la vitesse. \qed
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=8cm]{exe-fusee}
-\caption{Fusée à moteur orientable}
+%\caption{Fusée à moteur orientable}
+\caption{Rocket with \blue{adjustable} motor}
 \label{Fig:exe-fusee}
 \end{center}
 \end{figure}
-\begin{exercice}{\bf \em Modélisation de la dynamique d'une fusée}
+%\begin{exercice}{\bf \em Modélisation de la dynamique d'une fusée}
+\begin{exercice}{\bf \em Modelling of the dynamics of a rocket}
 
-On considère une fusée propulsée par un moteur à réaction
-orientable comme indiqué sur la figure \ref{Fig:exe-fusee} et se dépla\c
-cant dans un plan vertical.  L'orientation du moteur est pilotée
-par un actionneur hydraulique fournissant un couple $T$.  Le moteur
-lui-même fournit une force de propulsion $F$.
+%On considère une fusée propulsée par un moteur à réaction
+%orientable comme indiqué sur la figure \ref{Fig:exe-fusee} et se dépla\c
+%cant dans un plan vertical.  L'orientation du moteur est pilotée
+%par un actionneur hydraulique fournissant un couple $T$.  Le moteur
+%lui-même fournit une force de propulsion $F$.
+Let's consider a rocket propelled by an \blue{adjustable} jet engine as indicated on figure \ref{Fig:exe-fusee} and moving in a vertical plane. The engine orientation is controlled by a hydraulic \blue{actuator} providing a torque $T$. The engine itself provides a propelling force $F$ .
 \begin{enumerate}
-\item Etablir les équations du modèle d'état du système,
-sous l'hypothèse que les deux parties de la fusée (corps
-principal et moteur) sont des corps rigides de masse constante. \qed
+%\item Etablir les équations du modèle d'état du système,
+%sous l'hypothèse que les deux parties de la fusée (corps
+%principal et moteur) sont des corps rigides de masse constante. \qed
+\item Establish the equations of the state model of the system, assuming that the two parts of the rocket (main body and engine) are rigid bodies of constant mass. \qed
 \end{enumerate}
 \end{exercice}
 
-\begin{exercice}{\bf \em Modélisation dynamique du module d'excursion
-lunaire}
+%\begin{exercice}{\bf \em Modélisation dynamique du module d'excursion
+%lunaire}
+\begin{exercice}{\bf \em Dynamic modelling of the lunar excursion module}
 
-Lors de la mission Apollo 11, les astronautes Armstrong et Aldrin
-se sont posés sur la lune au moyen du LEM (Lunar
-Excursion Module; Fig. \ref{Fig:exe-lem}).  On considère les hypothèses de
-modélisation suivantes :
+%Lors de la mission Apollo 11, les astronautes Armstrong et Aldrin
+%se sont posés sur la lune au moyen du LEM (Lunar
+%Excursion Module; Fig. \ref{Fig:exe-lem}).  On considère les hypothèses de
+%modélisation suivantes :
+During the Apollo 11 mission, astronauts Armstrong and Aldrin landed on the moon using the LEM (Lunar Excursion Module; Fig. \ref{Fig:exe-lem}). We consider the following model assumptions : 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=2in]{exe-lem}
-\caption{Module d'excursion lunaire}
+%\caption{Module d'excursion lunaire}
+\caption{Lunar Excursion Module}
 \label{Fig:exe-lem}
 \end{center}
 \end{figure}
 \begin{itemize}
-\item[a)] le LEM est un corps rigide
-\item[b)] le mouvement est vertical
-\item[c)] les forces agissant sur le système sont la poussée $F$
-et l'attraction lunaire
-\item[d)] la masse de combustible embarqué constitue une partie
-importante (non négligeable) de la masse totale du LEM
-\item[e)] la masse de combustible consommée par unité de
-temps est proportionnelle à $F$.
+%\item[a)] le LEM est un corps rigide
+\item[a)] the LEM is a rigid body
+%\item[b)] le mouvement est vertical
+\item[b)] the movement is vertical
+%\item[c)] les forces agissant sur le système sont la poussée $F$
+%et l'attraction lunaire
+\item[c)] the forces acting on the system are the thrust $F$ and the lunar attraction
+%\item[d)] la masse de combustible embarqué constitue une partie
+%importante (non négligeable) de la masse totale du LEM
+\item[d)] the mass of fuel onboard is an
+important (non negligible) part of the total mass of the LEM
+%\item[e)] la masse de combustible consommée par unité de
+%temps est proportionnelle à $F$.
+\item[e)] the mass of fuel consumed per unit of time is proportional to $F$.
 \end{itemize}
 \begin{enumerate}
-\item Etablir un modèle d'état du système qui satisfait ces
-hypothèses de modélisation.
-\item Quelles sont les principales limites de validité de ce
-modèle ? \qed
+%\item Etablir un modèle d'état du système qui satisfait ces
+%hypothèses de modélisation.
+\item Establish a state model of the system that satisfies these
+modelling assumptions.
+%\item Quelles sont les principales limites de validité de ce
+%modèle ? \qed
+\item What are the main limits of validity of this
+model ? \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un train pendulaire}
+%\begin{exercice}{\bf \em Un train pendulaire}
+\begin{exercice}{\bf \em A pendular train}
 
-Un train pendulaire est un train qui peut se déplacer à
-très grande vitesse dans les virages sans qu'il soit nécessaire
-d'incliner les voies. 
+%Un train pendulaire est un train qui peut se déplacer à
+%très grande vitesse dans les virages sans qu'il soit nécessaire
+%d'incliner les voies. 
+A pendular train is a train that can move at very high speed in bends without the need of inclining the rails.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=7cm]{train2}
 \includegraphics[width=5cm]{trainpendulaire}
-\caption{Un train pendulaire}
+%\caption{Un train pendulaire}
+\caption{A pendular train}
 \label{Fig:train}
 \end{center}
 \end{figure}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=3in]{exe-camion}
-\caption{Modélisation de la dynamique d'un camion}
+%\caption{Modélisation de la dynamique d'un camion}
+\caption{Modelling of the dynamics of a truck}
 \label{Fig:exe-camion}
 \end{center}
 \end{figure}
-Pour cela chaque voiture est munie d'un dispositif
-actif qui applique une force verticale à la caisse de la voiture pour
-contrebalancer l'effet de la force \og centrifuge \fg. Ceci est illustré sur
-la figure \ref{Fig:train} où une section de la caisse d'une voiture est
-représentée schématiquement avec $F_g$ la force de gravité
-(appliquée au centre de masse $G$), $F_c$ la force "centrifuge" et
-$F_a$ la force appliquée. On suppose que la ligne d'action de la force
-$F_a$ est verticale quelle que soit la position angulaire $\theta$ de la
-caisse. D'autre part la suspension de la voiture est schématisée par
-un ressort vertical qui exerce une force proportionnelle à son
-élongation. Le point d'application
-$P$ du ressort est {\it contraint de se déplacer verticalement}.
-Etablir un modèle d'état du système. \qed
+%Pour cela chaque voiture est munie d'un dispositif
+%actif qui applique une force verticale à la caisse de la voiture pour
+%contrebalancer l'effet de la force \og centrifuge \fg. Ceci est illustré sur
+%la figure \ref{Fig:train} où une section de la caisse d'une voiture est
+%représentée schématiquement avec $F_g$ la force de gravité
+%(appliquée au centre de masse $G$), $F_c$ la force "centrifuge" et
+%$F_a$ la force appliquée. On suppose que la ligne d'action de la force
+%$F_a$ est verticale quelle que soit la position angulaire $\theta$ de la
+%caisse. D'autre part la suspension de la voiture est schématisée par
+%un ressort vertical qui exerce une force proportionnelle à son
+%élongation. Le point d'application
+%$P$ du ressort est {\it contraint de se déplacer verticalement}.
+%Etablir un modèle d'état du système. \qed
+For this each car is equipped with an active device that applies a force vertical to the car \blue{body} to compensate the effect of the \og centrifugal \fg force. This is illustrated on
+figure \ref{Fig:train} where a section of the \blue{body} of a car is schematically represented with  the gravity force $F_g $ (applied to the center of mass $G$) the "centrifugal" force $F_c$ and the applied force $F_a$. It is assumed that the action line of force $F_a$ is vertical irrespective of the angular position $\theta$ of the \blue{body}. On the other hand the car's suspension is represented by a vertical spring that exerts a force proportional to its elongation.  The application point $P$ of the spring is \it{forced to move vertically}. Established the state model of the system. \qed
+
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Modélisation de la dynamique d'un camion}
+%\begin{exercice}{\bf \em Modélisation de la dynamique d'un camion}
+\begin{exercice}{\bf \em Modelling of the dynamics of a truck}
 
-On considère un camion se dépla\c cant en ligne droite (Fig. \ref{Fig:exe-camion}), sous les hypothèses de modélisation suivantes~:
+%On considère un camion se dépla\c cant en ligne droite (Fig. \ref{Fig:exe-camion}), sous les %hypothèses de modélisation suivantes~:
+We consider a truck traveling in a straight line (Fig. \ref{Fig:exe-camion}), under the following modelling assumptions~:
 \begin{itemize}
-\item[a)] Le camion est un système articulé composé de corps rigides (caisse et
-roues).
-\item[b)] Le camion est équipé d'une propulsion arrière (le couple développé par
-le moteur est transmis aux roues arrières).
-\item[c)] Les roues roulent sans glisser.
-\item[d)] Les roues sont reliées au chassis par un système de suspension composé
-d'un ressort linéaire et d'un amortisseur à frottement visqueux de masse
-négligeable.  Ce système de suspension ne permet que des déplacements verticaux.
+%\item[a)] Le camion est un système articulé composé de corps rigides (caisse et
+%roues).
+\item[a)] The truck is an articulated system composed of rigid bodies (\blue{body} and wheels)
+%\item[b)] Le camion est équipé d'une propulsion arrière (le couple développé par
+%le moteur est transmis aux roues arrières).
+\item[b)] The truck is equipped with a rear propulsion (the torque developed by
+the motor is transmitted to the rear wheels).
+%\item[c)] Les roues roulent sans glisser.
+\item[c)] The rear wheels roll without slipping.
+%\item[d)] Les roues sont reliées au chassis par un système de suspension composé
+%d'un ressort linéaire et d'un amortisseur à frottement visqueux de masse
+%négligeable.  Ce système de suspension ne permet que des déplacements verticaux.
+\item[d)] The wheels are connected to the frame by a suspension system composed of a linear spring and a viscous friction shock absorber of negligible mass. This suspension system allows only vertical displacements.
 \end{itemize}
 \begin{enumerate}
-\item Etablir un modèle d'état du système qui satisfait ces hypothèses de
-modélisation (se limiter à deux corps : le chassis et une roue motrice).
-\item Quelles sont les principales limites de validité de ce modèle ? \qed
+%\item Etablir un modèle d'état du système qui satisfait ces hypothèses de
+%modélisation (se limiter à deux corps : le chassis et une roue motrice).
+\item Establish a state model of the system that satisfies the modelling assumptions (be limited to two bodies : the frame and a driving wheel)
+%\item Quelles sont les principales limites de validité de ce modèle ? \qed
+\item What are the main limits of validity of this model ? \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un bateau}
+%\begin{exercice}{\bf \em Un bateau}
+\begin{exercice}{\bf \em A boat}
 
-Un bateau muni d'un moteur orientable de type \og hors-bord \gf se déplace sur un fleuve comme illustré à la figure \ref{bateau} (vue du dessus). Le fleuve est de largeur constante (= 2$L$). La poussée du moteur est représentée par le vecteur de longueur $F$ (= grandeur de la force de propulsion) et d'orientation $\beta$. Le bateau est aussi soumis à la force du courant du fleuve qui est une fonction parabolique de l'abscisse $y$ : le courant est nul aux deux bords et maximum au milieu du fleuve. Quand le moteur est à l'arrêt, le bateau est entraîné à la vitesse du courant par la force de frottement de l'eau sur la coque. 
+%Un bateau muni d'un moteur orientable de type \og hors-bord \gf se déplace sur un fleuve comme %illustré à la figure \ref{bateau} (vue du dessus). Le fleuve est de largeur constante (= 2$L$). La %poussée du moteur est représentée par le vecteur de longueur $F$ (= grandeur de la force de %propulsion) et d'orientation $\beta$. Le bateau est aussi soumis à la force du courant du fleuve qui %est une fonction parabolique de l'abscisse $y$ : le courant est nul aux deux bords et maximum au %milieu du fleuve. Quand le moteur est à l'arrêt, le bateau est entraîné à la vitesse du courant par la %force de frottement de l'eau sur la coque. 
+A boat equipped with an \blue{adjustable} motor of type \og speedboat \gf moves on a river as shown in figure \ref{bateau} (top view). The river is of constant width (= 2$L$). The engine thrust is shown by the vector of length $F$ (= size of the propulsion force) and of orientation $\beta$. The boat is also subject to the force of the current of the river which is a parabolic function of axis $y$ : the current is zero at both edges and maximal at the middle of the river. When the engine is stopped, the boat is driven at the speed of the current by the friction force of water on the hull .
 \begin{enumerate}
-\item Etablir un modèle d'état du système. Pour simplifier, on peut supposer que :
+%\item Etablir un modèle d'état du système. Pour simplifier, on peut supposer que :
+\item Establish a state model of the system. For simplicity, we can assume that : 
 \begin{itemize}
-\item[a)] le bateau est un corps rigide de masse constante;
-\item[b)] le plan d'eau est quasi-horizontal et la gravité n'influence pas le mouvement du bateau;
-\item[c)] la force exercée par le courant s'applique ponctuellement au centre de masse du bateau (on néglige le fait que la force du courant peut s'exercer de manière variable en divers points de la coque).
+%\item[a)] le bateau est un corps rigide de masse constante;
+\item[a)] the boat is a rigid body of constant mass;
+%\item[b)] le plan d'eau est quasi-horizontal et la gravité n'influence pas le mouvement du bateau;
+\item[b)] the stretch of water is almost horizontal and gravity does not influence the movement of the boat;
+%\item[c)] la force exercée par le courant s'applique ponctuellement au centre de masse du bateau (on néglige le fait que la force du courant peut s'exercer de manière variable en divers points de la coque).
+\item[c)] the force exerted by the current is locally applied at the center of mass of the boat (we neglect the fact that the current force can be exerted in variable ways in diverse points of the hull)
 \end{itemize}
-\item Quelle doit être la capacité de propulsion du moteur pour que l'on ait la garantie que le bateau pourra remonter le courant ? \qed
+%\item Quelle doit être la capacité de propulsion du moteur pour que l'on ait la garantie que le bateau pourra remonter le courant ? \qed
+\item What should be the thrust capacity of the engine to have the guarantee that the boad will be able to go against the current?
 \end{enumerate} 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=10cm]{bateau}
-\caption{Un bateau}
+%\caption{Un bateau}
+\caption{A boat}
 \label{bateau}
 \end{center}
 \end{figure}
 \end{exercice}
 \vv
-
-
 
 \end{document}
