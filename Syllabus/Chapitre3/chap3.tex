@@ -14,136 +14,136 @@
 
 
 
-\lettrine[lines=1]{\bf C}{}e chapitre traite de la modélisation de systèmes dont la dynamique est essentiellement caractérisée par la présence de courants électriques, c'est à dire par le mouvement de charges électriques dans des matériaux conducteurs (par exemple des fils métalliques). Nous étudierons tout d'abord la mise en équation du modèle d'état des réseaux électriques. Nous étudierons ensuite les systèmes électromécaniques (en particulier les machines électriques) qui combinent en une description unifiée les équations d'état des réseaux électriques avec celles des systèmes mécaniques telles que nous les avons présentées au chapitre précédent.
+%\lettrine[lines=1]{\bf C}{}e chapitre traite de la modélisation de systèmes dont la dynamique est essentiellement caractérisée par la présence de courants électriques, c'est à dire par le mouvement de charges électriques dans des matériaux conducteurs (par exemple des fils métalliques). Nous étudierons tout d'abord la mise en équation du modèle d'état des réseaux électriques. Nous étudierons ensuite les systèmes électromécaniques (en particulier les machines électriques) qui combinent en une description unifiée les équations d'état des réseaux électriques avec celles des systèmes mécaniques telles que nous les avons présentées au chapitre précédent.
 
+\lettrine[lines=1]{\bf T}{}his chapter deals with the modelling of systems whose dynamics are essentially characterised by the presence of electrical currents, i.e. by the movement of electrical charges in conductive materials (metal wires for example). We will first study the \blue{putting in equation} of the state model of electrical networks. We will then study electromechanical systems (especially electrical machines) that combine in a unified description the state equations of electrical networks with those of mechanical systems such as we have presented them in the previous chapter.
 
+%\section{Les systèmes électriques}
+\section{Electrical systems}
 
+%Un système  électrique est défini comme une boîte noire munie de bornes, qui sont des points de contact électriques chacun soumis à un voltage $V_i$ et laissant entrer un courant $I_i$ (voir fig.~\ref{fig:systemelec}).
 
-\section{Les systèmes électriques}
-
-Un système  électrique est défini comme une boîte noire munie de bornes, qui sont des points de contact électriques chacun soumis à un voltage $V_i$ et laissant entrer un courant $I_i$ (voir fig.~\ref{fig:systemelec}).
+An electrical system is defined as a black box equipped with terminals which are electrical contact points, each of them subject to a voltage $V_i$ and letting a current $i$ in (see fig.~\ref{fig:systemelec}).
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=7cm]{systemelec}
-\caption{Système électrique}
+%\caption{Système électrique}
+\caption{Electrical system}
 \label{fig:systemelec}
 \end{center}
 \end{figure}
 
-Le comportement du système est donné par l'ensemble de toutes les trajectoires $(I_1(t), V_1(t), I_2(t), V_2(t), \ldots, I_k(t), V_k(t))_{t \in \real}$ possibles pour le système. Cet ensemble de trajectoires possède des symétries. En effet, les lois de l'électricité nous enseignent que les potentiels ne sont définis qu'à une constante près. Autrement dit, si $(I_1(t), V_1(t), I_2(t), V_2(t), \ldots, I_k(t), V_k(t))_{t \in \real}$ est une trajectoire possible, alors $(I_1(t), V_1(t)+V, I_2(t), V_2(t)+V, \ldots, I_k(t), V_k(t)+V)_{t \in \real}$ est également une trajectoire possible. De plus, dans la quasi-totalité des circuits réalisés aujourd'hui, il n'y a pas d'accumulation de charge électrique: le système reste neutre électriquement, ce qui implique que $I_1(t) + I_2(t) + \ldots + I_k(t)=0$ à tout instant $t$.
+%Le comportement du système est donné par l'ensemble de toutes les trajectoires $(I_1(t), V_1(t), I_2(t), V_2(t), \ldots, I_k(t), V_k(t))_{t \in \real}$ possibles pour le système. Cet ensemble de trajectoires possède des symétries. En effet, les lois de l'électricité nous enseignent que les potentiels ne sont définis qu'à une constante près. Autrement dit, si $(I_1(t), V_1(t), I_2(t), V_2(t), \ldots, I_k(t), V_k(t))_{t \in \real}$ est une trajectoire possible, alors $(I_1(t), V_1(t)+V, I_2(t), V_2(t)+V, \ldots, I_k(t), V_k(t)+V)_{t \in \real}$ est également une trajectoire possible. De plus, dans la quasi-totalité des circuits réalisés aujourd'hui, il n'y a pas d'accumulation de charge électrique: le système reste neutre électriquement, ce qui implique que $I_1(t) + I_2(t) + \ldots + I_k(t)=0$ à tout instant $t$.
+The system behavior is given by the set of all possible trajectories\\
+$(I_1(t), V_1(t), I_2(t), V_2(t), \ldots, I_k(t),V_k(t))_{t \in \real}$ for the system. This set of trajectories has symmetries. Indeed, electricity laws teach us that potentials are only defined up to a constant. In other words, if\\ $(I_1(t), V_1(t), I_2(t), V_2(t), \ldots, I_k(t), V_k(t))_{t \in \real}$ is a possible trajectory, then \\$(I_1(t), V_1(t)+V, I_2(t), V_2(t)+V, \ldots, I_k(t), V_k(t)+V)_{t \in \real}$ is also a possible trajectory. Furthermore, in almost all the circuits produced today, there is no accumulation of electrical charge : the systems remains electrically neutral, which implies that $I_1(t) + I_2(t) + \ldots + I_k(t)=0$ at all time $t$.
 
-Notons que la puissance transmise au circuit par l'environnement au temps $t$ est $\sum_i V_i(t) I_i(t)$. Cette formule a un sens physique univoque grâce aux deux relations ci-dessus: translater tous les voltages d'une constante ne modifie pas la puissance reçue. 
+%Notons que la puissance transmise au circuit par l'environnement au temps $t$ est $\sum_i V_i(t) I_i(t)$. Cette formule a un sens physique univoque grâce aux deux relations ci-dessus: translater tous les voltages d'une constante ne modifie pas la puissance reçue. 
+Note that the power transmitted to the circuit by the environment at time $t$ is given by $\sum_i V_i(t) I_i(t)$. This formula has an unequivocal physical sens thanks to the two relations above : translating all voltages by a constant does not change the received power.
 
 
-Les circuits électriques les plus simples ont seulement deux bornes, nommés  pour cela dipôles. Dans ce cas, il suffit de deux variables pour caractériser les trajectoires: la différence de potentiel, ou tension, $v(t)=V_1-V_2$ et le courant $i(t)=I_1(t)=-I_2(t)$ (voir fig.~\ref{fig:dipole}). Les sens du courant et la tension sont choisis de manière conventionnelle.
+%Les circuits électriques les plus simples ont seulement deux bornes, nommés  pour cela dipôles. Dans ce cas, il suffit de deux variables pour caractériser les trajectoires: la différence de potentiel, ou tension, $v(t)=V_1-V_2$ et le courant $i(t)=I_1(t)=-I_2(t)$ (voir fig.~\ref{fig:dipole}). Les sens du courant et la tension sont choisis de manière conventionnelle.
+The simplest electrical circuits only have two terminals, and that is why they are called dipoles. In that case, two variables are enough to characterise the trajectories: the potential difference, or voltage, $v(t)=V_1-V_2$ and the current $i(t)=I_1(t)=-I_2(t)$ (see fig.~\ref{fig:dipole}). The direction of the current and voltage are chosen conventionally.
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=5cm]{dipole2}
-\caption{Dipôle électrique}
+%\caption{Dipôle électrique}
+\caption{Electrical dipole}
 \label{fig:dipole}
 \end{center}
 \end{figure}
-La tension représente donc l'énergie nécessaire pour déplacer une charge électrique unitaire à travers le dipôle.  On peut également avoir des tripôles (sytèmes à trois bornes, tels que les transistors) ou des quadrupôles (par exemple les transformateurs). 
+%La tension représente donc l'énergie nécessaire pour déplacer une charge électrique unitaire à travers le dipôle.  On peut également avoir des tripôles (sytèmes à trois bornes, tels que les transistors) ou des quadrupôles (par exemple les transformateurs). 
+The voltage represents thus the energy required to move a unit of electric charge through the dipole. We can also have tripoles (three terminals systems, such as transistors) or quadrupoles (transformers by example).
 
-Dans ce cours, 
-nous ne considérons que les circuits dont le comportement 
-(l'ensemble des trajectoires possibles) peut être décrit par un modèle d'état 
-comme défini au Chapitre 1, où chaque variable extérieure (voltage ou courant) 
-est pris, soit comme une entrée $u_i$, soit comme une sortie $y_i$. 
-Les variables d'état peuvent être des voltages, courant, flux ou charges,
- comme on le verra. Ce type de modèle d'état cantonné aux équations différentielles est restrictif, en ce qu'il nous interdit par exemple de modéliser commodément les élément de délai, dont le comportement vérifie une équation de délai de type $y(t)=u(t-1)$ (donc non différentielle). 
+%Dans ce cours, nous ne considérons que les circuits dont le comportement (l'ensemble des trajectoires possibles) peut être décrit par un modèle d'état comme défini au Chapitre 1, où chaque variable extérieure (voltage ou courant) est pris, soit comme une entrée $u_i$, soit comme une sortie $y_i$. Les variables d'état peuvent être des voltages, courant, flux ou charges, comme on le verra. Ce type de modèle d'état cantonné aux équations différentielles est restrictif, en ce qu'il nous interdit par exemple de modéliser commodément les élément de délai, dont le comportement vérifie une équation de délai de type $y(t)=u(t-1)$ (donc non différentielle). 
+In this course, we will only consider circuits whose behaviour (the set of all possible trajectories) can be described by a state model as defined in Chapter 1, where each external variable (voltage or current) is taken either as an input $u_i$, or as an output $y_i$. State variables can be voltages, currents, flows or charges, as we will see. This type of state model limited to differential equations is restrictive, in the sense that it forbids us to model contentedly delay elements, whose behavior satisfies a delay equation of the type $y(t)=u(t-1)$ (thus not differential).
 
+%\section{Dipôles élémentaires}
+\section{Elementary dipoles}
 
-
-\section{Dipôles élémentaires}
-
-
-Nous considérons deux types de dip{ô}les élémentaires:
-les impédances et les sources.
+%Nous considérons deux types de dip{ô}les élémentaires: les impédances et les sources.
+We consider two types of elementary dipoles: impedances and sources.
 \begin{description}
-\item{\bf Les impédances}
+%\item{\bf Les impédances}
+\item{\bf Impedances}
 \begin{enumerate}
-\item{\em Les résistances}. Les résistances sont des éléments qui transforment l'énergie électrique en chaleur. Elles sont représentées par
-le symbole de la figure \ref{fig:impedances} et sont caractérisées
-par une relation algébrique entre la tension $v(t)$ et le courant
-$i(t)$ :
+%\item{\em Les résistances}. Les résistances sont des éléments qui transforment l'énergie électrique en chaleur. Elles sont représentées par le symbole de la figure \ref{fig:impedances} et sont caractérisées par une relation algébrique entre la tension $v(t)$ et le courant $i(t)$ :
+\item {\em Resistors}. Resistors are elements that convert electrical energy into heat. They are represented by the symbol of figure \ref{fig:impedances}  and are characterised by an algebraic relationship between the voltage $v(t)$ and the current $i(t)$:
 \eqnn
 r(v(t), i(t)) = 0.
 \eeqnn
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=9cm]{impedances}
-\caption{Impédances : résistance, capacité, inductance}
+%\caption{Impédances : résistance, capacité, inductance}
+\caption{Impedances : resistor, capacitor, inductor}
 \label{fig:impedances}
 \end{center}
 \end{figure}
-Dans le cas d'une résistance linéaire, cette relation se
-particularise comme suit (loi d'Ohm) :
+%Dans le cas d'une résistance linéaire, cette relation se particularise comme suit (loi d'Ohm) :
+In the case of a linear resistor, this relationship is particularized as follows (Ohm's law) :
 \eqnn
 v(t) = Ri(t).
 \eeqnn
-\item {\em Les capacités.} Les capacités sont des éléments qui accumulent les charges électriques. Elles sont représentées par le
-symbole de la figure \ref{fig:impedances} et sont caractérisées par la
-relation suivante entre la charge $Q(t)$ et le courant $i(t)$ :
+%\item {\em Les capacités.} Les capacités sont des éléments qui accumulent les charges électriques. Elles sont représentées par le symbole de la figure \ref{fig:impedances} et sont caractérisées par la relation suivante entre la charge $Q(t)$ et le courant $i(t)$ :
+\item {\em Capacitors}. Capacitors are elements which accumulate electric charges. They are represented by the symbol of figure \ref{fig:impedances} and are characterised by the following relationship between the charge $Q(t)$ and the current $i(t)$ :
 \eqnn
 i(t) = \frac{dQ(t)}{dt}.
 \eeqnn
-La charge $Q(t)$ est une fonction de la tension : $Q(v(t))$.  Cette relation peut aussi
-s'écrire sous la forme suivante :
+%La charge $Q(t)$ est une fonction de la tension : $Q(v(t))$.  Cette relation peut aussi s'écrire sous la forme suivante:
+The charge $Q(t)$ is a function of the tension : $Q(v(t))$. This relationship can also be written as follow : 
 \eqnn
 i(t) = c(v(t)) \frac{dv(t)}{dt} \;\;
-\text{ où } \;\; c(v) \triangleq  \frac{\partial q}{\partial v}.
+\text{ or } \;\; c(v) \triangleq  \frac{\partial q}{\partial v}.
 \eeqnn
-Dans le cas d'une capacité linéaire, cette relation se
-particu\-larise comme suit :
+%Dans le cas d'une capacité linéaire, cette relation se particu\-larise comme suit :
+In the case of a linear capacitor, this relationship can be particularized as follow :
 \eqnn
-Q(t) = Cv(t) \;\; \text{ où } \;\; i(t) = C\frac{dv(t)}{dt}.
+Q(t) = Cv(t) \;\; \text{ or } \;\; i(t) = C\frac{dv(t)}{dt}.
 \eeqnn
-\item{\em Les inductances.}  Les inductances sont des éléments qui emmagasinent l'énergie d'un champ magnétique. Elles sont représentées par le
-symbole de la figure \ref{fig:impedances} et sont caractérisées, en vertu de
-la loi de Faraday, par la relation suivante entre le flux magnétique $\phi(t)$ et la tension
-$v(t)$ :
+%\item{\em Les inductances.}  Les inductances sont des éléments qui emmagasinent l'énergie d'un champ magnétique. Elles sont représentées par le symbole de la figure \ref{fig:impedances} et sont caractérisées, en vertu de la loi de Faraday, par la relation suivante entre le flux magnétique $\phi(t)$ et la tension $v(t)$ :
+\item {\em Inductors}. Inductors are elements which store the energy of a magnetic field. They are represented by the symbol of figure \ref{fig:impedances} and are characterised, according to Faraday's law, by the following relationship between the magnetic field $\phi(t)$ and the tension $v(t)$:
 \eqn
 v(t) = \frac{d \phi}{dt}. \label{definduc}
 \eeqn
-On dit que la tension $v(t)$ est {\it induite} par la variation de flux $\phi(t)$ d'où le nom d'inductance. D'une manière générale, cette variation de flux peut être produite par un matériau magnétique en mouvement dans les parages de l'inductance, ou encore par un courant électrique variable circulant dans un conducteur situé à proximité de l'inductance. Dans cette section, nous considérerons uniquement le cas particulier des {\it auto-inductances} où le flux est produit uniquement par le courant traversant le dipôle lui-même. Dans ce cas le flux est une fonction du courant :  $\phi(i(t))$ et la relation (\ref{definduc}) s'écrit aussi sous la forme suivante :
+%On dit que la tension $v(t)$ est {\it induite} par la variation de flux $\phi(t)$ d'où le nom d'inductance. D'une manière générale, cette variation de flux peut être produite par un matériau magnétique en mouvement dans les parages de l'inductance, ou encore par un courant électrique variable circulant dans un conducteur situé à proximité de l'inductance. Dans cette section, nous considérerons uniquement le cas particulier des {\it auto-inductances} où le flux est produit uniquement par le courant traversant le dipôle lui-même. Dans ce cas le flux est une fonction du courant :  $\phi(i(t))$ et la relation (\ref{definduc}) s'écrit aussi sous la forme suivante :
+We say that the voltage $v(t)$ is {\it induced} by the flow $\phi(t)$, and that is where the name of inductor comes from. In a general way, this variation in flow can be generated by a magnetic material moving in the vicinity of the inductor, or by a varying electrical current flowing in a conductor located near the inductor. In this section, we will only consider the particular case of {\it self-inductances}, where the flow is produced only by the current flowing through the dipole itself. In that case, the flow is a function of the current : $\phi(i(t))$ and the relationship (\ref{definduc}) can be written as:
 \eqnn
 v(t) =  l(i(t)) \frac{di(t)}{dt}
-\mbox{ où } l(i) \triangleq  \frac{\partial \phi}{\partial i}.
+\mbox{ or } l(i) \triangleq  \frac{\partial \phi}{\partial i}.
 \eeqnn
-Dans le cas d'une (auto)inductance linéaire, cette relation se
-particularise comme suit :
+%Dans le cas d'une (auto)inductance linéaire, cette relation separticularise comme suit :
+In the case of a linear (self-)inductance, this relationship can be particularized as:
 \eqnn
-\phi(t) = Li(t) \;\; \mbox{ où } v(t) = L \frac{di(t)}{dt}.
+\phi(t) = Li(t) \;\; \mbox{ or } v(t) = L \frac{di(t)}{dt}.
 \eeqnn
 \end{enumerate}
-\item{\bf Les sources}
+%\item{\bf Les sources}
+\item{\bf Sources}
 \begin{enumerate}
-\item {\em Les sources de tension} représentées par le symbole de
-la figure \ref{fig:sources} sont des dip{ô}les définis par la
-tension $v(t)$ indépendam\-ment du courant qu'ils débitent.
+%\item {\em Les sources de tension} représentées par le symbole de la figure \ref{fig:sources} sont des dip{ô}les définis par la tension $v(t)$ indépendam\-ment du courant qu'ils débitent.
+\item {\em Tension sources}, represented by the symbol of figure \ref{fig:sources}, are dipoles defined by the tension $v(t)$ independently of the current they produce.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=6cm]{sources}
-\caption{Sources de tension et de courant}
+\caption{Tension and current sources}
 \label{fig:sources}
 \end{center}
 \end{figure}
-\item{\em Les sources de courant} représentées par le symbole de
-la figure \ref{fig:sources} sont des dip{ô}les définis par le
-courant $i(t)$ qu'ils débitent indépendamment de la tension à
-leurs bornes. 
+%\item{\em Les sources de courant} représentées par le symbole de la figure \ref{fig:sources} sont des dip{ô}les définis par le courant $i(t)$ qu'ils débitent indépendamment de la tension à leurs bornes. 
+\item {\em Current sources}, represented by the symbol of figure \ref{fig:sources}, are dipoles defined by the current $i(t)$ that they produce regardless of their terminal voltage.
 \end{enumerate} 
 \end{description}
-Il est important de bien comprendre que les impédances et les sources sont des modèles conceptuels idéaux qui n'ont pas d'existence physique. Les différents éléments dont sont constitués les circuits électriques réels comme par exemple des bobines, des condensateurs ou des batteries sont en pratique modélisés par des assemblages appropriés d'inductances et de sources. Par exemple une source de tension ou de courant est toujours modélisée avec son inévitable résistance interne, comme indiqué sur la fig.~\ref{fig:resint}.
+%Il est important de bien comprendre que les impédances et les sources sont des modèles conceptuels idéaux qui n'ont pas d'existence physique. Les différents éléments dont sont constitués les circuits électriques réels comme par exemple des bobines, des condensateurs ou des batteries sont en pratique modélisés par des assemblages appropriés d'inductances et de sources. Par exemple une source de tension ou de courant est toujours modélisée avec son inévitable résistance interne, comme indiqué sur la fig.~\ref{fig:resint}.
+It is important to understand that impedances and sources are ideal conceptual models that have no physical existence. The various elements of which the actual electrical circuits are constituted as for example coils, capacitors or batteries are modeled in practice by suitable assemblies of inductors and sources. For example, a source of tension or of current is always modeled with its unavoidable internal resistance, as indicated on figure \ref{fig:resint}.
 
 \begin{figure}[t]
 \begin{center}
 \includegraphics[height=4cm]{resint}
-\caption{Sources avec résistances internes}
+\caption{Sources with internal resistance}
 \label{fig:resint}
 \end{center}
 \end{figure}
+
 
 
 \section{Equivalency between open and closed systems}
