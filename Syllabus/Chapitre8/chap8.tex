@@ -275,129 +275,91 @@ de grande importance pour l'analyse des syst{è}mes non lin{é}aires.
 
  \section{Linéarisation des systèmes non linéaires}
 
-Les orbites illustr{é}es dans les tableaux de la section pr{é}c{é}dente ne sont pas
-seulement valables au voisinage du point d'{é}quilibre (ramen{é} {à}
-l'origine). On a bien caract{é}ris{é} gr{\^a}ce {à} ces tableaux l'ensemble des
-orbites possibles des syst{è}mes lin{é}aires plans, quelle que soit la
-condition initiale. Cette observation constitue une diff{é}rence fondamentale
-entre syst{è}mes lin{é}aires et non lin{é}aires. En effet, on a vu
- au chapitre pr{é}c{é}dent que les syst{è}mes non-lin{é}aires peuvent
-pr{é}senter plusieurs {é}quilibres isol{é}s distincts pour une m{ê}me
-valeur de l'entr{é}e $\bar u$. Ceci implique que, contrairement au cas
-des syst{è}mes lin{é}aires, le comportement des orbites au voisinage
-d'un {é}quilibre gardera le plus souvent un \textit{caract{è}re local} et ne pourra
-nullement
-{ê}tre {é}tendu {à} l'ensemble du plan de phase. Moyennant cette
-restriction, un r{é}sultat important permet cependant d'{é}tendre  aux
-syst{è}mes non lin{é}aires une partie de l'analyse que nous venons de
-d{é}velopper pour les syst{è}mes lin{é}aires.
+Orbits illustrated in the table of the previous section are not only valid in the neighborhood of the point of equilibrium (returned to the origine). We characterized well thanks to these table all the possible orbits of the linear systems plans, whatever is the initial condition. This observation establishes a fundamental difference between linear and not linear systems. Indeed, we saw in the previous chapter that the non-linear systems can present several different isolated equilibrium for the same value of the entry $\bar u$. This implies that, contrary to the case of the linear systems, the behavior of orbits in the neighborhood of an equilibrium will keep most of the time a \textit{local character} and could never be expand to the whole plan of phase.
+For this limitation, an important result allows however to extend to the non-linear systems a part of the analysis which we have just developed for the linear systems.
 
-Soit le syst{è}me dynamique
-d{é}crit par
+
+Set the dynamic system described by
 \eqn
 \dot x_1&=&f_1(x_1,x_2, \bar u),\label{f1}\\
 \dot x_2&=&f_2(x_1,x_2, \bar u).\label{f2}
 \eeqn
-ou, sous forme condens{é}e,
+or, under condensed form,
 \e \label{fxu}
 \dot x=f(x,\bar u),
-\ee pour lequel on suppose l'existence d'un {é}quilibre $(\bar x,\bar u)$ tel que $f(\bar x,\bar u)=0$.
- On suppose en outre que la fonction $f(x,\bar u)$ est suffisamment 
- régulière dans le voisinage de cet équilibre pour y admettre un développement de Taylor convergent: 
+\ee for which we assumed the existence of an equilibrium $(\bar x,\bar u)$ such that $f(\bar x,\bar u)=0$.
+ Assume further that the function $f(x,\bar u)$ is sufficiently regular in the neighborhood of this equilibrium for there allow a Taylor expansion convergent: 
  $$ \dot x = f(\bar{x}, \bar{u}) + \left ( \frac{\partial f(x, \bar{u})}{ \partial x}\right)_ {\bar x} {(x - \bar{x})} + \cdots . $$
-L'\textit{approximation lin{é}aire} de ce syst{è}me au voisinage de l'{é}quilibre 
-$(\bar x,\bar u)$, obtenue en n{é}gligeant les termes
-d'ordre sup{é}rieur ou {é}gal {à} 2 dans le
-d{é}veloppement de Taylor de $f(x,\bar u)$ autour de $(\bar x,\bar u)$,
-est donn{é}e par
+The \textit{linear approximation} of this system at the neighborhood of the equilibrium
+$(\bar x,\bar u)$, obtained by neglecting the terms of order greater or equal to 2 in the Taylor expansion of $f(x,\bar u)$ around $(\bar x,\bar u)$,
+is given by
 \e \label{approxli}
 \dot {\tilde x} = \left ( {\frac{{\textstyle \partial f(x, \bar u)}}{{\textstyle \partial x}}} \right )_{\bar x} \tilde x 
 \ee
-o{ù} $\tilde x=x-\bar x$. Notons $A=\left (\frac{\partial f(x, \bar u)}{\partial x}\right )_{\bar x}$, la matrice Jacobienne de $f$ {à} l'{é}quilibre.  On peut alors g{é}n{é}raliser la d{é}finition~\ref{hyperbolique} comme suit~:
-\begin{definition}\label{hyperbnl} {\bf{\em Equilibre hyperbolique}}
+where $\tilde x=x-\bar x$. Let $A=\left (\frac{\partial f(x, \bar u)}{\partial x}\right )_{\bar x}$, the Jacobian matrix of $f$ at equilibrium. We can then generalize the definition~\ref{hyperbolique} as follow~:
+\begin{definition}\label{hyperbnl} {\bf{\em Hyperbolic equilibrium}}
 
-L'{é}quilibre $(\bar x,\bar u)$ du syst{è}me non lin{é}aire (\ref{fxu}) est
-dit hyperbolique si toutes les valeurs propres de $A$ ont une partie
-r{é}elle non nulle ($Re(\lambda_i(A))$ $ \neq 0, \forall i)$.\qed 
+The equilibrium $(\bar x,\bar u)$ of the non-linear systeme (\ref{fxu}) is said hyperbolic if all the eigen values of $A$ have a non-zero real part ($Re(\lambda_i(A))$ $ \neq 0, \forall i)$.\qed 
 \end{definition}
 
-Il doit {ê}tre clair que c'est bien {\em l'{é}quilibre} $(\bar x,\bar u)$ qui
-est (ou qui n'est pas) hyperbolique, et non le syst{è}me non lin{é}aire
-(\ref{fxu}). En effet, ce syst{è}me peut avoir plusieurs {é}quilibres
-isol{é}s pour une m{ê}me valeur $\bar u$, certains {é}tant hyperboliques et
-d'autres non.  Dans quelle mesure l'{é}tude de l'approximation lin{é}aire d'un syst{è}me non-lin{é}aire au voisinage d'un {é}quilibre permet-elle d'en d{é}duire le comportement du syst{è}me non-lin{é}aire~? Pour pr{é}ciser ce que l'on entend par comportement, nous voulons pouvoir comparer les trajectoires et introduisons d{è}s lors la d{é}finition suivante.
+It must be clear that it is the {\em equilibrium} $(\bar x,\bar u)$ which is (or which is not) hyperbolic, and not the non-linear system. Indeed, this system can have several isolated equilibrium for the same value $\bar u$, some being hyperbolic and others not. In which mesure the study of linear approxmation of a non-linear system at the neighborhood of an equilibrium allows to deduct the behavior of the non-linear system~? To specify what we understand by behavior, we want to be able to compare trajectories and then introduce the following definition.
 
 \begin{definition} 
-Les trajectoires (ou les orbites) de deux systèmes dynamiques sont 
-{\em topologiquement équivalentes} s'il existe un {\em homéomorphisme}
- (une bijection bicontinue) qui permet de passer d'une trajectoire du premier système 
- à une trajectoire du second. \qed
+The trajectories (or orbits) of two dynamical systems are
+{\em topologically equivalent} if it exists an {\em homeomorphism}
+ (une bijection bicontinue) which allows to move from a trajectory of the first system to a trajectory of the second one. \qed
 \end{definition} 
 
 \begin{theoreme} {\bf{\em Hartman-Grobman, 1959}}
 
-Si l'{é}quilibre $(\bar x,\bar u)$ est hyperbolique, alors les 
-trajectoires du syst{è}me non
-lin{é}aire~(\ref{fxu})
-{\em dans un voisinage de l'{é}quilibre $(\bar x,\bar u)$} sont
-topologiquement {é}quivalentes {à} celles  de l'approximation
-lin{é}aire~(\ref{approxli}). Plus précisément, il existe un voisinage $X$ de $\bar x$, un voisinage $\tilde{X}$ de $0$ et un homéomorphisme $h: X \to \tilde{X}$ avec $h(\bar x)=0$
-tel que si $t \mapsto x(t)$ est une trajectoire du système non 
-lin{é}aire~(\ref{fxu}) contenue dans $X$ (pour un certain intervalle de temps), alors $t \mapsto h(x(t))$ est une trajectoire du système linéaire (\ref{approxli}). \label{Hart}\qed
+If the equilibrium $(\bar x,\bar u)$ is hyperbolic, then the trajectories of the non-linear system~(\ref{fxu})
+{\em in a neighborhood of the equilibrium $(\bar x,\bar u)$} are topologically equivalent to the ones of the linear approximation~(\ref{approxli}). Specifically, it exists a neighborhood $X$ of $\bar x$, a neighborhood $\tilde{X}$ of $0$ and an homeomorphism $h: X \to \tilde{X}$ with $h(\bar x)=0$
+such that if $t \mapsto x(t)$ is a trajectory of the non-linear-system~(\ref{fxu}) contain in $X$ (for a certain time interval), then $t \mapsto h(x(t))$ is a trajectory of the linear system (\ref{approxli}). \label{Hart}\qed
 \end{theoreme}
 
-Des trajectoires topologiquement équivalentes ont la m{ê}me allure. On pourra donc parler de noeud ou de foyer attractif ou répulsif, ou encore de
-col, pour les {é}quilibres de syst{è}mes non lin{é}aires, en {é}tudiant les valeurs propres de la matrice de l'approximation lin{é}aire, mais {\bf pas} de
-centre.
+Topologically equivalent trajectories have the same allure. So we can talk of node or attractive or repulsive center, or saddle, for the equilibrium of nonlinear systems by studying the eigenvalues of the linear approximation matrix, but {\bf no} center.
 
 \begin{remarques}\hspace{10mm}\end{remarques}
 
 \begin{enumerate}
-\item L'int{é}r{ê}t de ce th{é}or{è}me est {é}vident. Sa limitation
-principale, {à} savoir son caract{è}re local, ne l'est pas moins. En
-particulier, ce th{é}or{è}me ne fournit aucune indication sur la taille du
-bassin d'attraction d'un {é}quilibre attractif.
-\item Dans le cas d'un {é}quilibre non hyperbolique, ce sont les termes
-d'ordre sup{é}rieur, ceux-l{à} m{ê}me qui ont
-{é}t{é} n{é}glig{é}s, qui d{é}termineront localement l'allure des
-trajectoires.
-\item Les outils développés jusqu'ici dans ce chapitre ne sont pas propres au systèmes plans. Classification des systèmes linéaires, linéarisation, théorème de Hartman-Grobman se généralisent sans problème en toute dimension
-\item Dans la linéarisation~(\ref{approxli}), on garde $u=\bar u$ constant. On pourrait également linéariser $f$ autour de $u=\bar u$ pour obtenir un linéarisé de type $\tilde{x}=A\tilde{x} + B\tilde{u}$. Tant que $\tilde{u}=u-\bar u$ reste suffisamment petit, et pour un intervalle de temps suffisamment petit, les trajectoires des systèmes non linéaire et linéarisé resteront proches, mais il n'existe pas de variante simple du théorème de Hartman-Grobman dans ce cas. 
+\item The interest of this theorem is obvious. Its main limitation, its local character, is not less. In particular, this theorem doesn't give any indication about the size of the basin of attraction of an attrive equilibria.
+\item In the case of a non-hyperbolic equilibrium, Dans le cas d'un {é}quilibre non hyperbolique, it is the higher order terms, those that have been neglected, that will determine the local behavior of trajectories.
+\item The tools developed so far in this chapter are not specific to plan systems. Classification of linear systems, linearization, Hartman-Grobman theorem generalize without problems in any dimension
+\item In the linearization~(\ref{approxli}), we keep $u=\bar u$ constant. We could also linearize $f$ around $u=\bar u$ to obtain a linearized type $\tilde{x}=A\tilde{x} + B\tilde{u}$. While $\tilde{u}=u-\bar u$ stay sufficiently small, and pour a sufficiently small interval of time, the trajectories of a non-linear and linear systems remain close, but there is no simple variation of the Hartman-Grobman theorem in this case.
 \cqfd
 \end{enumerate}
 
 
 
-\section{Au delà des systèmes plans}
+\section{Beyond plans systems}
 
-Les considérations précédentes ne sont pas propres aux systèmes plans. 
+The above considerations are not specific to plans systems.
 
-Le théorème d'Hartman-Grobman, par exemple, est vrai en toute dimension $n \geq 2$, 
-et la classification des systèmes linéaires est semblable. 
+The Hartman-Grobman theorem, for example, is true in any dimension $n \geq 2$, 
+and classification of linear systems is similar. 
 
-Considérons une matrice réelle $A$ de dimension quelconque. 
-Si toutes ses valeurs propres sont distinctes 
-alors on peut la diagonaliser par blocs réels $1 \times 1$, 
-qui contiennent une valeur propre réelle, 
-ou $2 \times 2$, de la forme $$\begin{pmatrix}
+Consider a real matrix $A$ of arbitrary dimension.
+If all its eigenvalues are distinct
+then it can be diagonalized by real blocks $ 1 \ times $ 1
+which contain a real eigenvalue, 
+or $2 \times 2$, of the form $$\begin{pmatrix}
 \alpha& \beta\\
 -\beta& \alpha
 \end{pmatrix},$$
- qui encodent une paire de valeurs propres conjuguées $\alpha \pm \beta i$.
-  Dans ce cas le système linéaire (ou linéarisé)
-   peut se décrire comme produit direct\footnote{Une union de systèmes découplés} de système uni-dimensionnels 
-   ou bi-dimensionnels comme vus dans ce chapitre.
+ which encode a pair of conjugate eigenvalues $\alpha \pm \beta i$.
+ 
+In this case the linear system (or linearised) can be described as direct product \footnote{A union of decoupled systems} of one-dimensional system or two-dimensional as seen in this chapter.
 
 
 
-Brièvement, le cas de blocs de Jordan est un peu différent et se comporte comme suit. Un bloc de Jordan réel, par exemple 
+Briefly, the case of Jordan blocks is a little different and behaves as follows. A real Jordan block, for example
 
 $$\begin{pmatrix}
 \lambda& 1 & \\
        & \lambda & 1 \\
        &         & \lambda
 \end{pmatrix}$$ 
-engendrera une dynamique fort semblable au cas bidimensionnel, combinaison linéaires de $e^{\lambda t}$, $te^{\lambda t}$, $t^2e^{\lambda t}$:
+generate a dynamic close to the two-dimentional case, linear combination of$e^{\lambda t}$, $te^{\lambda t}$, $t^2e^{\lambda t}$:
 
 \eqnn
 z_1(t)&=&z_1(0)e^{\lambda t}+ t z_2(0)e^{\lambda t}+ t^2 z_3(0)e^{\lambda t},\\
@@ -405,7 +367,7 @@ z_2(t)&=&z_2(0)e^{\lambda t}+ t z_3(0)e^{\lambda t},\\
 z_3(t)&=&z_3(0)e^{\lambda t}.
 \eeqnn
 
-Un bloc de Jordan complexe se combine avec son conjugué pour former un bloc qui ressemble par exemple à ceci:
+A Jordan block complex combines with its conjugate to form a block that looks eg like this:
 
 \eqn
 \begin{pmatrix}
@@ -415,7 +377,7 @@ Un bloc de Jordan complexe se combine avec son conjugué pour former un bloc qui
    &      &   -\beta & \alpha \\
 \end{pmatrix}
 \eeqn
-Les solutions ressemblent alors à ceci:
+The solutions then look like this:
 \eqnn
 z_1(t)&=&e^{\alpha t}(z_1(0)\cos \beta t+z_2(0) \sin \beta t+ t(z_3(0)\cos \beta t+z_4(0) \sin \beta t)),\\
 z_2(t)&=&e^{\alpha t} (z_2(0)\cos \beta t-z_1(0) \sin \beta t+t(z_4(0)\cos \beta t-z_3(0) \sin \beta t)),\\
@@ -425,72 +387,66 @@ z_4(t)&=&e^{\alpha t}(z_4(0)\cos \beta t-z_3(0) \sin \beta t).
 
 
 
-Illustrons maintenant les sections précédentes par quelques exemples de systèmes non
-linéaires d'ordre 2.
+Now illustrate the previous sections with some examples of non-linear 2nd order systems.
 
 
 
-\subsection{ Les systèmes mécaniques à un degré de
-liberté}
+\subsection{Mechanical systems of one degree of
+freedom}
 
-Les {é}quations d'{é}tat d'un syst{è}me m{é}canique {à} un degr{é} de libert{é}
- s'{é}crivent (voir chapitre 2)~:
+The state equations of a mechanical system with one degree of freedom can be written (see chapter 2)~:
 \begin{align*}
 \dot x_1&=x_2,\\
 m\dot x_2&=-g(x_1) -k(x_1)-h(x_2) + u,
 \end{align*}
-o{ù} $x_1$ est la coordonn{é}e de position du corps en mouvement, $x_2$ est la vitesse, $m$ d{é}signe la masse ou l'inertie et $u$ repr{é}sente une force ou un couple 
-ext{é}rieur appliqu{é} au syst{è}me. Les fonctions scalaires $g(x_1)$ et $k(x_1)$ 
-correspondent respectivement {à} la gravit{é} et
-{à} l'élasticité tandis que $h(x_2)$ (tel que $h(0)=0$) repr{é}sente le frottement
-visqueux. Le frottement sec est n{é}glig{é}. Notons aussi (voir chapitre~2, section~2.7) que 
+where $x_1$ 
+is the coordinate position of the moving body, $x_2$ is the velocity, $m$ means the mass or inertia and $u$ represents a force or couple applied to an external system. Scalar functions $g(x_1)$ and $k(x_1)$ 
+correspond to the gravity and elasticity while $h(x_2)$ (such that $h(0)=0$) represents the viscous friction. Dry friction is neglected. note also (see chapter~2, section~2.7) that 
 \eqnn
 g(x_1)+k(x_1) = \frac{\partial E_p}{\partial x_1}
 \eeqnn
-o{ù} $E_p$ d{é}signe l'{é}nergie potentielle du syst{è}me. 
+where $E_p$ refers to the potential energy of the system. 
 
-Les {é}quilibres de ce syst{è}me sont caract{é}ris{é}s par
+The equilibria of the system are characterized by
 \begin{align*}
 \bar x_2 &= 0,\\
 g(\bar x_1)+k(\bar x_1) &= \bar u.
 \end{align*}
-Sans perte de généralité, considérons le cas particulier où $m=1$. La matrice Jacobienne du syst{è}me {à} l'{é}quilibre $(\bar x_1, 0,\bar
-u)$ s'{é}crit~: 
+Without lost of generality, we consider the particular case where $m=1$. 
+The Jacobian matrix of the system to equilibrium $(\bar x_1, 0,\bar
+u)$ is written~: 
 \eqnn
  A=\bma{cc} 0 & 1\\-\left (\frac{\partial^2E_p}{\partial x_1^2}\right
 )_{\bar x_1} & -h'(0) \ema.
 \eeqnn
-Le polyn{\^o}me caract{é}ristique de cette matrice est
+The characteristic polynomial of the matrix is
 \eqnn
 p(x)=x^2+h'(0)x+\left (\frac{\partial^2E_p}{\partial x_1^2}\right )_{\bar
 x_1}.
 \eeqnn
- Le produit et la somme des valeurs propres sont donn{é}s par
+ The product and the sum of the eigenvalues are given by
 $$ \lambda_1\lambda_2=\left (\frac{\partial^2E_p}{\partial x_1^2}\right
 )_{\bar x_1}, \;\;\; \lambda_1+\lambda_2=-h'(0).$$
-La d{é}riv{é}e $h'(0)$ du frottement visqueux est 
-par nature non-n{é}gative~: $\lambda_1+\lambda_2 =-h'(0) \leq 0$.
+The derivative $h'(0)$ the viscous friction is by nature non-negative~: $\lambda_1+\lambda_2 =-h'(0) \leq 0$.
 
 
 
 
-Les {é}quilibres du syst{è}me sont hyperboliques si
+The equilibria of the system are hyperbolic if
  \eqnn 
 h'(0) >0 &\mbox{et }&  \left (\frac{\partial^2E_p}{\partial x_1^2}\right
 )_{\bar x_1} \neq 0,\\
- \mbox{ou si }  h'(0) =0 &\mbox{et }& \left (\frac{\partial^2E_p}{\partial x_1^2}\right
+ \mbox{or if }  h'(0) =0 &\mbox{et }& \left (\frac{\partial^2E_p}{\partial x_1^2}\right
 )_{\bar x_1} < 0.
 \eeqnn
-On observe donc que les {é}quilibres ne sont {\em pas} hyperboliques si l'{é}nergie potentielle $E_p(x_1)$ est une fonction affine de la position $x_1$, ou plus g{é}n{é}ralement si l'{é}quilibre correspond {à} un point d'inflexion de $E_p(x_1)$. C'est {é}galement le cas lorsque  $h'(0)=0$ et $\left (\frac{\partial^2E_p}{\partial
+We observe that the equilibria are {\em not } hyoerbolics if potential energy $E_p(x_1)$ is a linear function of the position $x_1$, or more generally if the equilibrium corresponds to an inflection point $E_p(x_1)$. It's also the case when $h'(0)=0$ and $\left (\frac{\partial^2E_p}{\partial
 x_1^2}\right )_{\bar x_1} \geq 0$.
 
-Les {é}quilibres hyperboliques d'un syst{è}me m{é}canique {à} un degr{é} 
-de libert{é} peuvent alors {ê}tre compl{è}tement caract{é}ris{é}s 
-comme indiqu{é} au tableau~\ref{tab:tabsysmec} (voir aussi la figure~\ref{fig:eqsysmec}).
+Hyperbolic equilibria of a mechanical system with one degree of freedom can then be fully characterized as shown in table~\ref{tab:tabsysmec} (see also figure~\ref{fig:eqsysmec}).
 \begin{figure}[t] 
    \centering
    \includegraphics[height=4cm]{eqsysmec} 
-   \caption{Lieu des valeurs propres des équilibres d'un syst{è}me m{é}canique {à} un degr{é} de libert{é}}
+   \caption{Eigenvalues location of equilibria of a mechanical system with one degree of freedom}
    \label{fig:eqsysmec}
 \end{figure}
 \begin{table}
@@ -498,257 +454,227 @@ comme indiqu{é} au tableau~\ref{tab:tabsysmec} (voir aussi la figure~\ref{fig:e
 %\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|c|c|}
 \hline
-Caract{é}risation&Nature des {é}quilibres hyperboliques\\ \hline
+Characterization&Nature of hyperbolic equilibria\\ \hline
 {}&{}\\
 $0< [h'(0)]^2 <4 \left (\frts{\partial^2E_p}{\partial x_1^2}\right
-)_{\bar x_1}$&foyer stable \\
+)_{\bar x_1}$&stable center \\
 {}&{}\\ \hline
 {}&{}\\
 $0<4 \left (\frts{\partial^2E_p}{\partial x_1^2}\right
-)_{\bar x_1}\leq [h'(0)]^2$&noeud stable \\
+)_{\bar x_1}\leq [h'(0)]^2$&stable node \\
 {}&{}\\
  \hline
  {}&{}\\
 $\left (\frts{\partial^2E_p}{\partial x_1^2}\right
-)_{\bar x_1} <0$&col \\ 
+)_{\bar x_1} <0$&csaddle \\ 
 {}&{}\\
 \hline
 \end{tabular}
-\caption{Equilibres hyperboliques des syst{è}mes m{é}caniques à un degré
-de liberté}
+\caption{
+Hyperbolic equilibria of mechanical systems with one degree
+freedom}
 \label{tab:tabsysmec}
 \end{table}
-On observe en particulier qu'un {é}quilibre hyperbolique ne peut jamais {ê}tre un noeud ou un foyer répulsif.
+In particular, we observe that an hyperbolic equilibrium can never be a node or a repulsive center.
 
 \subsection{Les circuits électriques RLC}
 
-Les circuits {é}lectriques simples qui ne contiennent qu'une inductance et 
-une capacit{é} sont g{é}n{é}ralement d{é}nomm{é}s {\em circuits 
-RLC} dans la litt{é}rature. Dans les ouvrages de r{é}f{é}rence en 
-g{é}nie {é}lectrique ou en th{é}orie des circuits, ils font l'objet 
-d'une {é}tude approfondie car ils constituent la configuration de base de
- nombreux dispositifs pratiques (filtres, oscillateurs,...).
+The simple electrical circuits containing only inductance and capacitance are generally referred to {\em RLC circuits} in the literature. In reference books
+Electrical Engineering or circuit theory, they are subject
+to a thorough study because they constitute the basic configuration of many practical devices (filters, oscillators, ...).
 
-Le circuit {\em RLC s{é}rie} repr{é}sent{é} {à} la figure~\ref{fig:RLCs}
-est un exemple typique.
+The {\em RLC series circuit shown in Figure~\ref{fig:RLCs}
+is a tipical example.
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=2.5cm]{RLCs} 
-   \caption{Circuit RLC s{é}rie}
+   \caption{RLC series circuits}
    \label{fig:RLCs}
 \end{figure}
-En application des principes {é}tudi{é}s au chapitre~3, le 
-comportement dynamique de ce circuit est d{é}crit par un mod{è}le 
-d'{é}tat de dimension 2~:
+Applying the principles discussed in chapter~3, the dynamic behavior of this circuit is described by a model
+of 2-dimensional state~:
 \eqnn
 L \dot x_1&=&-r(x_1)-x_2 +u\\
 C \dot x_2&=&x_1
 \eeqnn
-o{ù} $x_1=i$ est le courant dans l'inductance linéaire $L$, $x_2=v$ est 
-la tension aux bornes de la capacit{é} linéaire $C$ et $r(x_1)$ est la 
-caract{é}ristique tension-courant ({é}ventuellement non lin{é}aire)
-de la r{é}sistance.
+where $x_1=i$ is the current in the linear inductance $L$, $x_2=v$ is the voltage across the linear capacity $C$ and $r(x_1)$ is the voltage-current characteristic (eventually non-linear)
+of the resistance.
 \begin{figure}[t] 
    \centering
    \includegraphics[height=4cm]{figrlc} 
-   \caption{Lieu des valeurs propres des {é}quilibres d'un circuit RLC}
+   \caption{Eigenvalues location of equilibria of a RLC circuit}
    \label{fig:figrlc}
 \end{figure}
 
-Les {é}quilibres de ce syst{è}me sont caract{é}ris{é}s par 
-les {é}quations~:
+The equilibria of the system are characterized by the equations~:
 \begin{align*}
 \bar x_2 +r(0) &= \bar u,\\
 \bar x_1 &= 0.
 \end{align*}
-Sans perte de généralité, considérons le cas particulier $L=1$ et $C=1$. La matrice Jacobienne du syst{è}me {à} l'{é}quilibre $(0,\bar x_2,\bar u)$ s'{é}crit~:
+Without loss of generality, consider the special case $L=1$ and $C=1$. 
+The Jacobian matrix of the system to equilibrium $(0,\bar x_2,\bar u)$ is written~:
 $$A=\bma{cc} -r'(0) & -1\\1&0\ema .$$
-Le polyn{\^o}me caract{é}ristique de cette matrice est~:
+The characteristic polynomial of the matrix is~:
 \eqnn
 p(x)&=&\lambda^2+r'(0) \lambda +1\\
 \mbox{o{ù} }\;\; r'(0)&\triangleq&(\partial r/\partial x_1)_{x_1=0}.
 \eeqnn
-Le produit et la somme des valeurs propres sont donn{é}s par
+The product and the sum of the eigenvalues are given by
 $$ \lambda_1\lambda_2=1,  \;\;\; \lambda_1+\lambda_2=-r'(0).$$
-Les {é}quilibres du syst{è}me sont donc hyperboliques si $r'(0)\neq 0$, 
-c.{à}.d. si la d{é}riv{é}e de la caract{é}ristique de la r{é}sistance n'est pas 
-nulle {à} l'origine. On observe que c'est notamment le cas pour une 
-r{é}sistance lin{é}aire.
+The equilibria of the system are hyperbolic if $r'(0)\neq 0$, 
+i.e. if the derivative of the characteristic of the resistance is not
+zero at the origin. We observe that this is especially the case for
+linear resistance.
 
-Les {é}quilibres hyperboliques d'un circuit RLC s{é}rie sont alors compl{è}tement
-caract{é}ris{é}s comme indiqu{é} sur le tableau \ref{tabrlc} 
-(voir aussi la figure~\ref{fig:figrlc}).
+Hyperbolic equilibria of a series RLC circuit are then completely characterized as indicated in table \ref{tabrlc} 
+(see also figure~\ref{fig:figrlc}).
 \begin{table}
 \centering
 \renewcommand{\arraystretch}{3.0}
 \begin{tabular}{|c|c|}
 \hline
-&Nature des {é}quilibres hyperboliques\\ \hline
-$r^{'}(0) \geq 2$&noeud attractif \\ \hline
-$0 < r^{'}(0) < 2$&foyer attractif \\ \hline
-$-2 < r^{'}(0) < 0$&foyer répulsif \\ \hline
-$r^{'}(0) \leq -2 $& noeud répulsif\\
+&Nature of hyperbolics equilibria\\ \hline
+$r^{'}(0) \geq 2$&attractive node \\ \hline
+$0 < r^{'}(0) < 2$&attractive center \\ \hline
+$-2 < r^{'}(0) < 0$&repulsive center \\ \hline
+$r^{'}(0) \leq -2 $& repulsive node\\
 \hline
 \end{tabular}
-\caption{Equilibres hyperboliques d'un circuit RLC}\label{tabrlc}
+\caption{Hyperbolic equilibria of an RLC circuit}\label{tabrlc}
 \end{table}
-On remarque en particulier qu'un {é}quilibre hyperbolique d'un circuit RLC s{é}rie ne peut jamais {ê}tre un col.
+In particular we note that a hyperbolic equilibrium of a series RLC circuit can never be a saddle.
 
-\subsection{Les systèmes à deux compartiments}
+\subsection{Systems with two compartments}
 
-Consid{é}rons les syst{è}mes {à} deux compartiments dont le graphe est repr{é}sent{é} {à} la
-figure~\ref{fig:deuxcomp}.
+Consider two compartments systems whose graph is shown in figure~\ref{fig:deuxcomp}.
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=4cm]{deuxcomp} 
    \caption{Système à deux compartiments}
    \label{fig:deuxcomp}
 \end{figure}
-Le signal d'entr{é}e $u$ est le d{é}bit d'alimentation du premier compartiment.  Nous
-supposons que les flux {é}chang{é}s entre les compartiments satisfont les conditions
-$C1 - C4$ de mod{é}lisation du chapitre 4 (Section 4.3).  La dynamique du syst{è}me
-est alors d{é}crite par un mod{è}le d'{é}tat de dimension 2 de la forme g{é}n{é}rale
-suivante :
+The input signal $u$ is the first compartment volumetric flow rate. We assume that the flows exchanged between the compartments meet the modeling conditions
+$C1 - C4$ of chapter 4 (Section 4.3).  The dynamics of the system is then described by a two dimensional state model of the general form:
 \eqnn
 \dot x_1 &=& -q_{12} (x_1, x_2) + q_{21} (x_2,x_1) - q_{10} (x_1) + u\\
 \dot x_2 &=& q_{12}(x_1,x_2)-q_{21} (x_2,x_1) - q_{20} (x_2)
 \eeqnn
-Les fonctions $q_{ij}$ satisfont les conditions suivantes
-sur l'orthant positif :
+The functions $q_{ij}$ satisfy the following conditions on the positive orthant :
 \e
 q_{ij}(0, x_j) = 0 \;\;\; \frac{\partial q_{ij}}{\partial
 x_{i}} \geq 0 \;\; \frac{\partial q_{ij}}{\partial
 x_{j}} \leq 0 \label{orthpositif}
 \ee
-Sous ces conditions, le
-syst{è}me poss{è}de une infinit{é} d'{é}quilibres isol{é}s positifs
-$(\bar x_1, \bar x_2, \bar u)$.  La matrice Jacobienne
-autour de l'un de ces {é}quilibres s'{é}crit :
+Under these conditions, the system has an infinite number of isolated positive equilibria
+$(\bar x_1, \bar x_2, \bar u)$.  The Jacobian matrix around one of these equilibria is written :
 $$
 A = \bma{cc} -(a+c) &  b\\a & -(b+d) 
 \ema
 $$
-avec les notations simplifi{é}es suivantes (toutes les
-d{é}riv{é}es partielles sont {é}valu{é}es {à} l'{é}tat d'{é}quilibre ) :
+with the following simplified notation (all the partial derivatives are measured at equilibrium state ) :
 \eqnn
 a &\triangleq & \frac{\partial q_{12}}{\partial x_1} - \frac{\partial
 q_{21}}{\partial x_1} \hspace*{15mm}c \triangleq \frac{\partial q_{10}}{\partial x_1}\\
 b &\triangleq & \frac{\partial q_{21}}{\partial x_2} - \frac{\partial
 q_{12}}{\partial x_2} \hspace*{15mm} d \triangleq \frac{\partial q_{20}}{\partial x_2}
 \eeqnn
-Sous les conditions (\ref{orthpositif}), on observe imm{é}diatement que
-$a,b,c,d, \geq~0$.  Le polyn{\^o}me caract{é}ristique de la matrice Jacobienne s'{é}crit :
+Under the conditions (\ref{orthpositif}), we immediately observe that
+$a,b,c,d, \geq~0$.  The characteristic polynomial of the Jacobian matrix is:
 $$
 p(x) = x^2 + (a+b+c+d)x + (ad+bc+cd)
 $$
-Le produit et la somme des valeurs propres sont donc donn{é}s par :
+The product and the sum of the eigenvalues are given by:
 $$
 \lambda_1 \lambda_2 = ad+bc+cd \;\;\;\; \lambda_1 + \lambda_2 = -(a+b+c+d)
 $$
-Les {é}quilibres du syst{è}me sont donc hyperboliques si les in{é}galit{é}s suivantes
-sont satisfaites :
+The equilibria of the system are hyperbolic if the following inequalities are satisfied:
 $$
 a+b+c+d > 0 \;\;\mbox{ et }\;\; ad+bc+cd > 0
 $$
-On d{é}montre ais{é}ment que, sous ces conditions, l'in{é}galit{é} suivante est aussi
-satisfaite :
+
+It is easy to show that, under these conditions, the following inequality is satisfied:
 $$
 0<4 (ad+bc+cd) \leq (a+b+c+d)^2
 $$
-On en d{é}duit que les {é}quilibres hyperboliques d'un syst{è}me {à} deux
-compartiments ne peuvent {ê}tre que des noeuds attractifs (voir
-figure~\ref{fig:eq2comp}).
+We deduce that hyperbolic equilibrium of a two-compartments system may be only attractive nodes (see figure~\ref{fig:eq2comp}).
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=4cm]{eq2comp} 
-   \caption{Lieu des valeurs propres des {é}quilibres d'un syst{è}me {à} 
-deux compartiments}
+   \caption{Eigenvalues location of equilibria of a two-compartment system}
    \label{fig:eq2comp}
 \end{figure}
 
 \subsection{Les systèmes réactionnels à deux espèces}
 
-Les syst{è}mes r{é}actionnels les plus simples font intervenir deux esp{è}ces. 
-C'est le cas par exemple d'une r{é}action irr{é}versible convertissant un r{é}actif
-$X_1$ en un produit $X_2$ :
+
+The simplest reaction systems involve two species. For example this is the case of an irreversible reaction converting a reagent
+$X_1$ in a product $X_2$ :
 $$
 X_1 \longrightarrow X_2
 $$
-Supposons que cette r{é}action se d{é}roule dans un r{é}acteur continu parfaitement
-m{é}lang{é} {à} volume constant.  Le r{é}acteur est aliment{é} avec l'esp{è}ce
- $X_1$, {à}
-d{é}bit volum{é}trique constant strictement positif.  Comme nous l'avons vu au
-chapitre 5, le mod{è}le d'état du r{é}acteur peut s'{é}crire comme suit :
+Assume that this reaction takes place in a continuous reactor perfectly mixed with constant volume. The reactor is fed with the species
+ $X_1$, at strictly positive constant volumetric flow rate. As we saw in Chapter 5, the reactor state model can be written as follows:
 \eqnn
 \dot x_1 &=& -r(x_1,x_2) + d(u-x_1)\\
 \dot x_2 &=& r(x_1,x_2) - dx_2
 \eeqnn
-o{ù}  $x_1$ et $x_2$ représentent les concentrations des esp{è}ces $X_1$ et $X_2$ dans le
-milieu r{é}actionnel, $d$ est le taux de dilution et $u$ est la concentration du
-r{é}actif $X_1$ dans l'alimentation.  La cin{é}tique de r{é}action $r(x_1,x_2)$ est
-suppos{é}e {ê}tre une fonction des concentrations des deux esp{è}ces.
+where  $x_1$ et $x_2$ represent the concentrations of the species $X_1$ and $X_2$ in the reactional environment, $d$ is the rate of dilution in the reactional environment and $u$ is the concentration of the reagent $X_1$ in the diet. The reaction kinetics $r(x_1,x_2)$ is assumed to be a function of the concentrations of the two species.
 \begin{figure}[t] 
    \centering
    \includegraphics[height=4cm]{fig2esp} 
-   \caption{Lieu des valeurs propres des {é}quilibres d'un syst{è}me
- r{é}actionnel {à} deux esp{è}ces}
+   \caption{Eigenvalues location of the equilibria of a two species reactional system}
    \label{fig:fig2esp}
 \end{figure}
 
-Les {é}quilibres du syst{è}me sont donc caract{é}ris{é}s par les {é}quations  :
+The equilibria of the system are characterized by the equations:
 $$
 d\bar x_2 = d(\bar u-\bar x_1) = r(\bar x_1, \bar x_2)
 $$
-Ces {é}quations impliquent {à} l'{é}quilibre que $\bar x_1 + \bar x_2 = \bar u$,
-c'est {à} dire que la somme des concentrations des esp{è}ces $X_1$ et $X_2$ dans le
-r{é}acteur est {é}gale {à} la concentration du r{é}actif $X_1$ dans l'alimentation. 
-Cette observation est {é}videmment en accord avec le principe de conservation de
-la masse.
+These equations involve at the equilibrium $\bar x_1 + \bar x_2 = \bar u$,
+it significates that the sum of the concentrations of the species $X_1$ and $X_2$ in the reactor is equal to the concentration of the reagent $X_1$ in the diet. This observation is obviously in agreement with the mass conservation principle.
 
-La matrice Jacobienne autour de l'{é}quilibre s'{é}crit :
+The Jacobian matrix around equilibrium can be written:
 $$
 A = \bma{cc}
 -a-d & -b \\a & b-d
 \ema
 $$
-avec les notations simplifi{é}es suivantes :
+with the following simplified notation:
 $$
 a  \triangleq \left( \frac{\partial r(x_1,x_2)}{\partial x_1} \right )_{\bar
 x_1, \bar x_2} \hspace*{15mm} b \triangleq \left( \frac{\partial r(x_1,x_2)}{\partial x_2} \right )_{\bar
 x_1, \bar x_2} 
 $$
-Le polyn{\^o}me caract{é}ristique de la matrice Jacobienne s'{é}crit :
+The characteristic polynomial of the Jacobian matrix is:
 $$
 p(x) = x^2 + (a-b +2d) x + (a-b) d +d^2
 $$
-Le produit et la somme des valeurs propres sont donc donn{é}s par :
+The product and the sum of the eigenvalues are given by:
 $$
 \lambda_1 \lambda_2 = (a-b)d+d^2 \;\;\;\; \lambda_1 + \lambda_2 = -(a-b+2d)
 $$
-Etant donn{é} que le taux de dilution $d$ est une quantit{é} strictement positive,
-on peut v{é}rifier apr{è}s quelques calculs que les {é}quilibres du syst{è}me sont
-hyperboliques si $(a-b) \neq -d$. On observe que 
+
+Because of the dilution rate $d$ is a strictly positive quantity, we can check after some calculations that the equilibria of the system is hyperbolic if $(a-b) \neq -d$. We observe that
 \begin{itemize}
-\item si $\lambda_1 + \lambda_2 = -[(a-b)+2d]>0$, alors n{é}cessairement
-$\lambda_1 \lambda_2 = d[(a-b)+d]<0$ et donc l'{é}quilibre est un col.
-\item Si $\lambda_1 + \lambda_2 = -[(a-b)+2d]\leq 0$, alors l'{é}quilibre est un col
-si $-2d\leq(a-b)<-d$, et un noeud attractif si $(a-b)>-d$.  Par contre,
-l'{é}quilibre ne peut pas {ê}tre un foyer, car il est impossible d'avoir
+\item si $\lambda_1 + \lambda_2 = -[(a-b)+2d]>0$, then necessarily
+$\lambda_1 \lambda_2 = d[(a-b)+d]<0$ and therefore the equilibrium is a saddle.
+\item Si $\lambda_1 + \lambda_2 = -[(a-b)+2d]\leq 0$, the the equilibrium is a saddle
+if $-2d\leq(a-b)<-d$, and an attractive node if $(a-b)>-d$.  However, the equilibrium can not be a center, because it is impossible to have
 $\lambda_1 \lambda_2 \geq \frac{1}{4} (\lambda_1 + \lambda_2)^2$.
 \end{itemize}
-Cette analyse est r{é}sum{é}e dans 
-le tableau~\ref{tab2esp} et la figure~\ref{fig:fig2esp}.
+This analysis is summarized in the table~\ref{tab2esp} and the figure~\ref{fig:fig2esp}.
 
 \begin{table}
 \hspace*{10mm}
 \renewcommand{\arraystretch}{3.0}
 \begin{tabular}{|c|c|}
 \hline
-&Nature des {é}quilibres hyperboliques\\ \hline
-$(a-b)<-d$&col \\ \hline
-$(a-b)>-d$&noeud attractif \\ \hline
+&
+Nature of hyperbolic equilibria\\ \hline
+$(a-b)<-d$&saddle \\ \hline
+$(a-b)>-d$&attractive node\\ \hline
 \end{tabular}
-\caption{Equilibres hyperboliques d'un syst{è}me r{é}actionnel {à} deux esp{è}ces}
+\caption{Hyperbolic equilibria of a reaction system with two species}
 \label{tab2esp}
 \end{table}
 
