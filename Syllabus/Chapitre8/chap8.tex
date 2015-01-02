@@ -1082,34 +1082,53 @@ having four types of bifurcations that occur in planes systems.
 
 \begin{exemple} {\em\bf Diode tunnel circuit (ctd)}
 
-Reprenons à nouveau l'exemple du circuit à diode tunnel en faisant varier l'entr{é}e 
-$\bar u$ (c.{à}.d. la r{é}sistance variable $R$), avec une source de tension constante $E=1.5$.
-La  figure~\ref{fig:eqdiohop} illustre comment l'{é}quilibre unique se d{é}place lorsque $\bar u$ varie. Le tableau suivant caract{é}rise le type d'{é}quilibre rencontr{é} en fonction de $\bar u$.
+Resuming again the example of the diode tunnel circuit by varying the input
+$\bar u$ (i.e. the variable resistor $R$ ), with a constant voltage source $E = 1.5$.
+
+The figure ~\ref{fig:eqdiohop} illustrates how the unique equilibrium moves when $\bar u$ changes. 
+The following table characterizes the equilibrium type in function of $\bar u$.
+
 \begin{figure}[htbp] 
 \centering
 \includegraphics[height=65mm]{eqdiohop} 
-\caption{Equilibre du circuit à diode tunnel lorsque la résistance $R$ varie.}
+\caption{Equilibrium of the tunnel diode circuit when the resistance $R$ varies.}
 \label{fig:eqdiohop}
 \end{figure}
+%\begin{table}
+%\begin{tabular}{|c|c|c|c|c|}\hline
+%$\bar u$&$\bar x_2$&$h'(\bar x_2)$&valeurs&type\\ 
+%&&&propres&d'{é}quilibre\\ \hline
+%$\bar u >0.7139$&$\bar x_2 < 0.5918$&$h'(\bar x_2)>0$&$\lambda_{1,2} \in C^-$&foyer\\
+%&&&&attractif\\ \hline
+%$0.1261<\bar u$&$0.5918< \bar x_2 $&$h'(\bar x_2)<0$&$\lambda_{1,2} \in  
+%C^+$&foyer\\ $<.7139$&$< 1.4082$&&&répulsif\\ \hline
+%$\bar u<0.1261$&$ \bar x_2 > 1.4082$&$2.5 >h'(\bar x_2)>0$&$\lambda_{1,2} \in
+%  C^-$&foyer\\
+%&&&&attractif\\ \hline
+%\end{tabular}
+%\end{table}
+
 \begin{table}
 \begin{tabular}{|c|c|c|c|c|}\hline
-$\bar u$&$\bar x_2$&$h'(\bar x_2)$&valeurs&type\\ 
-&&&propres&d'{é}quilibre\\ \hline
-$\bar u >0.7139$&$\bar x_2 < 0.5918$&$h'(\bar x_2)>0$&$\lambda_{1,2} \in C^-$&foyer\\
-&&&&attractif\\ \hline
+$\bar u$&$\bar x_2$&$h'(\bar x_2)$&values&type\\ 
+&&&eigen&equilibrium\\ \hline
+$\bar u >0.7139$&$\bar x_2 < 0.5918$&$h'(\bar x_2)>0$&$\lambda_{1,2} \in C^-$&focus\\
+&&&&attractive\\ \hline
 $0.1261<\bar u$&$0.5918< \bar x_2 $&$h'(\bar x_2)<0$&$\lambda_{1,2} \in  
-C^+$&foyer\\ $<.7139$&$< 1.4082$&&&répulsif\\ \hline
+C^+$&focus\\ $<.7139$&$< 1.4082$&&&répulsif\\ \hline
 $\bar u<0.1261$&$ \bar x_2 > 1.4082$&$2.5 >h'(\bar x_2)>0$&$\lambda_{1,2} \in
-  C^-$&foyer\\
-&&&&attractif\\ \hline
+  C^-$&focus\\
+&&&&attractive\\ \hline
 \end{tabular}
 \end{table}
-D{è}s lors, si l'on part d'une valeur de  la r{é}sistance variable $\bar u$ suffisamment grande, telle que le point d'{é}quilibre se
-trouve {à} gauche du premier sommet de la courbe caract{é}ristique de la diode, et que
-l'on diminue progressivement cette valeur, on passe successivement par les configurations suivantes~:  un foyer attractif, un foyer répulsif (associ{é} {à} un cycle limite), un foyer
-attractif. Au moment des deux transitions entre foyer attractif et
-répulsif, le syst{è}me passe par une valeur telle que le point d'{é}quilibre n'est pas
-hyperbolique. 
+
+Therefore, if one starts with a value of the variable resistor $\bar u$ large enough such that the equilibrium point
+located to the left of the first peak of the characteristic curve of the diode, and that
+it gradually decreases this value, it cycles through the following configurations ~ : 
+an attractive focus, repellent focus (associated with a limit cycle ), an
+attractive focus. At the time of the two transitions between attractive
+repellent focus, the system passes through a value such that the equilibrium point is not
+hyperbolic.
 \qed
 \end{exemple}
 
