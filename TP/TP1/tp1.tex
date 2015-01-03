@@ -1,3 +1,101 @@
-%TODO
+\section*{Exercise 1.1 : A glass factory oven}
+\underline{1. State representation when state variables are $M$ and $CTM$ :}
+The mass variation in the oven is simply the difference between the incoming mass flux and the outgoing mass flux. For the given data, we have $$\frac{dM}{dt} = P_{in}-P_{out}.$$
+The second state variable, $CTM$, correspond to the heat within the oven. The heat variation in the reactor is equal to the incoming heat, provided by the burners and the incoming material, minus the outgoing heat, due to the outgoing material. For the problem's data, we have $$\frac{d}{dt}(CTM) = Q_{in} + C_{in}T_{in}P_{in} - CTP_{out}.$$
+By setting $x_1 = M$, $x_2 = CTM$, the two state variables and $u_1 = P_{in}$, $u_2 = P_{out}$, $u_3 = Q_{in}$, the entries, the state representation of this model is the following :
+$$\left\{\begin{array}{ccl}
+\dot{x}_1 & = & u_1 - u_2 \\
+\dot{x}_2 & = & C_{in}T_{in}u_1 - CTu_2 + u_3
+\end{array}\right.$$
+ 
+\underline{2. State representation when state variables are $T$ and $CTM$ :}
+We are now going to derive a model where the state variables are $T$ and $CTM$. In order to do that, we will need the following relation : $$\frac{d}{dt}(CTM) = CT\frac{dM}{dt} + CM\frac{dT}{dt}.$$
+This allows us to isolate the temperature variation according to time in the oven :
+\begin{align*}
+\frac{dT}{dt} & = \frac{1}{CM}\Big(\frac{d}{dt}(CTM)-CT\frac{dM}{dt}\Big)\\
+& = \frac{1}{CM}(Q_{in} + C_{in}T_{in}P_{in} - CTP_{out} - CT(P_{in}-P_{out}))\\
+& = \frac{1}{CM}(Q_{in} + C_{in}T_{in}P_{in} - CTP_{in}).
+\end{align*}
+Using this equation and the equation describing the evolution of $CTM$ from the last subquestion, we can establish the state representation of the system in terms of $T$ and $CTM$.\\
+By setting $x_1 = T$, $x_2 = CTM$, the two state variable and $u_1 = P_{in}$, $u_2 = P_{out}$, $u_3 = Q_{in}$, the entries, the state representation of this system is the following :
+$$\left\{\begin{array}{ccl}
+\dot{x}_1 & = & \frac{1}{CM}(u_3 + C_{in}T_{in}u_1 - Cx_1u_1) \\
+\dot{x}_2 & = & C_{in}T_{in}u_1 - Cx_1u_2 + u_3
+\end{array}\right.$$
 
-TODO
+\underline{3. Taking the heat loss into account :}
+Let $Q_{out}$ be the quantity of heat lost per unit of time. The equation describing the variation of heat within the reactor then changes and becomes $$\frac{d}{dt}(CTM) = Q_{in} + C_{in}T_{in}P_{in} - CTP_{out} - Q_{out}.$$
+The quantity of heat lost per unit of time $Q_{out}$ is proportional to the temperature difference between the inside of the oven and the outside. Let's call $T_{ext}$ the temperature outside the reactor. We then can do the following assumption on the form of $Q_{out}$ : $$Q_{out} = \alpha(T-T_{ext})$$ where $\alpha$ is a dimensional constant depending on parameters of the environment (over, outside etc.).\\
+If the second state variable chosen is $M$, the state equation of this variable doesn't change. If, however, the variable chosen is $T$, we need to change change its state equation accordingly.\\
+If we choose the state variables $M$ and $CTM$, we have the following state representation
+$$\left\{\begin{array}{ccl}
+\dot{x}_1 & = & u_1 - u_2 \\
+\dot{x}_2 & = & C_{in}T_{in}u_1 - CTu_2 + u_3 - \alpha(T-T_{ext})
+\end{array}\right.$$
+and if we choose the state variables $T$ and $CTM$, we have the following state representation
+$$\left\{\begin{array}{ccl}
+\dot{x}_1 & = & \frac{1}{CM}(u_3 + C_{in}T_{in}u_1 - Cx_1u_1 - \alpha(x_1-T_{ext})) \\
+\dot{x}_2 & = & C_{in}T_{in}u_1 - Cx_1u_2 + u_3 - \alpha(x_1-T_{ext})
+\end{array}\right.$$
+
+\underline{4. Including fusion in the model :}
+Let's assume the fusion in the reactor does not act instantaneously. As a consequence, there's always a part of non melt material and a part of melt material in the oven. Let $M_1$ be the mass of non melt material and let $M_2$ be the mass of melt material. Let $P_{fus}$ be the mass flux of fusion (the rate at which the raw material transform into glass).\\
+By setting $x_1 = M_1$, $x_2 = M_2$, $x_3 = CT(M_1+M_2)$, the three state variables and $u_1 = P_{in}$, $u_2 = P_{out}$, $u_3 = P_{fus}$, $u_4 = Q_{in}$, the entries, the state representation of this system is the following :
+$$\left\{\begin{array}{ccl}
+\dot{x}_1 & = & u_1 - u_3\\
+\dot{x}_2 & = & u_3 - u_2\\
+\dot{x}_3 & = & C_{in}T_{in}u_1 - C_{in}T_{in}u_3 + CTu_3 - CTu_2 + u_4
+\end{array}\right.$$
+
+\section*{Exercise 1.2 : Ladybugs and aphids}
+\underline{1. Justifying the model :}
+The state representation describing the evolution of the number of aphids and ladybugs is the following :
+\begin{align*}
+\dot{x}_1 & = ax_1 - bx_1x_2 - cux_1\\
+\dot{x}_2 & = dx_1x_2 - ex_2 - fux_2
+\end{align*}
+where $x_1$ is the number of aphids, $x_2$ the number of ladybugs and $u$ the manuring rate at which the pesticide is spread. The constants $a$, $b$, $c$, $d$, $e$ and $f$ are positives.\\
+Let's justify ever term of this model.
+\begin{itemize}
+\item $ax_1$ : correspond to the hypothesis that, in absence of ladybugs, the population of aphids has an exponential growth with a specific rate of growth $a$ constant. The more aphids there are, the more they reproduce and the more quickly the population increase.
+\item $bx_1x_2$ : correspond to the hypothesis that the ladybugs eat more aphids if their population is bigger. Every ladybug eats $bx_1$ aphids per unit of time, which is proportional to the number of aphids. The complete set of ladybugs then eats $bx_1x_2$ aphids per unit of time. This is why, due to the predation of ladybugs, the aphids population diminish by $bx_1x_2$ per unit of time. This is the only natural cause of death of the aphids.
+\item $cux_1$ : correspond to the hypothesis that the gardener spreads pesticide which kills aphids with a manuring rate $u$. We can assume that a proportion $u$ of the population is affected, that is $ux_1$ aphids. The affected aphids die with a probability $c$. Thus, there's $cux_1$ aphids which die per unit of time because of the pesticide.
+\item $dx_1x_2$ : correspond to the hypothesis that aphids are the unique source of nourishment of ladybugs. The population of ladybugs then increase proportionately to the number of ladybugs(due to reproduction) but also proportionately to the number of aphids.
+\item $ex_2$ : correspond to the hypothesis that ladybugs have a constant specific rate of mortality.
+\item $fux_2$ : correspond to the hypothesis that the gardener spreads pesticide which kills ladybugs with a manuring rate $u$. The justification of this term is similar to the justification of the term $cux_1$.\\
+\end{itemize}
+
+\underline{2. Type of system :}
+A system is affine relative to the input if it has the form $$\dot{x} = f(x) + G(x)u.$$
+The state representation of the system can be rewritten
+$$\begin{pmatrix}
+\dot{x}_1\\
+\dot{x}_2
+\end{pmatrix} =
+\begin{pmatrix}
+ax_1 - bx_1x_2\\
+dx_1x_2 - ex_2
+\end{pmatrix} +
+\begin{pmatrix}
+-cx_1\\
+-fx_2
+\end{pmatrix}u.$$
+As a consequence, the model is affine relative to the input.\\
+A system is affine relative to the state if it has the form $$\dot{x} = A(u)x + b(u).$$
+Because of the terms in $x_1x_2$, it's impossible to rewrite the system under this form. As a consequence, the model is not affine relative to the state.\\
+A system is bilinear if it is affine relative to both the state and the input. Since the model is not affine relative to the state, it is not bilinear.\\
+A linear system is a system having the form $$\dot{x} = Ax + Bu.$$
+Because of the terms in $x_1x_2$, it's impossible to rewrite the system under this form. As a consequence, the model is not linear.\\
+
+\underline{3. A more precise model : }
+We now have $3$ state variables : the aphids ($x_1$), the larvae ($x_2$) and the adult ladybugs ($x_3$).\\
+The first additional thing to take into account is the fact that the ladybugs eat up to $100$ aphids per day and the larvae eat up to $150$ aphids per day. However, we will still assume that the quantity ingested is proportional to the number of aphids.\\
+A second thing to take into account is the fact that the larvae end up becoming adult ladybugs.\\
+We will also assume that the hypothesis true for the adult ladybugs are also true for the larvae.\\
+The model is then the following
+\begin{align*}
+\dot{x}_1 & = ax_1 - \min(bx_1,150/\Delta t)x_2 - \min(cx_1,100/\Delta t)x_3 -dux_1\\
+\dot{x}_2 & = ex_1x_2 - fx_2 - gx_2 -hux_2\\
+\dot{x}_3 & = gx_2 - ix_3 -jux_3
+\end{align*}
+where the constants $a$, $b$, $c$, $d$, $e$, $f$, $g$, $h$, $i$ et $j$ are positives. The constant $\Delta t$ correspond to $24$ hours and depend on the unit of time chosen.

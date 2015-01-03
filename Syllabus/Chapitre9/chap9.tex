@@ -9,223 +9,215 @@
 \graphicspath{ {Chapitre9/images/} }
 
 \setcounter{chapter}{8}
-\chapter{Stabilité des équilibres}
+\chapter{Equilibriums stability}
 \chaptermark{Stabilité des équilibres}\label{stabeq}
 
 
 
-\lettrine[lines=1]{\bf C}{}e chapitre traite de la stabilité des équilibres. Plus précisément, on s'intéresse au comportement des trajectoires du système au voisinage des équilibres. Soit un système dynamique décrit par son modèle d'état~:
+\lettrine[lines=1]{\bf T}{}his chapter is about the stability of equilibriums. Precisely, we are interested in the behaviour of the trajectories of the system in the neighbourhood of the equilibriums.  Let a dynamic system be described by its state model~:
 \e
 \dot x = f(x,u). \label{sys}
 \ee
-On suppose que le système possède un équilibre en $(\bar x, \bar u)$. On se pose les deux questions suivantes~:\\
+We assume that the system owns an equilibrium in $(\bar x, \bar u)$. We ask ourselves the two following questions~:\\
 \begin{itemize}
-\item[a:] si l'entrée est maintenue égale à sa valeur d'équilibre $\bar u$
-et si l'état initial $x(t_0)$ est dans le voisinage de la valeur d'équilibre
-$\bar x$, comment vont se comporter les trajectoires du système ? Sous quelle conditions les trajectoires vont elles converger vers $\bar x$?\\
-\item[b:] Si l'entrée $u(t)$ est proche de $\bar u $ (mais pas
-nécessairement constante), que
-peut-on dire des trajectoires du système ? Sous quelles conditions les trajectoires $x(t)$ resteront-elles proches de $\bar x$?\\
+\item[a:] If the entry is kept at its equilibrium's value $\bar u$ and if the initial state $x(t_0)$ is in the neighbourhood of the equilibrium's value $\bar x$, how will the trajectories of the system behave ? Under which conditions will the trajectories converge towards $\bar x$?\\
+\item[b:] If the entry $u(t)$ is close to $\bar u $ (but not necessarily constant), what can we say about the system's trajectories ? Under which conditions will the trajectories $x(t)$ stay close to $\bar x$?\\
 \end{itemize}
 
-\section{Définitions}
+\section{Definitions}
 
-\begin{definition} \label{eqstab} {\bf Equilibre stable}
+\begin{definition} \label{eqstab} {\bf Stable equilibrium}
 
-L'équilibre $(\bar x, \bar u)$ est un {\em équilibre stable} du système (\ref{sys}) si 
+The equilibrium $(\bar x, \bar u)$ is a {\em stable equilibrium} of the system (\ref{sys}) if 
 \eqnn
-\forall\epsilon > 0 \;\;\exists \delta>0 \mbox{ t.q.} \| x(t_0)-\bar x\| < \delta
+\forall\epsilon > 0 \;\;\exists \delta>0 \mbox{ s.t.} \| x(t_0)-\bar x\| < \delta
 \Rightarrow \| x(t, x(t_0), \bar u) -\bar x \| < \epsilon \;\; \forall t \geq
 t_0.
 \eeqnn
-Si cette condition n'est pas satisfaite, l'équilibre est {\em instable}. \qed
+If this condition is not satisfied, the equilibrium is {\em unstable}. \qed
 \end{definition}
-Cette définition s'interprête de la manière suivante. On souhaite caractériser le fait que la trajectoire $x(t)$ reste proche du point d'équilibre $\bar x$ pour tout $t \geq t_0$ lorsque l'entrée est constante $(u(t) = \bar u \; \forall t \geq t_0$). Pour cela, on mesure la proximité avec la norme $\| \;\;  \|$ et on impose que les solutions $x(t)$ restent à l'intérieur de la région délimitée par $ \| x(t) -\bar x \| < \epsilon$, c'est-à-dire dans un ``tube" de rayon $\epsilon$ autour de la trajectoire $x(t) = \bar x$. Si cet objectif est réalisable pour une condition initiale $x(t_0)$ proche de l'équilibre (c'est-à-dire $ \| x(t_0) -\bar x \| < \delta$), alors on dit que l'équilibre est stable. Sinon, on dit qu'il est instable.
+This definition is to be interpreted as follows.We want to characterize how the trajectory $x(t)$ stays close to the equilibrium point $\bar x$ for every $t \geq t_0$ when the entry is constant $(u(t) = \bar u \; \forall t \geq t_0$). For that, we measure the proximity with the norm $\| \;\;  \|$ and we impose that the solutions $x(t)$ stay within the region bound by $ \| x(t) -\bar x \| < \epsilon$, meaning in a "tube" of radius $\epsilon$ around the trajectory $x(t) = \bar x$. If this goal is achievable for an initial condition $x(t_0)$ close to the equilibrium (meaning that $ \| x(t_0) -\bar x \| < \delta$), then we say that the equilibrium is stable.  The equilibrium is said unstable otherwise.
 
-Cette définition est la forme la plus faible de stabilité considérée dans ce chapitre. En particulier, elle n'implique pas que les trajectoires $x(t)$ convergent vers le point d'équilibre.
+The previous definition is the weakest form of stability considered in this chapter. In particular, it does not imply that the trajectories $x(t)$ converge to the equilibrium point.
 
-\begin{definition} \label{eqatt} {\bf Equilibre attracteur}
+\begin{definition} \label{eqatt} {\bf Attractive equilibrium}
 
-L'équilibre $(\bar x, \bar u)$ est un {\em équilibre attracteur} de 
-(\ref{sys}) si 
+The equilibrium $(\bar x, \bar u)$ is an {\em attractive equilibrium} of 
+(\ref{sys}) if
 \eqnn
-\exists \delta>0 \mbox{ t.q.} \| x(t_0)-\bar x \| < \delta
+\exists \delta>0 \mbox{ s.t.} \| x(t_0)-\bar x \| < \delta
 \Rightarrow  \lim_{t \rightarrow \infty} \|x(t, x(t_0), \bar u) -\bar x \|=0. \qed
 \eeqnn
 \end{definition}
-Un équilibre attracteur $\bar x$ est donc un point vers lequel convergent les solutions $x(t)$ si elles démarrent suffisament près de $\bar x$. Il faut noter que stabilité et attractivité sont deux notions différentes et qu'elles ne s'impliquent pas mutuellement. 
-\begin{definition} \label{eqast} {\bf Equilibre asymptotiquement stable}
+An attractive equilibrium $\bar x$ is therefore a point to which the solutions $x(t)$ converge if they start close enough of $\bar x$. It has to be noted that stability and attractiveness are two different notions and that they don't imply each other. 
+\begin{definition} \label{eqast} {\bf Asymptotically stable equilibrium}
 
-L'équilibre $(\bar x, \bar u)$ est un {\em équilibre asymptotiquement
-stable} s'il est stable et attracteur.
+The equilibrium $(\bar x, \bar u)$ is an {\em asymptotically stable equilibrium} if it is stable and attractive.
 \qed
 \end{definition}
-Un ensemble d'états initiaux $x(t_0)$ à partir desquels les trajectoires convergent vers un équilibre asymptotiquement stable est appelé {\em bassin d'attraction}.
-La stabilité asymptotique est la propriété qui est généralement recherchée en pratique. Il faut cependant remarquer que la définition ci-dessus ne nous dit rien sur la vitesse à laquelle la trajectoire $x(t)$ converge vers l'équilibre. C'est pourquoi, on introduit la notion suivante de stabilité exponentielle qui permet de caractériser cette vitesse.
-\begin{definition} \label{expstab} {\bf Stabilité exponentielle}
+A set of initial states $x(t_0)$ from which the trajectories converge to an asymptotically stable equilibrium is called {\em basin of attraction}.
+The asymptotic stability is the property that is usually sought for in practice.  However, we have to notice that this definition above does not indicate the speed at which the trajectory $x(t)$ converge towards the equilibrium. That's why the notion of exponential stability was introduced, which allows to characterize that speed.
+\begin{definition} \label{expstab} {\bf Exponential stability}
 
-L'équilibre $(\bar x, \bar u)$ est un {\em équilibre exponentiellement
-stable} si 
+The equilibrium $(\bar x, \bar u)$ is an {\em exponentially stable equilibrium} if
 \eqnn
-&&\forall\epsilon > 0 \;\;\exists \; a>0, b>0 \mbox{ et } \delta>0 \text{ t.q.} \\ 
+&&\forall\epsilon > 0 \;\;\exists \; a>0, b>0 \mbox{ and } \delta>0 \text{ s.t.} \\ 
 && \| x(t_0)-\bar x \| < \delta 
 \Rightarrow \| x(t, x(t_0), \bar u) -\bar x \| \leq a \| x(t_0)-\bar x \|
 e^{-bt}\;\; \forall t \geq t_0. \qed
 \eeqnn
 \end{definition}
-Il est évident que la stabilité exponentielle implique la stabilité asymptotique mais l'inverse n'est pas nécessairement vrai.
+It is obvious that the exponential stability implies the asymptotic stability but the opposite is not necessarily true.
 
-\section{Première méthode de Lyapunov (méthode indirecte)}
+\section{Lyapunov's first method (indirect method)}
 
-La première méthode de Lyapunov est basée sur l'examen de la linéarisation du système $\dot x = f(x,\bar u)$ autour de l'équilibre $(\bar x, \bar u)$. Plus précisément, on examine les valeurs propres $\lambda_i (A)$ de la matrice Jacobienne évaluée à l'équilibre~:
+Lyapunov's first method is based on the examination of the system's linearization $\dot x = f(x,\bar u)$ around the equilibrium $(\bar x, \bar u)$. Precisely, we study the eigenvalues $\lambda_i (A)$ of the Jacobian matrix estimated at the equilibrium~:
 \eqnn
 A = \dfrac {\partial f}{\partial x} (\bar x, \bar u).
 \eeqnn
-Selon cette méthode, les propriétés de stabilité de $(\bar x, \bar u)$ s'expriment comme suit.
+Under this method, the stability properties of $(\bar x, \bar u)$ are expressed as follows.
 
-\begin{theoreme}\label{premLyap}{\bf Première méthode de Lyapunov.}
+\begin{theoreme}\label{premLyap}{\bf Lyapunov's first method.}
 
 \begin{enumerate}
-\item Si toutes les valeurs propres de la matrice Jacobienne ont une partie réelle strictement négative ($\forall i,\;Re(\lambda_i(A))<0$), l'équilibre $(\bar x, \bar u)$ est exponentiellement stable.
-\item Si la matrice Jacobienne possède au moins une valeur propre à partie réelle strictement positive ($\exists i, \;Re(\lambda_i(A)) > 0$), l'équilibre $(\bar x, \bar u)$ est instable.
+\item If all the eigenvalues of the Jacobian matrix have a real part strictly negative ($\forall i,\;Re(\lambda_i(A))<0$), the equilibrium $(\bar x, \bar u)$ is exponentially stable.
+\item If the Jacobian matrix owns at least one eigenvalue with a real part strictly positive ($\exists i, \;Re(\lambda_i(A)) > 0$), the equilibrium $(\bar x, \bar u)$ is unstable.
 \qed
 \end{enumerate}
 \end{theoreme}
-Le théorème ne permet pas de dire si l'équilibre est stable ou instable quand la matrice Jacobienne comporte au moins une valeur propre nulle et aucune valeur propre à partie réelle strictement positive. Dans ce cas, les trajectoires du système convergent vers un sous-espace
-(une variété) dont la dimension est le nombre de valeurs propres nulles de la matrice Jacobienne et la stabilité de l'équilibre peut  être
-étudiée dans ce sous-espace par la seconde méthode.
+This theorem does not allow to say if the equilibrium is stable or unstable if the Jacobian matrix owns at least one eigenvalue with a real part equal to zero and no eigenvalue with a eigenvalue with a strictly positive real part. In this case, the system's trajectories converge to a sub-set (a variety) whose dimension is the number of eigenvalues of the Jacobian equal to zero and the equilibrium's stability can be examined in this sub-set with the second method.
 
-\section{Seconde méthode de Lyapunov (méthode directe)}
+\section{Lyapunov's second method (direct method)}
 
-Comme nous venons de le voir, la première méthode de Lyapunov est simple à appliquer mais elle ne permet d'analyser la stabilité des équilibres que très partiellement. En outre  elle ne donne aucune indication sur la taille des bassins d'attraction. La seconde méthode est plus difficile à mettre en oeuvre mais, en contrepartie, est d'une portée beaucoup plus générale. Elle est basée sur la définition d'une fonction particulière, notée $V(x)$ et appelée {\em fonction de Lyapunov}, qui est décroissante le long des trajectoires du système à l'intérieur du bassin d'attraction. Avant de donner les différents théorèmes de stabilité, nous commen{\c c}ons par un exemple.
+As we juste saw, Lyapunov's first method is simple to apply but it only allows to study the equilibrium's stability partially. Furthermore, it does not give any indication on the size of the basins of attraction.  The second method is more difficult to implement but, in return, is more general in scope.  It is based on the definition of a particular function noted $V(x)$ and called {\em Lyapunov's function}, which is decreasing along the system's trajectories within the basin of attraction. Before giving the different stability theorems, we start with an example.
 
-\begin{exemple}\label{exbras}{\bf Un bras de robot à un degré de liberté.}
+\begin{exemple}\label{exbras}{\bf A robot's arm with one degree of freedom.}
 
-On considère un bras de robot à un degré de liberté, avec frottement visqueux linéaire et soumis à un couple constant (voir figure ci-dessous). 
-Le modèle d'état du système est le suivant (voir chapitre 2 et chapitre 8, section 8.3.1)~:
+We consider a robot's arm with one degree of freedom, with linear viscous friction and under a constant moment (see following figure). 
+The state model of the the system is the following (see chapter 2 and 8, section 8.3.1)~:
 \begin{equation*} \begin{split}
 \dot x_1 &=x_2, \\
 \dot x_2 &= J^{-1}(- mgb \sin x_1 - k x_2 + \bar u).
 \end{split} \end{equation*}
-Dans ces équations, $x_1$ est la position angulaire, $x_2$ la vitesse angulaire, $J$ l'inertie, $m$ la masse, $b$ la distance entre le point d'ancrage et le centre de masse, $k$ le coefficient de frottement et $\bar u$ le couple constant appliqué au bras de robot.
+In these equations, $x_1$ is the angular position, $x_2$ the angular speed, $J$ the inertia, $m$ the mass, $b$ the distance between the anchor point and the center of mass, $k$ the friction coefficient and $\bar u$ the constant moment applied to the robot's arm.
 
-Considérons le cas où $0 < \bar u < mgb$. Le système possède deux équilibres vérifiant les relations suivantes~:
+Let's consider the case where $0 < \bar u < mgb$. The system owns two equilibriums verifying the two following relations~:
 \eqnn
 \bar x_1 = \arcsin (\dfrac {\bar u}{mgb}), \hh
 \bar x_2 = 0.
 \eeqnn
-En accord avec l'intuition physique et comme on peut le vérifier en examinant les valeurs propres de la matrice Jacobienne, il y un équilibre asymptotiquement stable en position "basse" et un équilibre instable en position "haute" (voir figure \ref{bras}).
+In accordance with the physical intuition and as we can verify by examining the Jacobian matrix's eigenvalues, there is an asymptotically stable equilibrium in the "lower" position and an unstable equilibrium in the "higher" position (see figure \ref{bras}).
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=6cm]{bras}
-\caption{Bras de robot dans un plan vertical}
+\caption{The robot's arm in a vertical plane}
 \label{bras}
 \end{center}
 \end{figure}
 
-Considérons la fonction suivante~:  
+Let's consider the following function~:  
 \eqnn
 V(x_1,x_2) = \dfrac {J}{2} x_2^2 +  mgb(1 - \cos x_1) -\bar u x_1. 
 \eeqnn
-Cette fonction a la dimension d'une énergie. En effet le premier terme ($J x_2^2/2$) est l'énergie cinétique, le second terme ($mgb(1-\cos x_1)$) est l'énergie potentielle et le troisième terme ($\bar u x_1$) est l'énergie dépensée par le couple $\bar u$ pour élever le bras jusqu'à la position angulaire $x_1$ . L'équilibre en position "basse" appartient au domaine
+This function has the dimension of an energy. Indeed, the first term ($J x_2^2/2$) is the kinetic energy, the second one ($mgb(1-\cos x_1)$) is the potential energy and the third one ($\bar u x_1$) is the energy spend by the moment $\bar u$ pour elevate the arm to the angular position $x_1$ . The equilibrium in the "lower" position belongs to the domain
 \eqnn
 D = \{ (x_1,x_2) : - \pi /2 < x_1 < \pi /2, -a < x_2 < a \}
 \eeqnn
-(a est un réel positif quelconque).  Dans ce domaine, la fonction $V(x_1,x_2)$ est une fonction qui satisfait les conditions suivantes~:
+(a is any real positive number).  In this domain, the function $V(x_1,x_2)$ is a function that satisfies the following conditions~:
 \begin{itemize}
-\item [(i)] $V(x_1,x_2) : D \rightarrow R$ est contin\^ument dérivable.
-\item [(ii)] $V(x_1,x_2) > V(\bar x_1, \bar x_2)$ pour tout $(x_1,x_2) \neq (\bar x_1, \bar x_2)$ dans $D$ (c-à-d $V$ est minimum à l'équilibre).
-\item [(iii)] $\dot V(x_1,x_2) \leq 0$ en dehors de l'équilibre dans $D$ car
+\item [(i)] $V(x_1,x_2) : D \rightarrow R$ is continually differentiable.
+\item [(ii)] $V(x_1,x_2) > V(\bar x_1, \bar x_2)$ for all $(x_1,x_2) \neq (\bar x_1, \bar x_2)$ in $D$ (meaning $V$ is minimum at equilibrium).
+\item [(iii)] $\dot V(x_1,x_2) \leq 0$ outside the equilibriumen in $D$ because
 \eqnn
 \dot V(x_1,x_2) &=& \dfrac {\partial V}{\partial x_1} \dot x_1+  \dfrac {\partial V}{\partial x_2} \dot x_2 \\
 &=& [mgb \sin x_1 - \bar u][x_2] + [J x_2][ J^{-1}(- mgb \sin x_1 - k x_2 + \bar u]\\
 &=& - k x_2^2.
 \eeqnn
 \end{itemize}
-Sous ces conditions, comme nous allons le voir avec le théorème suivant, il existe un voisinage borné de l'équilibre dans lequel $V(x_1,x_2)$ décroit le long des trajectoires du système tant que la vitesse $x_2 \neq 0$ et se rapproche du minimum de $V$ qui correspond à l'équilibre. On voit donc que l'équilibre est stable au sens de la définition \ref{eqstab}. On observe cependant que $V(x_1,x_2)$ cesse de décroitre si $x_2=0$ (vitesse nulle). Peut-on avoir une vitesse identiquement nulle  ailleurs qu'à l'équilibre ? En fait non, car une vitesse identiquement nulle implique une accélération identiquement nulle, ce qui implique finalement que le système est à l'équilibre.
+Under these conditions, as we will see with the next theorem, there is a bound neighbourhood of the equilibrium in which $V(x_1,x_2)$ decreases along the system's trajectories as long as the speed $x_2 \neq 0$ and moves towards the minimum of $V$ that corresponds to the equilibrium. We can see that the equilibrium is stable according the definition \ref{eqstab}. However, we notice that $V(x_1,x_2)$ ceases to decrease if $x_2=0$ (speed equal to zero). Could we have a speed identically equal to zero elsewhere than the equilibrium ? In fact we can't, because a speed identically equal to zero implies an acceleration identically equal to zero, which implies that the system is at an equilibrium.
 \qed
 \end{exemple}
-Cet exemple illustre l'essentiel de la démarche de la seconde méthode de Lyapunov dont voici le premier théorème.
+This example illustrates the key part of Lyapunov's second method which is as follows. 
 
-\begin{theoreme}\label{stabLyap}{\bf Stabilité \og à la Lyapunov \fg.}
+\begin{theoreme}\label{stabLyap}{\bf \og Lyapunov's \fg stability.}
 
-L'équilibre $(\bar x, \bar u)$ du système $\dot x = f(x,\bar u)$ est stable si il existe une fonction $V(x): D \rightarrow R$ contin\^ument différentiable ayant les propriétés suivantes~:\\
+The equilibrium $(\bar x, \bar u)$ of the system $\dot x = f(x,\bar u)$ is stable if there is a function $V(x): D \rightarrow R$ continually differentiable with the following properties~:\\
 \begin{itemize}
-\item[(i)] $D$ est un ouvert de $R^n$ et $\bar x \in D$;\\
-\item[(ii)] $V(x) > V(\bar x)$ $\forall x \neq \bar x$ dans $D$ ($V(x)$ est minimum en $\bar x$);\\
-\item[(iii)] $\dot V(x) \leq 0$ $\forall x \neq \bar x$ dans $D$. \qed
+\item[(i)] $D$ is an open set of $R^n$ and $\bar x \in D$;\\
+\item[(ii)] $V(x) > V(\bar x)$ $\forall x \neq \bar x$ in $D$ ($V(x)$ is minimum at $\bar x$);\\
+\item[(iii)] $\dot V(x) \leq 0$ $\forall x \neq \bar x$ in $D$. \qed
 \end{itemize}
 \end{theoreme}
-En d'autres termes, ce théorème veut dire qu'une condition suffisante pour la stabilité de l'équilibre $(\bar x, \bar u)$ est qu'il existe une fonction définie positive $V(x) - V(\bar x)$ dont la dérivée temporelle $\dot V(x)$ est semi-définie négative dans un voisinage de $\bar x$. La dérivée temporelle $\dot V(x)$ se calcule comme suit~:
+In other words, this theorem means that a sufficient condition to have the stability of the equilibrium $(\bar x, \bar u)$ is to have a positive-definite function $V(x) - V(\bar x)$ whose temporal derivative $\dot V(x)$ is negative semi-definite in a neighbourhood of $\bar x$. The temporal derivative $\dot V(x)$ is calculated as follows~:
 \eqnn
 \dot V(x) = \dfrac {dV}{dt} = \dfrac {\partial V}{\partial x} \dot x = \dfrac {\partial V}{\partial x} f(x, \bar u) = \sum_{i=1}^n \dfrac {\partial V}{\partial x_i} f_i(x, \bar u).
 \eeqnn
-Les conditions (ii) et (iii) du théorème \ref{stabLyap} impliquent que, pour une constante $c$ suffisamment proche de $V(\bar x)$, l'ensemble~:
+The conditions (ii) and (iii) of the theorem \ref{stabLyap} imply that, for a constant $c$ close enough to $V(\bar x)$, the set~:
 \eqnn
 \Omega_c = \{ x \in D : V(\bar x) \leq V(x) \leq c \}
 \eeqnn
-est un compact (c'est-à-dire un ensemble fermé et borné) invariant. Pour le démontrer, 
-choisissons une constante positive $r$ telle que la boule fermée
+is a compact (meaning a closed and bound set) invariant. To demonstrate it, 
+let's choose a positive constant $r$ such that the closed ball
 \eqnn
 B_r = \{ x \in R^n :  \| x - \bar x \| \leq r \}
 \eeqnn
-soit contenue dans $D$. Définissons~:
+is continuous in $D$. Let's define~:
 \eqnn
 \alpha = \min_{\| x \| = r} V(x).
 \eeqnn
-Il suffit de choisir n'importe quelle constante $c$ dans l'intervalle ouvert $(0,\alpha)$ pour définir un ensemble $\Omega_c$ qui est inclus dans $B_r$ et donc compact. Supposons maintenant que $x(t_0) \in \Omega_c$. Alors, par la condition (iii), nous avons~:
+We only have to choose any constant $c$ in the open interval $(0,\alpha)$ to define a set $\Omega_c$ which is included in $B_r$ and therefore compact. Let's now assume that $x(t_0) \in \Omega_c$. Then, by the condition (iii), we have~:
 \eqnn
 \dot V(x) \leq 0 \;\;\; \Rightarrow \;\;\; V(\bar x) \leq V(x(t)) \leq V(x(t_0)) \leq c \;\;\; \forall t,
 \eeqnn
-ce qui montre bien que $\Omega_c$ est invariant.
+which shows that $\Omega_c$ is invariant.
 
-L'exemple \ref{exbras} est une application de ce théorème qui montre que l'équilibre du bras de robot est stable. En réalité, nous savons intuitivement que cet équilibre est {\em asymptotiquement} stable (c'est-à-dire stable et attracteur). Une manière de démontrer qu'un équilibre est asymptotiquement stable est d'avoir une fonction de Lyapunov dont la dérivée temporelle $ \dot V(x)$ soit strictement  définie négative (et pas seulement semi-définie négative comme dans l'exemple 9.6). Dans ce cas, en effet, la fonction de Lyapunov décroit strictement le long des trajectoires du système, jusqu'à atteindre (asymptotiquement) le minimum qui correspond exactement à l'équilibre.
+The example \ref{exbras} is an application of this theorem that shows that the robot's arm's equilibrium est stable. En reality, we know intuitively that the equilibrium is {\em asymptotically} stable (meaning stable and attractive). One way to demonstrate that an equilibrium is asymptotically stable is to have a Lyapunov function whose temporal derivative $ \dot V(x)$ is strictly negative-defined (and not only negative semi-defined as in the example 9.6). Indeed, in this case, the Lyapunov function strictly decreases along the system's trajectories, until it reaches (asymptotically) the minimum corresponding exactly to the equilibrium.
 
-\begin{theoreme}\label{stabasymp}{\bf Stabilité asymptotique.}
+\begin{theoreme}\label{stabasymp}{\bf Asymptotical stability.}
 
-L'équilibre $(\bar x, \bar u)$ du système $\dot x = f(x,\bar u)$ est asymptotiquement stable si il existe une fonction $V(x): D \rightarrow R$ contin\^ument différentiable ayant les propriétés suivantes~:\\
+The equilibrium $(\bar x, \bar u)$ of the system $\dot x = f(x,\bar u)$ is asymptotically stable if there is a function $V(x): D \rightarrow R$ continuously differentiable with the following properties~:\\
 \begin{itemize}
-\item[(i)] $D$ est un ouvert de $R^n$ et $\bar x \in D$;\\
-\item[(ii)] $V(x) > V(\bar x)$ $\forall x \neq \bar x$ dans $D$ ($V(x)$ est minimum en $\bar x$);\\
-\item[(iii)] $\dot V(x) < 0$ $\forall x \neq \bar x$ dans $D$. \qed
+\item[(i)] $D$ is an open set $R^n$ and $\bar x \in D$;\\
+\item[(ii)] $V(x) > V(\bar x)$ $\forall x \neq \bar x$ in $D$ ($V(x)$ is minimum at $\bar x$);\\
+\item[(iii)] $\dot V(x) < 0$ $\forall x \neq \bar x$ in $D$. \qed
 \end{itemize}
 \end{theoreme}
 
-Comme on l'a vu dans l'exemple du bras de robot, il arrive souvent que l'on trouve une fonction de Lyapunov dont la dérivée est seulement semi-définie négative, ce qui ne permet pas de conclure à la stabilité asymptotique en appliquant le théorème précédent. La difficulté provient notamment de ce que, en analysant la fonction $\dot V(x)$, on n'exploite pas le fait que les différentes variables d'état $x_i$ ne sont pas indépendantes mais sont reliées par les équations de la dynamique du système. LaSalle a étudié cette question en détail et a formulé un principe d'invariance qui permet d'analyser la stabilité asymptotique des équilibres dans le cas d'une fonction $\dot V(x)$ semi-définie négative.
+As we have seen in the robot's arm example, we usually find a Lyapunov function whose derivative is only negative semi-definite, which does not allow to conclude that the system is stable, using the previous theorem.  The difficulty comes notably from the fact that, by analyzing the function $\dot V(x)$, we don't use the fact that the different state variables $x_i$ are not independent but are linked by the equations of the system's dynamic. LaSalle studied this matter in detail and has come with a invariance principle which allows to analyze the asymptotic stability of the equilibriums in the case of a negative semi-definite function $\dot V(x)$.
 \newpage
-\begin{theoreme}\label{lasalle}{\bf Principe d'invariance de LaSalle.}
+\begin{theoreme}\label{lasalle}{\bf Lasalle invariance principle.}
 
-L'équilibre $(\bar x, \bar u)$ du système $\dot x = f(x,\bar u)$ est asymptotiquement stable si il existe une fonction $V(x): D \rightarrow R$ continument différentiable ayant les propriétés suivantes~:\\
+The equilibrium $(\bar x, \bar u)$ of the system $\dot x = f(x,\bar u)$ is asymptotically stable if there is a function $V(x): D \rightarrow R$ continuously differentiable with the following properties~:\\
 \begin{itemize}
-\item[(i)] $D$ est un ouvert de $R^n$ et $\bar x \in D$;\\
-\item[(ii)] $V(x) > V(\bar x)$ $\forall x \neq \bar x$ dans $D$ ($V(x)$ est minimum en $\bar x$);\\
-\item[(iii)] $\dot V(x) \leq 0$ $\forall x$ dans  $D$;\\
-\item[(iv)] l'ensemble $S \subset D$ tel que $\dot V(x) = 0$ ne contient pas de {\em trajectoire} du système autre que $x(t) = \bar x$. \qed
+\item[(i)] $D$ is an open set of $R^n$ and $\bar x \in D$;\\
+\item[(ii)] $V(x) > V(\bar x)$ $\forall x \neq \bar x$ in $D$ ($V(x)$ is minimum at $\bar x$);\\
+\item[(iii)] $\dot V(x) \leq 0$ $\forall x$ in  $D$;\\
+\item[(iv)] the set $S \subset D$ such that $\dot V(x) = 0$ does not contain any {\em trajectory} of the system other than $x(t) = \bar x$. \qed
 \end{itemize}
 \end{theoreme}
 
 \begin{exemple}{\bf  Un bras de robot à un degré de liberté (suite).}
 
-Considérons à nouveau le modèle du bras de robot (voir Exemple \ref{exbras})
+Let's consider again the robot's arm model (see Example \ref{exbras})
 \begin{equation} \begin{split} \label{bras}
 \dot x_1 &= x_2, \\
 \dot x_2 &= J^{-1}(- mgb \sin x_1 - k x_2 + \bar u), 
 \end{split} \end{equation}
-pour lequel la fonction d'énergie 
+for which the energy function 
 \eqnn
 V(x_1,x_2) = \dfrac {J}{2} x_2^2 +  mgb(1 - \cos x_1) -\bar u x_1 
 \eeqnn
-est une fonction de Lyapunov. Le long des trajectoires du système, la dérivée de la fonction de Lyapunov est semi-définie négative~:
+is a Lyapunov function. Among the system's trajectories, the Lyapunov function's derivative is negative semi-definite~:
 \eqnn
 \dot V(x_1,x_2)= - k x_2^2 \leq 0.
 \eeqnn
-L'ensemble $S \subset D$ tel que $\dot V(x) = 0$ est donc le suivant~:
+The set $S \subset D$ such that $\dot V(x) = 0$ is therefore the following~:
 \eqnn
 S = \{ (x_1,x_2) \in D : x_2 = 0 \}.
 \eeqnn
-On observe que toute trajectoire du système contenue dans $S$ est telle que la vitesse $x_2(t)$ est identiquement nulle (ce que nous notons $x_2(t) \equiv 0$). Ceci implique immédiatement que $\dot x_2(t) \equiv 0$. Par l'équation (\ref{bras}), ceci implique que $mgb \sin x_1(t) - \bar u \equiv 0$. Et donc que la seule trajectoire contenue dans $S$ est bien la trajectoire d'équilibre. Donc l'équilibre est asymptotiquement stable. Le raisonnement que nous venons de faire se formalise de la manière suivante~:
+We can observe that every trajectory within $S$ is such that the speed $x_2(t)$ is identically equal to zero (which we note $x_2(t) \equiv 0$). This immediately implies that $\dot x_2(t) \equiv 0$. By equation (\ref{bras}), this implies that $mgb \sin x_1(t) - \bar u \equiv 0$. And therefore that the only trajectory within $S$ is indeed the equilibrium's trajectory. Thus the equilibrium is asymptotically stable.  The reasoning that we just did is formalized as follows~:
 \eqnn
-\text{trajectoire }(x_1(t),x_2(t)) \in S &\Rightarrow& x_2(t) \equiv 0 \\
+\text{trajectory }(x_1(t),x_2(t)) \in S &\Rightarrow& x_2(t) \equiv 0 \\
 &\Rightarrow& \dot x_2(t) \equiv 0 \\
 &\Rightarrow& mgb \sin x_1(t) - \bar u \equiv 0 \\
 &\Rightarrow& x_1(t) = \bar x_1, x_2(t) = \bar x_2.
@@ -233,72 +225,70 @@ On observe que toute trajectoire du système contenue dans $S$ est telle que la 
 \qed
 \end{exemple}
 
-\section{Bassin d'attraction et convergence globale}
+\section{Basin of attraction and global convergence}
 
-Dans la démonstration du théorème \ref{stabLyap} nous avons vu que le domaine $\Omega_c$ est un invariant du système. Si l'équilibre est asymptotiquement stable, cela veut dire que toute trajectoire qui démarre en un point quelconque de $\Omega_c$ converge vers l'équilibre. C'est la raison pour laquelle cet ensemble est appelé "bassin d'attraction". La seconde méthode de Lyapunov nous permet donc de caractériser la taille du bassin d'attraction, information qu'il n'est pas possible d'obtenir par la première méthode. C'est pourquoi il peut être intéressant de chercher une fonction de Lyapunov, même si la stabilité de l'équilibre est facilement démontrée par la linéarisation.
+In the demonstration of the theorem \ref{stabLyap}, we have seen that the domain $\Omega_c$ is an invariant of the system. If the equilibrium is asymptotically stable, it means that every trajectory that starts at any point of $\Omega_c$ converges to the equilibrium. That is the reason why this set is called "basin of attraction". Lyapunov second method allows us to characterize the size of the basin of attraction, information that we could not get with the first method.  That's why it can be interesting to look for a Lyapunov function, even if the equilibrium's stability can be easily demonstrated with the linearization.
 
-Un cas particulièrement intéressant est quand le point d'équilibre est unique et que le bassin d'attraction contient l'espace d'état tout entier. Dans ce cas, on parle de {\it stabilité asymptotique globale} dont le théorème suivant explicite les conditions d'existence.
+One particularly interesting case is when the equilibrium point is unique and the basin of attraction contains the whole state space. That case is referred as {\it global asymptotic stability} whose existence conditions are developed in the following theorem.
 
-\begin{theoreme}\label{stabglob}{\bf Stabilité asymptotique globale.}
+\begin{theoreme}\label{stabglob}{\bf Global asymptotic stability.}
 
-L'équilibre $(\bar x, \bar u)$ du système $\dot x = f(x,\bar u)$ est globalement asymptotiquement stable si il est asymptotiquement stable et si en outre~:\\
+The equilibrium $(\bar x, \bar u)$ of the system $\dot x = f(x,\bar u)$ is globally asymptotically stable if it is asymptotically stable and if~:\\
 \begin{itemize}
 \item[(i)] $D$ = $\RR^n$;\\
 \item[(ii)] $|x| \rightarrow \infty \Rightarrow |V(x)| \rightarrow \infty$. \qed
 \end{itemize}
 \end{theoreme}
 
-\section{L'énergie comme fonction de Lyapunov}
+\section{The energy as a Lyapunov function}
 
-Le choix d'une fonction de Lyapunov appropriée pour l'analyse de la stabilité des équilibres d'un système dynamique est en général assez difficile.  Comme nous l'a montré l'exemple du robot  à un degré de liberté, l'énergie peut constituer un bon point de départ pour certains systèmes physiques.   Examinons cela sur quelques exemples.\\
+The choice of a Lyapunov function that is appropriate for the analysis of the equilibriums stability of a dynamic system is usually quite difficult.  As we have shown with the robot with one degree of liberty example, the energy can be a good start for several physical systems.  Let's examine that on a few examples.\\
 
-\noindent {\bf Systèmes mécaniques}
+\noindent {\bf Mechanical systems}
 
-L'équation générale de la dynamique d'un système mécanique est (cfr Chapitre 2) 
+The general equation of the dynamics of a mechanical system is (cfr Chapter 2) 
 $$
 M(q) \ddot q + C(q, \dot q) \dot q + g(q) +k(q) +h(\dot q) =G \bar u
 $$
-On considère ici le cas particulier où la matrice cinématique $G$ est constante.
-Prenons comme fonction $V(q, \dot q)$ la fonction suivante :
+Here we consider the particular case where the cinematic matrix $G$ is constant.
+Let's take as function $V(q, \dot q)$ the following function :
 $$
 V(q,\dot q) = \frac{1}{2} \dot q^T M(q) \dot q + E_{p}(q) - q^TG \bar u
 $$
-Le premier terme est l'énergie cinétique, le deuxième est l'énergie
-potentielle et le troisième correspond au travail des forces et des couples appliqués. La dérivée de cette fonction le long des trajectoires se calcule comme suit~:
+The first therm is the kinetic energy, the second one is the potential energy and the third one is the work realized by the forces and moments applied.  The derivative of this function along the trajectories is calculated as follows~:
 \begin{equation*} \begin{split}
 \dot V &=  \dfrac{1}{2} \dot q^T[\dot M(q) -2C(q,\dot q)]\dot q -
 \dot q^Th(\dot q)\\
 &= -\dot q^Th(\dot q),
 \end{split} \end{equation*}
-(car la matrice $\dot M(q) -2C(q,\dot q)$ est anti-symétrique, voir chapitre 2). Cette grandeur est bien semi-définie négative pour des choix raisonnables de modèles de
-frottement visqueux.\\
+(because the matrix $\dot M(q) -2C(q,\dot q)$ is antisymmetric, see chapter 2). This value is well negative semi-definite for reasonable choice of viscous friction models.\\
 
-\noindent {\bf Circuits électriques}
+\noindent {\bf Electrical circuits}
 
-Prenons comme exemple le circuit RLC non linéaire du chapitre 8 (sec. 8.3.1). Les équations d'état sont :
+Let's take for example the non-linear RLC circuit from Chapter 8 (sec. 8.3.1). The state equations are :
 \begin{equation*} \begin{split}
 L \dot x_1 &= - r(x_1) - x_2 + \bar u, \\
 C \dot x_2 &= x_1.
 \end{split} \end{equation*}
-Dans ces équations, $x_1$ désigne le courant et $x_2$ la tension. $L$ et $C$ sont l'inductance et la capacité du circuit tandis que $r(x_1)$ est une résistance non-linéaire. Nous supposons que la fonction $r(x_1)$ est monotone croissante et passe par l'origine $r(0)=0$.
+In these equations, $x_1$ denotes the current and $x_2$ the tension. $L$ and $C$ are the inductance et capacitor of the circuit while $r(x_1)$ is a non-linear resistor. We assume that the function $r(x_1)$ is monotonously increasing and passes through the origin $r(0)=0$.
 
-Prenons comme fonction de Lyapunov, la fonction suivante qui a la dimension d'une énergie~:
+Let's take for Lyapunov function, the following function which has the dimension of an energy~:
  $$
  V(x_1, x_2) = \dfrac{1}{2}Lx_1^2+\dfrac{1}{2}C(x_2 -\bar u)^2 \geq 0
  $$
- Cette fonction est positive et minimum à l'équilibre $(\bar x_1, \bar x_2) =(0, \bar u)$~: $V(\bar x_1, \bar x_2) = 0$.
-D'autre part, on a~:
+ This function is positive and minimum at the equilibrium $(\bar x_1, \bar x_2) =(0, \bar u)$~: $V(\bar x_1, \bar x_2) = 0$.
+On the other hand, we have~:
 \begin{equation*} \begin{split}
  \dot V &=  \dfrac{\partial V}{\partial x_1} \dot x_1 +
  \dfrac{\partial V}{\partial x_2} \dot x_2\\
  &= -x_1r(x_1) \leq 0.
 \end{split} \end{equation*}
- L'équilibre est donc stable et, en utilisant le principe d'invariance de LaSalle, on peut même conclure à la stabilité asymptotique.\\
+The equilibrium is therefore stable and, using the Lasalle invariant principle, we can even conclude the asymptotic stability.\\
 
-\section{Systèmes linéaires}
+\section{Linear systems}
 
-\noindent Soit le système $\dot x = Ax + B\bar u$ et un équilibre $(\bar x, \bar u)$. On définit comme fonction de Lyapunov $V(x) = (x-\bar x)^T P(x-\bar x)$ où
-$P$ est une matrice symétrique définie positive.
+\noindent Let a system $\dot x = Ax + B\bar u$ and an equilibrium $(\bar x, \bar u)$. We define as Lyapuno function $V(x) = (x-\bar x)^T P(x-\bar x)$ where
+$P$ is a symmetric positive-definite matrix.
 \begin{equation*} \begin{split}
 \dot V(x) &= \dot x^TP(x-\bar x) +(x-\bar x)^TP\dot x \\
 &= (\bar u^TB^T+x^TA^T)P(x-\bar x) +(x-\bar x)^TP(Ax +B\bar u)\\
@@ -307,69 +297,67 @@ $P$ est une matrice symétrique définie positive.
 \end{split} \end{equation*}
 
 \begin{equation} 
-\hspace{-5.4cm} \text{avec} -Q = A^TP+PA. \label{SL}
+\hspace{-5.4cm} \text{with} -Q = A^TP+PA. \label{SL}
 \end{equation}
-Cette dernière équation est appelée \og équation matricielle de Lyapunov \fg.  Si
-elle admet une solution $Q$ définie positive, alors la fonction $V$ sera
-bien une fonction de Lyapunov pour le système.  On peut aussi inverser le raisonnement : on se donne une matrice $Q$ définie positive et on s'appuie sur le théorème suivant pour conclure que la fonction $V$ est bien une fonction de Lyapunov pour le système et que l'équilibre est donc asymptotiquement stable. 
+This last equation is called \og Lyapunov matrix equation \fg.  If
+it has a solution $Q$ that is positive-definite, then the function $V$ will be a Lyapunov function for the system.  The reasoning can also be reversed : we take a matrix $Q$ positive-definite and we use the following theorem to conclude that the function $V$ is indeed a Lyapunov function for the system et that the equilibrium is asymptotically stable. 
 
-\begin{theoreme}  Soit $A$ une matrice réelle d'ordre $n$.  
-Pour toute matrice $Q$ définie positive, (\ref{SL}) possède une solution
-unique $P$ définie positive si et seulement si $A$ est une matrice de Hurwitz (toutes ses valeurs propres ont une partie réelle stritement négative).
+\begin{theoreme}  Let a $n$-order real matrix $A$.  
+For every matrix $Q$ positive-definite, (\ref{SL}) owns a unique solution $P$ positive-definite if and only if $A$ is a Hurwitz matrix (all its eigenvalues have a strictly negative real part).
 \qed
 \end{theoreme}
 
-\section{Stabilité \og Entrée bornée - Etat borné \fg}
-Il est souvent illusoire de pouvoir appliquer une entrée parfaitement constante à un système dynamique réel. En pratique, à cause de diverses sources de perturbation et d'incertitude, l'entrée sera généralement un signal $u(t)$ variant légèrement au voisinage de la valeur d'équilibre désirée. Il est dès lors pertinent de s'intéresser à l'évolution de l'état du système lorsque $u(t)$ est un signal borné proche de $\bar u$. Nous commençons par étudier cette question dans le cas d'un système linéaire
+\section{\og Bound entry - Bound state \fg stability}
+It would often be illusory to be able to apply a perfectly constant entry to a real dynamic system.  In practice, because of various sources of perturbation and uncertainty, the entry will usually be a signal $u(t)$ slightly varying in the neighbourhood of the wanted equilibrium value. It is therefore relevant to take interest in the evolution of the system's state when $u(t)$ is a bound signal close to $\bar u$. We begin with the case of a linear system
 \e \label{systlin}
 \dot x = Ax+Bu.
 \ee
-Pour une condition initiale $x(t_0) = x_0$ et une entrée $u(t)$ données, la trajectoire du système s'écrit explicitement
+For an given initial condition $x(t_0) = x_0$ and a given entry $u(t)$, the system's trajectory is explicitly given as
 \eqnn
 x(t) = e^{A(t-t_0)}x_0 + \int_{t_0}^t e^{A(t-\tau)} B u(\tau) d \tau.
 \eeqnn
-Considérons l'équilibre $(\bar x = 0, \bar u = 0)$. Cet équilibre est asymptotiquement stable si et seulement si la matrice $A$ est Hurwitz. Dans ce cas $\| e^{At} \|$ est bornée pour tout $t$ et il existe des constantes positives $k$ et $\lambda$ telles que
+Let's consider the equilibrium $(\bar x = 0, \bar u = 0)$. This equilibrium is asymptotically stable if and only if the matrix $A$ is a Hurwitz matrix. In that case, $\| e^{At} \|$ is bound for all $t$ and there is positive constants $k$ and $\lambda$ such that
 \eqnn
 \| e^{A(t-t_0)} \| \leq ke^{-\lambda (t-t_0)}.
 \eeqnn
-On en déduit
+It can be inferred that
 \begin{align}
 \| x(t) \| &\leq ke^{-\lambda (t-t_0)}\| x_0 \| + \int_{t_0}^t e^{-\lambda(t-\tau)} \| B \| \| u (\tau) \| d \tau \nonumber \\
 &\leq ke^{-\lambda (t-t_0)}\| x_0 \| + \dfrac{k \| B \|}{\lambda} \sup_{t_0 \leq \tau \leq t} \| u(\tau) \|. \label{zz}
 \end{align}
-On voit immédiatement qu'une entrée $u(t)$ bornée, quelle que soit son amplitude, produit bien un état $x(t)$ borné. On observe aussi que l'effet de la condition initiale $x_0$ s'estompe au cours du temps et que la \og borne ultime \fg \, de $x(t)$ est donc simplement proportionnelle à la borne de $u(t)$ :
+We can immediately see that a bound entry $u(t)$, whatever its amplitude, does generate a bound state $x(t)$. We can also see that the effect of the initial condition $x_0$ fades away with time and that the \og ultimate boundary \fg \, of $x(t)$ is simply proportional to the boundary of $u(t)$ :
 \eqnn
 \limsup_{t \rightarrow +\infty} \| x(t) \| \leq \dfrac{k \| B \|}{\lambda} \| u \|_{{\cal L}_\infty}.
 \eeqnn
-Voyons maintenant comment ces résultats s'étendent aux systèmes non-linéaires. Nous considérons le système
+Let's now see how these results extend to non-linear systems.  We consider the system
 \eqn \label{systnl}
-\dot x = f(x,u) \text{ avec l'équilibre } (\bar x, \bar u)
+\dot x = f(x,u) \text{ with the equilibrium } (\bar x, \bar u)
 \eeqn
-et nous supposons que la fonction $f(x,u)$ est continûment dérivable dans un voisinage de l'équilibre.
+and we assume that the function $f(x,u)$ is continuously differentiable in a neighbourhood of the equilibrium.
 
-\begin{theoreme}{\bf Stabilité (locale) EBEB}
+\begin{theoreme}{\bf (local) EBEB stability}
 
-Si l'équilibre $(\bar x, \bar u)$ du système (\ref{systnl}) est asymptotiquement stable, 
+If the equilibrium $(\bar x, \bar u)$ of the system (\ref{systnl}) is asymptotically stable, 
 \itemize
-\item[(i)] il existe trois constantes positives $c_1$, $c_2$ et $c_3$ telles que, pour tout état initial $x_0$ avec $\|x_0 - \bar x\| < c_1$ et tout signal d'entrée $u(t)$ avec $\| u(t) - \bar u \| < c_2$, la solution $x(t)$ est bornée : $\| x(t) - x_0 \| < c_3$ $\forall t\geq t_0$;
-\item[(ii)] il existe une constante positive $c_0$ et une fonction continue $\alpha : [0,a) \rightarrow [0, +\infty)$ passant par l'origine (c-à-d $\alpha(0) = 0$) et croissante\footnote{une telle fonction est dite de classe ${\cal K}$} telle que, pour tout signal d'entrée $u(t)$ avec $\| u(t) - \bar u \| < c_0$ $\forall t\geq t_0$, la \og borne ultime \fg \, de $x(t)$ est une fonction croissante de la borne de $u(t)$ :
+\item[(i)] there are three positive constants $c_1$, $c_2$ et $c_3$ such that, for all initial state $x_0$ with $\|x_0 - \bar x\| < c_1$ and all entry signal $u(t)$ with $\| u(t) - \bar u \| < c_2$, the solution $x(t)$ is bound : $\| x(t) - x_0 \| < c_3$ $\forall t\geq t_0$;
+\item[(ii)] there is a positive constant $c_0$ and a continuous function $\alpha : [0,a) \rightarrow [0, +\infty)$ passing through the origin (meaning $\alpha(0) = 0$) and increasing\footnote{such a function is called a ${\cal K}$ class function} such that, for all entry signal $u(t)$ with $\| u(t) - \bar u \| < c_0$ $\forall t\geq t_0$, the \og ultimate boundary \fg \, of $x(t)$ is an increasing function of the boundary of $u(t)$ :
 \eqnn
 \limsup_{t \rightarrow +\infty} \| x(t) \| \leq \alpha( \| u \|_{{\cal L}_\infty}). \qed
 \eeqnn
 \end{theoreme}
 
-Dans le cas où le système (\ref{systnl}) est défini globalement et possède un équilibre unique, on a aussi la propriété globale suivante.
+In the case where the system (\ref{systnl}) is globally defined and owns an unique equilibrium, we also have the following global property.
 
-\begin{theoreme}{\bf Stabilité (globale) EBEB}
+\begin{theoreme}{\bf (global) EBEB stability}
 
-Si la fonction $f(x,u)$ est globalement continûment dérivable et globalement Lipschitz en $(x,u)$, si l'équilibre $(\bar x, \bar u)$ est globalement exponentiellement stable, alors 
+If the function $f(x,u)$ is globally continuously differentiable and is globally a Lipschitz function in $(x,u)$, if the equilibrium $(\bar x, \bar u)$ is globally exponentially stable, then 
 \itemize
-\item[(i)] pour tout état initial $x_0$ et tout signal d'entrée $u(t)$, la solution $x(t)$ est bornée;
-\item[(ii)] la \og borne ultime \fg \, de $x(t)$ est une fonction croissante de la borne de $u(t)$.
+\item[(i)] for all initial condition $x_0$ and all entry signal $u(t)$, the solution $x(t)$ is bound;
+\item[(ii)] the \og ultimate boundary \fg \, of $x(t)$ is an increasing function of the boundary of $u(t)$.
 \qed
 \end{theoreme}
-Il faut remarquer que ce dernier théorème est assez restrictif. Il existe en effet de nombreux systèmes dynamiques pour lesquels la fonction $f(x,u)$ n'est pas globalement Lipschitz et qui possèdent pourtant une propriété EBEB globale.
-Par contre, la condition de stabilité exponentielle de l'équilibre est cruciale. En effet, si l'équilibre est globalement asymptotiquement stable mais pas globalement exponentiellement stable, alors le système (\ref{systnl}) n'est pas nécessairement EBEB stable, même si $f(x,u)$ est globalement Lipschitz.
+We have to notice that this last theorem is quite restrictive.  There are in fact numerous dynamic systems for which the function $f(x,u)$ is not globally a Lipschitz function and yet own a global EBEB property.
+However, the exponential stability condition for the equilibrium is crucial.  Indeed, if the equilibrium is globally asymptotically stable but not globally exponentially stable, then the system (\ref{systnl}) is not necessarily EBEB stable, even if $f(x,u)$ is globally a Lipschitz function.
 
 \section{Exercices}
 
