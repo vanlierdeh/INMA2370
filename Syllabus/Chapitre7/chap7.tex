@@ -474,60 +474,62 @@ On consid\`ere le mod\`ele d'une g\'en\'eratrice \`a courant continu (voir chapi
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Une boucle à asservissement de phase}
+% --------------------------------------------------------------------------------------------------------------
+% Pierre-Alexandre's part starts here
+\begin{exercice}{\bf \em A phase-locked loop}
 
-Une boucle à asservissement de phase (phase-locked loop) utilisée dans les réseaux  de communication est décrite par l'équation
+A phase-locked loop (Phase-Locked Loop) used in communication networks is described by the equation
 \eqnn
 \ddot y + (a + b \cos y) \dot y + u \sin y = 0
 \eeqnn
 avec $a > b > 0$ et $u(t) > 0 \, \forall t$. 
 \begin{enumerate}
-\item Mettre le système sous forme d'un modèle d'état.
-\item Déterminer les équilibres.
+\item Put the system as a state model.
+\item Determine the equilibria.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un bateau}
+\begin{exercice}{\bf \em A boat}
 
-Déterminer les équilibres du modèle d'état du bateau de l'exercice 2.7. Quel est le sens physique de ces équilibres ? \qed
+Determine the equilibria of the state model of the boat for the exercise 2.7. What is the physical meaning of these equilibria ? \qed
 \end{exercice}
 \vv 
 
-\begin{exercice}{\bf \em Un broyeur industriel}
+\begin{exercice}{\bf \em An industrial shredder}
 
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=5cm]{broyeur} \hfill
 	\includegraphics[height=5cm]{broyeur-photo}
-   \caption{Circuit de broyage - Photo d'un broyeur industriel}
+   \caption{Grinding circuit - Photo of an industrial shredder}
    \label{fig:broyeur}
 \end{figure}
-Le fonctionnement d'un circuit de broyage industriel (fig. \ref{fig:broyeur}) est d\'ecrit par le mod\`ele d'\'etat~:
+The operation of an industrial grinding circuit (fig. \ref{fig:broyeur}) is expressed by the state model~:
 \begin{equation*} \begin{split} 
 \dot x_1 &= -\gamma_1 x_1 +(1-\alpha) \phi(x_3),\\
 \dot x_2 &= -\gamma_2 x_2 +\alpha \phi(x_3),\\
 \dot x_3 &= \gamma_2 x_2 - \phi(x_3)+u.
 \end{split} \end{equation*}
-avec les notations suivantes~:\\
+with the following notations~:\\
 
 \begin{tabular}{ll}
-$x_1$&= quantit\'e de produit fini dans le s\'eparateur;\\
-$x_2$&= quantit\'e de mati\`ere recycl\'ee dans le s\'eparateur;\\
-$x_3$&= quantit\'e de mati\`ere dans le broyeur:\\
-$u $&= d\'ebit d'alimentation du broyeur.
+$x_1$&= quantity of end product in the separator;\\
+$x_2$&= amount of recycled material in the separator;\\
+$x_3$&= amount of material in the mill:\\
+$u $&= mill feed rate.
 \end{tabular}\\
 
-\noindent Le param\`etre $\alpha$ est la constante caract\'eristique du s\'eparateur. 
-($0 < \alpha < 1$). La fonction de broyage $\phi(x_3)$ est de la forme suivante~:
+\noindent The parameter$\alpha$ is the characteristic constant of separator. 
+($0 < \alpha < 1$). The function of grinding  $\phi(x_3)$ has the following form~:
 \eqnn
 \phi(x_3) = k_1x_3e^{-k_2x_3}
 \eeqnn
-où $k_1$ et $k_2$ sont des constantes positives.
+where $k_1$ et $k_2$ are positive constants.
 \begin{enumerate}
-\item Montrer qu'il s'agit d'un syst\`eme \`a compartiments et donner le graphe du syst\`eme.
-\item D\'eterminer les \'equilibres du syst\`eme.
-\item L'ensemble d\'ecrit par les in\'egalit\'es suivantes caract\'erise une situation de bourrage de l'installation. Montrer qu'il s'agit d'un invariant du syst\`eme.
+\item Show that this is a compartment system and give the graphs of system.
+\item Determine the equilibria of system.
+\item The set that is described by the following inequalities represents a jam situation. Show it is an invariant system.
 \begin{equation*} \begin{split} 
 &  x_1 \geq 0, \hspace{5mm} x_2 \geq 0, \hspace{5mm} x_3 \geq 0, \\
 &  (1 - \alpha)\phi(x_3) \leq \gamma_1x_1 < \bar u, \\ 
@@ -538,50 +540,49 @@ où $k_1$ et $k_2$ sont des constantes positives.
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un r\'eacteur biochimique}
+\begin{exercice}{\bf \em A biochemistry reactor}
 
-On consid\`ere le mod\`ele d'\'etat d'un r\'eacteur biochimique de l'exercice 6.2.
+We consider the state model of a biochemistry reactor from exercise 6.2.
 \begin{enumerate}
-\item D\'eterminer les \'equilibres du syst\`eme et esquisser les diagrammes
-d'\'equilibre.
-\item D\'eterminer les invariants r\'eactionnels du syst\`eme.
-\item Mêmes questions si la r\'eaction est r\'eversible. \qed
+\item Determine the system equilibria and sketch equilibria diagrams.
+\item Determine the invariants of the reactor.
+\item Same questions if the reactor is reversible. \qed
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{Dynamique d'une infection virale}
+\begin{exercice}{Dynamics of a viral infection}
 
-La dynamique d'un infection virale avec actions lytique et non-lytique d'immunisation est décrite par le modèle d'état suivant:
+The dynamics of a viral infection with lytic and non-lytic actions of immunization  is described by the following model state:
 \begin{equation*} \begin{split}
 \dot x_1 &= \lambda - dx_1 - \dfrac{\beta x_1 x_2}{1 + q x_3}, \\
 \dot x_2 &= \dfrac{\beta x_1 x_2}{1 + q x_3} - a x_2 - p x_2 x_3, \\
 \dot x_3 &= c x_2 - b x_3.
 \end{split} \end{equation*}
-Dans ces équations, $x_1$, $x_2$ et $x_3$ sont respectivement les quantités de cellules saines, infectées et immunes. Les cellules infectées produisent les particules virales. $\lambda$ est le taux de production des cellules saines et $d$ leur taux de mortalité. Les composants lytiques de l'activité anti-virale tuent les cellules infectées tandis que les composants non-lytique inhibent la réplication des particules virales. Les cellules infectées sont tuées  à la vitesse $p x_3$ où $p$ représente l'intensité de l'activité anti-virale lytique. La production des cellules infectées est représentée par le terme
+In these equations, $x_1$, $x_2$ et $x_3$ are respectively the quantities of healthy cells, infected and immune. The infected cells produce viral particles. $\lambda$ is the healthy cell production rate and $d$ their mortality rate. Lytic components of the anti-viral activity kill infected cells while non-lytic components inhibit replication of the viral particles. The infected cells are killed at the speed$p x_3$ with $p$ represents the intensity of anti-viral lytic activity. The production of infected cells is represented by the term
 $$
 \dfrac{\beta x_1 x_2}{1 + q x_3}
 $$
-où $q x_3$ représente l'intensité d'inhibition de la réplication par l'activité antivirale non-lytique. Le taux de mortalité des cellules infectées est $a$ et le taux de mortalité des cellules immunes est $b$. Enfin $c x_2$ est le taux de production des cellules immunes.
+where $q x_3$ represents the intensity of inhibition replication by the anti-viral non-lytic activity. The death rate of infected cells is $a$ and the death rate of immune cells is $b$. $c x_2$ is the production rate of immune cells.
 \begin{enumerate}
-\item Montrer que le modèle d'état est un système réactionnel.
-\item Montrer que le modèle d'état est équivalent à un système à compartiments.
-\item Déterminer les équilibres du système dans l'orthant positif.
+\item Show that the model state is a reaction system.
+\item Show that the model state is equivalent to a compartment systems.
+\item Find the equilibria of the system in the positive orthant.
 \end{enumerate}
 \end{exercice}
 \vv
 
 
-\begin{exercice}{\bf \em Syst\`eme m\'ecanique}
+\begin{exercice}{\bf \em Mechanical system}
 
-On consid\`ere le mod\`ele d'un syst\`eme m\'ecanique \`a un degr\'e de libert\'e~:
+We consider the modeling of a mechanical system with one degree of freedom~:
 \eqnn
 \ddot \theta + c \dot \theta + r \sin \theta = 0
 \eeqnn
 \begin{enumerate}
-\item Ecrire le mod\`ele d'\'etat du syst\`eme ($x_1 = \theta$).
-\item D\'eterminer les \'equilibres.
-\item Montrer que, sous la condition $c^2 \geq 4 r$, existe un invariant born\'e (dont l'int\'erieur est non vide) dans l'orthant $\{ x_1 \geq 0, x_2 \leq 0 \}$. \qed
+\item Wite the model state of the system ($x_1 = \theta$).
+\item Determine the equilibria.
+\item Show with the condition $c^2 \geq 4 r$, there exists an invariant bound (which interior is non-empty) in the orthant $\{ x_1 \geq 0, x_2 \leq 0 \}$. \qed
 \end{enumerate}
 \end{exercice}
 
