@@ -1132,13 +1132,6 @@ hyperbolic.
 \qed
 \end{exemple}
 
-La bifurcation que nous venons de mettre en {é}vidence
-(passage d'un foyer attractif {à} un foyer répulsif accompagn{é} d'un cycle limite, ou l'inverse) est
-appel{é}e {\em bifurcation de Hopf}. Le th{é}or{è}me suivant garantit d'ailleurs
-l'existence d'un cycle limite. Afin de l'{é}noncer de fa\c con pr{é}cise, formalisons ce qui pr{é}c{è}de.  Soit un syst{è}me plan poss{é}dant une famille d'{é}quilibres uniques $(\bar x, \bar u)$ param{é}tr{é}e par $\bar u$. On suppose qu'il existe une valeur $\bar u^*$ de $\bar u$ 
-telle que les valeurs propres de la matrice Jacobienne évaluée en cet
- {é}quilibre ont une partie r{é}elle nulle et une partie imaginaire non nulle. Ces valeurs propres d{é}pendent contin{\^u}ment de $\bar u$, au moins dans un voisinage de $\bar u^*$, et on les notera donc $$\lambda_i(\bar u)=\alpha(\bar u)\pm i \beta(\bar u).$$ On suppose en outre que $\frac{d\alpha(\bar u^*)}{d\bar u}>0$.
-
 The bifurcation we just highlighted (passage of an attractive focus for a repellent focus accompanied by a limit cycle, or vice versa) is
 called {\em Hopf bifurcation}. The following theorem guarantees elsewhere
 the existence of a limit cycle. In order to state it precisely, we formalize the above statement. 
@@ -1150,36 +1143,34 @@ and are so noted $$ \lambda_i ( \bar u) = \alpha ( \bar u) \pm i \beta ( \bar u)
 suppose further that $\ frac{ d \alpha ( \bar u ^*) {d} \bar u} > 0$ .
 
 \begin{theoreme}
-Avec les hypoth{è}ses qui pr{é}c{è}dent, si pour des valeurs de
- $\bar u$ proches de $\bar u^*$, l'{é}quilibre est attractif 
- pour $\bar u <\bar u^*$ et répulsif pour $\bar u >\bar u^*$ alors il
-  existe une orbite ferm{é}e pour $\bar u>\bar u^*$ ou pour $\bar u<\bar u^*$. 
-  En particulier, si $(\bar x^*,\bar u^*)$ est localement
-   attractif, alors il existe un cycle limite attractif autour de 
-  $(\bar x,\bar u)$ pout tout $\mu=\bar u-\bar u^*>0$, suffisamment petit.
-   De plus, l'amplitude du cycle limite augmente lorsque $\mu$ augmente.
-   \qed
+  With the assumptions above, if the values
+ $ \bar u $ are close to $ \bar u^* $ , the equilibrium is attractive
+ for $ \bar u < \bar u^* $ and repellent for $ \bar u > \bar u^* $ then
+ it is a closed orbit for $ \bar u > \bar u^* $ or $ \bar u < \bar u^* $ .
+ In particular, if $ ( \bar x^* \bar u^*)$ is locally attractive, there exists an attractive limit cycle around
+ $ (\bar x , \bar u) $ for all $ \mu = \bar u- \u^* Bar > 0$ sufficiently small.
+In addition, the amplitude of the limit cycle increases when $ \mu $ increases.
+\qed
 \end{theoreme}
    
 \begin{remarque}
-Tel quel, l'{é}nonc{é} du th{é}or{è}me reste 
-ambigu quant {à} la nature (attractive ou r{é}pulsive) de l'orbite 
-ferm{é}e qui apparaît. On peut lever cette ambiguïté au prix 
-d'un {é}nonc{é} plus technique faisant apparaître explicitement 
-les termes d'ordre trois du syst{è}me non lin{é}aire
-(voir par exemple Guckenheimer et Holmes, 
+The statement of the theorem remains
+ambiguous about the nature ( attractive or repulsive ) of the closed orbit
+that appears. We can remove this ambiguity with
+a more technical statement showing explicitly
+the terms of the third order non-linear system
+(see for example Guckenheimer et Holmes, 
 {\em Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector 
 Fields}, Springer-Verlag, 1983). 
 \end{remarque}
 
-\subsection{Bifurcation transcritique}
+\subsection{Transcritical bifurcation}
 
-Consid{é}rons  la r{é}action $$X_1
-+ X_2 \rightarrow 2 X_2$$ se produisant dans un r{é}acteur {à} volume constant, aliment{é}
-en r{é}actif $X_1$ {à} la concentration $x_1^{in}$, avec un taux de dilution $u$.
+Consider the reaction $$X_1 + X_2 \rightarrow 2 X_2$$ that is taking place in a constant volume reactor, fed by
+a reactive $X_1$ at a concentration $x_1^{in}$, and with a dilution rate of $u$.
 
-Le mod{è}le d'état du syst{è}me (en supposant une cin{é}tique de r{é}action d{é}crite
-par la loi d'action des masses) est donn{é} par
+The system state model (assuming reaction kinetics
+described by the law of mass action ) is given by
 \eqnn
 \dot x_1&=& -kx_1x_2+u(x_1^{in} -x_1)\\
 \dot x_2&=& kx_1x_2-ux_2.
