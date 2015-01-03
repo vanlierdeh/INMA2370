@@ -17,3 +17,5 @@
 
 # config file for smartcp
 config.yml
+
+*.pdf
