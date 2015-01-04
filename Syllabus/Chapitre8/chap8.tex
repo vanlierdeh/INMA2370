@@ -1225,55 +1225,64 @@ a critical value of the input (i.e. the bifurcation parameter) appear
 two new equilibria, one of them being an attractive node, the other being a pass.
 At the critical value, the balance is not hyperbolic.
 
-\subsection{Bifurcation fourche}
+\subsection{Fork bifurcation}
 
 Le mécanisme illustré à la figure \ref{fig:regwatt} est un \og régulateur de Watt \fg.  Ce dispositif peut servir à mesurer une
 vitesse de rotation à partir d'un pointeur fixé sur l'axe vertical, ou, et
 c'est pour cela qu'il a été inventé, à réguler cette vitesse si le pointeur
 est relié à une vanne d'alimentation du moteur faisant tourner
 le dispositif.
+
+The mechanism shown in figure \ref{fig:regwatt} is a \og Watt's regulator \fg. This device can be used to measure a
+rotation speed from a fixed pointer on the vertical axis, or, and
+that's why it was invented, to regulate this speed if the pointer
+is connected to a motor supply valve rotating the device .
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=4cm]{regwatt} \hspace{2cm}
    \includegraphics[height=4cm]{photo-regwatt} 
-   \caption{Régulateur de Watt}
+   \caption{Watt's regulator}
    \label{fig:regwatt}
 \end{figure}
-On peut vérifier que les équations décrivant le mouvement du système s'écrivent :
+We can verify that the equations describing the move of the system are written:
 \eqnn
 \dot x_1 &=& x_2\\
 \dot x_2 &=& u^2\cos x_1 \sin x_1 -k \sin x_1 -Kx_2
 \eeqnn
-où $x_1 = \theta$ est la position angulaire des pendules symétriques et $u$ est la vitesse de rotation.
+where $x_1 = \theta$ is the angular position of the symmetric pendulums and $u$ its rotational speed.
 
-Ce dispositif a un équilibre en $(x_1, x_2, u)=(0,0, \bar u)$ et, si $\bar
-u^2 > k,$ un autre équilibre en $(\bar x_1 = \mbox{ arc }\cos \frac{k}{\bar u^2}, 0,
-\bar u)$ avec $\bar x_1 \in [0,\frac{\pi}{2}]$.  En fait $(-\bar x_1, 0, \bar
-u)$ est aussi un équilibre qui correspondrait à la permutation des deux
-pendules, ce qui est (physiquement) impossible mais conceptuellement
-possible, d'après les équations ci-dessus.
+This device has an equlibrium in $(x_1, x_2, u)=(0,0, \bar u)$ and, if $\bar
+u^2 > k,$ another equilibirium in $(\bar x_1 = \mbox{ arc }\cos \frac{k}{\bar u^2}, 0,
+\bar u)$ with $\bar x_1 \in [0,\frac{\pi}{2}]$.  
+Actually $(-\bar x_1, 0, \bar
+u)$ is an equilibrium that would be the permutation of two
+pendulums, which is (conceptually) but not physically
+possible, according to the above equations .
 
-La matrice Jacobienne du système autour de l'équilibre $(0,0, \bar u)$
-s'écrit :
+The Jacobian matrix of the system around the equilibrium $(0,0, \bar u)$
+is written:
 $$
 A = \bma{cc}0 & 1\\ \bar u^2-k & -K
 \ema
 $$
-Cet équilibre est attractif pour $\bar u^2 < k$ et répulsif pour $\bar u^2>k$.  Pour $\bar u^2
-= k$, l'équilibre n'est pas hyperbolique.
 
-Autour des deux autres équilibres, la matrice Jacobienne devient :
+This equilibrium is attractive for $\bar u^2 < k$ and repellent for $\bar u^2>k$. For $\bar u^2
+= k$, the equilibrium is not hyperbolic .
+
+Around the other two equilibriua, the Jacobian matrix becomes: 
 $$
 A = \bma{cc} 0 & 1\\ \frac{k^2}{\bar u^2} -\bar u^2 & -K \ema \mbox{ avec } \bar u^2 > k
 \Rightarrow \bar u^4 > k^2
 $$
-Ces équilibres sont donc attractifs.  Le diagramme de bifurcation peut alors
-s'illustrer comme indiqué à la figure \ref{fig:biffourche}.  Il s'agit d'une bifurcation de
-type fourche.
+
+These equilibria are therefore attractive. The bifurcation diagram can then
+be illustrated as shown in figure \ref{fig:biffourche}. This is a fork type bifurcation.
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=5cm]{biffourche} 
-   \caption{Diagramme d'équilibres - bifurcation fourche}
+   \caption{Equilibria diagrams - fork bifurcation}
    \label{fig:biffourche}
 \end{figure}
  
