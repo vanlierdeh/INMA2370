@@ -1324,48 +1324,62 @@ is quadratic?
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un réacteur chimique}
+\begin{exercice}{\bf \em A chemical reactor}
 
-Soit un réacteur continu parfaitement mélangé et à volume
-constant dans lequel se déroule une réaction chimique 
-irréversible mettant en oeuvre deux espèces $A$ et $B$~:
+Suppose a perfectly mixed continuous reactor with constant volume 
+in which an irreversible chemical reaction takes place 
+using two species $A$ and $B$~:
+
 \eqnn
 A \longrightarrow B.
 \eeqnn
-Le réacteur est alimenté uniquement avec l'espèce $A$, à
-débit volumique constant strictement positif. La variable d'entrée est
-la concentration d'alimentation du réacteur. La cinétique de réaction
-est une fonction des concentrations des deux espèces : $r(x_A,x_B)$. 
+The reactor is fed only with species $A$, at 
+strictly positive constant volume flow. The input variable is
+the reactor feed concentration. The reaction kinetics
+is a function of the concentrations of the two species: $r(x_A,X_B)$ .
+
 \begin{enumerate}
-\item Etablir le modèle d'état du système.
-\item Montrer que, à entrée constante,  l'équilibre est unique et
-stable si la cinétique obéit à la loi d'action des masses avec inhibition
-hyperbolique par le produit.  Est-ce un noeud ou un foyer ?
-\item Montrer que le système peut avoir des équilibres instables 
-si la cinétique est une fonction monotone croissante de ses
-arguments. 
+\item Establish the state system model.
+\item Show that, at constant input, the equilibrium is unique and
+stable if the kinetics obeys the law of mass action with hyperbolic inhibition
+by the product. Is that a node or a focus?
+
+\item Show that the system can have unstable equilibria 
+if the kinetics is a monotonically increasing function of its
+arguments.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice} {\bf \em Un système à compartiments}
+\begin{exercice} {\bf \em A compartment system}
 
 Quelles sont les conditions sur la structure du graphe d'un
 système linéaire à deux compartiments pour que le système ait
 une ou deux valeur propres nulles ? Quel est alors le comportement du
 système (détailler les différents cas possibles) ?
+
+What are the conditions on the structure of a two-compartment linear graph system so that the system has
+one or two null eigenvalues? What is then the behavior of the
+system (detail the possible various cases)?
+
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Génératrice DC avec auto-excitation}
+\begin{exercice}{\bf \em DC generator with self-excitation}
 
 On considère une génératrice DC avec auto-excitation. La tension induite est, à vitesse constante, une fonction {\em monotone
 croissante bornée} du courant d'excitation $E(I_s)$ telle que $E(0) >
 0$. La génératrice débite sur une charge résistive. L'entrée de
 commande du système est la vitesse de rotation de la
 génératrice.
+
+Consider a DC generator with self-excitation. The induced voltage is at constant speed, a {\em monotone increasing bounded} 
+function of  the excitation current $E( I_S)$ such that $E(0)>0$. 
+The generator delivers a resistive load. The system entrance control is the speed of rotation of the
+generator.
+
 \begin{enumerate}
-\item Déterminer le modèle d'état du système.
+\item Determine the state system model
 \item Montrer qu'on peut choisir le sens de référence des courants pour que le système soit positif.
 \item Quelle allure doit avoir la fonction $E(I_s)$ pour qu'il y ait trois
 équilibres hyperboliques isolés à vitesse de rotation constante. Discuter la
