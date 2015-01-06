@@ -922,212 +922,241 @@ p{é}riodiques). \qed
 
 \section{Bifurcations}
 
-Nous avons choisi d'{é}tudier dans ce chapitre l'allure des trajectoires de syst{è}mes plans pour une valeur constante de l'entr{é}e, $\bar u$. Cette valeur n'{é}tant pas
-n{é}cessairement fix{é}e {\em a priori}, il est int{é}ressant d'analyser dans quelle
-mesure les trajectoires seront influenc{é}es par des changements de $\bar u$. Le
-th{é}or{è}me~\ref{Hart} nous donne d{é}j{à} une indication. Tant que l'{é}quilibre autour
-duquel on analyse les trajectoires est hyperbolique, de petites variations de $\bar u$ ne
-d{é}placeront pas beaucoup les valeurs propres de la matrice d'{é}tat de l'approximation
-lin{é}aire du syst{è}me, et l'allure des trajectoires restera similaire. Mais en faisant
-varier l'entr{é}e constante $\bar u$, il peut arriver que les
-valeurs propres de la matrice d'{é}tat atteignent l'axe imaginaire du plan complexe, et
-dans ce cas il faut s'attendre
-{à} une modification fondamentale de l'allure des trajectoires. Plus globalement, les
-diagrammes d'{é}quilibre {é}tudi{é}s au chapitre pr{é}c{é}dent montrent {é}galement qu'en
-faisant varier $\bar u$, on peut modifier le nombre de points d'{é}quilibre du syst{è}me,
-autant que leur nature. L'{é}tude des modifications de la nature et/ou du nombre des
-{é}quilibres en fonction de l'{é}volution de l'entr{é}e du syst{è}me
-rel{è}ve de ce qu'on appelle la th{é}orie des bifurcations, et l'entr{é}e constante $\bar u$ est alors
-appel{é}e {\em param{è}tre de bifurcation}. Nous illustrons ci-dessous ce concept en
-pr{é}sentant quatre types de bifurcations qui se rencontrent dans les syst{è}mes plans.
+In this chapter we chose to study the type of systems planning trajectories for a constant 
+value of the input $\bar u$ . This value is not necessarily {\em before} determined, 
+it is interesting to analyze how the trajectories will be influenced by changing $\bar u$.
+The theorem ~\ref{Hart} already gives us an indication. As long as the equilibrium around
+which the hyperbolic trajectories are analyzed, small variations in $\bar u$
+won't move much the eigenvalues of the state matrix of the linear approximation
+of the system, and the curves of the trajectories remain similar.
 
-\subsection{Bifurcation de Hopf}
+But by varying the constant input $\bar u$, it may happen that eigenvalues of the state matrix 
+reach the imaginary axis of the complex plane, and
+in this case, a fundamental change is expected in the shape of trajectories.
 
-\begin{exemple} {\em\bf Circuit {à} diode tunnel (suite)}
+More generally, equilibrium diagrams studied in the previous chapter also show that by
+varying $\bar u$ we can change the number of system equilibrium points as well as their kind.
 
-Reprenons à nouveau l'exemple du circuit à diode tunnel en faisant varier l'entr{é}e 
-$\bar u$ (c.{à}.d. la r{é}sistance variable $R$), avec une source de tension constante $E=1.5$.
-La  figure~\ref{fig:eqdiohop} illustre comment l'{é}quilibre unique se d{é}place lorsque $\bar u$ varie. Le tableau suivant caract{é}rise le type d'{é}quilibre rencontr{é} en fonction de $\bar u$.
+The study of changes in the nature and/or the number of
+equilibria depending on the evolution of the system input
+falls under what is called the bifurcation theory and the constant input $\bar u$ is then
+called {\em parameter bifurcation}. We illustrate below this concept
+having four types of bifurcations that occur in planes systems.
+
+\subsection{Hopf bifurcation}
+
+\begin{exemple} {\em\bf Diode tunnel circuit (ctd)}
+
+Resuming again the example of the diode tunnel circuit by varying the input
+$\bar u$ (i.e. the variable resistor $R$ ), with a constant voltage source $E = 1.5$.
+
+The figure ~\ref{fig:eqdiohop} illustrates how the unique equilibrium moves when $\bar u$ changes. 
+The following table characterizes the equilibrium type in function of $\bar u$.
+
 \begin{figure}[htbp] 
 \centering
 \includegraphics[height=65mm]{eqdiohop} 
-\caption{Equilibre du circuit à diode tunnel lorsque la résistance $R$ varie.}
+\caption{Equilibrium of the tunnel diode circuit when the resistance $R$ varies.}
 \label{fig:eqdiohop}
 \end{figure}
+%\begin{table}
+%\begin{tabular}{|c|c|c|c|c|}\hline
+%$\bar u$&$\bar x_2$&$h'(\bar x_2)$&valeurs&type\\ 
+%&&&propres&d'{é}quilibre\\ \hline
+%$\bar u >0.7139$&$\bar x_2 < 0.5918$&$h'(\bar x_2)>0$&$\lambda_{1,2} \in C^-$&foyer\\
+%&&&&attractif\\ \hline
+%$0.1261<\bar u$&$0.5918< \bar x_2 $&$h'(\bar x_2)<0$&$\lambda_{1,2} \in  
+%C^+$&foyer\\ $<.7139$&$< 1.4082$&&&répulsif\\ \hline
+%$\bar u<0.1261$&$ \bar x_2 > 1.4082$&$2.5 >h'(\bar x_2)>0$&$\lambda_{1,2} \in
+%  C^-$&foyer\\
+%&&&&attractif\\ \hline
+%\end{tabular}
+%\end{table}
+
 \begin{table}
 \begin{tabular}{|c|c|c|c|c|}\hline
-$\bar u$&$\bar x_2$&$h'(\bar x_2)$&valeurs&type\\ 
-&&&propres&d'{é}quilibre\\ \hline
-$\bar u >0.7139$&$\bar x_2 < 0.5918$&$h'(\bar x_2)>0$&$\lambda_{1,2} \in C^-$&foyer\\
-&&&&attractif\\ \hline
+$\bar u$&$\bar x_2$&$h'(\bar x_2)$&eigen&equilibrium\\ 
+&&&values&type\\ \hline
+$\bar u >0.7139$&$\bar x_2 < 0.5918$&$h'(\bar x_2)>0$&$\lambda_{1,2} \in C^-$&focus\\
+&&&&attractive\\ \hline
 $0.1261<\bar u$&$0.5918< \bar x_2 $&$h'(\bar x_2)<0$&$\lambda_{1,2} \in  
-C^+$&foyer\\ $<.7139$&$< 1.4082$&&&répulsif\\ \hline
+C^+$&focus\\ $<.7139$&$< 1.4082$&&&répulsif\\ \hline
 $\bar u<0.1261$&$ \bar x_2 > 1.4082$&$2.5 >h'(\bar x_2)>0$&$\lambda_{1,2} \in
-  C^-$&foyer\\
-&&&&attractif\\ \hline
+  C^-$&focus\\
+&&&&attractive\\ \hline
 \end{tabular}
 \end{table}
-D{è}s lors, si l'on part d'une valeur de  la r{é}sistance variable $\bar u$ suffisamment grande, telle que le point d'{é}quilibre se
-trouve {à} gauche du premier sommet de la courbe caract{é}ristique de la diode, et que
-l'on diminue progressivement cette valeur, on passe successivement par les configurations suivantes~:  un foyer attractif, un foyer répulsif (associ{é} {à} un cycle limite), un foyer
-attractif. Au moment des deux transitions entre foyer attractif et
-répulsif, le syst{è}me passe par une valeur telle que le point d'{é}quilibre n'est pas
-hyperbolique. 
+
+Therefore, if one starts with a value of the variable resistor $\bar u$ large enough such that the equilibrium point
+located to the left of the first peak of the characteristic curve of the diode, and that
+it gradually decreases this value, it cycles through the following configurations ~ : 
+an attractive focus, repellent focus (associated with a limit cycle ), an
+attractive focus. At the time of the two transitions between attractive
+repellent focus, the system passes through a value such that the equilibrium point is not
+hyperbolic.
 \qed
 \end{exemple}
 
-La bifurcation que nous venons de mettre en {é}vidence
-(passage d'un foyer attractif {à} un foyer répulsif accompagn{é} d'un cycle limite, ou l'inverse) est
-appel{é}e {\em bifurcation de Hopf}. Le th{é}or{è}me suivant garantit d'ailleurs
-l'existence d'un cycle limite. Afin de l'{é}noncer de fa\c con pr{é}cise, formalisons ce qui pr{é}c{è}de.  Soit un syst{è}me plan poss{é}dant une famille d'{é}quilibres uniques $(\bar x, \bar u)$ param{é}tr{é}e par $\bar u$. On suppose qu'il existe une valeur $\bar u^*$ de $\bar u$ 
-telle que les valeurs propres de la matrice Jacobienne évaluée en cet
- {é}quilibre ont une partie r{é}elle nulle et une partie imaginaire non nulle. Ces valeurs propres d{é}pendent contin{\^u}ment de $\bar u$, au moins dans un voisinage de $\bar u^*$, et on les notera donc $$\lambda_i(\bar u)=\alpha(\bar u)\pm i \beta(\bar u).$$ On suppose en outre que $\frac{d\alpha(\bar u^*)}{d\bar u}>0$.
+The bifurcation we just highlighted (passage of an attractive focus for a repellent focus accompanied by a limit cycle, or vice versa) is
+called {\em Hopf bifurcation}. The following theorem guarantees elsewhere
+the existence of a limit cycle. In order to state it precisely, we formalize the above statement. 
+Suppose a plan system with a unique equilibria family $(\bar x , \bar u)$ parameterized by $\bar u$. 
+Suppose that there exists a value of $\bar u^*$ of $ \ bar u $ such that the eigenvalues
+of the Jacobian matrix evaluated in this balance have a zero real part and a non-zero imaginary part. 
+These values depend continuously on $\bar u$, at least in the neighborhood of $\bar u ^*$, 
+and are so noted $$ \lambda_i ( \bar u) = \alpha ( \bar u) \pm i \beta ( \bar u).$$ 
+suppose further that $\ frac{ d \alpha ( \bar u ^*) {d} \bar u} > 0$ .
 
 \begin{theoreme}
-Avec les hypoth{è}ses qui pr{é}c{è}dent, si pour des valeurs de
- $\bar u$ proches de $\bar u^*$, l'{é}quilibre est attractif 
- pour $\bar u <\bar u^*$ et répulsif pour $\bar u >\bar u^*$ alors il
-  existe une orbite ferm{é}e pour $\bar u>\bar u^*$ ou pour $\bar u<\bar u^*$. 
-  En particulier, si $(\bar x^*,\bar u^*)$ est localement
-   attractif, alors il existe un cycle limite attractif autour de 
-  $(\bar x,\bar u)$ pout tout $\mu=\bar u-\bar u^*>0$, suffisamment petit.
-   De plus, l'amplitude du cycle limite augmente lorsque $\mu$ augmente.
-   \qed
+  With the assumptions above, if the values
+ $ \bar u $ are close to $ \bar u^* $ , the equilibrium is attractive
+ for $ \bar u < \bar u^* $ and repellent for $ \bar u > \bar u^* $ then
+ it is a closed orbit for $ \bar u > \bar u^* $ or $ \bar u < \bar u^* $ .
+ In particular, if $ ( \bar x^* \bar u^*)$ is locally attractive, there exists an attractive limit cycle around
+ $ (\bar x , \bar u) $ for all $ \mu = \bar u- \u^* Bar > 0$ sufficiently small.
+In addition, the amplitude of the limit cycle increases when $ \mu $ increases.
+\qed
 \end{theoreme}
    
 \begin{remarque}
-Tel quel, l'{é}nonc{é} du th{é}or{è}me reste 
-ambigu quant {à} la nature (attractive ou r{é}pulsive) de l'orbite 
-ferm{é}e qui apparaît. On peut lever cette ambiguïté au prix 
-d'un {é}nonc{é} plus technique faisant apparaître explicitement 
-les termes d'ordre trois du syst{è}me non lin{é}aire
-(voir par exemple Guckenheimer et Holmes, 
+The statement of the theorem remains
+ambiguous about the nature ( attractive or repulsive ) of the closed orbit
+that appears. We can remove this ambiguity with
+a more technical statement showing explicitly
+the terms of the third order non-linear system
+(see for example Guckenheimer et Holmes, 
 {\em Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector 
 Fields}, Springer-Verlag, 1983). 
 \end{remarque}
 
-\subsection{Bifurcation transcritique}
+\subsection{Transcritical bifurcation}
 
-Consid{é}rons  la r{é}action $$X_1
-+ X_2 \rightarrow 2 X_2$$ se produisant dans un r{é}acteur {à} volume constant, aliment{é}
-en r{é}actif $X_1$ {à} la concentration $x_1^{in}$, avec un taux de dilution $u$.
+Consider the reaction $$X_1 + X_2 \rightarrow 2 X_2$$ that is taking place in a constant volume reactor, fed by
+a reactive $X_1$ at a concentration $x_1^{in}$, and with a dilution rate of $u$.
 
-Le mod{è}le d'état du syst{è}me (en supposant une cin{é}tique de r{é}action d{é}crite
-par la loi d'action des masses) est donn{é} par
+The system state model (assuming reaction kinetics
+described by the law of mass action ) is given by
 \eqnn
 \dot x_1&=& -kx_1x_2+u(x_1^{in} -x_1)\\
 \dot x_2&=& kx_1x_2-ux_2.
 \eeqnn
 
-Le syst{è}me poss{è}de deux {é}quilibres distincts pour chaque valeur constante de
-l'entr{é}e $\bar u \neq kx_1^{in}$~: $(x_1^{in},0,\bar u)$ et $(\bar u/k,x_1^{in}-\bar
-u/k,\bar u)$, comme illustr{é} {à} la figure~\ref{fig:diageqtc}.
+The system has two separate balance for each constant value of
+entry $\bar u \neq kx_1^{in}$~: $(x_1^{in},0,\bar u)$ and $(\bar u/k,x_1^{in}-\bar
+u/k,\bar u)$, as shown in Figure~\ref{fig:diageqtc}.
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=4.6cm]{diageqtc} 
-   \caption{Diagramme d'{é}quilibres - Bifurcation transcritique}
+   \caption{Equilibrium diagram - Transcritical bifurcation}
    \label{fig:diageqtc}
 \end{figure}
-On v{é}rifie facilement que le premier {é}quilibre est attractif si $\bar u > kx_1^{in}$ et
-est un col sinon. Inversement, le deuxi{è}me {é}quilibre est attractif pour les petites
-valeurs de $\bar u$ et devient un col si  $\bar u > kx_1^{in}$. Il y a donc ici aussi une
-bifurcation, plus simple toutefois, les caract{é}ristiques des deux {é}quilibres {é}tant
-{é}chang{é}es lorsque le param{è}tre de bifurcation $\bar u$ franchit la valeur critique
-$kx_1^{in}$. Cette bifurcation est appel{é}e {\em bifurcation transcritique}. On
-v{é}rifie {é}galement qu'{à} cette valeur critique, l'{é}quilibre (unique) est non
-hyperbolique.
 
-\subsection{Bifurcation col-noeud}
+We easily verify that the first equilibrium is attractive if $\bar u > kx_1^{in}$ and
+is otherwise a pass. Conversely, the second balance is attractive for small values of $\bar u$  
+and becomes a pass if $\bar u > kx_1^{in}$. There is therefore here also has a
+bifurcation, simpler , however , the characteristics of the two equilibria are
+exchanged when the bifurcation parameter $\bar u$ crosses the critical value $kx_1^{in}$. 
+This bifurcation is called { \em transcritical bifurcation }. We
+also verify that at this critical value, the (unique) equilibrium is not
+hyperbolic .
 
-Le troisi{è}me type de bifurcation est illustr{é} par l'exemple du r{é}acteur chimique
-exothermique d{é}crit {à} la section~7.1. Rappelons que le diagramme d'{é}quilibre
-reliant la temp{é}rature d'{é}quilibre du r{é}acteur, $\bar T$, {à} l'apport calorifique
-externe, $\bar u$, a l'allure illustr{é}e {à} la figure~\ref{fig:diageqcn}.
+\subsection{Pass-node bifurcation}
+
+The third type of bifurcation is illustrated by the example of the exothermic chemical reactor
+described in section~7.1. Recall that the equilibrium diagram
+connecting the temperature of balance of the reactor, $\bar T$ , to the heat external heat input, 
+$\bar u$, has the appearance shown in figure~\ref{fig:diageqcn}.
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=5cm]{diageqcn} 
-   \caption{Diagramme d'{é}quilibres - Bifurcation col-noeud}
+   \caption{Equilibrium diagram - Pass-node bifurcation}
    \label{fig:diageqcn}
 \end{figure}
-On constate donc que pour de faibles valeurs de $\bar u$, le syst{è}me poss{è}de un seul
-point d'{é}quilibre correspondant {à} une temp{é}rature d'{é}quilibre basse et {à} une
-grande concentration de r{é}actif dans le r{é}acteur (et d{è}s lors une faible
-concentration du produit de la r{é}action). On peut v{é}rifier que cet {é}quilibre est
-attractif. Puis, pour une valeur critique de $\bar u$ que l'on rep{è}re facilement sur le
-diagramme d'{é}quilibre, le syst{è}me passe {à} trois valeurs d'{é}quilibre pour la
-temp{é}rature, celle du milieu correspondant {à} un {é}quilibre attractif et les deux autres
-{à} des {é}quilibres répulsifs. Enfin, en augmentant encore $\bar u$, on franchit une
-nouvelle valeur critique au del{à} de laquelle le syst{è}me ne poss{è}de plus qu'un seul
-{é}quilibre, attractif {é}galement. Il s'agit ici de {\em bifurcation col-noeud}. A partir
-d'une valeur critique de l'entr{é}e (c.{à}.d. du param{è}tre de bifurcation) apparaissent
-deux nouveaux {é}quilibres, l'un d'eux {é}tant un noeud attractif, l'autre {é}tant un col.
-A la valeur critique, l'{é}quilibre n'est pas hyperbolique.
+We notice that for small values of $\bar u$, the system has a single
+equilibrium point corresponding to an equilibrium of lower temperature and at
+big concentration of reactive in the reactor (and therefore a low concentration of the reaction product ).
+We can verify that this equilibrium is attractive.
+Then, for a critical value of $\bar u$ that is easily identified on the
+equilibrium diagram, the system proceeds to three equilibrium values for the
+temperature, the middle corresponding to an attractive balance and the other two
+repellent equilibria.
 
-\subsection{Bifurcation fourche}
+Finally, by further increasing $ \bar u$, we cross
+a new critical value beyond which the system also no longer has a single
+balance. This is the {\em saddle-node bifurcation}. From
+a critical value of the input (i.e. the bifurcation parameter) appear
+two new equilibria, one of them being an attractive node, the other being a pass.
+At the critical value, the balance is not hyperbolic.
 
-Le mécanisme illustré à la figure \ref{fig:regwatt} est un \og régulateur de Watt \fg.  Ce dispositif peut servir à mesurer une
-vitesse de rotation à partir d'un pointeur fixé sur l'axe vertical, ou, et
-c'est pour cela qu'il a été inventé, à réguler cette vitesse si le pointeur
-est relié à une vanne d'alimentation du moteur faisant tourner
-le dispositif.
+\subsection{Fork bifurcation}
+
+The mechanism shown in figure \ref{fig:regwatt} is a \og Watt's regulator \fg. This device can be used to measure a
+rotation speed from a fixed pointer on the vertical axis, or, and
+that's why it was invented, to regulate this speed if the pointer
+is connected to a motor supply valve rotating the device .
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=4cm]{regwatt} \hspace{2cm}
    \includegraphics[height=4cm]{photo-regwatt} 
-   \caption{Régulateur de Watt}
+   \caption{Watt's regulator}
    \label{fig:regwatt}
 \end{figure}
-On peut vérifier que les équations décrivant le mouvement du système s'écrivent :
+We can verify that the equations describing the move of the system are written:
 \eqnn
 \dot x_1 &=& x_2\\
 \dot x_2 &=& u^2\cos x_1 \sin x_1 -k \sin x_1 -Kx_2
 \eeqnn
-où $x_1 = \theta$ est la position angulaire des pendules symétriques et $u$ est la vitesse de rotation.
+where $x_1 = \theta$ is the angular position of the symmetric pendulums and $u$ its rotational speed.
 
-Ce dispositif a un équilibre en $(x_1, x_2, u)=(0,0, \bar u)$ et, si $\bar
-u^2 > k,$ un autre équilibre en $(\bar x_1 = \mbox{ arc }\cos \frac{k}{\bar u^2}, 0,
-\bar u)$ avec $\bar x_1 \in [0,\frac{\pi}{2}]$.  En fait $(-\bar x_1, 0, \bar
-u)$ est aussi un équilibre qui correspondrait à la permutation des deux
-pendules, ce qui est (physiquement) impossible mais conceptuellement
-possible, d'après les équations ci-dessus.
+This device has an equlibrium in $(x_1, x_2, u)=(0,0, \bar u)$ and, if $\bar
+u^2 > k,$ another equilibirium in $(\bar x_1 = \mbox{ arc }\cos \frac{k}{\bar u^2}, 0,
+\bar u)$ with $\bar x_1 \in [0,\frac{\pi}{2}]$.  
+Actually $(-\bar x_1, 0, \bar
+u)$ is an equilibrium that would be the permutation of two
+pendulums, which is (conceptually) but not physically
+possible, according to the above equations .
 
-La matrice Jacobienne du système autour de l'équilibre $(0,0, \bar u)$
-s'écrit :
+The Jacobian matrix of the system around the equilibrium $(0,0, \bar u)$
+is written:
 $$
 A = \bma{cc}0 & 1\\ \bar u^2-k & -K
 \ema
 $$
-Cet équilibre est attractif pour $\bar u^2 < k$ et répulsif pour $\bar u^2>k$.  Pour $\bar u^2
-= k$, l'équilibre n'est pas hyperbolique.
 
-Autour des deux autres équilibres, la matrice Jacobienne devient :
+This equilibrium is attractive for $\bar u^2 < k$ and repellent for $\bar u^2>k$. For $\bar u^2
+= k$, the equilibrium is not hyperbolic .
+
+Around the other two equilibriua, the Jacobian matrix becomes: 
 $$
 A = \bma{cc} 0 & 1\\ \frac{k^2}{\bar u^2} -\bar u^2 & -K \ema \mbox{ avec } \bar u^2 > k
 \Rightarrow \bar u^4 > k^2
 $$
-Ces équilibres sont donc attractifs.  Le diagramme de bifurcation peut alors
-s'illustrer comme indiqué à la figure \ref{fig:biffourche}.  Il s'agit d'une bifurcation de
-type fourche.
+
+These equilibria are therefore attractive. The bifurcation diagram can then
+be illustrated as shown in figure \ref{fig:biffourche}. This is a fork type bifurcation.
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=5cm]{biffourche} 
-   \caption{Diagramme d'équilibres - bifurcation fourche}
+   \caption{Equilibria diagrams - fork bifurcation}
    \label{fig:biffourche}
 \end{figure}
  
-\subsection{Généralisations}
+\subsection{Generalisations}
 
-Nous avons d{é}crit dans cette section les bifurcations
-relatives {à} des syst{è}mes d'ordre deux d{é}pendant d'un param{è}tre (la valeur de $\bar
-u$). Ces bifurcations sont caract{é}ris{é}es par la travers{é}e de l'axe imaginaire du
-plan complexe par une valeur propre r{é}elle de l'approximation lin{é}aire ou par une
-paire de valeurs propres complexes conjugu{é}es (bifurcation de Hopf).  Lorsqu'un
-syst{è}me d'ordre plus grand que deux d{é}pend d'un param{è}tre variable, il est rare que
-plus d'une valeur propre r{é}elle (ou plus d'une paire de valeurs propres complexes
-conjugu{é}es) franchisse l'axe imaginaire pour la m{ê}me valeur du param{è}tre de
-bifurcation. Ce que nous venons de d{é}crire s'observe d{è}s lors aussi, dans des espaces
-de phase plus compliqu{é}s {à} visualiser, pour des syst{è}mes d'ordre
- sup{é}rieur.  
+In this section we have described bifurcations
+for the systems of order two depending on a parameter (the value of $\bar u$). 
+These bifurcations are characterized by crossing the imaginary axis
+complex plane by a real eigenvalue of the linear approximation or a
+pair of complex conjugate eigenvalues (Hopfs bifurcation). When
+systems of larger order then two depends on a variable parameter, it is rare
+that more then one real eigenvalue (or more than one pair of combined complex eigenvalues) 
+crosses the imaginary axis for the same value of the bifurcation parameter. 
+What we have just described occurs therefore also, in phase spaces
+more complicated to visualize, for systems of higher order.
 
 \newpage
 \section{Exercices}
@@ -1136,111 +1165,117 @@ Systèmes plans}
 {{\bf Sec. \thesection}\hfill Exercices
 \hspace*{5mm}}
  
-\begin{exercice} {\bf \em Un système mécanique}
+\begin{exercice} {\bf \em A mechanical system}
 
-On considère un robot manipulateur à un segment relié à un
-chassis  fixe par une articulation rotoïde. Le robot se déplace dans un
-plan vertical. Il est actionné par un moteur produisant un couple
-appliqué
-à l'articulation et est soumis à un couple de frottement visqueux. La
-flexibilité est négligée.
+We considering a manipulator robot made from a segment connected to a fixed frame by a rotating joint. 
+The robot moves in a vertical plane. It is powered by a motor producing a torque
+applied to the joint and is subjected to a torque of viscous friction. Flexibility is neglected.
+
 \begin{enumerate}
-\item Etablir le modèle d'état du système.
-\item Déterminer les configurations d'équilibre.
-\item Analyser le comportement des trajectoires au voisinage des
-équilibres en cas de frottement visqueux linéaire quand le couple
-appliqué est constant.
-\item Que peut-on dire des équilibres quand le frottement visqueux
-est quadratique ?
+\item Establish the state system model
+\item Determine the equilibria configurations
+\item Analyze the behavior of the trajectories in the neighborhood of
+equilibria with linear viscous friction when the couple
+applied is constant.
+\item What can you say about the equilibrium when the viscous friction
+is quadratic?
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Un réacteur chimique}
+\begin{exercice}{\bf \em A chemical reactor}
 
-Soit un réacteur continu parfaitement mélangé et à volume
-constant dans lequel se déroule une réaction chimique 
-irréversible mettant en oeuvre deux espèces $A$ et $B$~:
+Suppose a perfectly mixed continuous reactor with constant volume 
+in which an irreversible chemical reaction takes place 
+using two species $A$ and $B$~:
+
 \eqnn
 A \longrightarrow B.
 \eeqnn
-Le réacteur est alimenté uniquement avec l'espèce $A$, à
-débit volumique constant strictement positif. La variable d'entrée est
-la concentration d'alimentation du réacteur. La cinétique de réaction
-est une fonction des concentrations des deux espèces : $r(x_A,x_B)$. 
+The reactor is fed only with species $A$, at 
+strictly positive constant volume flow. The input variable is
+the reactor feed concentration. The reaction kinetics
+is a function of the concentrations of the two species: $r(x_A,X_B)$ .
+
 \begin{enumerate}
-\item Etablir le modèle d'état du système.
-\item Montrer que, à entrée constante,  l'équilibre est unique et
-stable si la cinétique obéit à la loi d'action des masses avec inhibition
-hyperbolique par le produit.  Est-ce un noeud ou un foyer ?
-\item Montrer que le système peut avoir des équilibres instables 
-si la cinétique est une fonction monotone croissante de ses
-arguments. 
+\item Establish the state system model.
+\item Show that, at constant input, the equilibrium is unique and
+stable if the kinetics obeys the law of mass action with hyperbolic inhibition
+by the product. Is that a node or a focus?
+
+\item Show that the system can have unstable equilibria 
+if the kinetics is a monotonically increasing function of its
+arguments.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice} {\bf \em Un système à compartiments}
+\begin{exercice} {\bf \em A compartment system}
 
-Quelles sont les conditions sur la structure du graphe d'un
-système linéaire à deux compartiments pour que le système ait
-une ou deux valeur propres nulles ? Quel est alors le comportement du
-système (détailler les différents cas possibles) ?
+What are the conditions on the structure of a two-compartment linear graph system so that the system has
+one or two null eigenvalues? What is then the behavior of the
+system (detail the possible various cases)?
+
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em Génératrice DC avec auto-excitation}
+\begin{exercice}{\bf \em DC generator with self-excitation}
 
-On considère une génératrice DC avec auto-excitation. La tension induite est, à vitesse constante, une fonction {\em monotone
-croissante bornée} du courant d'excitation $E(I_s)$ telle que $E(0) >
-0$. La génératrice débite sur une charge résistive. L'entrée de
-commande du système est la vitesse de rotation de la
-génératrice.
+Consider a DC generator with self-excitation. The induced voltage is at constant speed, a {\em monotone increasing bounded} 
+function of  the excitation current $E( I_S)$ such that $E(0)>0$. 
+The generator delivers a resistive load. The system entrance control is the speed of rotation of the
+generator.
+
 \begin{enumerate}
-\item Déterminer le modèle d'état du système.
-\item Montrer qu'on peut choisir le sens de référence des courants pour que le système soit positif.
-\item Quelle allure doit avoir la fonction $E(I_s)$ pour qu'il y ait trois
-équilibres hyperboliques isolés à vitesse de rotation constante. Discuter la
-stabilité de ces équilibres.
-\item Etudier les bifurcations de la configuration d'équilibre en fonction de la vitesse de rotation.
+\item Determine the state system model
+\item Show that we can choose the direction of the reference current for the system to be positive.
+\item Of what type must the function $E(I_S)$ be for there to be three
+isolated hyperbolic equilibria at constant rotational speed. Discuss the stability of these equilibria.
+\item Study the bifurcation configuration in function of the rotational speed equilibrium.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice} {\bf \em Circuit électrique RLC} 
+\begin{exercice} {\bf \em RLC electric circuit} 
 
-On considère le circuit électrique linéaire suivant :
+We consider the folowwing linear electric circuit:
 \begin{figure}[h] 
    \centering
    \includegraphics[height=25mm]{E8-5} 
-   \caption{Circuit électrique RLC}
+   \caption{RLC electric circuit}
    \label{fig:E8-5}
 \end{figure}
 
 où $R_2 = 1\Omega, C = 1F$ et $L = 1H$.
 
 \begin{enumerate}
-\item Ecrire un modèle d'état.
-\item Déterminer les équilibres.
-\item Quelles sont les conditions sur $R_1$ pour que chaque équilibre soit un
-noeud, un foyer ou un col?
+\item Write a state model.
+\item Determine the equilibria.
+\item What are the conditions on $R_1$ for each equilibrium to be a
+node, a focus or a pass ?
 \end{enumerate}
 
 On considère le même circuit électrique mais avec $R_1 = 1\Omega$ et $R_2$ une résistance non
 linéaire décrite par la relation tension-courant $v_r = i^3_r - 3i^2_r + i_r$
+We consider the same circuit but with $R_1 = 1\Omega$ and $R_2$ a non linear resistance
+described by the current-voltage relationship $v_r = i^3_r - 3i^2_r + i_r$.
 \begin{enumerate}
-\item Calculer les équilibres du système.
-\item Caractériser le comportement du système au voisinage de ces équilibres.
+\item Calculate the equilibria of the system.
+\item Characterize the behavior of the system in the vicinity of these equilibria.
 \end{enumerate}
 \end{exercice}
 \vv 
 
-\begin{exercice}{\bf \em Modélisation d'une activité de pêche.}
+\begin{exercice}{\bf \em Modeling of a fishing activity.}
 
-Dans un lac vit une espèce de poissons dont la croissance obéit à une loi logistique. Les poissons sont capturés par des pêcheurs suivant un principe d'action des masses. Les pêcheurs sont attirés vers le lac avec un taux directement proportionnel à la quantité de poissons dans le lac. Par contre les  pêcheurs sont découragés de pêcher avec un taux directement proportionnel au nombre de pêcheurs déjà présents.
+In a lake lives a fish species whose growth follows a logistic law. 
+The fish are caught by fishermen following a principle of action of the masses. 
+Fishermen are drawn to the lake with a rate directly proportional to the amount of fish in the lake. 
+As against the fishermen are discouraged to fish with a rate directly proportional to the number of fishermen already at the lake.
+
 \begin{enumerate}
-\item Etablir un modèle d'état du système.
-\item Etudier l'existence et la stabilité des états d'équilibre.
+\item Establish a state system model.
+\item Study the existence and the stability of the equilibria states. 
 \end{enumerate}
 \end{exercice}
 
