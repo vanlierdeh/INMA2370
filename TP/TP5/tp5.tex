@@ -139,6 +139,68 @@ w c_1^{in} \\
 
 \section*{5.3: Gazeous reactives and products}
 
+%%%%% AUTHOR: Florentin GOYENS %%%%%%%%%%%
+
+We are working with the reactions of example 5.5:
+\begin{eqnarray*}
+X_1 + X_2 \rightarrow 2X_3 \\
+X_3\rightarrow X_4.
+\end{eqnarray*}
+The velocities for the reactions are also given
+$$r_{1}(x)=k_{1}x_{1}x_{2}e^{-Kx_{4}}$$
+$$r_{2}(x)=k_{2}x_{3}^{2}.$$
+
+According to the assumptions made, we compute the variation of each component over time. We account for the chemical reactions and the in/out flux.
+$$\begin{array}{ccl}
+\dot{x_{1}} & = & -1r_{1}(x)+\frac{F_{in}}{V}x_{1}^{in}-\frac{F_{out}}{V}x_{1}\\
+\dot{x_{2}} & = & -1r_{1}(x)+a\frac{Q_{in}}{V}(x_{2}^{sat}-x_{2}) -\frac{F_{out}}{V}x_{2}\\
+\dot{x_{3}} & = & 2r_{1}-2r_{2}-\frac{F_{out}}{V}x_{3}\\
+\dot{x_{4}} & = & 1r_{2}-\frac{dx_{4}}{V}-\frac{F_{out}}{V}x_{4}
+\end{array}$$
+
+Assuming the volume constant gives $F_{in}=F_{out}$ and we set
+$$\begin{array}{ccl}
+u_{1} & = & \frac{F_{in}}{V}\\
+u_{2} & = & \frac{Q_{in}}{V}.
+\end{array}$$
+
+Wich yields
+$$\begin{array}{ccl}
+\dot{x_{1}} & = & -1r_{1}(x)+u_{1}x_{1}^{in}-u_{1}x_{1}\\
+\dot{x_{2}} & = & -1r_{1}(x)+au_{2}(x_{2}^{sat}-x_{2}) -u_{1}x_{2}\\
+\dot{x_{3}} & = & 2r_{1}-2r_{2}-u_{1}x_{3}\\
+\dot{x_{4}} & = & 1r_{2}-\frac{dx_{4}}{V}-u_{1}x_{4}.
+\end{array}$$
+
+This follows the standard form 
+$$
+\frac{dx}{dt}=
+\underbrace{
+\begin{pmatrix}
+-1 & 0 \\
+-1 & 0 \\
+2 & -2 \\
+0 & 1 \\
+\end{pmatrix}}_{C} \underbrace{\begin{pmatrix}
+k_{1}x_{1}x_{2}e^{-Kx_{4}}\\
+k_{2}x_{3}^{2}\\
+\end{pmatrix}}_{r(x)}-\underbrace{\begin{pmatrix}
+u_{1}x_{1}\\
+(u_{1}+au_{2})x_{2}\\
+u_{1}x_{3}\\
+(u_{1}+\frac{d}{V})x_{4}\\
+\end{pmatrix}}_{q_{out}(x,u)}+
+\underbrace{\begin{pmatrix}
+u_{1}x_{1}^{in}\\
+au_{2}x_{2}^{sat}\\
+0\\
+0\\
+\end{pmatrix}}_{q_{in}(x,u)}.
+$$
+
+
+
+
 \section*{5.4: An aerobic biological wastewater treatment plant}
 
 
