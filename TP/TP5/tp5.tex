@@ -1,4 +1,4 @@
-TODO: 5.3, 5.4
+
 
 \section*{5.1: A chemical process}
 %%% AUTHOR: BENOIT SLUYSMANS %%%
@@ -203,6 +203,78 @@ $$
 
 \section*{5.4: An aerobic biological wastewater treatment plant}
 
+%% AUTHOR Florentin GOYENS
+
+\textcolor{blue}{Il faudrait reprendre le schéma dans le correctif en français.}
+
+The biotic reaction described in the first reactor can be summarized as follows
+$$a_{1}O_{1}+a_{2}S_{1} \cata{X} a_{3}C_{1}+X_{1}$$
+
+The microorganism X is a self-catalysor. We will follows Contois's model for a ecological system. Ence the velocity of the reaction is 
+$$r(S_{1},O_{1},X_{1})=kX_{1}\dfrac{O_{1}}{O_{1}+K_{1}X_{1}}\dfrac{S_{1}}{S_{1}+K_{2}X_{1}}.$$
+We will set $d$, the rate of mortality of the microorganisms. \textcolor{blue}{I think the corresponding term was missing in the equations of the french version.} 
+The oxygen added apears at a rate of $\alpha Q_{in}(O_{sat}-O_{1})$. The volumes of all three reactors are assumed constant. We then express the mass balance of all the components
+$$\begin{array}{ccl}
+\dot{O_{1}} & = & \alpha Q_{in}(O_{sat}-O_{1})-a_{1}r-\dfrac{(F_{in}+F_{r})}{V_{1}}O_{1}+\dfrac{F_{in}}{V_{1}}O_{in}+\dfrac{F_{r}}{V_{1}}O_{3}\\
+\dot{X_{1}} & = & r -dX_{1}-\dfrac{(F_{in}+F_{r})}{V_{1}}X_{1}+\dfrac{F_{r}}{V_{1}}X_{3}\\
+\dot{S_{1}} & = & -a_{2}r+\dfrac{F_{in}}{V_{1}}S_{in}-\dfrac{F_{out}}{V_{1}}S_{1}\\
+\dot{S_{2}} & = & \dfrac{F_{out}}{V_{2}}S_{1}-\dfrac{F_{out}}{V_{2}}S_{2}-\dfrac{F_{out}}{V_{2}}(S_{1}-S_{2})\\
+\dot{O_{2}} & = & \dfrac{F_{out}}{V_{2}}(O_{1}-O_{2})\\
+\dot{O_{3}} & = & \dfrac{F_{in}+F_{r}-F_{out}}{V_{2}}(O_{1}-O_{3})\\
+\dot{X_{3}} & = & -\dfrac{F_{in}+F_{r}-F_{out}}{V_{3}}X_{3}+\dfrac{F_{in}+F_{r}}{V_{3}}X_{1}
+\end{array}$$
+
+
+This simplifies as 
+$$\begin{pmatrix}
+\dot{S_{1}}\\
+\dot{O_{1}}\\
+\dot{X_{1}}\\
+\end{pmatrix}=\begin{pmatrix}
+-a_{2}\\
+-a_{1}\\
+1\\
+\end{pmatrix}
+r(S_{1},O_{1},X_{1})+\dfrac{F_{in}}{V_{1}}\begin{pmatrix}
+S_{in}-S_{1}\\
+O_{in}-O_{1}\\
+-X_{1}\\
+\end{pmatrix}+
+\dfrac{F_{r}}{V_{1}}
+\begin{pmatrix}
+-S_{1}\\
+O_{3}-O_{1}\\
+X_{3}-X_{1}\\
+\end{pmatrix}+
+\begin{pmatrix}
+0\\
+\alpha Q_{in}(O_{sat}-O_{1})\\
+-dX_{1}\\
+\end{pmatrix}$$
+\begin{flushleft}
+
+$$\begin{pmatrix}
+\dot{S_{2}}\\
+\dot{O_{2}}\\
+\end{pmatrix}=
+\dfrac{F_{in}}{V_{2}}\begin{pmatrix}
+S_{1}-S_{2}\\
+O_{1}-O_{2}\\
+\end{pmatrix}$$
+$$\begin{pmatrix}
+\dot{O_{3}}\\
+\dot{X_{3}}\\
+\end{pmatrix}=
+\dfrac{F_{in}+F_{r}-F_{out}}{V_{3}}\begin{pmatrix}
+O_{1}-O_{3}\\
+-X_{3}\\
+\end{pmatrix}+
+\dfrac{F_{in}+F_{r}}{V_{3}}
+\begin{pmatrix}
+O\\
+X_{1}\\
+\end{pmatrix}
+$$
 
 
 
