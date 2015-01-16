@@ -1,6 +1,6 @@
 
-\textbf{Exercice 10.1 A balloon}\\
-
+\subsection*{Exercice 10.1 A balloon}\\
+%%% AUTHOR: Florentin GOYENS %%%
 
 \textbf{1. Meaning of the equations:}\\
 
@@ -131,8 +131,95 @@ $$u(t)=\dfrac{\dot{z_{3}(t)}-\alpha(z(t))}{\beta},$$
 where $\alpha(z(t))=-\frac{z_{2}(t)}{\tau_{1}\tau_{2}}-z_{3}(t)(\frac{1}{\tau_{1}}+\frac{1}{\tau_{2}})$ and $\beta=\sigma$.\\
 
 
-\textbf{Exercice 10.5 A jumping robot}\\
+\subsection*{Exercice 10.2 A biochemical reactor}
+%%% AUTHOR: Florentin GOYENS %%%
+The velocity of the reaction is $r(x_{A},x_{B})=kx_{A}x_{B}$. The volume being constant, we can set $F^{in}=F^{out}=d$. It follows, 
 
+$$\left\lbrace\begin{array}{ccl}
+\dot{x_{A}} & = &  -r+d(x_{A}^{in}-x_{A}) \\
+\dot{x_{B}} & = & r-dx_{B}  \\
+\dot{x_{C}} & = & r-dx_{C}.  \\
+\end{array}\right.$$
+
+When $u=d$, we show that the system is controlable noticing that matrix $[B\hspace*{0.3cm} AB\hspace*{0.3cm} A^{2}B]$ has full rank\textcolor{blue}{Il faudrait confirmer.}.
+
+In the second case we have $u=x_{A}^{in}$ and we try to express the variables that are not controlable.
+We define the linear change of variable $z=Tx$ that corresponds to 
+
+$$\left\lbrace\begin{array}{ccl}
+z_{1} & = & x_{A} \\
+z_{2} & = & x_{B} \\
+z_{3} & = & x_{B}-x_{C}. \\
+\end{array}\right.$$
+
+The inverse is naturally 
+
+$$\left\lbrace\begin{array}{ccl}
+x_{A} & = & z_{1} \\
+x_{B} & = & z_{2} \\
+x_{C} & = & z_{2}-z_{3}. \\
+\end{array}\right.$$
+
+We now use $\dot{z}=T\dot{x}=\left.Tf(x,u)\right]_{x=T^{-1}z}$. This yields 
+$$\dot{z}=\begin{pmatrix}
+-kz_{1}z_{2}+d(u-z_{1})\\
+kz_{1}z_{2}-dz_{2}\\
+-dz_{3}.\\
+\end{pmatrix}$$
+
+This shows that the state $z_{3}$ is not commandable. Since it is not influenced by the input $u$ (directly or undireclty). Note that $z_{3}$ coresponds to the difference of concentration between components $B$ and $C$.
+
+
+
+\subsection*{Exercice 10.3: A satelite}
+%%% AUTHOR: Florentin GOYENS %%%
+We will compute the rank of contralability.
+ Starting from $g_{1}(x)=(b_{1},0,0)$ and $g_{2}(x)=(0,b_{2},0)$, we find $g_{3}(x)=[f,g_{1}]=(0,-b_{1}a_{2}x_{3},b_{1}a_{3}x_{2})$. 
+ We have that the dimension of $span\{g_{1},g_{2},g_{3}\}=3$ and therefore the system is controlable. 
+
+\subsection*{Exercice 10.4: A scuba diver}
+%%% AUTHOR: Florentin GOYENS %%%
+We set $x_{1}=h$, $x_{2}=\dot{h}$ and $x_{3}=q$ to obtain the following equivalent system
+$$\left\lbrace\begin{array}{ccccl}
+\dot{x_{1}} & = & g_{1} & = & x_{2}\\
+M\dot{x_{2}} & = & Mg_{2} & = & Mg-\rho g(V_{0}+x_{3}\dfrac{RT}{P_{0}+\rho h})\\
+\dot{x_{3}} & = & g_{3} & = & u\\
+\end{array}\right.$$
+
+
+1. We show that the system can be transformed in a Brunoski form with a straightforward application of lemma 6.14 since the system is already triangular. We see that $\frac{\partial g_{1}}{\partial x_{2}}\neq 0$, $\frac{\partial g_{2}}{\partial x_{3}}\neq 0$ and $\frac{\partial g_{3}}{\partial u}\neq 0$.
+
+2. The system is commandable because for linear systems, we have the equivalence between commandability and the existence of a Brunovki form (theorem 10.12).
+
+3. We find a transformation that puts the system in a Brunovki form. With 
+
+$$\left\lbrace\begin{array}{ccl}
+z_{1} & = & x_{1}\\
+z_{2} & = & x_{2}\\
+z_{3} & = & g-\frac{\rho g}{M}(V_{0}+x_{3}\dfrac{RT}{P_{0}+\rho h})\\
+\end{array}\right.$$
+
+we get 
+$$\left\lbrace\begin{array}{ccl}
+\dot{z_{1}} & = & z_{2}\\
+\dot{z_{2}} & = & z_{3}\\
+\dot{z_{3}} & = & -\frac{\rho h}{M}\dfrac{RT}{P_{0}+\rho h}u.\\
+\end{array}\right.$$
+
+We assume from the context that we want to start and end our trajectory with a speed of zero. This gives us $4$ conditions 
+$$\left\lbrace\begin{array}{ccl}
+z_{1}(0) & = & \bar{h_{1}}\\
+z_{1}(t_{f}) & = & \bar{h_{2}}\\
+\dot{z_{1}}(0) & = & 0\\
+\dot{z_{1}}(t_{f}) & = & 0\\
+\end{array}\right.$$
+
+As we set $z_{1}(t)=\lambda_{3}(\frac{t}{t_{f}})^{3}+\lambda_{2}(\frac{t}{t_{f}})^{2}+\lambda_{1}(\frac{t}{t_{f}})+\lambda_{0}$, we are going to have $4$ equations to find the unknown $\lambda_{i}$. This will give us a expression for $z_{1}(t)$. From wich we will deduce $(z_{3})'=(z_{2})''=(z_{1})'''$. And of course $u$ comes from $\dot{z_{3}}  =  -\frac{\rho h}{M}\dfrac{RT}{P_{0}+\rho h}u$.
+
+
+
+\subsection*{Exercice 10.5 A jumping robot}
+%%% AUTHOR: Florentin GOYENS %%%
 
 \textbf{1. Model:}\\
 
