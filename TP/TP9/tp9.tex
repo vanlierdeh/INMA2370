@@ -1,1 +1,65 @@
-TODO
+TODO: first exercise
+\subsection{•} 9.1 : RLC circuit}
+Given the following RLC circuit\\ 
+
+%% FIGURE %%
+
+The characteristic curve of the relation between current and tension of the non linear resistance is denoted by $i=g(v)$ and is a monotonically increasing function as shown on the following graph :\\
+
+%% FIGURE %%
+
+\begin{enumerate}
+\item Give a state-space representation of the system,
+\item Compute the equilibrium points of the system,
+\item Using energy as a Lyapunov function, analyse the global stability of the equilibriums using the second method of Lyapunov.
+\end{enumerate}
+
+\textbf{Answer: }~\\
+
+Denoting by $V_c$ the tension of the capacity and $I_l$ the current in the inductance, we obtain the following equations using Kirchoff laws:
+$$
+\begin{array}{l}
+u-g(V_c)-i_L-C\frac{dV_c}{dt}=0\\
+L\frac{dI_l}{dt}-V_c=0
+\end{array}
+$$
+
+Using the notations $V_c=x_1$ and $I_l=x_2$, we obtain the following state-space representation:
+$$
+\begin{array}{rcl}
+C\dot{x}_1&=&u-g(x_1)-x_2\\
+L\dot{x}_2&=&x_1
+\end{array}
+$$
+
+The equilibrium points $(\bar{x}_1,\bar{x}_2,\bar{u})$ are found by solving the following equations:
+$$
+\begin{array}{l}
+\bar{x}_1=0\\
+\bar{u}-g(\bar{x}_1)-\bar{x}_2=0
+\end{array}
+$$
+which gives $\bar{x}_1=0$ and $\bar{x}_2=\bar{u}$.\\
+
+One can use $V(x_1,x_2)=\frac{1}{2}L(x_2-u)^2+\frac{1}{2}Cx_1^2$ as a Lyapunov function. We verify the assumptions of La Salle principle on the whole domain $\mathbb{R}^2$:
+\begin{enumerate}
+\item $V(\bar{x}_1,\bar{x}_2)=0<V(x_1,x_2)$ whenever $(x_1,x_2)\neq (\bar{x}_1,\bar{x}_2)$,
+\item Derivative:
+$$
+\begin{array}{rcl}
+\dot{V}(\bar{x}_1,\bar{x}_2)&=& L\dot{x}_2(x_2-u)+C\dot{x}_1x_1\\
+&=& -x_1g(x_1)\leq 0\text{ }\forall x_1\in\mathbb{R}
+\end{array}
+$$
+
+\item We verify that
+$$
+\begin{array}{rcl}
+C\dot{x}_1&=&\bar{u}-g(x_1)-x_2\\
+L\dot{x}_2&=&x_1\\
+\dot{V}(\bar{x}_1,\bar{x}_2) &=& -x_1g(x_1)=0
+\end{array}
+$$
+implies $x_1=0=\bar{x}_1$ and $x_2=\bar{u}$.
+\end{enumerate}
+As the assumptions of La Salle principle are verified, we conclude that the equilibrium is asymptotically stable.
